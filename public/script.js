@@ -25,7 +25,7 @@ function showNotification(message, type = 'success') {
 }
 
 // Show tab
-function showTab(tabName) {
+function showTab(tabName, event) {
     const tabs = document.querySelectorAll('.tab-content');
     const buttons = document.querySelectorAll('.tab-button');
     
@@ -33,7 +33,9 @@ function showTab(tabName) {
     buttons.forEach(btn => btn.classList.remove('active'));
     
     document.getElementById(`${tabName}-tab`).classList.add('active');
-    event.target.classList.add('active');
+    if (event && event.target) {
+        event.target.classList.add('active');
+    }
     
     if (tabName === 'list') {
         loadRecords();
