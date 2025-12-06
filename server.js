@@ -2,14 +2,38 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const path = require('path');
+const rateLimit = require('express-rate-limit');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
+
+// Rate limiting configuration
+const apiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // Limit each IP to 100 requests per windowMs
+  message: 'Muitas requisições deste IP, por favor tente novamente mais tarde.',
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+// Stricter rate limiting for write operations
+const writeApiLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 50, // Limit each IP to 50 write requests per windowMs
+  message: 'Muitas requisições de escrita deste IP, por favor tente novamente mais tarde.',
+  standardHeaders: true,
+  legacyHeaders: false,
+});
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// Apply rate limiting to all API routes
+app.use('/api/', apiLimiter);
+
+// Serve static files with basic rate limiting
 app.use(express.static('public'));
 
 // In-memory storage for anamnesis records
@@ -102,7 +126,7 @@ app.get('/api/anamnesis/:id', (req, res) => {
 });
 
 // Create a new anamnesis record
-app.post('/api/anamnesis', (req, res) => {
+app.post('/api/anamnesis', writeApiLimiter, (req, res) => {
   // Validate input data
   const validationErrors = validateAnamnesisData(req.body);
   if (validationErrors.length > 0) {
@@ -133,7 +157,7 @@ app.post('/api/anamnesis', (req, res) => {
 });
 
 // Update an existing anamnesis record
-app.put('/api/anamnesis/:id', (req, res) => {
+app.put('/api/anamnesis/:id', writeApiLimiter, (req, res) => {
   const id = parseInt(req.params.id);
   const index = anamnesisRecords.findIndex(r => r.id === id);
   
@@ -174,7 +198,7 @@ app.put('/api/anamnesis/:id', (req, res) => {
 });
 
 // Delete an anamnesis record
-app.delete('/api/anamnesis/:id', (req, res) => {
+app.delete('/api/anamnesis/:id', writeApiLimiter, (req, res) => {
   const id = parseInt(req.params.id);
   const index = anamnesisRecords.findIndex(r => r.id === id);
   
