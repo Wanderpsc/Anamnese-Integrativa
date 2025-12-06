@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anamnese Integrativa - Sistema de Coleta</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📋 Anamnese Integrativa</h1>
+            <p class="subtitle">Sistema para Coleta Automática de Anamnese</p>
+        </header>
+
+        <nav class="tabs">
+            <button class="tab-button active" onclick="showTab('form')">Nova Anamnese</button>
+            <button class="tab-button" onclick="showTab('list')">Registros</button>
+        </nav>
+
+        <!-- Form Tab -->
+        <div id="form-tab" class="tab-content active">
+            <form id="anamnesis-form">
+                <h2>Dados do Paciente</h2>
+                
+                <div class="form-group">
+                    <label for="patientName">Nome Completo *</label>
+                    <input type="text" id="patientName" name="patientName" required>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="age">Idade *</label>
+                        <input type="number" id="age" name="age" min="0" max="150" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="gender">Gênero *</label>
+                        <select id="gender" name="gender" required>
+                            <option value="">Selecione</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="outro">Outro</option>
+                            <option value="nao-informar">Prefiro não informar</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email">
+                </div>
+
+                <h2>Histórico Médico</h2>
+
+                <div class="form-group">
+                    <label for="chiefComplaint">Queixa Principal *</label>
+                    <textarea id="chiefComplaint" name="chiefComplaint" rows="3" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="currentIllness">História da Doença Atual</label>
+                    <textarea id="currentIllness" name="currentIllness" rows="4"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="pastMedicalHistory">Histórico Médico Prévio</label>
+                    <textarea id="pastMedicalHistory" name="pastMedicalHistory" rows="3" 
+                              placeholder="Doenças anteriores, cirurgias, hospitalizações..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="medications">Medicações em Uso</label>
+                    <textarea id="medications" name="medications" rows="3" 
+                              placeholder="Liste todas as medicações com dosagem..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="allergies">Alergias</label>
+                    <textarea id="allergies" name="allergies" rows="2" 
+                              placeholder="Alergias a medicamentos, alimentos, etc..."></textarea>
+                </div>
+
+                <h2>Estilo de Vida</h2>
+
+                <div class="form-group">
+                    <label for="lifestyle">Hábitos de Vida</label>
+                    <textarea id="lifestyle" name="lifestyle" rows="3" 
+                              placeholder="Alimentação, exercícios, sono, tabagismo, álcool..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="familyHistory">Histórico Familiar</label>
+                    <textarea id="familyHistory" name="familyHistory" rows="3" 
+                              placeholder="Doenças na família..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="additionalNotes">Observações Adicionais</label>
+                    <textarea id="additionalNotes" name="additionalNotes" rows="3"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Salvar Anamnese</button>
+                    <button type="reset" class="btn-secondary">Limpar Formulário</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- List Tab -->
+        <div id="list-tab" class="tab-content">
+            <div class="list-header">
+                <h2>Registros de Anamnese</h2>
+                <button onclick="loadRecords()" class="btn-refresh">🔄 Atualizar</button>
+            </div>
+            <div id="records-list" class="records-container">
+                <p class="loading">Carregando registros...</p>
+            </div>
+        </div>
+
+        <div id="notification" class="notification"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
