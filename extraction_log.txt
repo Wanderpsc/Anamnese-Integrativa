@@ -1,0 +1,29 @@
+Traceback (most recent call last):
+================================================================================
+EXTRAÃ├O COMPLETA DO PDF - SINTOMAS E CAR╩NCIAS NUTRICIONAIS
+================================================================================
+
+PDF: E:\1. Nova pasta\MEUS PROJETOS DE PROGRAMAÃ├O\anamnese-app\src\assets\therapeutic-data\SINTOMAS E CAR╩NCIAS NUTRICIONAIS.pdf
+Tamanho: 54.05 MB
+
+
+[M╔TODO 1] Tentando PyPDF2...
+Total de pßginas: 22
+  Processado: 10/22 pßginas...
+  Processado: 20/22 pßginas...
+  File "E:\1. Nova pasta\MEUS PROJETOS DE PROGRAMAÃ├O\anamnese-app\extract_sintomas_complete.py", line 134, in <module>
+    print("\u2717 PyPDF2: Nenhum texto extraÝdo")
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2717' in position 0: character maps to <undefined>
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "E:\1. Nova pasta\MEUS PROJETOS DE PROGRAMAÃ├O\anamnese-app\extract_sintomas_complete.py", line 140, in <module>
+    print(f"\u2717 Erro no PyPDF2: {str(e)}")
+  File "C:\Program Files\WindowsApps\PythonSoftwareFoundation.Python.3.11_3.11.2544.0_x64__qbz5n2kfra8p0\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2717' in position 0: character maps to <undefined>

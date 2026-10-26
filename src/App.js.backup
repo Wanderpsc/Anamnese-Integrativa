@@ -1,0 +1,136 @@
+import { useState, useEffect } from 'react';
+import { ThemeProvider, CssBaseline, Container, Typography, Box, Chip, IconButton, Menu, MenuItem } from '@mui/material';
+import { Settings, Logout, AccountCircle } from '@mui/icons-material';
+import { useAiModel } from './context/AiModelContext';
+import { Routes, Route } from 'react-router-dom';
+import AnamneseForm from './pages/AnamneseForm';
+import AnamneseView from './pages/AnamneseView';
+import DataImport from './pages/DataImport';
+import TherapySuggestions from './pages/TherapySuggestions';
+import Dashboard from './pages/Dashboard';
+import TherapeuticDataManager from './pages/TherapeuticDataManager';
+import PatientFullReport from './pages/PatientFullReport';
+import TherapeuticPrescription from './pages/TherapeuticPrescription';
+import CompareAnamneses from './pages/CompareAnamneses';
+import Appointments from './pages/Appointments';
+import LoginPage from './pages/LoginPage';
+import SettingsDialog from './components/SettingsDialog';
+import { initializeAuth, isAuthenticated, getCurrentSession, logout } from './lib/auth';
+import theme from './theme';
+
+function App() {
+  const { model } = useAiModel();
+  const [authenticated, setAuthenticated] = useState(false);
+  const [session, setSession] = useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  
+  let therapistImg = null;
+  try { therapistImg = require('./assets/therapist-symbol.jpg'); } catch (e) { /* optional */ }
+  const therapistFullTitle = 'Wander Pires Silva Coelho, Terapeuta Integrativo Funcional, Naturopatia e Iridologia - CRTH-BR 17821';
+  
+  useEffect(() => {
+    initializeAuth();
+    if (isAuthenticated()) {
+      setAuthenticated(true);
+      setSession(getCurrentSession());
+    }
+  }, []);
+
+  const handleLoginSuccess = (sessionData) => {
+    setSession(sessionData);
+    setAuthenticated(true);
+  };
+
+  const handleLogout = () => {
+    logout();
+    setAuthenticated(false);
+    setSession(null);
+    setAnchorEl(null);
+  };
+
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+
+  const handleSettingsOpen = () => {
+    setSettingsOpen(true);
+    handleMenuClose();
+  };
+
+  if (!authenticated) {
+    return (
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <LoginPage onLoginSuccess={handleLoginSuccess} />
+      </ThemeProvider>
+    );
+  }
+  
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, justifyContent: 'space-between', mb: 2 }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            {therapistImg && <img src={therapistImg} alt="Símbolo terapeuta" style={{ height: 64 }} />}
+            <div>
+              <Typography variant="h3" gutterBottom>
+                Anamnese Integrativa
+              </Typography>
+              <Typography variant="subtitle2" color="text.secondary">{therapistFullTitle}</Typography>
+            </div>
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            <Chip label={`Modelo: ${model}`} size="small" color="primary" />
+            <Chip 
+              icon={<AccountCircle />} 
+              label={session?.name || 'Usuário'} 
+              size="small" 
+              color={session?.role === 'owner' ? 'secondary' : 'default'}
+            />
+            <IconButton onClick={handleMenuOpen} color="primary">
+              <AccountCircle />
+            </IconButton>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+            >
+              <MenuItem disabled>
+                {session?.name} ({session?.role === 'owner' ? 'Admin' : 'Usuário'})
+              </MenuItem>
+              <MenuItem onClick={handleSettingsOpen}>
+                <Settings sx={{ mr: 1 }} /> Configurações
+              </MenuItem>
+              <MenuItem onClick={handleLogout}>
+                <Logout sx={{ mr: 1 }} /> Sair
+              </MenuItem>
+            </Menu>
+          </Box>
+        </Box>
+        <Routes>
+          <Route path="/" element={<Appointments />} />
+          <Route path="/anamnese/new" element={<AnamneseForm />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/anamnese/:id" element={<AnamneseView />} />
+          <Route path="/anamnese/:id/edit" element={<AnamneseForm />} />
+          <Route path="/import" element={<DataImport />} />
+          <Route path="/anamnese/:id/suggestions" element={<TherapySuggestions />} />
+          <Route path="/therapeutic-data" element={<TherapeuticDataManager />} />
+          <Route path="/patient-report/:id" element={<PatientFullReport />} />
+          <Route path="/therapeutic-prescription/:id" element={<TherapeuticPrescription />} />
+          <Route path="/compare/:id" element={<CompareAnamneses />} />
+          <Route path="/appointments" element={<Appointments />} />
+        </Routes>
+        <SettingsDialog open={settingsOpen} onClose={() => setSettingsOpen(false)} />
+      </Container>
+    </ThemeProvider>
+  );
+}
+
+export default App;

@@ -1,0 +1,16 @@
+{
+ "id": "nls-installation-manual",
+ "titulo": "NLS installation manual",
+ "fonte": "NLS installation manual.pdf",
+ "tipo": "pdf",
+ "categoria": "terapias-energeticas",
+ "caracteres": 1122,
+ "paginas": 3,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "NLS INSTALLATION \nMANUAL \n1.When you are installing or using the software, you need to close all the Anti-Virus \nsoftware first. \n2.After installed, you can go to the setting of anti-virus software and find the Exclusions \nsection, add the NLS software to an Exclusions list. Then the antivirus software won't \nbother you anymore. (Actually, there is no virus in the software, because our software is \nencrypted and the anti-virus consider it is virus. ) \n3.Use the USB cable connect the NLS device to your computer. \n \n \n\n4.Insert the flash disk into your computer. \n \n5. Double click the Setup file. \n6. Click Next > \n7. Don’ t change the installation folder, Click Next > \nWithout light is a Dongle. \nWhen you install the software and using the \nsoftware, this Dongle need to be always \ninserted to your computer. It’ s a key to use \nthis device. \nWith Red light is a Flash disk for installing. \n\n8. Click Install, then Finish. \n9. The Bio-inductor need to be worn on your ear and cover your ear well, don’ t have any \nobvious leakage from it, because the bright light will affect the result or suddenly stop \nscanning."
+  }
+ ]
+}

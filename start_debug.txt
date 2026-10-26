@@ -1,0 +1,10 @@
+
+> anamnese-app@2.1.0 prestart
+> node scripts/copy-pdf-worker.js
+
+Ô£à PDF.js worker copiado com sucesso para public/pdf.worker.min.js
+   Tamanho: 1045.68 KB
+
+> anamnese-app@2.1.0 start
+> react-scripts --max_old_space_size=4096 start
+

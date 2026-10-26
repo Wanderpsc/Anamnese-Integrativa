@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <rect fill="#e8f5e9" width="160" height="160" rx="12"/>
+  <circle cx="80" cy="70" r="36" fill="#66bb6a" opacity="0.75"/>
+  <text x="50%" y="125" dominant-baseline="middle" text-anchor="middle" fill="#2e7d32" font-family="Inter, Arial" font-size="12">Mentha piperita</text>
+</svg>

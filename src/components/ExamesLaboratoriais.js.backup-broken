@@ -1,0 +1,4137 @@
+import React, { useState, useEffect } from 'react';
+import { calcularInterpretacaoQuintil, enviarParaTherapySuggestions } from '../utils/examUtils';
+import {
+  Box,
+  Paper,
+  Typography,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  TextField,
+  Button,
+  Alert,
+  Grid,
+  Collapse,
+  IconButton,
+  Select,
+  MenuItem,
+  FormControl,
+} from '@mui/material';
+import {
+  Save as SaveIcon,
+  Download as DownloadIcon,
+  Print as PrintIcon,
+  MedicalServices as MedicalServicesIcon,
+  ExpandMore as ExpandMoreIcon,
+  Assessment as AssessmentIcon,
+} from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
+import CorrelacoesExames from './CorrelacoesExames';
+import { getExameDetalhes } from '../data/examesAtualizadosPDF';
+
+console.log('🚀 ExamesLaboratoriais.js CARREGADO!');
+
+// ErrorBoundary para capturar erros
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false, error: null, errorInfo: null };
+  }
+
+  static getDerivedStateFromError(error) {
+    console.error('❌ ErrorBoundary capturou erro:', error);
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, errorInfo) {
+    console.error('❌ ERRO CAPTURADO:', error);
+    console.error('❌ INFO:', errorInfo);
+    console.error('❌ Stack:', error.stack);
+    this.setState({ error, errorInfo });
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <Box sx={{ p: 3 }}>
+          <Alert severity="error">
+            <Typography variant="h6">Erro ao carregar a página</Typography>
+            <Typography variant="body2">
+              {this.state.error?.toString()}
+            </Typography>
+            <Button 
+              variant="contained" 
+              onClick={() => window.location.reload()}
+              sx={{ mt: 2 }}
+            >
+              Recarregar Página
+            </Button>
+          </Alert>
+        </Box>
+      );
+    }
+
+    return this.props.children;
+  }
+}
+
+const ExamesLaboratoriais = () => {
+  console.log('🎯 ExamesLaboratoriais COMPONENTE INICIANDO...');
+  const navigate = useNavigate();
+  const [exames, setExames] = useState([]);
+  const [examesFiltrados, setExamesFiltrados] = useState([]);
+  const [termoBusca, setTermoBusca] = useState('');
+  const [pacienteNome, setPacienteNome] = useState('');
+  const [dataExame, setDataExame] = useState('2025-12-11');
+  const [loading, setLoading] = useState(true);
+  const [expandedRows, setExpandedRows] = useState({});
+  const [dadosPaciente, setDadosPaciente] = useState(null);
+  const [idadePaciente, setIdadePaciente] = useState(null);
+  const [sexoPaciente, setSexoPaciente] = useState('geral');
+  const [perfilPaciente, setPerfilPaciente] = useState('masculinoAdulto'); // masculinoAdulto, femininoAdulto, masculinoInfantil, femininoInfantil
+
+  // Função para obter valores de referência/ideais baseados no perfil do paciente
+  const obterValoresPorPerfil = (exame, perfil = perfilPaciente, tipo = 'referencia') => {
+    if (!exame) return null;
+    
+    const valores = tipo === 'referencia' ? exame.valoresReferencia : exame.valoresIdeais;
+    
+    if (!valores) return null;
+    
+    // Se valores já é um objeto com min/max, retorna direto (formato antigo)
+    if (valores.min !== undefined && valores.max !== undefined) {
+      return valores;
+    }
+    
+    // Se é string (formato antigo), parseia
+    if (typeof valores === 'string') {
+      return parseRange(valores, perfil);
+    }
+    
+    // Se é objeto com perfis, retorna o perfil correto
+    if (typeof valores === 'object' && valores[perfil]) {
+      return valores[perfil];
+    }
+    
+    // Fallback: tenta usar valores gerais ou masculino adulto
+    if (typeof valores === 'object') {
+      return valores.masculinoAdulto || valores.femininoAdulto || valores.geral || null;
+    }
+    
+    return null;
+  };
+
+  // Função auxiliar para parsear strings de range considerando perfil
+  const parseRange = (str, perfil = perfilPaciente) => {
+    if (!str) return null;
+    
+    // Se já é objeto, retorna
+    if (typeof str === 'object' && str.min !== undefined) return str;
+    
+    // Se é objeto com perfis
+    if (typeof str === 'object' && str[perfil]) return str[perfil];
+    
+    // Parse de string no formato "H: 13.5-17.5 | M: 12.0-15.5"
+    if (typeof str === 'string') {
+      // Tenta encontrar o padrão para o perfil específico
+      const patterns = {
+        masculinoAdulto: /[HhMm]:\s*(\d+\.?\d*)\s*-\s*(\d+\.?\d*)/,
+        femininoAdulto: /[MmFf]:\s*(\d+\.?\d*)\s*-\s*(\d+\.?\d*)/,
+        masculinoInfantil: /[IiCc]:\s*(\d+\.?\d*)\s*-\s*(\d+\.?\d*)/,
+        femininoInfantil: /[IiCc]:\s*(\d+\.?\d*)\s*-\s*(\d+\.?\d*)/
+      };
+      
+      let match = str.match(patterns[perfil] || /(\d+\.?\d*)\s*-\s*(\d+\.?\d*)/);
+      
+      // Se não encontrou padrão específico, usa o primeiro range encontrado
+      if (!match) {
+        match = str.match(/(\d+\.?\d*)\s*-\s*(\d+\.?\d*)/);
+      }
+      
+      if (match) {
+        return {
+          min: parseFloat(match[1]),
+          max: parseFloat(match[2])
+        };
+      }
+    }
+    
+    return null;
+  };
+
+  // Função para converter valores entre diferentes unidades
+  const converterUnidade = (valor, unidadeOrigem, unidadeDestino, exame) => {
+    if (!valor || unidadeOrigem === unidadeDestino) return valor;
+    
+    const valorNum = parseFloat(valor);
+    if (isNaN(valorNum)) return valor;
+    
+    // Conversões por tipo de exame
+    const conversoes = {
+      // Hemoglobina: g/dL <-> g/L
+      'hemoglobina': {
+        'g/dL->g/L': (v) => v * 10,
+        'g/L->g/dL': (v) => v / 10
+      },
+      // HbA1c: % <-> mmol/mol
+      'hemoglobina glicada': {
+        '%->mmol/mol': (v) => (v - 2.15) * 10.929,
+        'mmol/mol->%': (v) => (v / 10.929) + 2.15
+      },
+      // Leucócitos e Plaquetas: /mm³ <-> mil/mm³ <-> x10³/µL
+      'leucócitos': {
+        '/mm³->mil/mm³': (v) => v / 1000,
+        'mil/mm³->/mm³': (v) => v * 1000,
+        '/mm³->x10³/µL': (v) => v / 1000,
+        'x10³/µL->/mm³': (v) => v * 1000
+      },
+      'plaquetas': {
+        '/mm³->mil/mm³': (v) => v / 1000,
+        'mil/mm³->/mm³': (v) => v * 1000,
+        '/mm³->x10³/µL': (v) => v / 1000,
+        'x10³/µL->/mm³': (v) => v * 1000
+      },
+      // Glicemia: mg/dL <-> mmol/L
+      'glicemia': {
+        'mg/dL->mmol/L': (v) => v / 18,
+        'mmol/L->mg/dL': (v) => v * 18
+      },
+      // Colesterol/Triglicérides: mg/dL <-> mmol/L
+      'colesterol': {
+        'mg/dL->mmol/L': (v) => v / 38.67,
+        'mmol/L->mg/dL': (v) => v * 38.67
+      },
+      'triglicérides': {
+        'mg/dL->mmol/L': (v) => v / 88.57,
+        'mmol/L->mg/dL': (v) => v * 88.57
+      },
+      // TSH: mUI/L <-> µUI/mL (mesma unidade)
+      'tsh': {
+        'mUI/L->µUI/mL': (v) => v,
+        'µUI/mL->mUI/L': (v) => v
+      },
+      // T3/T4: pg/mL <-> pmol/L, ng/dL <-> pmol/L
+      't3 livre': {
+        'pg/mL->pmol/L': (v) => v * 1.536,
+        'pmol/L->pg/mL': (v) => v / 1.536
+      },
+      't4 livre': {
+        'ng/dL->pmol/L': (v) => v * 12.87,
+        'pmol/L->ng/dL': (v) => v / 12.87
+      },
+      // Ferritina: ng/mL <-> µg/L <-> pmol/L
+      'ferritina': {
+        'ng/mL->µg/L': (v) => v,
+        'µg/L->ng/mL': (v) => v,
+        'ng/mL->pmol/L': (v) => v * 2.247,
+        'pmol/L->ng/mL': (v) => v / 2.247
+      },
+      // Vitamina D: ng/mL <-> nmol/L
+      'vitamina d': {
+        'ng/mL->nmol/L': (v) => v * 2.5,
+        'nmol/L->ng/mL': (v) => v / 2.5
+      },
+      // Vitamina B12: pg/mL <-> pmol/L
+      'vitamina b12': {
+        'pg/mL->pmol/L': (v) => v * 0.738,
+        'pmol/L->pg/mL': (v) => v / 0.738
+      },
+      // Creatinina: mg/dL <-> µmol/L
+      'creatinina': {
+        'mg/dL->µmol/L': (v) => v * 88.4,
+        'µmol/L->mg/dL': (v) => v / 88.4
+      },
+      // Ureia: mg/dL <-> mmol/L
+      'ureia': {
+        'mg/dL->mmol/L': (v) => v / 6.0,
+        'mmol/L->mg/dL': (v) => v * 6.0
+      },
+      // Ácido úrico: mg/dL <-> µmol/L
+      'ácido úrico': {
+        'mg/dL->µmol/L': (v) => v * 59.48,
+        'µmol/L->mg/dL': (v) => v / 59.48
+      },
+      // Eletrólitos
+      'potássio': {
+        'mEq/L->mmol/L': (v) => v,
+        'mmol/L->mEq/L': (v) => v
+      },
+      'sódio': {
+        'mEq/L->mmol/L': (v) => v,
+        'mmol/L->mEq/L': (v) => v
+      },
+      'cálcio': {
+        'mg/dL->mmol/L': (v) => v / 4.0,
+        'mmol/L->mg/dL': (v) => v * 4.0
+      },
+      'magnésio': {
+        'mg/dL->mmol/L': (v) => v / 2.4,
+        'mmol/L->mg/dL': (v) => v * 2.4
+      }
+    };
+    
+    const exameNome = exame.toLowerCase();
+    const chave = `${unidadeOrigem}->${unidadeDestino}`;
+    
+    // Busca conversão para o exame específico
+    for (const [tipo, conversao] of Object.entries(conversoes)) {
+      if (exameNome.includes(tipo) && conversao[chave]) {
+        return conversao[chave](valorNum).toFixed(2);
+      }
+    }
+    
+    return valor; // Se não encontrar conversão, retorna original
+  };
+
+  useEffect(() => {
+    console.log('🔵 ExamesLaboratoriais: useEffect iniciado');
+    
+    const defaultExames = [
+        // ========================================
+        // 1. HEMOGRAMA COMPLETO (20 exames)
+        // ========================================
+        // ERITROGRAMA (8 exames)
+        { 
+          id: 1, 
+          exame: "Hemácias (Eritrócitos)", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 4.5, max: 6.1 },
+            femininoAdulto: { min: 4.0, max: 5.4 },
+            masculinoInfantil: { min: 4.0, max: 5.5 },
+            femininoInfantil: { min: 3.9, max: 5.3 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 5.0, max: 5.5 },
+            femininoAdulto: { min: 4.5, max: 5.0 },
+            masculinoInfantil: { min: 4.5, max: 5.2 },
+            femininoInfantil: { min: 4.3, max: 5.0 }
+          },
+          // Formato antigo para compatibilidade com displays e dados salvos
+          valoresReferenciaLegado: "H: 4.5-6.1 | M: 4.0-5.4 milhões/mm³", 
+          valoresIdeaisLegado: "H: 5.0-5.5 | M: 4.5-5.0 milhões/mm³",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Glóbulos vermelhos. Baixo em anemia, alto em policitemia. Transportam O₂. Fonte: Caxito, L. Análise de Exames Laboratoriais Integrativo.",
+          unidade: "milhões/mm³",
+          unidadesDisponiveis: ["milhões/mm³", "x10⁶/µL"],
+          unidadeSelecionada: "milhões/mm³"
+        },
+        { 
+          id: 2, 
+          exame: "Hematócrito", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 40, max: 52 },
+            femininoAdulto: { min: 36, max: 48 },
+            masculinoInfantil: { min: 35, max: 45 },
+            femininoInfantil: { min: 34, max: 44 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 42, max: 50 },
+            femininoAdulto: { min: 37, max: 47 },
+            masculinoInfantil: { min: 37, max: 43 },
+            femininoInfantil: { min: 36, max: 42 }
+          },
+          valoresReferenciaLegado: "H: 40-52% | M: 36-48%", 
+          valoresIdeaisLegado: "H: 42-50% | M: 37-47%",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Percentual de hemácias no sangue. Baixo em anemia, alto em policitemia/desidratação. Fonte: Caxito, L.",
+          unidade: "%",
+          unidadesDisponiveis: ["%"],
+          unidadeSelecionada: "%"
+        },
+        { 
+          id: 3, 
+          exame: "Hemoglobina", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 13.5, max: 17.5 },
+            femininoAdulto: { min: 12.0, max: 15.5 },
+            masculinoInfantil: { min: 11.0, max: 15.0 },
+            femininoInfantil: { min: 11.0, max: 14.5 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 15.0, max: 16.0 },
+            femininoAdulto: { min: 14.0, max: 15.0 },
+            masculinoInfantil: { min: 12.5, max: 14.0 },
+            femininoInfantil: { min: 12.0, max: 13.5 }
+          },
+          valoresReferenciaLegado: "H: 13.5-17.5 | M: 12.0-15.5 g/dL", 
+          valoresIdeaisLegado: "H: 15-16 | M: 14-15 g/dL",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Valores baixos indicam anemia. Valores altos podem indicar desidratação ou policitemia. Fonte: Caxito, L.",
+          unidade: "g/dL",
+          unidadesDisponiveis: ["g/dL", "g/L"],
+          unidadeSelecionada: "g/dL"
+        },
+        { 
+          id: 4, 
+          exame: "VCM (Volume Corpuscular Médio)", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 80, max: 100 },
+            femininoAdulto: { min: 80, max: 100 },
+            masculinoInfantil: { min: 80, max: 100 },
+            femininoInfantil: { min: 80, max: 100 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 85, max: 95 },
+            femininoAdulto: { min: 85, max: 95 },
+            masculinoInfantil: { min: 85, max: 95 },
+            femininoInfantil: { min: 85, max: 95 }
+          },
+          valoresReferenciaLegado: "80-100 fL", 
+          valoresIdeaisLegado: "85-95 fL",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Tamanho médio das hemácias. <80 microcítica (ferropenia), >100 macrocítica (B12/folato).",
+          unidade: "fL",
+          unidadesDisponiveis: ["fL"],
+          unidadeSelecionada: "fL"
+        },
+        { 
+          id: 5, 
+          exame: "HCM (Hemoglobina Corpuscular Média)", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 27, max: 32 },
+            femininoAdulto: { min: 27, max: 32 },
+            masculinoInfantil: { min: 27, max: 32 },
+            femininoInfantil: { min: 27, max: 32 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 28, max: 31 },
+            femininoAdulto: { min: 28, max: 31 },
+            masculinoInfantil: { min: 28, max: 31 },
+            femininoInfantil: { min: 28, max: 31 }
+          },
+          valoresReferenciaLegado: "27-32 pg", 
+          valoresIdeaisLegado: "28-31 pg",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Quantidade de Hb por hemácia. Baixo indica hipocromia (deficiência ferro).",
+          unidade: "pg",
+          unidadesDisponiveis: ["pg"],
+          unidadeSelecionada: "pg"
+        },
+        { 
+          id: 6, 
+          exame: "CHCM (Concentração HCM)", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 32, max: 36 },
+            femininoAdulto: { min: 32, max: 36 },
+            masculinoInfantil: { min: 32, max: 36 },
+            femininoInfantil: { min: 32, max: 36 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 33, max: 35 },
+            femininoAdulto: { min: 33, max: 35 },
+            masculinoInfantil: { min: 33, max: 35 },
+            femininoInfantil: { min: 33, max: 35 }
+          },
+          valoresReferenciaLegado: "32-36 g/dL", 
+          valoresIdeaisLegado: "33-35 g/dL",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Concentração de Hb nas hemácias. Baixo em anemia hipocrômica.",
+          unidade: "g/dL",
+          unidadesDisponiveis: ["g/dL", "%"],
+          unidadeSelecionada: "g/dL"
+        },
+        { 
+          id: 7, 
+          exame: "RDW-CV (Amplitude Distribuição Eritrócitos)", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 11.5, max: 14.5 },
+            femininoAdulto: { min: 11.5, max: 14.5 },
+            masculinoInfantil: { min: 11.5, max: 14.5 },
+            femininoInfantil: { min: 11.5, max: 14.5 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 12, max: 13 },
+            femininoAdulto: { min: 12, max: 13 },
+            masculinoInfantil: { min: 12, max: 13 },
+            femininoInfantil: { min: 12, max: 13 }
+          },
+          valoresReferenciaLegado: "11.5-14.5%", 
+          valoresIdeaisLegado: "12-13%",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Variação tamanho hemácias. Alto indica anisocitose (ferropenia, B12, mista).",
+          unidade: "%",
+          unidadesDisponiveis: ["%"],
+          unidadeSelecionada: "%"
+        },
+        { 
+          id: 28, 
+          exame: "RDW-SD", 
+          valoresReferencia: "35-56 fL", 
+          valoresIdeais: "40-50 fL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Desvio padrão do tamanho das hemácias. Complementa RDW-CV.",
+          unidade: "fL",
+          unidadesDisponiveis: ["fL"],
+          unidadeSelecionada: "fL"
+        },
+        
+        // LEUCOGRAMA (6 exames)
+        { 
+          id: 29, 
+          exame: "Leucócitos", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 4000, max: 11000 },
+            femininoAdulto: { min: 4000, max: 11000 },
+            masculinoInfantil: { min: 5000, max: 15000 },
+            femininoInfantil: { min: 5000, max: 15000 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 5000, max: 8000 },
+            femininoAdulto: { min: 5000, max: 8000 },
+            masculinoInfantil: { min: 6000, max: 12000 },
+            femininoInfantil: { min: 6000, max: 12000 }
+          },
+          valoresReferenciaLegado: "Adultos: 4.000-11.000 | Crianças: 5.000-15.000/mm³", 
+          valoresIdeaisLegado: "Adultos: 5.000-8.000 | Crianças: 6.000-12.000/mm³",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Glóbulos brancos. Altos em infecções. Baixos em imunossupressão. Crianças têm valores mais altos.",
+          unidade: "/mm³",
+          unidadesDisponiveis: ["/mm³", "mil/mm³", "x10³/µL"],
+          unidadeSelecionada: "/mm³"
+        },
+        { 
+          id: 30, 
+          exame: "Neutrófilos (%)", 
+          valoresReferencia: "45-70%", 
+          valoresIdeais: "50-65%", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Principal defesa bacteriana. >70% neutrofilia, <45% neutropenia.",
+          unidade: "%",
+          unidadesDisponiveis: ["%"],
+          unidadeSelecionada: "%"
+        },
+        { 
+          id: 31, 
+          exame: "Neutrófilos (absoluto)", 
+          valoresReferencia: "1.500-7.000/mm³", 
+          valoresIdeais: "2.500-6.000/mm³", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "<1.500 neutropenia (risco infecção). <500 neutropenia grave.",
+          unidade: "/mm³",
+          unidadesDisponiveis: ["/mm³", "mil/mm³"],
+          unidadeSelecionada: "/mm³"
+        },
+        { 
+          id: 32, 
+          exame: "Linfócitos (%)", 
+          valoresReferencia: "20-50%", 
+          valoresIdeais: "25-40%", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Imunidade celular e humoral. Alto em viroses, baixo em HIV/imunossupressão.",
+          unidade: "%",
+          unidadesDisponiveis: ["%"],
+          unidadeSelecionada: "%"
+        },
+        { 
+          id: 33, 
+          exame: "Linfócitos (absoluto)", 
+          valoresReferencia: "1.000-4.500/mm³", 
+          valoresIdeais: "1.500-3.500/mm³", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "<1.000 linfopenia. >4.500 linfocitose (viroses, leucemia).",
+          unidade: "/mm³",
+          unidadesDisponiveis: ["/mm³", "mil/mm³"],
+          unidadeSelecionada: "/mm³"
+        },
+        { 
+          id: 34, 
+          exame: "Monócitos (%)", 
+          valoresReferencia: "2-10%", 
+          valoresIdeais: "4-8%", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Fagocitose, apresentação antígenos. Alto em infecções crônicas, tuberculose.",
+          unidade: "%",
+          unidadesDisponiveis: ["%"],
+          unidadeSelecionada: "%"
+        },
+        { 
+          id: 35, 
+          exame: "Monócitos (absoluto)", 
+          valoresReferencia: "100-1.000/mm³", 
+          valoresIdeais: "200-800/mm³", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: ">1.000 monocitose (infecções crônicas, neoplasias hematológicas).",
+          unidade: "/mm³",
+          unidadesDisponiveis: ["/mm³"],
+          unidadeSelecionada: "/mm³"
+        },
+        { 
+          id: 36, 
+          exame: "Eosinófilos (%)", 
+          valoresReferencia: "0-7%", 
+          valoresIdeais: "1-4%", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Alto em parasitoses, alergias, asma. >10% eosinofilia importante.",
+          unidade: "%",
+          unidadesDisponiveis: ["%"],
+          unidadeSelecionada: "%"
+        },
+        { 
+          id: 41, 
+          exame: "Eosinófilos (absoluto)", 
+          valoresReferencia: "0-500/mm³", 
+          valoresIdeais: "50-400/mm³", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: ">500 eosinofilia. Investigar parasitas, alergias, medicamentos.",
+          unidade: "/mm³",
+          unidadesDisponiveis: ["/mm³"],
+          unidadeSelecionada: "/mm³"
+        },
+        { 
+          id: 42, 
+          exame: "Basófilos (%)", 
+          valoresReferencia: "0-3%", 
+          valoresIdeais: "0-1%", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Raros. Alto em leucemia mieloide crônica, alergias graves.",
+          unidade: "%",
+          unidadesDisponiveis: ["%"],
+          unidadeSelecionada: "%"
+        },
+        { 
+          id: 43, 
+          exame: "Basófilos (absoluto)", 
+          valoresReferencia: "0-200/mm³", 
+          valoresIdeais: "0-100/mm³", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Basofilia rara, investigar neoplasias hematológicas.",
+          unidade: "/mm³",
+          unidadesDisponiveis: ["/mm³"],
+          unidadeSelecionada: "/mm³"
+        },
+        
+        // PLAQUETAS (6 exames)
+        { 
+          id: 44, 
+          exame: "Plaquetas", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 150000, max: 400000 },
+            femininoAdulto: { min: 150000, max: 400000 },
+            masculinoInfantil: { min: 150000, max: 450000 },
+            femininoInfantil: { min: 150000, max: 450000 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 200000, max: 350000 },
+            femininoAdulto: { min: 200000, max: 350000 },
+            masculinoInfantil: { min: 200000, max: 400000 },
+            femininoInfantil: { min: 200000, max: 400000 }
+          },
+          valoresReferenciaLegado: "150.000-400.000/mm³", 
+          valoresIdeaisLegado: "200.000-300.000/mm³",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Essenciais para coagulação. <50.000 risco de sangramento espontâneo.",
+          unidade: "/mm³",
+          unidadesDisponiveis: ["/mm³", "mil/mm³", "x10³/µL"],
+          unidadeSelecionada: "/mm³"
+        },
+        { 
+          id: 45, 
+          exame: "VPM (Volume Plaquetário Médio)", 
+          valoresReferencia: "6.5-12.0 fL", 
+          valoresIdeais: "8-11 fL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Tamanho médio plaquetas. Alto indica plaquetas jovens (regeneração medular).",
+          unidade: "fL",
+          unidadesDisponiveis: ["fL"],
+          unidadeSelecionada: "fL"
+        },
+        { 
+          id: 46, 
+          exame: "PDW (Amplitude Distribuição Plaquetária)", 
+          valoresReferencia: "9-17%", 
+          valoresIdeais: "10-15%", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Variação tamanho plaquetas. Alto em ativação/consumo plaquetário.",
+          unidade: "%",
+          unidadesDisponiveis: ["%"],
+          unidadeSelecionada: "%"
+        },
+        { 
+          id: 47, 
+          exame: "PCT (Plaquetócrito)", 
+          valoresReferencia: "0.108-0.282%", 
+          valoresIdeais: "0.15-0.25%", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Percentual volume sangue ocupado por plaquetas. Correlato ao hematócrito.",
+          unidade: "%",
+          unidadesDisponiveis: ["%"],
+          unidadeSelecionada: "%"
+        },
+        { 
+          id: 48, 
+          exame: "IPF (Fração Plaquetas Imaturas)", 
+          valoresReferencia: "0.9-10.0%", 
+          valoresIdeais: "1-6%", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Plaquetas jovens. Alto indica produção medular aumentada (regeneração).",
+          unidade: "%",
+          unidadesDisponiveis: ["%"],
+          unidadeSelecionada: "%"
+        },
+        { 
+          id: 49, 
+          exame: "Hemoglobina Glicada (HbA1c)", 
+          valoresReferencia: "< 5.7%", 
+          valoresIdeais: "4.5-5.5%", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Reflete média glicêmica dos últimos 3 meses. 5.7-6.4% pré-diabetes. ≥6.5% diabetes.",
+          unidade: "%",
+          unidadesDisponiveis: ["%", "mmol/mol"],
+          unidadeSelecionada: "%"
+        },
+
+        // ========================================
+        // 2. GLICEMIA E DIABETES (2 exames)
+        // ========================================
+        { 
+          id: 50, 
+          exame: "Glicemia em Jejum", 
+          valoresReferencia: "70-100 mg/dL", 
+          valoresIdeais: "80-90 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Valores >100 indicam pré-diabetes. >126 diabetes. <70 hipoglicemia.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "mmol/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+        { 
+          id: 51, 
+          exame: "Insulina em Jejum", 
+          valoresReferencia: "< 25 μUI/mL", 
+          valoresIdeais: "< 10 μUI/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Valores altos indicam resistência insulínica mesmo com glicemia normal.",
+          unidade: "μUI/mL",
+          unidadesDisponiveis: ["μUI/mL", "pmol/L"],
+          unidadeSelecionada: "μUI/mL"
+        },
+        { 
+          id: 52, 
+          exame: "Glicemia Pós-Prandial (2h)", 
+          valoresReferencia: "<140 mg/dL", 
+          valoresIdeais: "<120 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Detecta pré-diabetes que glicemia de jejum não identifica. Valores 140-200 indicam tolerância diminuída à glicose. >200 confirma diabetes.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "mmol/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+        { 
+          id: 53, 
+          exame: "Peptídeo C", 
+          valoresReferencia: "0.8-3.1 ng/mL (jejum)", 
+          valoresIdeais: "1.5-2.5 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Medida de produção endógena de insulina. Diferencia diabetes tipo 1 (baixo) de tipo 2 (normal/alto). Avalia reserva pancreática.",
+          unidade: "ng/mL",
+          unidadesDisponiveis: ["ng/mL", "nmol/L"],
+          unidadeSelecionada: "ng/mL"
+        },
+        { 
+          id: 54, 
+          exame: "Frutosamina", 
+          valoresReferencia: "205-285 μmol/L", 
+          valoresIdeais: "210-270 μmol/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Reflete controle glicêmico de 2-3 semanas (vs 3 meses da HbA1c). Útil quando HbA1c não é confiável (anemia, hemoglobinopatias).",
+          unidade: "μmol/L",
+          unidadesDisponiveis: ["μmol/L"],
+          unidadeSelecionada: "μmol/L"
+        },
+
+        // ========================================
+        // 3. PERFIL LIPÍDICO (9 exames)
+        // ========================================
+        { 
+          id: 58, 
+          exame: "Colesterol Total", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 0, max: 200 },
+            femininoAdulto: { min: 0, max: 200 },
+            masculinoInfantil: { min: 0, max: 170 },
+            femininoInfantil: { min: 0, max: 170 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 150, max: 180 },
+            femininoAdulto: { min: 150, max: 180 },
+            masculinoInfantil: { min: 120, max: 170 },
+            femininoInfantil: { min: 120, max: 170 }
+          },
+          valoresReferenciaLegado: "Adultos: < 200 | Crianças: < 170 mg/dL", 
+          valoresIdeaisLegado: "Adultos: 150-180 | Crianças: 120-170 mg/dL",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Valores muito baixos (<150) podem indicar desnutrição ou hipertireoidismo. Crianças têm valores mais baixos.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "mmol/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+        { 
+          id: 59,
+          exame: "HDL Colesterol", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 40, max: 999 },
+            femininoAdulto: { min: 50, max: 999 },
+            masculinoInfantil: { min: 35, max: 999 },
+            femininoInfantil: { min: 35, max: 999 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 50, max: 70 },
+            femininoAdulto: { min: 60, max: 80 },
+            masculinoInfantil: { min: 45, max: 65 },
+            femininoInfantil: { min: 45, max: 65 }
+          },
+          valoresReferenciaLegado: "Homem: >40 | Mulher: >50 | Crianças: >35 mg/dL", 
+          valoresIdeaisLegado: "Homem: 50-70 | Mulher: 60-80 | Crianças: 45-65 mg/dL",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "HDL alto é protetor cardiovascular. Aumentar com exercícios e ômega-3. Mulheres têm valores mais altos.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "mmol/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+        { 
+          id: 60,
+          exame: "LDL Colesterol", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 0, max: 130 },
+            femininoAdulto: { min: 0, max: 130 },
+            masculinoInfantil: { min: 0, max: 110 },
+            femininoInfantil: { min: 0, max: 110 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 60, max: 100 },
+            femininoAdulto: { min: 60, max: 100 },
+            masculinoInfantil: { min: 50, max: 110 },
+            femininoInfantil: { min: 50, max: 110 }
+          },
+          valoresReferenciaLegado: "Adultos: < 130 | Crianças: < 110 mg/dL", 
+          valoresIdeaisLegado: "Adultos: 60-100 | Crianças: 50-110 mg/dL",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "LDL oxidado é mais relevante que LDL total. Avaliar relação LDL/HDL.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "mmol/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+        { 
+          id: 61,
+          exame: "Triglicerídeos", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 0, max: 150 },
+            femininoAdulto: { min: 0, max: 150 },
+            masculinoInfantil: { min: 0, max: 100 },
+            femininoInfantil: { min: 0, max: 100 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 50, max: 100 },
+            femininoAdulto: { min: 50, max: 100 },
+            masculinoInfantil: { min: 40, max: 90 },
+            femininoInfantil: { min: 40, max: 90 }
+          },
+          valoresReferenciaLegado: "Adultos: < 150 | Crianças: < 100 mg/dL", 
+          valoresIdeaisLegado: "Adultos: 50-100 | Crianças: 40-90 mg/dL",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Valores altos indicam excesso de carboidratos/açúcar na dieta.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "mmol/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+        { 
+          id: 32, 
+          exame: "VLDL Colesterol", 
+          valoresReferencia: "< 30 mg/dL", 
+          valoresIdeais: "< 20 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Calculado: Triglicerídeos ÷ 5. Transporta triglicerídeos.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "mmol/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+        { 
+          id: 33, 
+          exame: "Apolipoproteína A1 (Apo A1)", 
+          valoresReferencia: "H: 120-160 | M: 120-180 mg/dL", 
+          valoresIdeais: "H: 135-150 | M: 140-170 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Principal proteína do HDL. Marcador mais preciso que HDL isolado para risco cardiovascular. Baixa indica risco aumentado de aterosclerose. Relação ApoB/ApoA1 ideal <0.7.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "g/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+        { 
+          id: 34, 
+          exame: "Apolipoproteína B (Apo B)", 
+          valoresReferencia: "H: <90 | M: <80 mg/dL", 
+          valoresIdeais: "<70 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Principal proteína do LDL, VLDL, IDL. Cada partícula aterogênica tem 1 ApoB. Marcador superior ao LDL para risco cardiovascular. Valores >120 mg/dL alto risco de doença cardiovascular.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "g/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+        { 
+          id: 35, 
+          exame: "Lipoproteína (a) - Lp(a)", 
+          valoresReferencia: "<30 mg/dL", 
+          valoresIdeais: "<14 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Fator de risco genético cardiovascular independente. Valores altos (>50 mg/dL) indicam risco 2-4x maior de infarto. Não responde a dieta, apenas niacina em altas doses.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "nmol/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+        { 
+          id: 36, 
+          exame: "Colesterol não-HDL", 
+          valoresReferencia: "<130 mg/dL", 
+          valoresIdeais: "<100 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Calculado: Colesterol Total - HDL. Reflete todas partículas aterogênicas (LDL + VLDL + IDL + Lp(a)). Melhor preditor de risco que LDL isolado.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "mmol/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+
+        // ========================================
+        // 4. FUNÇÃO TIREOIDIANA (6 exames)
+        // ========================================
+        { 
+          id: 41, 
+          exame: "Anti-Tireoglobulina", 
+          valoresReferencia: "< 115 UI/mL", 
+          valoresIdeais: "< 20 UI/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Autoimunidade tireoidiana. Mesmas orientações do Anti-TPO."
+        },
+        { 
+          id: 34, 
+          exame: "Anti-TPO (Anti-Peroxidase)", 
+          valoresReferencia: "< 35 UI/mL", 
+          valoresIdeais: "< 10 UI/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Elevado indica Hashimoto. Protocolo: selênio, vitamina D, dieta sem glúten."
+        },
+        { 
+          id: 35, 
+          exame: "T3 Livre", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 2.3, max: 4.2 },
+            femininoAdulto: { min: 2.3, max: 4.2 },
+            masculinoInfantil: { min: 2.3, max: 4.2 },
+            femininoInfantil: { min: 2.3, max: 4.2 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 3.0, max: 3.8 },
+            femininoAdulto: { min: 3.0, max: 3.8 },
+            masculinoInfantil: { min: 3.0, max: 3.8 },
+            femininoInfantil: { min: 3.0, max: 3.8 }
+          },
+          valoresReferenciaLegado: "2.3-4.2 pg/mL", 
+          valoresIdeaisLegado: "3.0-3.8 pg/mL",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Hormônio tireoidiano ativo. Avaliar conversão T4→T3.",
+          unidade: "pg/mL",
+          unidadesDisponiveis: ["pg/mL", "pmol/L"],
+          unidadeSelecionada: "pg/mL"
+        },
+        { 
+          id: 36, 
+          exame: "T3 Total", 
+          valoresReferencia: "80-200 ng/dL", 
+          valoresIdeais: "120-160 ng/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Baixo indica má conversão T4→T3. Suplementar selênio 200mcg e zinco 30mg."
+        },
+        { 
+          id: 41, 
+          exame: "T4 Livre", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 0.8, max: 1.8 },
+            femininoAdulto: { min: 0.8, max: 1.8 },
+            masculinoInfantil: { min: 0.8, max: 1.8 },
+            femininoInfantil: { min: 0.8, max: 1.8 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 1.0, max: 1.5 },
+            femininoAdulto: { min: 1.0, max: 1.5 },
+            masculinoInfantil: { min: 1.0, max: 1.5 },
+            femininoInfantil: { min: 1.0, max: 1.5 }
+          },
+          valoresReferenciaLegado: "0.8-1.8 ng/dL", 
+          valoresIdeaisLegado: "1.0-1.5 ng/dL",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Hormônio tireoidiano inativo. Baixo confirma hipotireoidismo.",
+          unidade: "ng/dL",
+          unidadesDisponiveis: ["ng/dL", "pmol/L"],
+          unidadeSelecionada: "ng/dL"
+        },
+        { 
+          id: 42, 
+          exame: "TSH", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 0.4, max: 4.0 },
+            femininoAdulto: { min: 0.4, max: 4.0 },
+            masculinoInfantil: { min: 0.4, max: 4.0 },
+            femininoInfantil: { min: 0.4, max: 4.0 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 1.0, max: 2.5 },
+            femininoAdulto: { min: 1.0, max: 2.5 },
+            masculinoInfantil: { min: 1.0, max: 2.5 },
+            femininoInfantil: { min: 1.0, max: 2.5 }
+          },
+          valoresReferenciaLegado: "0.4-4.0 mUI/L", 
+          valoresIdeaisLegado: "1.0-2.5 mUI/L",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "TSH alto indica hipotireoidismo. Baixo indica hipertireoidismo. Avaliar T3 e T4.",
+          unidade: "mUI/L",
+          unidadesDisponiveis: ["mUI/L", "μUI/mL"],
+          unidadeSelecionada: "mUI/L"
+        },
+
+        // ========================================
+        // 5. FUNÇÃO HEPÁTICA (9 exames)
+        // ========================================
+        { 
+          id: 43, 
+          exame: "Amilase", 
+          valoresReferencia: "30-110 U/L", 
+          valoresIdeais: "50-90 U/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Alta indica pancreatite aguda. >3x limite = diagnóstico."
+        },
+        { 
+          id: 44, 
+          exame: "Bilirrubina Direta", 
+          valoresReferencia: "< 0.3 mg/dL", 
+          valoresIdeais: "< 0.2 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Alta indica colestase ou hepatopatia. USG vias biliares."
+        },
+        { 
+          id: 45, 
+          exame: "Bilirrubina Total", 
+          valoresReferencia: "0.3-1.2 mg/dL", 
+          valoresIdeais: "0.5-0.8 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Icterícia se >2-3. Fracionamento (direta/indireta) define causa."
+        },
+        { 
+          id: 46, 
+          exame: "Fosfatase Alcalina (FA)", 
+          valoresReferencia: "30-120 U/L", 
+          valoresIdeais: "50-90 U/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "FA alta + GGT alta = origem hepática. FA alta + GGT normal = origem óssea."
+        },
+        { 
+          id: 47, 
+          exame: "GGT (Gama GT)", 
+          valoresReferencia: "H: < 55 | M: < 38 U/L", 
+          valoresIdeais: "< 30 U/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Marcador de esteatose hepática e consumo de álcool."
+        },
+        { 
+          id: 48, 
+          exame: "LDH (Lactato Desidrogenase)", 
+          valoresReferencia: "140-280 U/L", 
+          valoresIdeais: "160-220 U/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Elevada em hemólise, infarto, hepatite, neoplasias."
+        },
+        { 
+          id: 49, 
+          exame: "Lipase", 
+          valoresReferencia: "10-140 U/L", 
+          valoresIdeais: "30-100 U/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Mais específica que amilase para pancreatite. Permanece elevada por mais tempo."
+        },
+        { 
+          id: 50, 
+          exame: "TGO/AST", 
+          valoresReferencia: "< 40 U/L", 
+          valoresIdeais: "< 30 U/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Enzima hepática. Elevada em hepatite, esteatose ou lesão muscular."
+        },
+        { 
+          id: 51, 
+          exame: "TGP/ALT", 
+          valoresReferencia: "< 41 U/L", 
+          valoresIdeais: "< 30 U/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Mais específica para fígado que TGO. Elevada indica dano hepatocelular."
+        },
+
+        // ========================================
+        // 6. FUNÇÃO RENAL (4 exames)
+        // ========================================
+        { 
+          id: 52, 
+          exame: "Creatinina", 
+          valoresReferencia: "H: 0.7-1.3 | M: 0.6-1.1 mg/dL", 
+          valoresIdeais: "0.8-1.0 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Marcador de função renal. Valores altos indicam disfunção renal."
+        },
+        { 
+          id: 53, 
+          exame: "Proteínas na Urina", 
+          valoresReferencia: "< 30 mg/dL", 
+          valoresIdeais: "Negativo", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Proteinúria indica lesão renal. Investigar nefropatia diabética/hipertensiva."
+        },
+        { 
+          id: 54, 
+          exame: "Ureia", 
+          valoresReferencia: "10-50 mg/dL", 
+          valoresIdeais: "15-40 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Produto do metabolismo proteico. Alta indica desidratação ou disfunção renal."
+        },
+        { 
+          id: 58, 
+          exame: "Ácido Úrico", 
+          valoresReferencia: "H: 3.4-7.0 | M: 2.4-5.7 mg/dL", 
+          valoresIdeais: "H: 4.0-5.5 | M: 3.0-4.5 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Alto indica risco de gota e síndrome metabólica. Reduzir frutose e álcool."
+        },
+
+        // ========================================
+        // 7. ELETRÓLITOS E MINERAIS (8 exames)
+        // ========================================
+        { 
+          id: 59, 
+          exame: "Cálcio Total", 
+          valoresReferencia: "8.5-10.5 mg/dL", 
+          valoresIdeais: "9.0-10.0 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Hipocalcemia causa tetania. Hipercalcemia indica hiperparatireoidismo."
+        },
+        { 
+          id: 60, 
+          exame: "Ferro Sérico", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 65, max: 175 },
+            femininoAdulto: { min: 50, max: 170 },
+            masculinoInfantil: { min: 50, max: 120 },
+            femininoInfantil: { min: 50, max: 120 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 90, max: 130 },
+            femininoAdulto: { min: 70, max: 120 },
+            masculinoInfantil: { min: 60, max: 100 },
+            femininoInfantil: { min: 60, max: 100 }
+          },
+          valoresReferenciaLegado: "Homem: 65-175 | Mulher: 50-170 | Crianças: 50-120 μg/dL", 
+          valoresIdeaisLegado: "Homem: 90-130 | Mulher: 70-120 | Crianças: 60-100 μg/dL",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Ferro circulante. Varia durante o dia. Coletar pela manhã em jejum. Homens têm valores mais altos.",
+          unidade: "μg/dL",
+          unidadesDisponiveis: ["μg/dL", "µmol/L"],
+          unidadeSelecionada: "μg/dL"
+        },
+        { 
+          id: 61, 
+          exame: "Ferritina", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 30, max: 400 },
+            femininoAdulto: { min: 15, max: 150 },
+            masculinoInfantil: { min: 7, max: 140 },
+            femininoInfantil: { min: 7, max: 140 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 70, max: 150 },
+            femininoAdulto: { min: 50, max: 100 },
+            masculinoInfantil: { min: 30, max: 80 },
+            femininoInfantil: { min: 30, max: 80 }
+          },
+          valoresReferenciaLegado: "Homem: 30-400 | Mulher: 15-150 | Crianças: 7-140 ng/mL", 
+          valoresIdeaisLegado: "Homem: 70-150 | Mulher: 50-100 | Crianças: 30-80 ng/mL",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Reservas de ferro. Baixa indica deficiência. Alta pode indicar inflamação. Mulheres têm valores mais baixos.",
+          unidade: "ng/mL",
+          unidadesDisponiveis: ["ng/mL", "μg/L", "pmol/L"],
+          unidadeSelecionada: "ng/mL"
+        },
+        { 
+          id: 62, 
+          exame: "Fósforo", 
+          valoresReferencia: "2.5-4.5 mg/dL", 
+          valoresIdeais: "3.0-4.0 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Alto na IRC. Baixo causa fraqueza muscular, rabdomiólise."
+        },
+        { 
+          id: 63, 
+          exame: "Magnésio (Mg²+)", 
+          valoresReferencia: "1.7-2.4 mg/dL", 
+          valoresIdeais: "2.0-2.2 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Deficiência causa arritmias, cãibras, ansiedade. Suplementar 400-600mg/dia."
+        },
+        { 
+          id: 64, 
+          exame: "Potássio (K+)", 
+          valoresReferencia: "3.5-5.0 mEq/L", 
+          valoresIdeais: "4.0-4.5 mEq/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Hipocalemia causa arritmias. Hipercalemia (>6.0) é emergência cardíaca."
+        },
+        { 
+          id: 65, 
+          exame: "Saturação de Transferrina", 
+          valoresReferencia: {
+            masculinoAdulto: { min: 20, max: 50 },
+            femininoAdulto: { min: 20, max: 50 },
+            masculinoInfantil: { min: 20, max: 50 },
+            femininoInfantil: { min: 20, max: 50 }
+          },
+          valoresIdeais: {
+            masculinoAdulto: { min: 25, max: 35 },
+            femininoAdulto: { min: 25, max: 35 },
+            masculinoInfantil: { min: 25, max: 35 },
+            femininoInfantil: { min: 25, max: 35 }
+          },
+          valoresReferenciaLegado: "20-50%", 
+          valoresIdeaisLegado: "25-35%",
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: ">45% suspeitar hemocromatose. <20% indica anemia ferropriva.",
+          unidade: "%",
+          unidadesDisponiveis: ["%"],
+          unidadeSelecionada: "%"
+        },
+        { 
+          id: 66, 
+          exame: "Sódio (Na+)", 
+          valoresReferencia: "135-145 mEq/L", 
+          valoresIdeais: "138-142 mEq/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Hiponatremia (<125) é emergência. Hipernatremia indica desidratação."
+        },
+        { 
+          id: 67, 
+          exame: "Transferrina", 
+          valoresReferencia: "200-360 mg/dL", 
+          valoresIdeais: "250-300 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Transporta ferro. Alta indica deficiência de ferro. Baixa indica inflamação.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "g/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+        { 
+          id: 72, 
+          exame: "Zinco Sérico", 
+          valoresReferencia: "70-120 μg/dL", 
+          valoresIdeais: "85-110 μg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Essencial para imunidade, cicatrização, síntese proteica. Deficiência causa imunodeficiência, perda de paladar, alopecia, hipogonadismo. Suplementar 30-50mg/dia se baixo.",
+          unidade: "μg/dL",
+          unidadesDisponiveis: ["μg/dL", "μmol/L"],
+          unidadeSelecionada: "μg/dL"
+        },
+        { 
+          id: 73, 
+          exame: "Cobre Sérico", 
+          valoresReferencia: "70-140 μg/dL", 
+          valoresIdeais: "90-120 μg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Essencial para síntese de hemoglobina, metabolismo energético. Baixo em doença de Menkes. Alto na doença de Wilson. Avaliar relação Cu/Zn (ideal 0.7-1.0).",
+          unidade: "μg/dL",
+          unidadesDisponiveis: ["μg/dL", "μmol/L"],
+          unidadeSelecionada: "μg/dL"
+        },
+        { 
+          id: 74, 
+          exame: "Selênio Sérico", 
+          valoresReferencia: "70-150 μg/L", 
+          valoresIdeais: "100-140 μg/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Antioxidante, essencial para conversão T4→T3. Deficiência causa cardiomiopatia (Keshan), hipotireoidismo. Suplementar 200 μg/dia.",
+          unidade: "μg/L",
+          unidadesDisponiveis: ["μg/L", "μmol/L"],
+          unidadeSelecionada: "μg/L"
+        },
+        { 
+          id: 75, 
+          exame: "Ceruloplasmina", 
+          valoresReferencia: "20-60 mg/dL", 
+          valoresIdeais: "30-50 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Transporta cobre. Baixa (<20) indica doença de Wilson. Alta indica inflamação, gravidez.",
+          unidade: "mg/dL",
+          unidadesDisponiveis: ["mg/dL", "g/L"],
+          unidadeSelecionada: "mg/dL"
+        },
+
+        // ========================================
+        // 8. VITAMINAS (14 exames)
+        // ========================================
+        { 
+          id: 76, 
+          exame: "Ácido Fólico", 
+          valoresReferencia: "> 3.0 ng/mL", 
+          valoresIdeais: "> 8.0 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Essencial para gestantes. Deficiência causa anemia megaloblástica."
+        },
+        { 
+          id: 73, 
+          exame: "Vitamina A (Retinol)", 
+          valoresReferencia: "30-80 μg/dL", 
+          valoresIdeais: "50-70 μg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Essencial para visão e imunidade. Excesso é tóxico. Dose: 5.000-10.000 UI."
+        },
+        { 
+          id: 74, 
+          exame: "Vitamina B1 (Tiamina)", 
+          valoresReferencia: "2.5-7.5 μg/dL", 
+          valoresIdeais: "4-6 μg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Deficiência causa beribéri, Wernicke. Alcoolismo é causa comum."
+        },
+        { 
+          id: 75, 
+          exame: "Vitamina B6 (Piridoxina)", 
+          valoresReferencia: "5-50 ng/mL", 
+          valoresIdeais: "20-40 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Deficiência causa neuropatia, anemia. Suplementar 50-100mg se baixo."
+        },
+        { 
+          id: 76, 
+          exame: "Vitamina B12", 
+          valoresReferencia: "> 200 pg/mL", 
+          valoresIdeais: "> 400 pg/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Valores <400 podem causar sintomas neurológicos. Vegetarianos devem suplementar.",
+          unidade: "pg/mL",
+          unidadesDisponiveis: ["pg/mL", "pmol/L"],
+          unidadeSelecionada: "pg/mL"
+        },
+        { 
+          id: 77, 
+          exame: "Vitamina B2 (Riboflavina)", 
+          valoresReferencia: "4-24 μg/dL", 
+          valoresIdeais: "10-20 μg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Essencial para metabolismo energético, antioxidante. Deficiência causa queilite angular, glossite, fadiga. Suplementar 50-100mg se baixo.",
+          unidade: "μg/dL",
+          unidadesDisponiveis: ["μg/dL", "nmol/L"],
+          unidadeSelecionada: "μg/dL"
+        },
+        { 
+          id: 78, 
+          exame: "Vitamina B3 (Niacina)", 
+          valoresReferencia: "0.5-8.5 μg/mL", 
+          valoresIdeais: "2-6 μg/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Metabolismo energético, síntese de colesterol. Deficiência causa pelagra (dermatite, diarreia, demência). Suplementar 50-100mg.",
+          unidade: "μg/mL",
+          unidadesDisponiveis: ["μg/mL", "μmol/L"],
+          unidadeSelecionada: "μg/mL"
+        },
+        { 
+          id: 79, 
+          exame: "Vitamina B5 (Ácido Pantotênico)", 
+          valoresReferencia: "1.6-2.7 μmol/L", 
+          valoresIdeais: "2.0-2.5 μmol/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Essencial para síntese de Coenzima A, metabolismo de carboidratos/proteínas/lipídios. Deficiência causa fadiga, parestesias.",
+          unidade: "μmol/L",
+          unidadesDisponiveis: ["μmol/L", "μg/mL"],
+          unidadeSelecionada: "μmol/L"
+        },
+        { 
+          id: 80,
+          exame: "Ácido Metilmalônico (MMA)", 
+          valoresReferencia: "< 0.4 μmol/L", 
+          valoresIdeais: "< 0.3 μmol/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Marcador funcional de deficiência de B12 (mais sensível que B12 sérica). Elevado indica deficiência tecidual mesmo com B12 normal. Essencial em veganos e idosos.",
+          unidade: "μmol/L",
+          unidadesDisponiveis: ["μmol/L", "nmol/L"],
+          unidadeSelecionada: "μmol/L"
+        },
+        { 
+          id: 81,
+          exame: "Vitamina C (Ácido Ascórbico)", 
+          valoresReferencia: "0.4-2.0 mg/dL", 
+          valoresIdeais: "1.0-1.5 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Antioxidante. Deficiência causa escorbuto. Suplementar 500-1000mg."
+        },
+        { 
+          id: 82,
+          exame: "Vitamina D (25-OH)", 
+          valoresReferencia: "> 30 ng/mL", 
+          valoresIdeais: "50-80 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Deficiência comum. <20 deficiência grave. Suplementar 5.000-10.000 UI/dia.",
+          unidade: "ng/mL",
+          unidadesDisponiveis: ["ng/mL", "nmol/L"],
+          unidadeSelecionada: "ng/mL"
+        },
+        { 
+          id: 83,
+          exame: "Vitamina E (Tocoferol)", 
+          valoresReferencia: "5-20 mg/L", 
+          valoresIdeais: "10-15 mg/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Antioxidante lipossolúvel. Protege membranas celulares. Dose: 400-800 UI.",
+          unidade: "mg/L",
+          unidadesDisponiveis: ["mg/L", "μmol/L"],
+          unidadeSelecionada: "mg/L"
+        },
+        { 
+          id: 84,
+          exame: "Vitamina K", 
+          valoresReferencia: "0.2-3.2 ng/mL", 
+          valoresIdeais: "1.0-2.5 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Essencial para coagulação e saúde óssea. Deficiência causa sangramentos, osteoporose. Comum em doença hepática. Suplementar 100-200mcg.",
+          unidade: "ng/mL",
+          unidadesDisponiveis: ["ng/mL", "nmol/L"],
+          unidadeSelecionada: "ng/mL"
+        },
+
+        // ========================================
+        // 9. PROTEÍNAS (2 exames)
+        // ========================================
+        { 
+          id: 85, 
+          exame: "Albumina Sérica", 
+          valoresReferencia: "3.5-5.5 g/dL", 
+          valoresIdeais: "4.0-4.8 g/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Baixa indica desnutrição, cirrose, síndrome nefrótica. Aumentar proteínas."
+        },
+        { 
+          id: 86, 
+          exame: "Proteínas Totais", 
+          valoresReferencia: "6.0-8.3 g/dL", 
+          valoresIdeais: "6.8-7.5 g/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Alta sugere mieloma múltiplo. Baixa indica desnutrição."
+        },
+
+        // ========================================
+        // 10. MARCADORES CARDÍACOS (4 exames)
+        // ========================================
+        { 
+          id: 87, 
+          exame: "BNP", 
+          valoresReferencia: "< 100 pg/mL", 
+          valoresIdeais: "< 50 pg/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Marcador de insuficiência cardíaca. Elevado indica IC descompensada."
+        },
+        { 
+          id: 88, 
+          exame: "CK Total (Creatinoquinase)", 
+          valoresReferencia: "H: 38-174 | M: 26-140 U/L", 
+          valoresIdeais: "H: 80-120 | M: 60-100 U/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Alta em rabdomiólise, exercício intenso, infarto, miopatias. Suspender estatinas."
+        },
+        { 
+          id: 89, 
+          exame: "CK-MB", 
+          valoresReferencia: "< 5 ng/mL", 
+          valoresIdeais: "< 3 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Marcador de lesão miocárdica. Menos específico que troponina."
+        },
+        { 
+          id: 90, 
+          exame: "Homocisteína", 
+          valoresReferencia: "< 15 μmol/L", 
+          valoresIdeais: "< 10 μmol/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Elevada aumenta risco cardiovascular. Suplementar B6, B12 e ácido fólico."
+        },
+        { 
+          id: 91, 
+          exame: "Troponina I Cardíaca", 
+          valoresReferencia: "< 0.04 ng/mL", 
+          valoresIdeais: "< 0.01 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "EMERGÊNCIA se elevada. Indica infarto agudo do miocárdio. ECG imediato."
+        },
+
+        // ========================================
+        // 11. MARCADORES INFLAMATÓRIOS (3 exames)
+        // ========================================
+        { 
+          id: 92, 
+          exame: "PCR (Proteína C Reativa)", 
+          valoresReferencia: "< 5 mg/L", 
+          valoresIdeais: "< 1 mg/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Marcador de inflamação sistêmica. PCR-us <1 ideal para risco cardiovascular."
+        },
+        { 
+          id: 93, 
+          exame: "Procalcitonina", 
+          valoresReferencia: "< 0.05 ng/mL", 
+          valoresIdeais: "< 0.05 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: ">0.5 indica infecção bacteriana. >2.0 indica sepse. Guia antibioticoterapia."
+        },
+        { 
+          id: 94, 
+          exame: "VHS (Velocidade de Hemossedimentação)", 
+          valoresReferencia: "H: <15 | M: <20 mm/h", 
+          valoresIdeais: "H: <10 | M: <15 mm/h", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: ">100 pensar em mieloma, arterite temporal. PCR é mais específico."
+        },
+
+        // ========================================
+        // 12. COAGULAÇÃO (3 exames)
+        // ========================================
+        { 
+          id: 95, 
+          exame: "D-dímero", 
+          valoresReferencia: "< 500 ng/mL", 
+          valoresIdeais: "< 250 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Elevado sugere TVP/embolia pulmonar. Doppler/angio-TC se positivo."
+        },
+        { 
+          id: 96, 
+          exame: "Fibrinogênio", 
+          valoresReferencia: "200-400 mg/dL", 
+          valoresIdeais: "250-350 mg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Baixo (<100) em CIVD. Alto indica inflamação, risco de trombose."
+        },
+        { 
+          id: 97, 
+          exame: "TTPa (Tempo de Tromboplastina)", 
+          valoresReferencia: "25-35 segundos", 
+          valoresIdeais: "28-32 segundos", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Prolongado em hemofilia, uso de heparina. Ajustar heparina conforme TTPa."
+        },
+
+        // ========================================
+        // 13. MARCADORES TUMORAIS (6 exames)
+        // ========================================
+        { 
+          id: 98, 
+          exame: "AFP (Alfafetoproteína)", 
+          valoresReferencia: "< 10 ng/mL", 
+          valoresIdeais: "< 5 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Marcador de hepatocarcinoma e tumores germinativos. TC/RM abdômen."
+        },
+        { 
+          id: 99, 
+          exame: "Beta-HCG", 
+          valoresReferencia: "H/M não grávidas: < 5 mUI/mL", 
+          valoresIdeais: "< 2 mUI/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Positivo em gravidez ou tumores trofoblásticos/germinativos. USG transvaginal."
+        },
+        { 
+          id: 100, 
+          exame: "CA 125", 
+          valoresReferencia: "< 35 U/mL", 
+          valoresIdeais: "< 20 U/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Marcador de câncer de ovário. USG transvaginal + TC pelve se elevado."
+        },
+        { 
+          id: 101, 
+          exame: "CA 15-3", 
+          valoresReferencia: "< 30 U/mL", 
+          valoresIdeais: "< 20 U/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Marcador de câncer de mama metastático. Não usado para triagem."
+        },
+        { 
+          id: 102, 
+          exame: "CA 19-9", 
+          valoresReferencia: "< 37 U/mL", 
+          valoresIdeais: "< 25 U/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Marcador de câncer pancreático e vias biliares. TC se elevado."
+        },
+        { 
+          id: 103, 
+          exame: "CEA (Antígeno Carcinoembrionário)", 
+          valoresReferencia: "< 3.0 ng/mL", 
+          valoresIdeais: "< 2.0 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Marcador de câncer colorretal. >10 requer colonoscopia."
+        },
+        { 
+          id: 104, 
+          exame: "PSA Total", 
+          valoresReferencia: "< 4.0 ng/mL", 
+          valoresIdeais: "< 2.0 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Elevado indica HPB ou câncer de próstata. Calcular PSA livre/total."
+        },
+
+        // ========================================
+        // 14. HORMÔNIOS (10 exames)
+        // ========================================
+        { 
+          id: 105, 
+          exame: "Cortisol (8h)", 
+          valoresReferencia: "5-25 μg/dL", 
+          valoresIdeais: "10-18 μg/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Baixo indica fadiga adrenal. Alto indica estresse crônico/Cushing."
+        },
+        { 
+          id: 106, 
+          exame: "DHEA-S", 
+          valoresReferencia: "H: 80-560 | M: 35-430 μg/dL", 
+          valoresIdeais: "Metade superior da referência", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Hormônio anti-envelhecimento. Suplementar 25-50mg se baixo."
+        },
+        { 
+          id: 107, 
+          exame: "Estradiol", 
+          valoresReferencia: "H: 10-40 | M: 30-400 pg/mL", 
+          valoresIdeais: "M fase folicular: 50-150 pg/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Varia por fase do ciclo. Baixo na menopausa. TRH se sintomática."
+        },
+        { 
+          id: 108, 
+          exame: "FSH (Hormônio Folículo Estimulante)", 
+          valoresReferencia: "H: 1-12 | M: 3-20 mUI/mL", 
+          valoresIdeais: "Varia por fase do ciclo", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Alto na menopausa (>30). Baixo em hipogonadismo hipogonadotrófico."
+        },
+        { 
+          id: 109, 
+          exame: "IGF-1 (Fator de Crescimento)", 
+          valoresReferencia: "Varia por idade: 100-300 ng/mL", 
+          valoresIdeais: "Metade superior da faixa etária", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Marcador de GH. Baixo indica deficiência de GH. Alto em acromegalia."
+        },
+        { 
+          id: 110, 
+          exame: "LH (Hormônio Luteinizante)", 
+          valoresReferencia: "H: 1-8 | M: 2-20 mUI/mL", 
+          valoresIdeais: "Varia por fase do ciclo", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Pico ovulatório em mulheres. LH/FSH >2 sugere SOP."
+        },
+        { 
+          id: 111, 
+          exame: "Progesterona", 
+          valoresReferencia: "M fase lútea: 5-20 ng/mL", 
+          valoresIdeais: "M fase lútea: >10 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Baixa indica deficiência lútea. Suplementar 100-200mg se infertilidade."
+        },
+        { 
+          id: 112, 
+          exame: "Prolactina", 
+          valoresReferencia: "H: 2-18 | M: 2-29 ng/mL", 
+          valoresIdeais: "H: 5-15 | M: 5-25 ng/mL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Alta causa galactorreia, amenorreia. >200 suspeitar prolactinoma. RM sela."
+        },
+        { 
+          id: 113, 
+          exame: "SHBG (Globulina Ligadora de Hormônios)", 
+          valoresReferencia: "H: 10-57 | M: 18-114 nmol/L", 
+          valoresIdeais: "H: 20-40 | M: 40-80 nmol/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Baixa indica resistência insulínica. Alta reduz testosterona livre."
+        },
+        { 
+          id: 114, 
+          exame: "Testosterona Total", 
+          valoresReferencia: "H: 300-1000 | M: 15-70 ng/dL", 
+          valoresIdeais: "H: 500-800 | M: 30-50 ng/dL", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Baixa causa fadiga, perda muscular. TRT se <300 com sintomas."
+        },
+
+        // ========================================
+        // 15. URINA (4 exames)
+        // ========================================
+        { 
+          id: 115, 
+          exame: "Densidade Urinária", 
+          valoresReferencia: "1.010-1.030", 
+          valoresIdeais: "1.015-1.025", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Baixa (<1.005) indica diabetes insípido. Alta indica desidratação."
+        },
+        { 
+          id: 116, 
+          exame: "Hemácias na Urina", 
+          valoresReferencia: "< 3 células/campo", 
+          valoresIdeais: "0-2 células/campo", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Hematúria: ITU, nefrolitíase, glomerulonefrite, câncer. USG + cistoscopia."
+        },
+        { 
+          id: 117, 
+          exame: "Leucócitos na Urina", 
+          valoresReferencia: "< 5 células/campo", 
+          valoresIdeais: "0-3 células/campo", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Piúria indica ITU. Urocultura + antibiótico (nitrofurantoína, ciprofloxacino)."
+        },
+        { 
+          id: 118, 
+          exame: "pH Urinário", 
+          valoresReferencia: "5.0-7.0", 
+          valoresIdeais: "6.0-6.5", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Ácido (<5.5) favorece cálculos de ácido úrico. Alcalino (>7) favorece cálculos de fosfato."
+        },
+
+        // ========================================
+        // 16. GASOMETRIA ARTERIAL (5 exames)
+        // ========================================
+        { 
+          id: 119, 
+          exame: "HCO3 (Bicarbonato)", 
+          valoresReferencia: "22-26 mEq/L", 
+          valoresIdeais: "24 mEq/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Baixo em acidose metabólica. Alto em alcalose metabólica."
+        },
+        { 
+          id: 120, 
+          exame: "Lactato Arterial", 
+          valoresReferencia: "< 2.0 mmol/L", 
+          valoresIdeais: "< 1.5 mmol/L", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "EMERGÊNCIA se >4. Indica sepse, choque, hipoperfusão tecidual."
+        },
+        { 
+          id: 121, 
+          exame: "pCO2 (Pressão de CO2)", 
+          valoresReferencia: "35-45 mmHg", 
+          valoresIdeais: "40 mmHg", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Alto em hipoventilação (DPOC). Baixo em hiperventilação (ansiedade)."
+        },
+        { 
+          id: 122, 
+          exame: "pH Arterial", 
+          valoresReferencia: "7.35-7.45", 
+          valoresIdeais: "7.40", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "<7.35 acidose (cetoacidose/lática). >7.45 alcalose (vômitos/hiperventilação)."
+        },
+        { 
+          id: 123, 
+          exame: "pO2 (Pressão de O2)", 
+          valoresReferencia: "80-100 mmHg", 
+          valoresIdeais: "90-100 mmHg", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "Baixo (<80) indica hipoxemia. Oxigenoterapia para manter SpO2 >90%."
+        },
+        { 
+          id: 124, 
+          exame: "SatO2 (Saturação de Oxigênio)", 
+          valoresReferencia: "> 95%", 
+          valoresIdeais: "97-100%", 
+          resultadoPaciente: "", 
+          interpretacao: "",
+          conduta: "",
+          observacoes: "<90% indica insuficiência respiratória. Oxigenoterapia imediata."
+        },
+      ];
+      
+      // Mapa de unidades para todos os exames
+      const unidadesPorExame = {
+        "Hemácias (Eritrócitos)": { unidade: "milhões/mm³", disponiveis: ["milhões/mm³", "x10⁶/µL"] },
+        "Hematócrito": { unidade: "%", disponiveis: ["%"] },
+        "Hemoglobina": { unidade: "g/dL", disponiveis: ["g/dL", "g/L"] },
+        "VCM (Volume Corpuscular Médio)": { unidade: "fL", disponiveis: ["fL"] },
+        "HCM (Hemoglobina Corpuscular Média)": { unidade: "pg", disponiveis: ["pg"] },
+        "CHCM (Concentração HCM)": { unidade: "g/dL", disponiveis: ["g/dL", "%"] },
+        "RDW-CV (Amplitude Distribuição Eritrócitos)": { unidade: "%", disponiveis: ["%"] },
+        "RDW-SD": { unidade: "fL", disponiveis: ["fL"] },
+        "Leucócitos": { unidade: "/mm³", disponiveis: ["/mm³", "mil/mm³", "x10³/µL"] },
+        "Neutrófilos (%)": { unidade: "%", disponiveis: ["%"] },
+        "Neutrófilos (absoluto)": { unidade: "/mm³", disponiveis: ["/mm³", "mil/mm³"] },
+        "Linfócitos (%)": { unidade: "%", disponiveis: ["%"] },
+        "Linfócitos (absoluto)": { unidade: "/mm³", disponiveis: ["/mm³", "mil/mm³"] },
+        "Monócitos (%)": { unidade: "%", disponiveis: ["%"] },
+        "Monócitos (absoluto)": { unidade: "/mm³", disponiveis: ["/mm³"] },
+        "Eosinófilos (%)": { unidade: "%", disponiveis: ["%"] },
+        "Eosinófilos (absoluto)": { unidade: "/mm³", disponiveis: ["/mm³"] },
+        "Basófilos (%)": { unidade: "%", disponiveis: ["%"] },
+        "Basófilos (absoluto)": { unidade: "/mm³", disponiveis: ["/mm³"] },
+        "Plaquetas": { unidade: "/mm³", disponiveis: ["/mm³", "mil/mm³", "x10³/µL"] },
+        "VPM (Volume Plaquetário Médio)": { unidade: "fL", disponiveis: ["fL"] },
+        "PDW (Amplitude Distribuição Plaquetária)": { unidade: "%", disponiveis: ["%"] },
+        "PCT (Plaquetócrito)": { unidade: "%", disponiveis: ["%"] },
+        "IPF (Fração Plaquetas Imaturas)": { unidade: "%", disponiveis: ["%"] },
+        "Hemoglobina Glicada (HbA1c)": { unidade: "%", disponiveis: ["%", "mmol/mol"] },
+        "Glicemia em Jejum": { unidade: "mg/dL", disponiveis: ["mg/dL", "mmol/L"] },
+        "Insulina em Jejum": { unidade: "μUI/mL", disponiveis: ["μUI/mL", "pmol/L"] },
+        "Colesterol Total": { unidade: "mg/dL", disponiveis: ["mg/dL", "mmol/L"] },
+        "HDL Colesterol": { unidade: "mg/dL", disponiveis: ["mg/dL", "mmol/L"] },
+        "LDL Colesterol": { unidade: "mg/dL", disponiveis: ["mg/dL", "mmol/L"] },
+        "Triglicerídeos": { unidade: "mg/dL", disponiveis: ["mg/dL", "mmol/L"] },
+        "VLDL Colesterol": { unidade: "mg/dL", disponiveis: ["mg/dL", "mmol/L"] },
+        "Anti-Tireoglobulina": { unidade: "UI/mL", disponiveis: ["UI/mL", "IU/L"] },
+        "Anti-TPO (Anti-Peroxidase)": { unidade: "UI/mL", disponiveis: ["UI/mL", "IU/L"] },
+        "T3 Livre": { unidade: "pg/mL", disponiveis: ["pg/mL", "pmol/L"] },
+        "T3 Total": { unidade: "ng/dL", disponiveis: ["ng/dL", "nmol/L"] },
+        "T4 Livre": { unidade: "ng/dL", disponiveis: ["ng/dL", "pmol/L"] },
+        "TSH": { unidade: "mUI/L", disponiveis: ["mUI/L", "μUI/mL"] },
+        "Amilase": { unidade: "U/L", disponiveis: ["U/L"] },
+        "Bilirrubina Direta": { unidade: "mg/dL", disponiveis: ["mg/dL", "µmol/L"] },
+        "Bilirrubina Total": { unidade: "mg/dL", disponiveis: ["mg/dL", "µmol/L"] },
+        "Fosfatase Alcalina (FA)": { unidade: "U/L", disponiveis: ["U/L"] },
+        "GGT (Gama GT)": { unidade: "U/L", disponiveis: ["U/L"] },
+        "LDH (Lactato Desidrogenase)": { unidade: "U/L", disponiveis: ["U/L"] },
+        "Lipase": { unidade: "U/L", disponiveis: ["U/L"] },
+        "TGO/AST": { unidade: "U/L", disponiveis: ["U/L"] },
+        "TGP/ALT": { unidade: "U/L", disponiveis: ["U/L"] },
+        "Creatinina": { unidade: "mg/dL", disponiveis: ["mg/dL", "µmol/L"] },
+        "Proteínas na Urina": { unidade: "mg/dL", disponiveis: ["mg/dL", "g/L"] },
+        "Ureia": { unidade: "mg/dL", disponiveis: ["mg/dL", "mmol/L"] },
+        "Ácido Úrico": { unidade: "mg/dL", disponiveis: ["mg/dL", "µmol/L"] },
+        "Cálcio Total": { unidade: "mg/dL", disponiveis: ["mg/dL", "mmol/L"] },
+        "Ferro Sérico": { unidade: "μg/dL", disponiveis: ["μg/dL", "µmol/L"] },
+        "Ferritina": { unidade: "ng/mL", disponiveis: ["ng/mL", "µg/L", "pmol/L"] },
+        "Fósforo": { unidade: "mg/dL", disponiveis: ["mg/dL", "mmol/L"] },
+        "Magnésio (Mg²+)": { unidade: "mg/dL", disponiveis: ["mg/dL", "mmol/L"] },
+        "Potássio (K+)": { unidade: "mEq/L", disponiveis: ["mEq/L", "mmol/L"] },
+        "Saturação de Transferrina": { unidade: "%", disponiveis: ["%"] },
+        "Sódio (Na+)": { unidade: "mEq/L", disponiveis: ["mEq/L", "mmol/L"] },
+        "Transferrina": { unidade: "mg/dL", disponiveis: ["mg/dL", "g/L"] },
+        "Ácido Fólico": { unidade: "ng/mL", disponiveis: ["ng/mL", "nmol/L"] },
+        "Vitamina A (Retinol)": { unidade: "μg/dL", disponiveis: ["μg/dL", "µmol/L"] },
+        "Vitamina B1 (Tiamina)": { unidade: "μg/dL", disponiveis: ["μg/dL", "nmol/L"] },
+        "Vitamina B6 (Piridoxina)": { unidade: "ng/mL", disponiveis: ["ng/mL", "nmol/L"] },
+        "Vitamina B12": { unidade: "pg/mL", disponiveis: ["pg/mL", "pmol/L"] },
+        "Vitamina C (Ácido Ascórbico)": { unidade: "mg/dL", disponiveis: ["mg/dL", "µmol/L"] },
+        "Vitamina D (25-OH)": { unidade: "ng/mL", disponiveis: ["ng/mL", "nmol/L"] },
+        "Vitamina E (Tocoferol)": { unidade: "mg/L", disponiveis: ["mg/L", "µmol/L"] },
+        "Albumina Sérica": { unidade: "g/dL", disponiveis: ["g/dL", "g/L"] },
+        "Proteínas Totais": { unidade: "g/dL", disponiveis: ["g/dL", "g/L"] },
+        "BNP": { unidade: "pg/mL", disponiveis: ["pg/mL", "ng/L"] },
+        "CK Total (Creatinoquinase)": { unidade: "U/L", disponiveis: ["U/L"] },
+        "CK-MB": { unidade: "ng/mL", disponiveis: ["ng/mL", "µg/L"] },
+        "Homocisteína": { unidade: "μmol/L", disponiveis: ["μmol/L"] },
+        "Troponina I Cardíaca": { unidade: "ng/mL", disponiveis: ["ng/mL", "µg/L"] },
+        "PCR (Proteína C Reativa)": { unidade: "mg/L", disponiveis: ["mg/L", "mg/dL"] },
+        "Procalcitonina": { unidade: "ng/mL", disponiveis: ["ng/mL", "µg/L"] },
+        "VHS (Velocidade de Hemossedimentação)": { unidade: "mm/h", disponiveis: ["mm/h"] },
+        "D-dímero": { unidade: "ng/mL", disponiveis: ["ng/mL", "µg/L"] },
+        "Fibrinogênio": { unidade: "mg/dL", disponiveis: ["mg/dL", "g/L"] },
+        "TTPa (Tempo de Tromboplastina)": { unidade: "segundos", disponiveis: ["segundos"] },
+        "AFP (Alfafetoproteína)": { unidade: "ng/mL", disponiveis: ["ng/mL", "µg/L"] },
+        "Beta-HCG": { unidade: "mUI/mL", disponiveis: ["mUI/mL", "IU/L"] },
+        "CA 125": { unidade: "U/mL", disponiveis: ["U/mL"] },
+        "CA 15-3": { unidade: "U/mL", disponiveis: ["U/mL"] },
+        "CA 19-9": { unidade: "U/mL", disponiveis: ["U/mL"] },
+        "CEA (Antígeno Carcinoembrionário)": { unidade: "ng/mL", disponiveis: ["ng/mL", "µg/L"] },
+        "PSA Total": { unidade: "ng/mL", disponiveis: ["ng/mL", "µg/L"] },
+        "Cortisol (8h)": { unidade: "μg/dL", disponiveis: ["μg/dL", "nmol/L"] },
+        "DHEA-S": { unidade: "μg/dL", disponiveis: ["μg/dL", "µmol/L"] },
+        "Estradiol": { unidade: "pg/mL", disponiveis: ["pg/mL", "pmol/L"] },
+        "FSH (Hormônio Folículo Estimulante)": { unidade: "mUI/mL", disponiveis: ["mUI/mL", "IU/L"] },
+        "IGF-1 (Fator de Crescimento)": { unidade: "ng/mL", disponiveis: ["ng/mL", "µg/L"] },
+        "LH (Hormônio Luteinizante)": { unidade: "mUI/mL", disponiveis: ["mUI/mL", "IU/L"] },
+        "Progesterona": { unidade: "ng/mL", disponiveis: ["ng/mL", "nmol/L"] },
+        "Prolactina": { unidade: "ng/mL", disponiveis: ["ng/mL", "µg/L"] },
+        "SHBG (Globulina Ligadora de Hormônios)": { unidade: "nmol/L", disponiveis: ["nmol/L"] },
+        "Testosterona Total": { unidade: "ng/dL", disponiveis: ["ng/dL", "nmol/L"] },
+        "Densidade Urinária": { unidade: "", disponiveis: [""] },
+        "Hemácias na Urina": { unidade: "células/campo", disponiveis: ["células/campo"] },
+        "Leucócitos na Urina": { unidade: "células/campo", disponiveis: ["células/campo"] },
+        "pH Urinário": { unidade: "", disponiveis: [""] },
+        "HCO3 (Bicarbonato)": { unidade: "mEq/L", disponiveis: ["mEq/L", "mmol/L"] },
+        "Lactato Arterial": { unidade: "mmol/L", disponiveis: ["mmol/L"] },
+        "pCO2 (Pressão de CO2)": { unidade: "mmHg", disponiveis: ["mmHg", "kPa"] },
+        "pH Arterial": { unidade: "", disponiveis: [""] },
+        "pO2 (Pressão de O2)": { unidade: "mmHg", disponiveis: ["mmHg", "kPa"] },
+        "SatO2 (Saturação de Oxigênio)": { unidade: "%", disponiveis: ["%"] }
+      };
+      
+      // Adiciona unidades aos exames que não têm
+      const examesComUnidades = defaultExames.map(exame => {
+        const unidadeInfo = unidadesPorExame[exame.exame];
+        if (unidadeInfo && !exame.unidade) {
+          return {
+            ...exame,
+            unidade: unidadeInfo.unidade,
+            unidadesDisponiveis: unidadeInfo.disponiveis,
+            unidadeSelecionada: unidadeInfo.unidade
+          };
+        }
+        // Se não tem no mapa, adiciona padrão vazio
+        if (!exame.unidade) {
+          return {
+            ...exame,
+            unidade: "",
+            unidadesDisponiveis: [""],
+            unidadeSelecionada: ""
+          };
+        }
+        return exame;
+      });
+      
+      const savedData = localStorage.getItem('examesLaboratoriais');
+      console.log('🔍 Verificando localStorage...', savedData ? 'DADOS ENCONTRADOS' : 'VAZIO');
+      if (savedData) {
+        console.log('📦 Tamanho dos dados:', savedData.length, 'caracteres');
+        const parsed = JSON.parse(savedData);
+        console.log('📋 Dados parseados:', { paciente: parsed.pacienteNome, exames: parsed.exames?.length });
+        // Verificar se tem todos os 124 exames
+        const exameSalvos = Array.isArray(parsed.exames) ? parsed.exames : [];
+        console.log('📊 Exames salvos:', exameSalvos.length);
+        
+        // Verificar se tem Hemácias como primeiro exame (ID 1)
+        const temHemacias = exameSalvos.some(ex => ex.id === 1 && ex.exame.includes('Hemácias'));
+        
+        // Se tiver menos de 124 exames OU não tiver Hemácias, usar os padrão
+        if (exameSalvos.length < 124 || !temHemacias) {
+          console.warn('⚠️ Dados incompletos ou antigos no localStorage. Usando exames padrão atualizados.');
+          // Ordenar alfabeticamente
+          const examesOrdenados = [...examesComUnidades].sort((a, b) => 
+            a.exame.localeCompare(b.exame, 'pt-BR')
+          );
+          setExames(examesOrdenados);
+          setExamesFiltrados(examesOrdenados);
+          // Limpar localStorage antigo
+          localStorage.removeItem('examesLaboratoriais');
+        } else {
+          // Regenerar interpretação e conduta para exames que têm resultados
+          const examesComConduta = exameSalvos.map(ex => {
+            // Adicionar unidades se não existir
+            const unidadeInfo = unidadesPorExame[ex.exame];
+            if (unidadeInfo && !ex.unidade) {
+              ex.unidade = unidadeInfo.unidade;
+              ex.unidadesDisponiveis = unidadeInfo.disponiveis;
+              ex.unidadeSelecionada = ex.unidadeSelecionada || unidadeInfo.unidade;
+            }
+            
+            if (ex.resultadoPaciente && ex.resultadoPaciente.trim() !== '') {
+              const interpretacao = gerarInterpretacao(ex.resultadoPaciente, ex.valoresReferencia, ex.valoresIdeais);
+              const conduta = gerarConduta(ex.exame, interpretacao, parseFloat(ex.resultadoPaciente));
+              console.log(`🔄 Regenerando conduta para ${ex.exame}:`, conduta ? 'OK' : 'VAZIO');
+              return { ...ex, interpretacao, conduta };
+            }
+            return ex;
+          });
+          // Ordenar alfabeticamente
+          const examesOrdenados = [...examesComConduta].sort((a, b) => 
+            a.exame.localeCompare(b.exame, 'pt-BR')
+          );
+          setExames(examesOrdenados);
+          setExamesFiltrados(examesOrdenados);
+        }
+        setPacienteNome(parsed.pacienteNome || '');
+        setDataExame(parsed.dataExame || '2025-12-11');
+      } else {
+        console.log('📋 Nenhum dado salvo. Usando exames padrão.');
+        // Ordenar alfabeticamente
+        const examesOrdenados = [...examesComUnidades].sort((a, b) => 
+          a.exame.localeCompare(b.exame, 'pt-BR')
+        );
+        setExames(examesOrdenados);
+        setExamesFiltrados(examesOrdenados);
+      }
+      
+      // Carregar dados do paciente da última anamnese
+      const anamneses = JSON.parse(localStorage.getItem('anamneses') || '[]');
+      if (anamneses.length > 0) {
+        const ultimaAnamnese = anamneses[anamneses.length - 1];
+        const idade = parseInt(ultimaAnamnese.q03_idade) || null;
+        const sexo = ultimaAnamnese.q04_sexo === 'Masculino' ? 'homem' : 
+                     ultimaAnamnese.q04_sexo === 'Feminino' ? 'mulher' : 'geral';
+        
+        setIdadePaciente(idade);
+        setSexoPaciente(sexo);
+        setDadosPaciente({
+          nome: ultimaAnamnese.q01_nome || '',
+          dataNasc: ultimaAnamnese.q02_data_nasc || '',
+          idade: idade,
+          sexo: sexo,
+          telefone: ultimaAnamnese.q11_telefone || '',
+          email: ultimaAnamnese.q12_email || '',
+        });
+        if (!savedData && ultimaAnamnese.q01_nome) {
+          setPacienteNome(ultimaAnamnese.q01_nome);
+        }
+      }
+      
+      setLoading(false);
+      console.log('✅ ExamesLaboratoriais: Dados carregados com sucesso');
+      console.log(`📊 Total de exames disponíveis: ${examesComUnidades.length}`);
+  }, []);
+
+  // useEffect para atualizar perfil do paciente baseado em idade e sexo da anamnese
+  useEffect(() => {
+    if (dadosPaciente && dadosPaciente.idade !== null && dadosPaciente.sexo) {
+      const idade = dadosPaciente.idade;
+      const sexo = dadosPaciente.sexo; // 'homem' ou 'mulher'
+      
+      let novoPerfil;
+      if (idade < 12) {
+        novoPerfil = sexo === 'homem' ? 'masculinoInfantil' : 'femininoInfantil';
+      } else {
+        novoPerfil = sexo === 'homem' ? 'masculinoAdulto' : 'femininoAdulto';
+      }
+      
+      if (novoPerfil !== perfilPaciente) {
+        console.log(`🔄 Atualizando perfil de ${perfilPaciente} para ${novoPerfil}`);
+        setPerfilPaciente(novoPerfil);
+      }
+    }
+  }, [dadosPaciente, perfilPaciente]);
+
+  // Filtrar exames baseado no termo de busca
+  useEffect(() => {
+    try {
+      console.log('=== FILTRO INICIO ===');
+      console.log('Exames tipo:', typeof exames, 'Array?', Array.isArray(exames));
+      console.log('Exames length:', exames?.length);
+      console.log('Busca:', termoBusca);
+      console.log('Loading:', loading);
+      
+      // Verificação de segurança - garantir que exames é um array válido
+      if (!Array.isArray(exames)) {
+        console.error('ERRO CRITICO: exames não é um array!', exames);
+        setExamesFiltrados([]);
+        return;
+      }
+      
+      // Se ainda está carregando, não filtra
+      if (loading) {
+        console.log('Ainda carregando, não filtra');
+        return;
+      }
+      
+      if (!termoBusca || termoBusca.trim() === '') {
+        console.log(`Busca vazia - Mostrando TODOS os ${exames.length} exames`);
+        setExamesFiltrados([...exames]); // Usar spread para criar novo array
+        return;
+      }
+      
+      const termo = termoBusca.toLowerCase().trim();
+      console.log(`Buscando por: "${termo}"`);
+      
+      // Se exames ainda vazio, retorna array vazio mas não quebra
+      if (exames.length === 0) {
+        console.warn('Array de exames está vazio durante busca!');
+        setExamesFiltrados([]);
+        return;
+      }
+      
+      // Filtrar exames com proteção extra
+      const filtrados = exames.filter(exame => {
+        if (!exame || !exame.exame) {
+          console.warn('Exame inválido encontrado:', exame);
+          return false;
+        }
+        const nomeExame = exame.exame.toLowerCase();
+        return nomeExame.includes(termo);
+      });
+      console.log(`Encontrados ${filtrados.length} exames`);
+      if (filtrados.length > 0 && filtrados.length <= 5) {
+        console.log('Exames encontrados:', filtrados.map(e => e.exame));
+      }
+      
+      // Ordenar por relevância
+      const ordenados = filtrados.sort((a, b) => {
+        const nomeA = a.exame.toLowerCase().trim();
+        const nomeB = b.exame.toLowerCase().trim();
+        
+        // 1. Correspondência exata
+        if (nomeA === termo && nomeB !== termo) return -1;
+        if (nomeA !== termo && nomeB === termo) return 1;
+        
+        // 2. Começa com o termo
+        const aComeca = nomeA.startsWith(termo);
+        const bComeca = nomeB.startsWith(termo);
+        if (aComeca && !bComeca) return -1;
+        if (!aComeca && bComeca) return 1;
+        
+        // 3. Posição do termo
+        const posA = nomeA.indexOf(termo);
+        const posB = nomeB.indexOf(termo);
+        if (posA !== posB) return posA - posB;
+        
+        // 4. Nome mais curto
+        if (nomeA.length !== nomeB.length) return nomeA.length - nomeB.length;
+        
+        // 5. Alfabética
+        return nomeA.localeCompare(nomeB);
+      });
+      
+      console.log('Setando exames filtrados:', ordenados.length);
+      setExamesFiltrados(ordenados);
+      console.log('=== FILTRO FIM ===');
+      
+    } catch (error) {
+      console.error('ERRO FATAL NO FILTRO:', error);
+      console.error('Stack:', error.stack);
+      setExamesFiltrados([]);
+    }
+  }, [termoBusca]); // REMOVIDO 'exames' e 'loading' para evitar loop infinito
+
+  // Função auxiliar para formatar valores para exibição
+  const formatarValoresParaExibicao = (exame, tipo = 'referencia') => {
+    const campo = tipo === 'referencia' ? 'valoresReferencia' : 'valoresIdeais';
+    const campoLegado = tipo === 'referencia' ? 'valoresReferenciaLegado' : 'valoresIdeaisLegado';
+    const valores = exame[campo];
+    
+    // Se está no novo formato (objeto)
+    if (valores && typeof valores === 'object' && !Array.isArray(valores)) {
+      const valoresPerfil = obterValoresPorPerfil(exame, perfilPaciente, tipo);
+      if (valoresPerfil) {
+        const { min, max } = valoresPerfil;
+        const unidade = exame.unidade || '';
+        // Formato: "13.5-17.5 g/dL [Masc. Adulto]"
+        const perfilLabel = {
+          'masculinoAdulto': 'M.Adulto',
+          'femininoAdulto': 'F.Adulto',
+          'masculinoInfantil': 'M.Infantil',
+          'femininoInfantil': 'F.Infantil'
+        }[perfilPaciente] || '';
+        
+        if (max === Infinity) {
+          return `> ${min.toFixed(1)} ${unidade} [${perfilLabel}]`;
+        } else if (min === 0) {
+          return `< ${max.toFixed(1)} ${unidade} [${perfilLabel}]`;
+        } else {
+          return `${min.toFixed(1)}-${max.toFixed(1)} ${unidade} [${perfilLabel}]`;
+        }
+      }
+    }
+    
+    // Fallback para formato legado (string)
+    return exame[campoLegado] || valores || 'N/A';
+  };
+
+  // Banco de dados de fisiologia e bioquímica dos exames - ATUALIZADO COM DADOS DO PDF
+  const getFisiologiaBioquimica = (nomeExame) => {
+    // Primeiro tenta buscar do PDF
+    const detalhes = getExameDetalhes(nomeExame);
+    
+    if (detalhes && detalhes.fisiologia) {
+      return {
+        fisiologia: detalhes.fisiologia,
+        bioquimica: detalhes.fisiologia, // PDF não separa, usa fisiologia para ambos
+        significado: gerarSignificadoFormatado(detalhes.alteracoes),
+        correlacoes: detalhes.correlacoes || []
+      };
+    }
+    
+    // Fallback para dados hardcoded se não encontrar no PDF
+    const exame = nomeExame.toLowerCase();
+    const dados = {
+      hemoglobina: {
+        fisiologia: "Proteína encontrada nos eritrócitos (glóbulos vermelhos) responsável pelo transporte de oxigênio (O₂) dos pulmões para os tecidos e dióxido de carbono (CO₂) dos tecidos para os pulmões. Cada molécula de hemoglobina contém 4 grupos heme com ferro ferroso (Fe²⁺) que se liga reversivelmente ao oxigênio.",
+        bioquimica: "Estrutura quaternária com 4 cadeias polipeptídicas (2 alfa e 2 beta). A ligação cooperativa do O₂ segue a curva sigmoide de saturação. pH sanguíneo, 2,3-DPG e temperatura afetam a afinidade pelo O₂ (efeito Bohr). Síntese requer ferro, vitamina B12, B6, ácido fólico e eritropoietina (EPO).",
+        significado: "Valores baixos (anemia) reduzem capacidade de oxigenação celular causando fadiga, dispneia, taquicardia compensatória e palidez. Anemia ferropriva é mais comum. Valores altos (policitemia) aumentam viscosidade sanguínea elevando risco trombótico."
+      },
+      glicemia: {
+        fisiologia: "Glicose é principal substrato energético celular. Após absorção intestinal, entra na corrente sanguínea. Insulina (pâncreas-células β) promove captação celular via GLUT4. Glucagon eleva glicemia mobilizando glicogênio hepático. Equilíbrio glicemia = produção hepática + absorção intestinal - utilização periférica.",
+        bioquimica: "Metabolismo via glicólise (citoplasma→2ATP), ciclo de Krebs e fosforilação oxidativa (mitocôndria→30-32ATP). Excesso convertido em glicogênio (fígado/músculo) ou lipogênese. Jejum prolongado ativa gliconeogênese e cetogênese. Receptor de insulina ativa cascata PI3K-AKT permitindo translocação GLUT4.",
+        significado: "Hiperglicemia crônica (>100mg/dL jejum) indica resistência insulínica/diabetes - gera glicação proteica (AGEs), estresse oxidativo, dano vascular e neuropático. Hipoglicemia (<70mg/dL) causa neuroglicopenia, tremores, confusão mental por déficit energético cerebral."
+      },
+      "hemoglobina glicada (hba1c)": {
+        fisiologia: "Hemoglobina que sofreu glicação não-enzimática (reação de Maillard) pela exposição crônica à glicose plasmática. Reflete média glicêmica dos últimos 90-120 dias (meia-vida eritrocitária). Não influenciada por flutuações agudas.",
+        bioquimica: "Glicose reage com grupo amino N-terminal da cadeia beta formando base de Schiff (aldiimina) que sofre rearranjo de Amadori gerando cetoamina estável (HbA1c). Processo irreversível proporcional à glicemia. Medida por HPLC ou imunoensaio.",
+        significado: "HbA1c >5.7% indica pré-diabetes, >6.5% diabetes. Cada 1% aumento representa média +30mg/dL glicemia. Valores altos correlacionam com complicações microvasculares (retinopatia, nefropatia, neuropatia) e macrovasculares (IAM, AVC)."
+      },
+      "colesterol total": {
+        fisiologia: "Lipídio essencial para síntese de membranas celulares, hormônios esteroides (cortisol, testosterona, estrogênio, progesterona), vitamina D e sais biliares. 70% produzido endogenamente pelo fígado via via do mevalonato. Transportado por lipoproteínas (LDL, HDL, VLDL).",
+        bioquimica: "Síntese hepática: Acetil-CoA → HMG-CoA → mevalonato (enzima HMG-CoA redutase-alvo estatinas) → esqualeno → lanosterol → colesterol. Regulação por SREBP e retroalimentação negativa. Absorção intestinal reduzida por fitosteróis e fibras.",
+        significado: "Valores baixos (<150mg/dL) podem indicar desnutrição, hipertireoidismo, má absorção ou deficiência na síntese hormonal. Valores muito altos (>240mg/dL) isoladamente menos relevante que frações LDL oxidado, sd-LDL e relação TG/HDL."
+      },
+      "hdl colesterol": {
+        fisiologia: "Lipoproteína de alta densidade responsável pelo transporte reverso de colesterol - remove colesterol de tecidos periféricos e placas ateroscleróticas levando ao fígado para excreção biliar. Ação anti-inflamatória, antioxidante e protetora endotelial. Sintetizada no fígado e intestino.",
+        bioquimica: "Partícula composta por apolipoproteína A-I (principal), fosfolípides e colesterol. Enzima LCAT (lecitina-colesterol aciltransferase) esterifica colesterol livre captado. Proteína CETP transfere colesterol para VLDL/LDL. Receptor SR-BI medeia captação hepática.",
+        significado: "HDL >60mg/dL protetor cardiovascular (fator negativo risco Framingham). HDL <40♂/<50♀mg/dL associado síndrome metabólica, resistência insulínica e aumento risco cardiovascular. HDL funcional mais importante que quantidade (avaliar HDL2b)."
+      },
+      "ldl colesterol": {
+        fisiologia: "Lipoproteína de baixa densidade transporta colesterol do fígado para tecidos periféricos. Fundamental para síntese hormonal e membranas mas excesso infiltra parede arterial iniciando aterogênese. Forma oxidada (oxLDL) é aterogênica - captada por macrófagos formando células espumosas.",
+        bioquimica: "Derivado de VLDL após hidrólise triglicérides pela LPL. Contém apolipoproteína B-100 que se liga a receptores LDL-R celulares via endocitose mediada. Estatinas inibem HMG-CoA redutase aumentando expressão LDL-R. Tamanho partícula: sd-LDL (pequeno-denso) mais aterogênico.",
+        significado: "LDL <100mg/dL ótimo, <130mg/dL ideal. LDL oxidado + inflamação (PCR alto) = aterosclerose acelerada. Mais importante: avaliar sd-LDL, apo-B, relação TG/HDL >3.5 indica dismetabolismo. LDL padrão A (grande-flutuante) menos aterogênico que padrão B."
+      },
+      "triglicerídeos": {
+        fisiologia: "Forma primária de armazenamento energético em adipócitos. Após refeição, triglicérides dietéticos são empacotados em quilomícrons no intestino. Fígado sintetiza TG a partir de glicose/frutose excessiva e os exporta via VLDL. Lipase lipoprotéica (LPL) hidrolisa TG liberando ácidos graxos para tecidos.",
+        bioquimica: "Estrutura: glicerol + 3 ácidos graxos. Síntese hepática via lipogênese de novo quando excesso carboidratos (especialmente frutose que bypassa controle glicólise). Excesso gera esteatose hepática. Catabolismo: lipase → glicerol + ácidos graxos → beta-oxidação mitocondrial → Acetil-CoA → ATP.",
+        significado: "TG >150mg/dL indica dismetabolismo glicídico, resistência insulínica, excesso frutose/álcool. TG >500mg/dL risco pancreatite aguda. TG/HDL >3.5 preditor potente síndrome metabólica. Triglicérides elevados → sd-LDL (aterogênico) + HDL baixo."
+      },
+      "ferritina": {
+        fisiologia: "Principal proteína de reserva de ferro intracelular (fígado, baço, medula óssea). Cada molécula armazena até 4500 átomos de ferro como Fe³⁺. Protege células do ferro livre (pró-oxidante). Liberação regulada por necessidade eritropoiética. Também é proteína de fase aguda (aumenta em inflamação).",
+        bioquimica: "Apoferritina (24 subunidades) + núcleo férrico. Síntese regulada por IRP (Iron Regulatory Proteins) que detectam ferro intracelular. Degradação lisossomal libera ferro para transferrina. Hepcidina (hormônio hepático) regula absorção intestinal e liberação esplênica de ferro.",
+        significado: "Ferritina <30ng/mL = depleção estoques ferro (anemia iminente). <15ng/mL = anemia ferropriva instalada. Ferritina >300ng/mL pode indicar inflamação, hemocromatose, síndrome metabólica, hepatopatia. Avaliar sempre com saturação transferrina e PCR para diferenciar."
+      },
+      "vitamina b12": {
+        fisiologia: "Cobalamina essencial para síntese DNA (divisão celular), metabolismo ácidos graxos, função neurológica (mielinização) e produção hemácias. Absorção requer fator intrínseco (estômago) + receptores ileais. Armazenada no fígado (reserva 3-5 anos). Necessária para converter homocisteína em metionina.",
+        bioquimica: "Cofator de metionina sintase (homocisteína→metionina) e metilmalonil-CoA mutase. Deficiência → acúmulo homocisteína (risco cardiovascular) e ácido metilmalônico. Ciclo folato-B12 interligado: deficiência B12 'prende' folato como metil-THF (armadilha folato).",
+        significado: "B12 <200pg/mL deficiência grave → anemia megaloblástica, neuropatia periférica, desmielinização (parestesias, ataxia), demência. Causas: anemia perniciosa, gastrectomia, vegetarianismo, metformina, IBP crônicos. Ideal >400pg/mL."
+      },
+      "pcr": {
+        fisiologia: "Proteína C-Reativa = marcador inflamatório agudo sintetizado pelo fígado em resposta a IL-6 e outras citocinas pró-inflamatórias. Ativa complemento, opsoniza patógenos e células apoptóticas. PCR-us (ultrassensível) detecta inflamação crônica de baixo grau associada a aterosclerose.",
+        bioquimica: "Pentâmero de 5 subunidades idênticas. Liga-se a fosforilcolina em membranas de células danificadas e patógenos. Ativa cascata complemento via C1q. Síntese hepática aumenta 1000x em 24-48h após estímulo (IL-6, IL-1, TNF-α). Meia-vida ~19h.",
+        significado: "PCR <1mg/L baixo risco cardiovascular. 1-3mg/L risco moderado. >3mg/L alto risco. PCR >10mg/L sugere processo infeccioso/inflamatório agudo. Combinado com LDL prediz eventos cardiovasculares melhor que LDL isolado (estudo JUPITER)."
+      },
+      "creatinina": {
+        fisiologia: "Produto final do metabolismo da creatina muscular. Produção constante proporcional à massa muscular. Filtrada livremente pelos glomérulos renais e excretada na urina (não reabsorvida). Creatinina sérica reflete Taxa de Filtração Glomerular (TFG) - principal marcador função renal.",
+        bioquimica: "Creatina-fosfato muscular (reserva energética ATP) → desidratação espontânea não-enzimática → creatinina. Produção ~1-2g/dia em adulto. Clearance creatinina = (Cr urina × volume) / Cr sérica. TFG estimada por fórmulas: CKD-EPI, MDRD considerando idade, sexo, raça.",
+        significado: "Creatinina >1.2mg/dL♀ ou >1.4mg/dL♂ sugere disfunção renal. Elevação tardia: creatinina só sobe após perda >50% função renal. TFG <60mL/min = doença renal crônica estágio 3. TFG <15 = estágio 5 (diálise). Causas: diabetes, HAS, nefropatias, desidratação, rabdomiólise."
+      },
+      "ureia": {
+        fisiologia: "Principal produto nitrogenado do catabolismo proteico. Sintetizada no fígado via ciclo da ureia a partir de amônia (tóxica). Excretada pelos rins - 40-50% reabsorvida passivamente nos túbulos. Menos específica que creatinina pois varia com dieta proteica, hidratação e catabolismo.",
+        bioquimica: "Ciclo da ureia (mitocôndria + citoplasma hepática): NH₃ + CO₂ + aspartato → citrulina → arginina → ureia + ornitina. Requer ATP. Ureia não-tóxica, pequena, difunde livremente. Reabsorção tubular dependente de fluxo urinário (desidratação ↑ ureia desproporcional à creatinina).",
+        significado: "Ureia 10-50mg/dL normal. Ureia >50mg/dL: insuficiência renal, desidratação, dieta hiperproteica, catabolismo (febre, jejum, corticoides). Relação Ureia/Creatinina >20:1 sugere causa pré-renal (desidratação, sangramento GI). <10:1 sugere hepatopatia."
+      },
+      "tgo": {
+        fisiologia: "Aspartato aminotransferase (AST/TGO) = enzima mitocondrial e citosólica presente em fígado, coração, músculo, rins, hemácias. Catalisa transferência grupo amino de aspartato para α-cetoglutarato formando oxaloacetato. Liberada na corrente quando lesão celular.",
+        bioquimica: "Transaminase dependente de piridoxal-fosfato (vitamina B6). Presente em mitocôndrias (AST-m) e citoplasma (AST-c). Elevação indica morte/necrose celular. Meia-vida plasmática ~17h. Relação AST/ALT >2 sugere hepatopatia alcoólica. <1 sugere esteatose não-alcoólica.",
+        significado: "TGO normal <40 U/L. Elevação leve (40-150): esteatose, medicamentos. Moderada (150-400): hepatite viral/medicamentosa. Grave (>400): hepatite aguda, isquemia hepática, toxicidade. TGO>TGP: álcool, cirrose. TGO<TGP: esteatose, hepatite C."
+      },
+      "tgp": {
+        fisiologia: "Alanina aminotransferase (ALT/TGP) = enzima principalmente hepática (citoplasma hepatócitos). Catalisa transferência grupo amino de alanina para α-cetoglutarato. Mais específica para fígado que TGO. Indicador sensível de lesão hepatocelular.",
+        bioquimica: "Transaminase dependente vitamina B6. Exclusivamente citosólica. Concentração hepática 3000x maior que plasma. Meia-vida ~47h (mais longa que TGO). Liberada em necrose hepatócitos. Valores mais altos que TGO em esteatose hepática não-alcoólica (NASH).",
+        significado: "TGP normal <40 U/L. Elevação principal marcador hepatopatia. TGP isoladamente elevada sugere esteatose hepática (NAFLD/NASH). TGP >1000: hepatite viral aguda, toxicidade medicamentosa (paracetamol), isquemia hepática. Avaliar com GGT, fosfatase alcalina, ultrassom."
+      },
+      "ggt": {
+        fisiologia: "Gama-glutamil transferase = enzima da membrana células hepáticas, vias biliares, pâncreas, rins. Envolvida no metabolismo glutationa e transporte aminoácidos. Marcador colestase e consumo álcool. Induzida por álcool e drogas (fenobarbital, fenitoína).",
+        bioquimica: "Localizada em membranas celulares, especialmente canalículos biliares. Catalisa transferência grupo γ-glutamil de glutationa para peptídeos. Altamente sensível a álcool (indução enzimática). Elevação precoce em obstrução biliar antes fosfatase alcalina.",
+        significado: "GGT normal <50 U/L. GGT isolada elevada: álcool crônico (sensibilidade 70%), síndrome metabólica, esteatose. GGT + FA elevadas: colestase (obstrução biliar, colangite, cirrose biliar). GGT + transaminases: hepatopatia mista. GGT preditor independente mortalidade cardiovascular."
+      },
+      "ácido úrico": {
+        fisiologia: "Produto final do metabolismo das purinas (adenina, guanina) de DNA/RNA e ATP. 70% excretado pelos rins (2/3 filtrado + secretado, 1/3 reabsorvido URAT1). 30% excretado intestino. Balanço entre produção (dieta + catabolismo) e excreção. Tem função antioxidante em baixas doses.",
+        bioquimica: "Xantina oxidase converte hipoxantina → xantina → ácido úrico. Alopurinol inibe esta enzima. Excesso precipita cristais monourato de sódio em articulações (gota), rins (litíase) em pH ácido. Frutose aumenta produção AU via degradação ATP. Álcool reduz excreção.",
+        significado: "AU normal: ♂<7mg/dL, ♀<5.7mg/dL. Hiperuricemia >7: risco gota, litíase renal, síndrome metabólica (resistência insulínica reduz excreção). AU >9: alto risco gota aguda. Causas: frutose, álcool, diuréticos, IR, dieta rica purinas. AU baixo <2: síndrome Fanconi."
+      },
+      "homocisteína": {
+        fisiologia: "Aminoácido sulfurado produzido no metabolismo da metionina. Remetilado em metionina (via B12+folato) ou convertido em cisteína (via B6). Homocisteína elevada é fator risco cardiovascular independente - lesão endotelial, estresse oxidativo, pró-trombótico.",
+        bioquimica: "Metionina → S-adenosilmetionina (SAM-doador metil) → S-adenosilhomocisteína → homocisteína. Via remetilação: homocisteína + metil-THF (folato) → metionina (B12 cofator). Via trans-sulfuração: homocisteína + serina → cistationina (B6 cofator) → cisteína. Deficiências vitamínicas ou polimorfismo MTHFR elevam homocisteína.",
+        significado: "Homocisteína ideal <7μmol/L, normal <15μmol/L. >15μmol/L hiperhomocisteinemia moderada - risco cardiovascular aumenta 3-4x. Cada 5μmol/L elevação = +23% risco IAM. Causas: deficiência B12/B6/folato, MTHFR C677T, IR, hipotireoidismo. Tratamento: B12+folato+B6+TMG."
+      },
+      "insulina": {
+        fisiologia: "Hormônio anabólico secretado por células β pancreáticas em resposta à glicose (e aminoácidos). Promove captação glicose via GLUT4 (músculo/gordura), síntese glicogênio, lipogênese, síntese proteica. Inibe gliconeogênese, lipólise, cetogênese. Hormônio mais anabólico do corpo.",
+        bioquimica: "Pró-insulina clivada em insulina (cadeia A+B ponte dissulfeto) + peptídeo-C. Receptor insulina (RTK) → fosforilação IRS → cascata PI3K-AKT → translocação GLUT4, ativação glicogênio sintase, inibição GSK-3. Resistência insulínica = defeito pós-receptor (inflamação, lipotoxicidade).",
+        significado: "Insulina jejum ideal <5μUI/mL, normal <10μUI/mL. >10-15μUI/mL = resistência insulínica precoce (hiperinsulinemia compensatória). HOMA-IR >2.5 = resistência insulínica. Insulina alta + glicemia normal = fase inicial DM2. Insulina baixa + hiperglicemia = DM1 ou DM2 avançado (falência β-células)."
+      },
+      "leucócitos": {
+        fisiologia: "Glóbulos brancos do sistema imune. 5 tipos: neutrófilos (60-70% - fagocitose bactérias), linfócitos (20-40% - imunidade adaptativa T/B), monócitos (2-10% - fagocitose, diferenciação macrófagos), eosinófilos (1-6% - parasitas, alergias), basófilos (<1% - histamina).",
+        bioquimica: "Produzidos na medula óssea a partir células-tronco hematopoiéticas. Citocinas regulam: G-CSF (granulócitos), M-CSF (monócitos), IL-7 (linfócitos). Neutrófilos: vida curta 6-8h, migração quimiotática, fagocitose, burst oxidativo (peróxido, superóxido). Linfócitos: memória imunológica.",
+        significado: "Leucócitos normais 4000-11000/mm³. Leucocitose >11000: infecções bacterianas, inflamação, leucemia, estresse, corticoides, tabagismo. Leucopenia <4000: viroses, quimioterapia, imunodeficiências, HIV, lupus, desnutrição. Avaliar diferencial leucocitário."
+      },
+      "plaquetas": {
+        fisiologia: "Trombócitos - fragmentos citoplasmáticos de megacariócitos (medula óssea). Função hemostática: adesão (vWF+colágeno), ativação (ADP, TXA₂, trombina), agregação (fibrinogênio+GPIIb/IIIa). Formam tampão plaquetário + coagulação = hemostasia. Vida 7-10 dias.",
+        bioquimica: "Contêm grânulos densos (ADP, serotonina, Ca²⁺) e grânulos-α (fatores crescimento, fibrinogênio, vWF). Ativação plaquetária: mudança forma, degranulação, ativação GPIIb/IIIa. Tromboxano A₂ amplifica agregação. Prostaciclina e NO endotelial inibem. Trombopoietina regula produção.",
+        significado: "Plaquetas normais 150.000-450.000/mm³. Trombocitopenia <150.000: autoimune (PTI), medicamentos, viroses, hiperesplenismo, deficiência folato/B12. <50.000 risco sangramento. <20.000 grave. Trombocitose >450.000: ferropenia, inflamação, neoplasia, trombocitose essencial. >1.000.000 risco trombose paradoxal."
+      },
+      "hematócrito": {
+        fisiologia: "Percentual do volume sanguíneo ocupado por eritrócitos. Reflete massa eritrocitária total. Correlaciona diretamente com hemoglobina (Hb% × 3 ≈ Hct%). Afetado por hidratação: desidratação aumenta, hiper-hidratação diminui. Índice da viscosidade sanguínea.",
+        bioquimica: "Hematócrito = (volume eritrócitos / volume sangue total) × 100. Normal: ♂ 40-54%, ♀ 37-47%. Centrifugação separa plasma de eritrócitos. VCM = (Hct × 10) / eritrócitos. Hct alto aumenta viscosidade exponencialmente - Hct >55% aumenta risco trombótico.",
+        significado: "Hematócrito baixo: anemia (correlaciona Hb). Causas iguais anemia. Hematócrito alto >54%: policitemia vera, policitemia secundária (DPOC, apneia sono, altitude, tabagismo), desidratação. Hct >60% hiperviscosidade - risco AVC, IAM, trombose. Hidratação corrige se desidratação."
+      },
+      "vcm": {
+        fisiologia: "Volume Corpuscular Médio = tamanho médio dos eritrócitos em femtolitros (fL). VCM = (Hematócrito × 10) / eritrócitos. Classifica anemias morfologicamente: microcítica (<80fL), normocítica (80-100fL), macrocítica (>100fL). Índice fundamental diagnóstico diferencial anemias.",
+        bioquimica: "Tamanho eritrócito reflete síntese hemoglobina e divisões celulares. Eritroblastos se dividem até acumularem Hb suficiente. Falta ferro/talassemia → múltiplas divisões → células pequenas (microcitose). Falta B12/folato → síntese DNA prejudicada → menos divisões → células grandes (macrocitose).",
+        significado: "VCM normal 80-100fL. VCM baixo <80fL (microcítica): anemia ferropriva (principal), talassemia, anemia doença crônica. VCM alto >100fL (macrocítica): deficiência B12/folato, álcool, hipotireoidismo, medicamentos (metotrexato, AZT). VCM + RDW diferenciam causas."
+      }
+    };
+    const key = exame.toLowerCase().trim();
+    return dados[key] || {
+      fisiologia: "Dados de fisiologia não disponíveis para este exame.",
+      bioquimica: "Dados de bioquímica não disponíveis para este exame.",
+      significado: "Avaliar contexto clínico completo."
+    };
+  };
+
+  // Análise por QUINTIL (divide faixa em 5 partes) ao invés de apenas min-max
+  const analisarPorQuintil = (valor, rangeRef, rangeIdeal) => {
+    if (!rangeRef || isNaN(valor)) return null;
+    
+    const { min, max } = rangeRef;
+    const amplitude = max - min;
+    
+    // Define os 5 quintis
+    const q1 = min;
+    const q2 = min + amplitude * 0.25;
+    const q3 = min + amplitude * 0.50;  // Mediana
+    const q4 = min + amplitude * 0.75;
+    const q5 = max;
+    
+    // Verifica em qual quintil o valor está
+    let quintil, status, descricao;
+    
+    if (valor < q1) {
+      quintil = 0;
+      status = 'muito-baixo';
+      descricao = `Muito Abaixo do Mínimo (< ${q1.toFixed(1)})`;
+    } else if (valor >= q1 && valor < q2) {
+      quintil = 1;
+      status = 'baixo';
+      descricao = `Quintil 1 - Baixo (${q1.toFixed(1)} - ${q2.toFixed(1)})`;
+    } else if (valor >= q2 && valor < q3) {
+      quintil = 2;
+      status = 'abaixo-medio';
+      descricao = `Quintil 2 - Abaixo da Média (${q2.toFixed(1)} - ${q3.toFixed(1)})`;
+    } else if (valor >= q3 && valor < q4) {
+      quintil = 3;
+      status = 'medio';
+      descricao = `Quintil 3 - Médio (${q3.toFixed(1)} - ${q4.toFixed(1)})`;
+    } else if (valor >= q4 && valor <= q5) {
+      quintil = 4;
+      status = 'alto-normal';
+      descricao = `Quintil 4 - Alto-Normal (${q4.toFixed(1)} - ${q5.toFixed(1)})`;
+    } else {
+      quintil = 5;
+      status = 'muito-alto';
+      descricao = `Muito Acima do Máximo (> ${q5.toFixed(1)})`;
+    }
+    
+    // Comparar com valores ideais se disponível
+    let proximidadeIdeal = '';
+    if (rangeIdeal) {
+      const idealMin = rangeIdeal.min;
+      const idealMax = rangeIdeal.max;
+      
+      if (valor >= idealMin && valor <= idealMax) {
+        proximidadeIdeal = `✅ DENTRO DO IDEAL (${idealMin.toFixed(1)}-${idealMax.toFixed(1)})`;
+      } else if (valor < idealMin) {
+        // Calcula quanto falta para o ideal (baseado no ideal, interpretação padrão médica)
+        const percDistancia = ((idealMin - valor) / idealMin * 100).toFixed(0);
+        const distanciaAbsoluta = (idealMin - valor).toFixed(2);
+        proximidadeIdeal = `⬇️ ${percDistancia}% abaixo do mínimo ideal (falta ${distanciaAbsoluta})`;
+      } else {
+        // Calcula quanto excede o ideal (baseado no ideal, interpretação padrão médica)
+        const percDistancia = ((valor - idealMax) / idealMax * 100).toFixed(0);
+        const distanciaAbsoluta = (valor - idealMax).toFixed(2);
+        proximidadeIdeal = `⬆️ ${percDistancia}% acima do máximo ideal (excede ${distanciaAbsoluta})`;
+      }
+    }
+    
+    return { quintil, status, descricao, proximidadeIdeal };
+  };
+
+
+  // Gera interpretação automática usando ANÁLISE POR QUINTIL com base no perfil do paciente
+  const gerarInterpretacao = (resultado, valoresReferencia, valoresIdeais, exameCompleto = null) => {
+    const valor = parseFloat(resultado.replace(/[^\d.]/g, ''));
+    if (isNaN(valor)) return '';
+    
+    // Se temos o objeto do exame completo, usar valores por perfil
+    let rangeRef, rangeIdeal;
+    
+    if (exameCompleto && typeof exameCompleto === 'object') {
+      rangeRef = obterValoresPorPerfil(exameCompleto, perfilPaciente, 'referencia');
+      rangeIdeal = obterValoresPorPerfil(exameCompleto, perfilPaciente, 'ideais');
+    } else {
+      // Fallback para formato legado
+      rangeRef = parseRange(valoresReferencia, perfilPaciente);
+      rangeIdeal = parseRange(valoresIdeais, perfilPaciente);
+    }
+    
+    if (!rangeRef) return 'Verificar manualmente';
+    
+    // Usa análise por quintil
+    const analise = analisarPorQuintil(valor, rangeRef, rangeIdeal);
+    
+    if (!analise) return 'Verificar manualmente';
+    
+    // Retorna descrição detalhada por quintil + proximidade do ideal
+    return `${analise.descricao}\n${analise.proximidadeIdeal}`;
+  };
+
+  // Gera CONDUTA TERAPÊUTICA COMPLETA - Naturopatia, Nutracêuticos, Fitoterapia, Homeopatia, Florais Quânticos e Frequenciais
+  const gerarConduta = (exame, interpretacao, resultado) => {
+    const nome = exame.toLowerCase();
+    const valor = parseFloat(resultado.replace(/[^\d.]/g, ''));
+    
+    // Se ideal, manutenção
+    if (interpretacao.includes('DENTRO DO IDEAL')) {
+      return `✅ MANUTENÇÃO:\n• Reavaliar em 6-12 meses\n• Manter estilo de vida saudável\n• Suplementação preventiva sazonal`;
+    }
+    
+    let conduta = [];
+    
+    // ====================HEMOGLOBINA - ANEMIA====================
+    if (nome.includes('hemoglobina') && interpretacao.includes('Baixo')) {
+      const gravidade = valor < 10 ? 'GRAVE' : valor < 12 ? 'MODERADA' : 'LEVE';
+      
+      conduta.push(`\n🔴 ANEMIA ${gravidade} - PROTOCOLO COMPLETO\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• Ferro quelado (bisglicinato ferroso): 30-60mg/dia EM JEJUM');
+      conduta.push('• Vitamina C: 500-1000mg junto com ferro (aumenta absorção 3-4x)');
+      conduta.push('• Vitamina B12 (metilcobalamina): 1000-2000mcg sublingual/dia');
+      conduta.push('• Ácido fólico (metilfolato): 800mcg-1mg/dia');
+      conduta.push('• Vitamina B6 (P5P): 50mg/dia - cofator síntese hemoglobina');
+      conduta.push('• Cobre: 2mg/dia - facilita incorporação ferro na hemoglobina');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Urtica dioica (Urtiga) tintura: 30 gotas 3x/dia - rica em ferro orgânico e clorofila');
+      conduta.push('• Spirulina: 3-5g/dia - fonte ferro, B12 e proteína biodisponível');
+      conduta.push('• Clorofila líquida: 1 colher sopa 2x/dia - estrutura similar hemoglobina, estimula eritropoiese');
+      conduta.push('• Gentiana lutea: 20 gotas antes refeições - aumenta absorção ferro via estimulação HCl');
+      conduta.push('• Tabebuia impetiginosa (Ipê-roxo): 500mg 2x/dia - imunoestimulante, anti-anêmico');
+      
+      conduta.push('\n💊 HOMEOPATIA:');
+      conduta.push('• Ferrum metallicum 30CH: 5 gotas 2x/dia - anemia ferropriva clássica');
+      conduta.push('• China officinalis 30CH: 5 gotas 2x/dia se sangramento/perda de fluidos');
+      conduta.push('• Phosphorus 30CH: 5 gotas 2x/dia se tendência hemorragias');
+      conduta.push('• Calcarea phosphorica 6CH: 5 gotas 2x/dia - anemia por má assimilação');
+      
+      conduta.push('\n🌸 FLORAIS QUÂNTICOS:');
+      conduta.push('• Hornbeam (Carpinus): fadiga mental - 4 gotas 4x/dia');
+      conduta.push('• Olive (Olea): exaustão profunda - 4 gotas 4x/dia');
+      conduta.push('• Wild Rose (Rosa canina): apatia, falta vitalidade - 4 gotas 4x/dia');
+      
+      conduta.push('\n⚡ FREQUENCIAIS QUÂNTICOS:');
+      conduta.push('• Frequência 7.83Hz (Schumann): regeneração celular - 20min/dia');
+      conduta.push('• 528Hz (Reparação DNA): estimula produção eritrócitos - 15min 2x/dia');
+      conduta.push('• Biomagnetismo: par biomagnético Timo-Timo + Bulbo-Bulbo - 20min 3x/semana');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA:');
+      conduta.push('• Fígado bovino orgânico: 100g 2-3x/semana (maior fonte ferro heme)');
+      conduta.push('• Beterraba crua: suco 200ml/dia - estimula eritropoiese');
+      conduta.push('• Folhas verde-escuras: couve, espinafre, agrião - ferro não-heme + ácido fólico');
+      conduta.push('• Melaço blackstrap: 1 colher sopa/dia - ferro + minerais');
+      conduta.push('• EVITAR: café, chá preto, laticínios junto com ferro (reduzem absorção)');
+      
+      conduta.push('\n⚠️ INVESTIGAR: sangramento oculto, má absorção intestinal, parasitoses, deficiência B12/folato');
+      conduta.push('📅 REAVALIAR: hemograma completo + ferritina em 30-45 dias');
+    }
+    
+    // ====================GLICEMIA ALTA - DIABETES/PRÉ-DIABETES====================
+    else if ((nome.includes('glicemia') || nome.includes('hba1c')) && (interpretacao.includes('Alto') || interpretacao.includes('Acima'))) {
+      const hba1c = nome.includes('hba1c');
+      const gravidade = (hba1c && valor > 8) || (!hba1c && valor > 200) ? 'GRAVE' : 
+                        (hba1c && valor > 6.5) || (!hba1c && valor > 126) ? 'DIABETES' : 'PRÉ-DIABETES';
+      
+      conduta.push(`\n🔴 ${gravidade} - PROTOCOLO METABÓLICO COMPLETO\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• Berberina: 500mg 3x/dia ANTES refeições - efeito similar metformina, ativa AMPK');
+      conduta.push('• Cromo picolinato: 200-400mcg/dia - aumenta sensibilidade insulina, melhora GLUT4');
+      conduta.push('• Magnésio glicinato: 400-600mg/dia - cofator 300+ enzimas, reduz resistência insulínica');
+      conduta.push('• Ácido alfa-lipóico (R-ALA): 600mg/dia - antioxidante, melhora captação glicose');
+      conduta.push('• Canela (extrato 20:1): 500mg 2x/dia - mimetiza insulina, reduz glicemia 20-30%');
+      conduta.push('• Gymnema sylvestre: 400mg 2x/dia - bloqueia receptores doce, regenera células-β');
+      conduta.push('• Coenzima Q10 ubiquinol: 100-200mg/dia - protege mitocôndrias do estresse oxidativo');
+      conduta.push('• Ômega-3 (EPA/DHA): 2-3g/dia - reduz inflamação, melhora sensibilidade insulina');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Momordica charantia (Melão-de-são-caetano): 500mg 3x/dia - hipoglicemiante potente');
+      conduta.push('• Bauhinia forficata (Pata-de-vaca): chá 3x/dia - insulino-símile, reduz glicemia');
+      conduta.push('• Morus nigra (Amora): 400mg 2x/dia - inibe alfa-glicosidase, reduz picos pós-prandiais');
+      conduta.push('• Trigonella foenum-graecum (Feno-grego): 2g sementes/dia - fibras reduzem absorção glicose');
+      conduta.push('• Stevia rebaudiana: adoçante natural + propriedades hipoglicemiantes');
+      conduta.push('• Silybum marianum (Cardo-mariano): 300mg 2x/dia - hepatoprotetor, melhora metabolismo glicose');
+      
+      conduta.push('\n💊 HOMEOPATIA:');
+      conduta.push('• Syzygium jambolanum 6CH: 5 gotas 3x/dia - diabetes com muita sede e urina');
+      conduta.push('• Phosphoricum acidum 30CH: 5 gotas 2x/dia - diabetes com fraqueza mental');
+      conduta.push('• Uranium nitricum 6CH: 5 gotas 2x/dia - diabetes avançado com perda peso');
+      conduta.push('• Insulin 30CH: 5 gotas 1x/dia - isoterapia regulação glicêmica');
+      
+      conduta.push('\n🌸 FLORAIS QUÂNTICOS:');
+      conduta.push('• Cherry Plum: descontrole, compulsão alimentar - 4 gotas 4x/dia');
+      conduta.push('• Impatiens: ansiedade, impulsividade - 4 gotas 4x/dia');
+      conduta.push('• Agrimony: ansiedade oculta por doces - 4 gotas 4x/dia');
+      
+      conduta.push('\n⚡ FREQUENCIAIS QUÂNTICOS:');
+      conduta.push('• 639Hz (Harmonização pâncreas): 15min 2x/dia');
+      conduta.push('• 285Hz (Regeneração tecidual): estimula células-β pancreáticas - 20min/dia');
+      conduta.push('• Biomagnetismo: Páncreas-Páncreas + Fígado-Fígado - 20min 4x/semana');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA (ESSENCIAL):');
+      conduta.push('• DIETA LOW-CARB (<50g carboidratos/dia) ou CETOGÊNICA (<20g/dia)');
+      conduta.push('• JEJUM INTERMITENTE 16/8 - aumenta sensibilidade insulina 30-40%');
+      conduta.push('• Eliminar 100%: açúcar, farinhas refinadas, sucos, refrigerantes, álcool');
+      conduta.push('• Priorizar: proteínas (1.5-2g/kg), gorduras boas (abacate, azeite, castanhas), fibras');
+      conduta.push('• Índice glicêmico baixo: vegetais folhosos, brócolis, couve-flor, berinjela');
+      conduta.push('• Vinagre de maçã: 1-2 colheres sopa antes refeições (reduz pico glicêmico 30%)');
+      
+      conduta.push('\n🏃 EXERCÍCIO:');
+      conduta.push('• HIIT (Alta Intensidade): 20min 3-4x/semana - aumenta GLUT4, queima glicose');
+      conduta.push('• Musculação: 3-4x/semana - músculo é maior captador glicose');
+      conduta.push('• Caminhada pós-refeição: 15min - reduz glicemia pós-prandial 20-30%');
+      
+      conduta.push('\n⚠️ INVESTIGAR: resistência insulínica (insulina jejum), HOMA-IR, peptídeo C');
+      conduta.push('📅 REAVALIAR: glicemia + HbA1c em 60-90 dias | Monitorar glicemia capilar diário');
+    }
+    
+    // ====================COLESTEROL/LDL ALTO====================
+    else if ((nome.includes('colesterol') || nome.includes('ldl')) && interpretacao.includes('Alto')) {
+      conduta.push(`\n🔴 DISLIPIDEMIA - PROTOCOLO CARDIOPROTETOR\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• Ômega-3 concentrado (EPA/DHA): 2-3g/dia - reduz triglicérides 30-50%, eleva HDL');
+      conduta.push('• Coenzima Q10 (ubiquinol): 100-200mg/dia - antioxidante, protege LDL oxidação');
+      conduta.push('• Niacina (B3 flush): 500mg-2g/dia (iniciar baixo) - eleva HDL 20-35%, reduz Lp(a)');
+      conduta.push('• Berberina: 500mg 3x/dia - reduz LDL 20-30% via inibição PCSK9');
+      conduta.push('• Arroz vermelho fermentado: 600mg 2x/dia - contém monacolina K (estatina natural)');
+      conduta.push('• Fitosteróis (beta-sitosterol): 2-3g/dia - bloqueiam absorção colesterol intestinal');
+      conduta.push('• Lecitina de soja: 2-3 colheres sopa/dia - emulsifica gorduras');
+      conduta.push('• Vitamina K2 MK-7: 180-360mcg/dia - direciona cálcio, protege artérias');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Allium sativum (Alho): 600-900mg extrato envelhecido/dia - reduz LDL 10-15%');
+      conduta.push('• Cynara scolymus (Alcachofra): 600mg 3x/dia - hepatoprotetor, reduz colesterol síntese');
+      conduta.push('• Curcuma longa (Cúrcuma): 1000mg 2x/dia c/ piperina - anti-inflamatório, reduz oxLDL');
+      conduta.push('• Camellia sinensis (Chá verde): 3-5 xícaras/dia - catequinas reduzem LDL, previnem oxidação');
+      conduta.push('• Silybum marianum (Cardo-mariano): 300mg 2x/dia - regenera fígado, modula síntese colesterol');
+      conduta.push('• Plantago ovata (Psyllium): 10-15g/dia - fibras solúveis reduzem LDL 10-20%');
+      
+      conduta.push('\n💊 HOMEOPATIA:');
+      conduta.push('• Cholesterinum 30CH: 5 gotas 1x/dia - isoterapia hipercolesterolemia');
+      conduta.push('• Chelidonium majus 6CH: 5 gotas 3x/dia - disfunção hepatobiliar');
+      conduta.push('• Lycopodium 30CH: 5 gotas 2x/dia - meteorismo, fígado sobrecarregado');
+      conduta.push('• Nux vomica 30CH: 5 gotas 2x/dia - excesso alimentar, sedentarismo');
+      
+      conduta.push('\n🌸 FLORAIS QUÂNTICOS:');
+      conduta.push('• Crab Apple: desintoxicação, purificação - 4 gotas 4x/dia');
+      conduta.push('• Impatiens: estresse, tensão - 4 gotas 4x/dia');
+      conduta.push('• Cherry Plum: compulsão, descontrole - 4 gotas 4x/dia');
+      
+      conduta.push('\n⚡ FREQUENCIAIS QUÂNTICOS:');
+      conduta.push('• 528Hz (Reparação DNA/celular): proteção cardiovascular - 20min/dia');
+      conduta.push('• 174Hz (Analgésico, reduz estresse): 15min 2x/dia');
+      conduta.push('• Biomagnetismo: Fígado-Fígado + Coração-Coração - 20min 3x/semana');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA:');
+      conduta.push('• DIETA MEDITERRÂNEA ou CETOGÊNICA (baixo carbo)');
+      conduta.push('• Azeite extra-virgem: 2-3 colheres sopa/dia - polifenóis reduzem oxLDL');
+      conduta.push('• Nozes, amêndoas, castanhas: 30-60g/dia - eleva HDL, reduz LDL');
+      conduta.push('• Peixes gordos: salmão, sardinha 3-4x/semana - ômega-3');
+      conduta.push('• Abacate: 1/2-1 unidade/dia - gorduras monoinsaturadas');
+      conduta.push('• Aveia: 40-60g/dia - beta-glucana reduz LDL 5-10%');
+      conduta.push('• ELIMINAR: gorduras trans, óleos vegetais refinados, açúcar, farinhas brancas');
+      
+      conduta.push('\n📅 REAVALIAR: perfil lipídico + apo-B + PCR em 60-90 dias');
+    }
+    
+    // ====================HDL BAIXO====================
+    else if (nome.includes('hdl') && interpretacao.includes('Baixo')) {
+      conduta.push(`\n🔴 HDL BAIXO - PROTOCOLO CARDIOPROTETOR\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• Niacina (B3 flush): 500mg-2g/dia gradual - eleva HDL 20-35% (máximo efeito)');
+      conduta.push('• Ômega-3: 2-3g/dia - eleva HDL 5-10%, melhora qualidade HDL');
+      conduta.push('• Resveratrol: 200-500mg/dia - ativa sirtuínas, protege cardiovascular');
+      conduta.push('• Coenzima Q10: 100-200mg/dia - antioxidante mitocondrial');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Camellia sinensis (Chá verde): 3-5 xícaras/dia - catequinas elevam HDL');
+      conduta.push('• Allium sativum (Alho): 600mg/dia - modula lipídios');
+      conduta.push('• Curcuma longa: 1000mg 2x/dia - anti-inflamatório');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA:');
+      conduta.push('• Gorduras monoinsaturadas: azeite, abacate, oleaginosas');
+      conduta.push('• Óleo de coco: 1-2 colheres sopa/dia - eleva HDL');
+      conduta.push('• Vinho tinto: 1 taça/dia (opcional) - resveratrol');
+      conduta.push('• ELIMINAR: gorduras trans, açúcar refinado');
+      
+      conduta.push('\n🏃 EXERCÍCIO (ESSENCIAL):');
+      conduta.push('• Aeróbico: 30-45min 5x/semana - eleva HDL 5-10mg/dL');
+      conduta.push('• HIIT: 20min 3x/semana - máximo efeito HDL');
+      
+      conduta.push('\n📅 REAVALIAR: perfil lipídico em 90 dias');
+    }
+    
+    // ====================VITAMINA D BAIXA====================
+    else if (nome.includes('vitamina d') && interpretacao.includes('Baixo')) {
+      const gravidade = valor < 20 ? 'DEFICIÊNCIA GRAVE' : valor < 30 ? 'INSUFICIÊNCIA' : 'BAIXO';
+      
+      conduta.push(`\n🔴 ${gravidade} - PROTOCOLO REPOSIÇÃO\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• Vitamina D3 (colecalciferol):');
+      if (valor < 20) conduta.push('  → ATAQUE: 10.000 UI/dia por 30 dias');
+      if (valor < 30) conduta.push('  → MANUTENÇÃO: 5.000-7.000 UI/dia');
+      conduta.push('• Magnésio: 400-600mg/dia - cofator conversão D3→25(OH)D');
+      conduta.push('• Vitamina K2 MK-7: 180mcg/dia - sinergia D3, direciona cálcio');
+      conduta.push('• Cálcio: 1000-1200mg/dia se deficiente');
+      conduta.push('• Boron: 3-6mg/dia - aumenta meia-vida vitamina D');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Cogumelos shitake/maitake: vitamina D2 + imunomodulação');
+      conduta.push('• Óleo de fígado de bacalhau: D3 + ômega-3 + vitamina A');
+      
+      conduta.push('\n⚡ FREQUENCIAIS:');
+      conduta.push('• 741Hz (Desintoxicação): estimula metabolismo D3');
+      
+      conduta.push('\n☀️ EXPOSIÇÃO SOLAR (ESSENCIAL):');
+      conduta.push('• 15-30min/dia: braços e pernas expostos, sem protetor solar');
+      conduta.push('• Melhor: 10h-15h (maior índice UV)');
+      conduta.push('• Pele clara: 15min | Pele escura: 30-40min');
+      
+      conduta.push('\n📅 REAVALIAR: 25(OH)D em 60-90 dias (alvo >50ng/mL, ideal 60-80ng/mL)');
+    }
+    
+    // ====================TSH ALTO - HIPOTIREOIDISMO====================
+    else if (nome.includes('tsh') && interpretacao.includes('Alto')) {
+      conduta.push(`\n🔴 HIPOTIREOIDISMO - PROTOCOLO TIREOIDIANO\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• Iodo (Lugol 2%): 1-2 gotas/dia ou 12.5mg Iodoral - essencial síntese T3/T4');
+      conduta.push('• Selênio (selenometionina): 200mcg/dia - cofator deiodinase (T4→T3)');
+      conduta.push('• Zinco: 30mg/dia - receptor tireoidiano, conversão T4→T3');
+      conduta.push('• Vitamina A: 10.000 UI/dia - receptor hormônio tireoidiano');
+      conduta.push('• Vitamina D3: 5.000 UI/dia - modula autoimunidade');
+      conduta.push('• Ômega-3: 2-3g/dia - anti-inflamatório, reduz TPO');
+      conduta.push('• L-tirosina: 500-1000mg/dia em jejum - precursor T3/T4');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Commiphora mukul (Guggul): 500mg 2x/dia - estimula captação iodo');
+      conduta.push('• Fucus vesiculosus (Fucus): 200mg 2x/dia - rico iodo natural');
+      conduta.push('• Withania somnifera (Ashwagandha): 600mg 2x/dia - adaptógeno, eleva T3/T4');
+      conduta.push('• Bacopa monnieri: 300mg 2x/dia - cognição, tireoide');
+      
+      conduta.push('\n💊 HOMEOPATIA:');
+      conduta.push('• Thyroidinum 30CH: 5 gotas 1x/dia - isoterapia');
+      conduta.push('• Calcarea carbonica 30CH: 5 gotas 2x/dia - metabolismo lento, ganho peso');
+      conduta.push('• Graphites 30CH: 5 gotas 2x/dia - hipotireoidismo com constipação');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA:');
+      conduta.push('• Dieta anti-inflamatória, sem glúten (se autoimune)');
+      conduta.push('• Peixes: iodo + selênio + ômega-3');
+      conduta.push('• Castanha-do-pará: 2-3 unidades/dia (selênio)');
+      conduta.push('• EVITAR: soja, crucíferas cruas em excesso (bociogênicos)');
+      
+      conduta.push('\n⚠️ INVESTIGAR: T3 livre, T4 livre, anti-TPO, anti-TG, ecografia tireoide');
+      conduta.push('📅 REAVALIAR: TSH + T3L + T4L em 60 dias');
+    }
+    
+    // ====================TRIGLICERÍDEOS ALTO====================
+    else if (nome.includes('triglicerídeos') || nome.includes('triglicerides') || nome.includes('triglicérides')) {
+      const gravidade = valor > 500 ? 'MUITO ALTO' : valor > 200 ? 'ALTO' : 'ELEVADO';
+      
+      conduta.push(`\n🔴 TRIGLICERÍDEOS ${gravidade}\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• Ômega-3 concentrado (EPA/DHA): 3-4g/dia - reduz TG 25-45%');
+      conduta.push('• Berberina: 500mg 3x/dia - reduz TG via AMPK');
+      conduta.push('• Niacina (B3): 1-2g/dia - reduz TG 30-50%, aumentar gradual');
+      conduta.push('• Cromo: 400mcg/dia - melhora metabolismo glicose/lipídios');
+      conduta.push('• Magnésio: 600mg/dia - cofator metabolismo lipídico');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Allium sativum (Alho): 900mg/dia - reduz TG 10-15%');
+      conduta.push('• Cynara scolymus (Alcachofra): 1800mg/dia - hepatoprotetor');
+      conduta.push('• Camellia sinensis (Chá verde): 4-5 xícaras/dia');
+      
+      conduta.push('\n💊 HOMEOPATIA:');
+      conduta.push('• Cholesterinum 30CH: 5 gotas 1x/dia');
+      conduta.push('• Calcarea carbonica 30CH: 5 gotas 2x/dia se obesidade');
+      
+      conduta.push('\n🌸 FLORAIS:');
+      conduta.push('• Cherry Plum: compulsão alimentar - 4 gotas 4x/dia');
+      conduta.push('• Agrimony: ansiedade compensada por doces - 4 gotas 4x/dia');
+      
+      conduta.push('\n⚡ FREQUENCIAIS:');
+      conduta.push('• 528Hz: reparação metabólica - 20min/dia');
+      conduta.push('• Biomagnetismo: Fígado-Fígado - 20min 3x/semana');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA (CRÍTICA):');
+      conduta.push('• ELIMINAR 100%: açúcar, frutose, álcool (principal causa)');
+      conduta.push('• Carboidratos <50g/dia ou cetogênica');
+      conduta.push('• Jejum intermitente 16/8');
+      conduta.push('• Ômega-3: peixes gordos 4x/semana');
+      
+      conduta.push('\n📅 REAVALIAR: lipidograma em 60 dias');
+    }
+    
+    // ====================FERRITINA BAIXA/ALTA====================
+    else if (nome.includes('ferritina')) {
+      if (interpretacao.includes('Baixo') || valor < 30) {
+        conduta.push(`\n🔴 FERRITINA BAIXA - DEPLEÇÃO FERRO\n`);
+        
+        conduta.push('📋 NUTRACÊUTICOS:');
+        conduta.push('• Ferro quelado (bisglicinato): 30-60mg/dia EM JEJUM');
+        conduta.push('• Vitamina C: 500mg junto ferro - aumenta absorção 3-4x');
+        conduta.push('• Lactoferrina: 250mg/dia - melhora absorção, anti-inflamatório');
+        conduta.push('• Vitamina B12: 1000mcg/dia - sinergia produção hemácias');
+        
+        conduta.push('\n🌿 FITOTERAPIA:');
+        conduta.push('• Urtica dioica: 30 gotas tintura 3x/dia - rica ferro');
+        conduta.push('• Spirulina: 5g/dia - ferro biodisponível');
+        conduta.push('• Clorofila: 1 colher sopa 2x/dia');
+        
+        conduta.push('\n💊 HOMEOPATIA:');
+        conduta.push('• Ferrum metallicum 30CH: 5 gotas 2x/dia');
+        conduta.push('• China officinalis 30CH: 5 gotas 2x/dia');
+        
+        conduta.push('\n🍽️ DIETOTERAPIA:');
+        conduta.push('• Fígado bovino: 100g 3x/semana (máxima fonte ferro heme)');
+        conduta.push('• Carne vermelha: 150g 5x/semana');
+        conduta.push('• EVITAR café/chá com refeições (reduz absorção 60%)');
+        
+        conduta.push('\n⚠️ INVESTIGAR: sangramento oculto, parasitoses, má absorção');
+      } else if (interpretacao.includes('Alto') || interpretacao.includes('Acima') || valor > 300) {
+        conduta.push(`\n🔴 FERRITINA ALTA - SOBRECARGA FERRO\n`);
+        
+        conduta.push('📋 NUTRACÊUTICOS:');
+        conduta.push('• Quercetina: 500mg 3x/dia - quelante ferro');
+        conduta.push('• Curcumina: 1000mg 3x/dia - anti-inflamatório, quelante');
+        conduta.push('• Cálcio: 1000mg/dia - compete absorção ferro');
+        conduta.push('• Chá verde EGCG: 400mg 3x/dia - reduz absorção ferro');
+        
+        conduta.push('\n🌿 FITOTERAPIA:');
+        conduta.push('• Silybum marianum (Cardo-mariano): 420mg/dia - hepatoprotetor');
+        conduta.push('• Curcuma longa: 2g/dia com piperina');
+        conduta.push('• Camellia sinensis: 5-6 xícaras/dia (taninos reduzem ferro)');
+        
+        conduta.push('\n💊 HOMEOPATIA:');
+        conduta.push('• Ferrum metallicum 200CH: 5 gotas 1x/semana - drenagem');
+        conduta.push('• Chelidonium 6CH: 5 gotas 3x/dia - fígado');
+        
+        conduta.push('\n🍽️ DIETOTERAPIA:');
+        conduta.push('• EVITAR: carnes vermelhas, suplementos com ferro, álcool');
+        conduta.push('• Preferir: frango, peixes, vegetais');
+        conduta.push('• Chá preto/verde junto refeições');
+        
+        conduta.push('\n⚠️ INVESTIGAR: hemocromatose, inflamação crônica, síndrome metabólica, fígado');
+        conduta.push('📅 CONSIDERAR: flebotomia terapêutica se >1000ng/mL');
+      }
+    }
+    
+    // ====================VITAMINA B12 BAIXA====================
+    else if (nome.includes('vitamina b12') || nome.includes('b12') || nome.includes('cobalamina')) {
+      const gravidade = valor < 200 ? 'DEFICIÊNCIA GRAVE' : valor < 300 ? 'INSUFICIÊNCIA' : 'BAIXO';
+      
+      conduta.push(`\n🔴 ${gravidade} - HIPOVITAMINOSE B12\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• Metilcobalamina sublingual: 2000-5000mcg/dia (forma ativa)');
+      if (valor < 200) conduta.push('• OU Injeções IM: 1000mcg 3x/semana por 2-4 semanas (deficiência grave)');
+      conduta.push('• Ácido fólico (metilfolato): 800-1000mcg/dia - sinergia B12');
+      conduta.push('• Vitamina B6 (P5P): 50mg/dia - metabolismo homocisteína');
+      conduta.push('• Betaína (TMG): 500-1000mg/dia - doador metil');
+      conduta.push('• Complexo B: cobertura geral');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Spirulina: 5-10g/dia - contém análogo B12 + nutrição');
+      conduta.push('• Chlorella: 3-5g/dia - microalga rica B12');
+      conduta.push('• Gentiana lutea: 20 gotas antes refeições - estimula fator intrínseco');
+      
+      conduta.push('\n💊 HOMEOPATIA:');
+      conduta.push('• Cyanocobalamin 30CH: 5 gotas 1x/dia - isoterapia');
+      conduta.push('• Phosphoricum acidum 30CH: 5 gotas 2x/dia - fadiga mental');
+      conduta.push('• Kali phosphoricum 6CH: 5 gotas 3x/dia - energia nervosa');
+      
+      conduta.push('\n🌸 FLORAIS:');
+      conduta.push('• Olive: exaustão profunda - 4 gotas 4x/dia');
+      conduta.push('• Hornbeam: fadiga mental - 4 gotas 4x/dia');
+      conduta.push('• Clematis: falta concentração - 4 gotas 4x/dia');
+      
+      conduta.push('\n⚡ FREQUENCIAIS:');
+      conduta.push('• 528Hz: regeneração celular - 20min/dia');
+      conduta.push('• 174Hz: alívio fadiga - 15min 2x/dia');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA:');
+      conduta.push('• Fígado bovino: 100g 2-3x/semana (máxima fonte)');
+      conduta.push('• Carnes: bovina, frango, peixes');
+      conduta.push('• Ovos: 2-3/dia');
+      conduta.push('• Laticínios fermentados: kefir, iogurte');
+      conduta.push('• VEGANOS: suplementação obrigatória');
+      
+      conduta.push('\n⚠️ INVESTIGAR: anemia perniciosa (anti-fator intrínseco), gastrite atrófica, metformina, IBP');
+      conduta.push('📅 REAVALIAR: B12 + homocisteína em 90 dias (alvo >400pg/mL)');
+    }
+    
+    // ====================PCR ALTA - INFLAMAÇÃO====================
+    else if (nome.includes('pcr') || nome.includes('proteína c reativa') || nome.includes('proteina c reativa')) {
+      const gravidade = valor > 10 ? 'INFLAMAÇÃO GRAVE' : valor > 3 ? 'INFLAMAÇÃO MODERADA' : 'INFLAMAÇÃO LEVE';
+      
+      conduta.push(`\n🔴 ${gravidade} - PROTOCOLO ANTI-INFLAMATÓRIO\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• Ômega-3 concentrado: 3-4g/dia - potente anti-inflamatório');
+      conduta.push('• Curcumina fitossomada: 1000mg 3x/dia c/ piperina - reduz PCR 50-70%');
+      conduta.push('• Resveratrol: 500mg 2x/dia - ativa sirtuínas anti-inflamatórias');
+      conduta.push('• Vitamina D3: 5000-10000 UI/dia - imunomodulador');
+      conduta.push('• Magnésio: 600mg/dia - reduz citocinas inflamatórias');
+      conduta.push('• Probióticos multi-cepas: 50-100 bilhões UFC/dia - eixo intestino-inflamação');
+      conduta.push('• Glutationa lipossomal: 500mg/dia - antioxidante mestre');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Curcuma longa: 2-3g/dia raiz fresca ou extrato');
+      conduta.push('• Zingiber officinale (Gengibre): 2-3g/dia - COX-2 inibidor natural');
+      conduta.push('• Boswellia serrata: 600mg 3x/dia - anti-inflamatório potente');
+      conduta.push('• Camellia sinensis (Chá verde): 4-5 xícaras/dia - EGCG anti-inflamatório');
+      conduta.push('• Harpagophytum (Garra-do-diabo): 600mg 3x/dia');
+      conduta.push('• Salix alba (Salgueiro branco): 240mg/dia - aspirina natural');
+      
+      conduta.push('\n💊 HOMEOPATIA:');
+      conduta.push('• Apis mellifica 30CH: 5 gotas 3x/dia - inflamação aguda');
+      conduta.push('• Arnica montana 30CH: 5 gotas 3x/dia - inflamação traumática');
+      conduta.push('• Rhus toxicodendron 30CH: 5 gotas 2x/dia - inflamação articular');
+      conduta.push('• Mercurius solubilis 30CH: 5 gotas 2x/dia - inflamação infecciosa');
+      
+      conduta.push('\n🌸 FLORAIS:');
+      conduta.push('• Crab Apple: desintoxicação - 4 gotas 4x/dia');
+      conduta.push('• Holly: raiva, irritação - 4 gotas 4x/dia');
+      conduta.push('• Beech: tolerância - 4 gotas 4x/dia');
+      
+      conduta.push('\n⚡ FREQUENCIAIS:');
+      conduta.push('• 174Hz: analgésico, anti-inflamatório - 20min 2x/dia');
+      conduta.push('• 528Hz: reparação celular - 20min/dia');
+      conduta.push('• 432Hz: harmonização sistêmica - 15min 2x/dia');
+      conduta.push('• Biomagnetismo: pares conforme foco inflamatório - 20min 4x/semana');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA ANTI-INFLAMATÓRIA:');
+      conduta.push('• DIETA MEDITERRÂNEA ou AIP (Protocolo Autoimune)');
+      conduta.push('• Azeite extra-virgem: 3-4 colheres sopa/dia');
+      conduta.push('• Peixes gordos: salmão, sardinha 4x/semana');
+      conduta.push('• Vegetais coloridos: 5-7 porções/dia');
+      conduta.push('• Açafrão, gengibre, alho: temperos diários');
+      conduta.push('• ELIMINAR: glúten, laticínios, açúcar, óleos vegetais, alimentos processados');
+      conduta.push('• JEJUM INTERMITENTE: reduz inflamação 30-40%');
+      
+      conduta.push('\n⚠️ INVESTIGAR: infecções ocultas, disbiose, permeabilidade intestinal, doenças autoimunes, obesidade');
+      conduta.push('📅 REAVALIAR: PCR-us + VHS + ferritina em 60 dias (alvo PCR <1mg/L)');
+    }
+    
+    // ====================CREATININA/UREIA ALTA====================
+    else if ((nome.includes('creatinina') || nome.includes('ureia') || nome.includes('uréia')) && (interpretacao.includes('Alto') || interpretacao.includes('Acima'))) {
+      conduta.push(`\n🔴 DISFUNÇÃO RENAL - PROTOCOLO NEFROPROTETOR\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• N-acetilcisteína (NAC): 600mg 2x/dia - antioxidante renal');
+      conduta.push('• Ômega-3: 2-3g/dia - anti-inflamatório, reduz proteinúria');
+      conduta.push('• Coenzima Q10: 200mg/dia - protege mitocôndrias renais');
+      conduta.push('• Ácido alfa-lipóico: 600mg/dia - antioxidante');
+      conduta.push('• Vitamina E: 400 UI/dia - proteção membranas');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Phyllanthus niruri (Quebra-pedra): 500mg 3x/dia - diurético, anti-litiásico');
+      conduta.push('• Taraxacum officinale (Dente-de-leão): chá 3x/dia - diurético suave');
+      conduta.push('• Solidago virgaurea (Vara-de-ouro): 300mg 3x/dia - tônico renal');
+      conduta.push('• Arctium lappa (Bardana): 500mg 2x/dia - depurativo');
+      
+      conduta.push('\n💊 HOMEOPATIA:');
+      conduta.push('• Berberis vulgaris 6CH: 5 gotas 3x/dia - tônico renal');
+      conduta.push('• Solidago 6CH: 5 gotas 3x/dia - diurético');
+      conduta.push('• Serum anguillae 30CH: 5 gotas 1x/dia - regeneração renal');
+      
+      conduta.push('\n🌸 FLORAIS:');
+      conduta.push('• Crab Apple: purificação - 4 gotas 4x/dia');
+      conduta.push('• Rock Water: flexibilidade - 4 gotas 4x/dia');
+      
+      conduta.push('\n⚡ FREQUENCIAIS:');
+      conduta.push('• 417Hz: limpeza energética - 20min/dia');
+      conduta.push('• Biomagnetismo: Rim-Rim + Bexiga-Bexiga - 20min 3x/semana');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA RENAL:');
+      conduta.push('• HIDRATAÇÃO: 2-3L água/dia (salvo restrição)');
+      conduta.push('• REDUZIR proteínas: 0.8-1g/kg/dia (não eliminar)');
+      conduta.push('• REDUZIR sal: <3g/dia');
+      conduta.push('• EVITAR: AINEs, excesso frutose, refrigerantes');
+      conduta.push('• Preferir: vegetais, frutas (moderação), peixes');
+      
+      conduta.push('\n⚠️ INVESTIGAR URGENTE: TFG, clearance creatinina, proteinúria, ultrassom renal, causas (diabetes, HAS, nefropatia)');
+      conduta.push('🚨 ENCAMINHAR nefrologista se creatinina >2mg/dL ou TFG <60mL/min');
+      conduta.push('📅 REAVALIAR: creatinina + ureia + TFG em 30 dias');
+    }
+    
+    // ====================TGO/TGP/GGT ALTO - FÍGADO====================
+    else if ((nome.includes('tgo') || nome.includes('tgp') || nome.includes('alt') || nome.includes('ast') || nome.includes('ggt') || nome.includes('gama gt')) && (interpretacao.includes('Alto') || interpretacao.includes('Acima'))) {
+      const gravidade = valor > 100 ? 'HEPATOPATIA GRAVE' : valor > 50 ? 'LESÃO MODERADA' : 'LESÃO LEVE';
+      
+      conduta.push(`\n🔴 ${gravidade} - PROTOCOLO HEPATOPROTETOR\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• Silimarina (Cardo-mariano): 420mg/dia padronizado 80% - regenera hepatócitos');
+      conduta.push('• Colina bitartrato: 1-2g/dia - previne esteatose, mobiliza gordura');
+      conduta.push('• N-acetilcisteína (NAC): 600mg 2x/dia - aumenta glutationa hepática');
+      conduta.push('• Ácido alfa-lipóico: 600mg/dia - antioxidante, regenerador');
+      conduta.push('• Vitamina E: 400-800 UI/dia - reduz esteatose');
+      conduta.push('• Ômega-3: 2-3g/dia - reduz inflamação hepática');
+      conduta.push('• Taurina: 1-3g/dia - conjugação bile, proteção');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Silybum marianum (Cardo-mariano): 300mg 3x/dia extrato');
+      conduta.push('• Cynara scolymus (Alcachofra): 600mg 3x/dia - colerético, hepatoprotetor');
+      conduta.push('• Curcuma longa (Cúrcuma): 2g/dia - anti-inflamatório hepático');
+      conduta.push('• Taraxacum officinale (Dente-de-leão): chá 3x/dia - depurativo');
+      conduta.push('• Picrorhiza kurroa (Kutki): 400mg 2x/dia - hepatoprotetor ayurvédico');
+      conduta.push('• Schisandra chinensis: 500mg 2x/dia - adaptógeno hepático');
+      
+      conduta.push('\n💊 HOMEOPATIA:');
+      conduta.push('• Chelidonium majus 6CH: 5 gotas 3x/dia - fígado congesto');
+      conduta.push('• Carduus marianus 6CH: 5 gotas 3x/dia - esteatose');
+      conduta.push('• Lycopodium 30CH: 5 gotas 2x/dia - insuficiência hepática');
+      conduta.push('• Phosphorus 30CH: 5 gotas 2x/dia - hepatite, regeneração');
+      
+      conduta.push('\n🌸 FLORAIS:');
+      conduta.push('• Crab Apple: desintoxicação - 4 gotas 4x/dia');
+      conduta.push('• Willow: ressentimento (fígado emocional) - 4 gotas 4x/dia');
+      conduta.push('• Cherry Plum: descontrole - 4 gotas 4x/dia');
+      
+      conduta.push('\n⚡ FREQUENCIAIS:');
+      conduta.push('• 639Hz: harmonização fígado - 20min 2x/dia');
+      conduta.push('• 285Hz: regeneração tecidual - 20min/dia');
+      conduta.push('• Biomagnetismo: Fígado-Fígado + Vesícula-Vesícula - 20min 4x/semana');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA HEPÁTICA:');
+      conduta.push('• DIETA CETOGÊNICA ou LOW-CARB (<50g/dia) - reverte esteatose');
+      conduta.push('• JEJUM INTERMITENTE 16/8 - autofagia hepática');
+      conduta.push('• ELIMINAR 100%: álcool (principal hepatotóxico)');
+      conduta.push('• ELIMINAR: açúcar, frutose (gera esteatose), óleos vegetais');
+      conduta.push('• Café: 2-3 xícaras/dia SEM açúcar - hepatoprotetor comprovado');
+      conduta.push('• Vegetais amargos: alcachofra, rúcula, agrião - colagogos');
+      conduta.push('• Limão em jejum: 1 limão espremido em água morna');
+      
+      conduta.push('\n⚠️ INVESTIGAR: hepatites virais (A,B,C), álcool, medicamentos hepatotóxicos, esteatose, NASH');
+      conduta.push('📅 REAVALIAR: TGO, TGP, GGT, FA, bilirrubinas + ultrassom hepático em 60-90 dias');
+    }
+    
+    // ====================ÁCIDO ÚRICO ALTO - HIPERURICEMIA====================
+    else if ((nome.includes('ácido úrico') || nome.includes('acido urico') || nome.includes('urico')) && (interpretacao.includes('Alto') || interpretacao.includes('Acima'))) {
+      const gravidade = valor > 9 ? 'RISCO GOTA ALTO' : valor > 7 ? 'MODERADO' : 'ELEVADO';
+      
+      conduta.push(`\n🔴 HIPERURICEMIA ${gravidade}\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• Vitamina C: 500-1000mg/dia - reduz ácido úrico 10-15%');
+      conduta.push('• Quercetina: 500mg 2x/dia - inibe xantina oxidase');
+      conduta.push('• Cereja ácida extrato: 500mg 2x/dia - reduz AU 35-40%');
+      conduta.push('• Folato: 800mcg/dia - reduz ácido úrico');
+      conduta.push('• Ômega-3: 2g/dia - anti-inflamatório');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Harpagophytum (Garra-do-diabo): 600mg 3x/dia - anti-gota');
+      conduta.push('• Phyllanthus niruri (Quebra-pedra): 500mg 3x/dia - diurético');
+      conduta.push('• Urtica dioica (Urtiga): 300mg 3x/dia - alcalinizante');
+      conduta.push('• Taraxacum officinale: chá 3x/dia - diurético');
+      
+      conduta.push('\n💊 HOMEOPATIA:');
+      conduta.push('• Colchicum 30CH: 5 gotas 3x/dia - gota aguda');
+      conduta.push('• Urtica urens 6CH: 5 gotas 3x/dia - hiperuricemia');
+      conduta.push('• Benzoicum acidum 30CH: 5 gotas 2x/dia - ácido úrico elevado');
+      
+      conduta.push('\n🌸 FLORAIS:');
+      conduta.push('• Impatiens: impaciência - 4 gotas 4x/dia');
+      conduta.push('• Beech: intolerância - 4 gotas 4x/dia');
+      
+      conduta.push('\n⚡ FREQUENCIAIS:');
+      conduta.push('• 417Hz: liberação - 15min 2x/dia');
+      conduta.push('• Biomagnetismo: Rim-Rim + Articulações afetadas');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA:');
+      conduta.push('• ELIMINAR: frutose (refrigerantes, sucos) - principal causa');
+      conduta.push('• ELIMINAR: álcool (cerveja pior)');
+      conduta.push('• REDUZIR: carnes vermelhas, vísceras, frutos do mar');
+      conduta.push('• EVITAR: purinas altas (sardinha, bacon, miúdos)');
+      conduta.push('• HIDRATAÇÃO: 3L água/dia - dilui ácido úrico');
+      conduta.push('• Cerejas: 200g/dia ou suco - reduz AU 35%');
+      conduta.push('• Café: 4-5 xícaras/dia - reduz risco gota 40-60%');
+      conduta.push('• Alcalinizar: limão, vegetais verdes');
+      
+      conduta.push('\n⚠️ INVESTIGAR: síndrome metabólica, resistência insulínica, função renal');
+      conduta.push('📅 REAVALIAR: ácido úrico em 60 dias (alvo <6mg/dL)');
+    }
+    
+    // ====================HOMOCISTEÍNA ALTA====================
+    else if (nome.includes('homocisteína') || nome.includes('homocisteina')) {
+      conduta.push(`\n🔴 HIPERHOMOCISTEINEMIA - RISCO CARDIOVASCULAR\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS (PROTOCOLO METILAÇÃO):');
+      conduta.push('• Vitamina B6 (P5P): 50-100mg/dia - cofator CBS');
+      conduta.push('• Vitamina B12 (metilcobalamina): 1000-2000mcg/dia - remetilação');
+      conduta.push('• Ácido fólico (5-MTHF): 800-5000mcg/dia - MTHFR');
+      conduta.push('• Betaína (TMG): 1-3g/dia - doador metil principal');
+      conduta.push('• Riboflavina (B2): 50mg/dia - cofator MTHFR');
+      conduta.push('• Zinco: 30mg/dia - metaloproteínas');
+      conduta.push('• NAC: 600mg 2x/dia - antioxidante');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Allium sativum: 900mg/dia - cardiovascular');
+      conduta.push('• Ginkgo biloba: 120mg/dia - circulação');
+      conduta.push('• Crataegus: 900mg/dia - cardiotônico');
+      
+      conduta.push('\n💊 HOMEOPATIA:');
+      conduta.push('• Homocysteine 30CH: 5 gotas 1x/dia - isoterapia');
+      conduta.push('• Aurum metallicum 30CH: 5 gotas 2x/dia - cardiovascular');
+      
+      conduta.push('\n⚡ FREQUENCIAIS:');
+      conduta.push('• 639Hz: harmonização cardiovascular - 20min/dia');
+      conduta.push('• Biomagnetismo: Coração-Coração - 20min 3x/semana');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA:');
+      conduta.push('• Folhas verdes escuras: couve, espinafre - folato natural');
+      conduta.push('• Ovos: 2-3/dia - colina, B12');
+      conduta.push('• Beterraba: suco diário - betaína');
+      conduta.push('• EVITAR: metionina excessiva (proteína >2g/kg)');
+      
+      conduta.push('\n⚠️ INVESTIGAR: polimorfismo MTHFR, B12, folato, B6, função renal');
+      conduta.push('📅 REAVALIAR: homocisteína + B12 + folato em 90 dias (alvo <7μmol/L)');
+    }
+    
+    // ====================INSULINA ALTA - RESISTÊNCIA INSULÍNICA====================
+    else if (nome.includes('insulina') && (interpretacao.includes('Alto') || interpretacao.includes('Acima'))) {
+      conduta.push(`\n🔴 RESISTÊNCIA INSULÍNICA - PROTOCOLO METABÓLICO\n`);
+      
+      conduta.push('📋 NUTRACÊUTICOS:');
+      conduta.push('• Berberina: 500mg 3x/dia ANTES refeições - sensibilizador insulina');
+      conduta.push('• Inositol (Myo+D-chiro 40:1): 2-4g/dia - melhora sinal insulina');
+      conduta.push('• Cromo picolinato: 400-600mcg/dia - potencializa insulina');
+      conduta.push('• Magnésio: 600mg/dia - resistência insulínica');
+      conduta.push('• Ácido alfa-lipóico: 600-1200mg/dia - captação glicose');
+      conduta.push('• Canela: 3g/dia - mimetiza insulina');
+      conduta.push('• Resveratrol: 500mg/dia - ativa AMPK e sirtuínas');
+      
+      conduta.push('\n🌿 FITOTERAPIA:');
+      conduta.push('• Gymnema sylvestre: 400mg 2x/dia - bloqueia doce, regenera β-células');
+      conduta.push('• Trigonella foenum-graecum (Feno-grego): 2-5g/dia - sensibilizador');
+      conduta.push('• Morus nigra (Amora): 400mg 2x/dia - inibe alfa-glicosidase');
+      conduta.push('• Momordica charantia: 500mg 3x/dia - hipoglicemiante');
+      
+      conduta.push('\n💊 HOMEOPATIA:');
+      conduta.push('• Insulin 30CH: 5 gotas 1x/dia - isoterapia');
+      conduta.push('• Syzygium jambolanum 6CH: 5 gotas 3x/dia');
+      
+      conduta.push('\n🌸 FLORAIS:');
+      conduta.push('• Cherry Plum: compulsão - 4 gotas 4x/dia');
+      conduta.push('• Agrimony: ansiedade por doces - 4 gotas 4x/dia');
+      
+      conduta.push('\n⚡ FREQUENCIAIS:');
+      conduta.push('• 639Hz: pâncreas - 15min 2x/dia');
+      conduta.push('• Biomagnetismo: Páncreas-Páncreas + Fígado-Fígado');
+      
+      conduta.push('\n🍽️ DIETOTERAPIA (CRÍTICA):');
+      conduta.push('• DIETA CETOGÊNICA (<20g carbo/dia) - reversão RI em 8-12 semanas');
+      conduta.push('• JEJUM INTERMITENTE 16/8 ou 18/6 - aumenta sensibilidade 30-50%');
+      conduta.push('• ELIMINAR açúcar, farinhas, sucos, refrigerantes');
+      conduta.push('• Vinagre de maçã: 2 colheres antes refeições - reduz insulina 20%');
+      
+      conduta.push('\n🏃 EXERCÍCIO (ESSENCIAL):');
+      conduta.push('• HIIT: 20min 4x/semana - máximo efeito sensibilização');
+      conduta.push('• Musculação: 3-4x/semana - músculo capta 80% glicose');
+      conduta.push('• Caminhada pós-refeição: 15min');
+      
+      conduta.push('\n⚠️ INVESTIGAR: HOMA-IR, glicemia, HbA1c, síndrome metabólica');
+      conduta.push('📅 REAVALIAR: insulina jejum + HOMA-IR + glicemia em 90 dias');
+    }
+    
+    // ====================LEUCÓCITOS ALTO/BAIXO====================
+    else if (nome.includes('leucócitos') || nome.includes('leucocitos') || nome.includes('glóbulos brancos') || nome.includes('globulos brancos')) {
+      if (interpretacao.includes('Alto') || interpretacao.includes('Acima')) {
+        conduta.push(`\n🔴 LEUCOCITOSE - PROTOCOLO ANTI-INFECCIOSO\n`);
+        
+        conduta.push('📋 NUTRACÊUTICOS:');
+        conduta.push('• Vitamina C: 1-3g/dia - imunomodulador');
+        conduta.push('• Zinco: 30-50mg/dia - antimicrobiano');
+        conduta.push('• Vitamina D3: 5000 UI/dia - imunidade');
+        conduta.push('• Probióticos: 50-100 bilhões UFC/dia');
+        
+        conduta.push('\n🌿 FITOTERAPIA:');
+        conduta.push('• Echinacea purpurea: 300mg 3x/dia - imunoestimulante');
+        conduta.push('• Allium sativum: 900mg/dia - antibiótico natural');
+        conduta.push('• Própolis: 30 gotas 3x/dia - antimicrobiano amplo');
+        conduta.push('• Uncaria tomentosa (Unha-de-gato): 500mg 2x/dia');
+        
+        conduta.push('\n⚠️ INVESTIGAR: infecções bacterianas/virais, leucemia, estresse, tabagismo');
+      } else if (interpretacao.includes('Baixo')) {
+        conduta.push(`\n🔴 LEUCOPENIA - PROTOCOLO IMUNOESTIMULANTE\n`);
+        
+        conduta.push('📋 NUTRACÊUTICOS:');
+        conduta.push('• Vitamina B12: 2000mcg/dia');
+        conduta.push('• Ácido fólico: 800mcg/dia');
+        conduta.push('• Selênio: 200mcg/dia');
+        conduta.push('• Glutamina: 5-10g/dia - precursor leucócitos');
+        
+        conduta.push('\n🌿 FITOTERAPIA:');
+        conduta.push('• Astragalus membranaceus: 500mg 3x/dia - estimula medula');
+        conduta.push('• Echinacea: 300mg 3x/dia');
+        conduta.push('• Panax ginseng: 400mg 2x/dia');
+        
+        conduta.push('\n⚠️ INVESTIGAR: quimioterapia, radiação, HIV, lupus, deficiências nutricionais');
+      }
+      conduta.push('\n📅 REAVALIAR: hemograma completo em 30 dias');
+    }
+    
+    // ====================PLAQUETAS ALTO/BAIXO====================
+    else if (nome.includes('plaquetas')) {
+      if (interpretacao.includes('Alto') || interpretacao.includes('Acima')) {
+        conduta.push(`\n🔴 TROMBOCITOSE - RISCO TROMBÓTICO\n`);
+        
+        conduta.push('📋 NUTRACÊUTICOS:');
+        conduta.push('• Ômega-3: 3g/dia - anticoagulante natural');
+        conduta.push('• Vitamina E: 400 UI/dia - antiagregante');
+        conduta.push('• Nattokinase: 2000 FU/dia - fibrinolítico');
+        
+        conduta.push('\n🌿 FITOTERAPIA:');
+        conduta.push('• Allium sativum: 900mg/dia - anticoagulante');
+        conduta.push('• Zingiber officinale: 2g/dia - antiagregante');
+        conduta.push('• Curcuma longa: 2g/dia - anti-trombótico');
+        
+        conduta.push('\n🍽️ DIETOTERAPIA:');
+        conduta.push('• HIDRATAÇÃO: 3L/dia - reduz viscosidade');
+        conduta.push('• Alho, gengibre, cúrcuma diários');
+        
+        conduta.push('\n⚠️ INVESTIGAR: deficiência ferro, inflamação, neoplasia, trombocitose essencial');
+      } else if (interpretacao.includes('Baixo')) {
+        conduta.push(`\n🔴 TROMBOCITOPENIA - RISCO HEMORRÁGICO\n`);
+        
+        conduta.push('📋 NUTRACÊUTICOS:');
+        conduta.push('• Vitamina K2 (MK-7): 180mcg/dia - coagulação');
+        conduta.push('• Ácido fólico: 1mg/dia - síntese plaquetas');
+        conduta.push('• Vitamina B12: 2000mcg/dia');
+        conduta.push('• Vitamina C: 1g/dia - fortalece vasos');
+        
+        conduta.push('\n🌿 FITOTERAPIA:');
+        conduta.push('• Urtica dioica: 300mg 3x/dia - hemostático');
+        conduta.push('• Achillea millefolium: 500mg 2x/dia - coagulante');
+        
+        conduta.push('\n⚠️ INVESTIGAR: autoimune (PTI), medicamentos, infecções, medula óssea');
+        conduta.push('🚨 EVITAR anticoagulantes naturais se <50.000/mm³');
+      }
+      conduta.push('\n📅 REAVALIAR: hemograma + contagem plaquetas em 30 dias');
+    }
+    
+    // ====================HEMATÓCRITO ALTO/BAIXO====================
+    else if (nome.includes('hematócrito') || nome.includes('hematocrito') || nome.includes('htc') || nome.includes('ht')) {
+      if (interpretacao.includes('Alto') || interpretacao.includes('Acima')) {
+        conduta.push(`\n🔴 HEMATÓCRITO ALTO - POLICITEMIA\n`);
+        
+        conduta.push('📋 ABORDAGEM:');
+        conduta.push('• HIDRATAÇÃO: 3-4L água/dia - dilui sangue');
+        conduta.push('• Ômega-3: 2g/dia - fluidifica sangue');
+        conduta.push('• Ginkgo biloba: 120mg/dia - circulação');
+        
+        conduta.push('\n⚠️ INVESTIGAR: desidratação, apneia sono, DPOC, tabagismo, policitemia vera');
+      } else if (interpretacao.includes('Baixo')) {
+        conduta.push(`\n🔴 HEMATÓCRITO BAIXO - ANEMIA\n`);
+        conduta.push('• Seguir protocolo anemia (hemoglobina baixa)');
+        conduta.push('• Correlacionar com hemoglobina, ferro, ferritina, B12');
+      }
+      conduta.push('\n📅 REAVALIAR: hemograma completo em 30-60 dias');
+    }
+    
+    // ====================VCM/HCM/CHCM - ÍNDICES HEMATIMÉTRICOS====================
+    else if (nome.includes('vcm') || nome.includes('hcm') || nome.includes('chcm')) {
+      if (interpretacao.includes('Alto') || interpretacao.includes('Acima')) {
+        conduta.push(`\n🔴 ${nome.toUpperCase()} ALTO\n`);
+        
+        if (nome.includes('vcm')) {
+          conduta.push('📋 ANEMIA MACROCÍTICA - INVESTIGAR:');
+          conduta.push('• Deficiência B12 → protocolo B12');
+          conduta.push('• Deficiência ácido fólico → folato 1-5mg/dia');
+          conduta.push('• Hipotireoidismo → protocolo TSH');
+          conduta.push('• Álcool → ELIMINAR álcool 100%');
+        }
+      } else if (interpretacao.includes('Baixo')) {
+        conduta.push(`\n🔴 ${nome.toUpperCase()} BAIXO\n`);
+        
+        if (nome.includes('vcm')) {
+          conduta.push('📋 ANEMIA MICROCÍTICA - INVESTIGAR:');
+          conduta.push('• Deficiência ferro → protocolo ferritina baixa');
+          conduta.push('• Talassemia → eletroforese hemoglobina');
+          conduta.push('• Doença crônica → investigar inflamação');
+        }
+      }
+      conduta.push('\n📅 REAVALIAR: hemograma + ferritina + B12 + folato em 60 dias');
+    }
+    
+    // ====================CONDUTA GENÉRICA PARA OUTROS EXAMES====================
+    else {
+      conduta.push('\n📋 ABORDAGEM INTEGRATIVA:\n');
+      conduta.push('• Avaliar contexto clínico completo');
+      conduta.push('• Investigar causas subjacentes');
+      conduta.push('• Dietoterapia personalizada');
+      conduta.push('• Suplementação conforme deficiência');
+      conduta.push('• Acompanhamento próximo');
+    }
+    
+    return conduta.join('\n');
+  };
+
+  const handleResultadoChange = (id, value) => {
+    setExames(prev => prev.map(ex => {
+      if (ex.id === id) {
+        // Passa o exame completo para gerarInterpretacao usar valores por perfil
+        const interpretacao = gerarInterpretacao(value, ex.valoresReferencia, ex.valoresIdeais, ex);
+        const conduta = gerarConduta(ex.exame, interpretacao, value);
+        console.log(`✅ Conduta gerada para ${ex.exame}:`, conduta ? conduta.substring(0, 100) : 'VAZIO');
+        return { ...ex, resultadoPaciente: value, interpretacao, conduta };
+      }
+      return ex;
+    }));
+  };
+
+  const handleUnidadeChange = (id, novaUnidade) => {
+    setExames(prev => prev.map(ex => {
+      if (ex.id === id) {
+        const unidadeAtual = ex.unidadeSelecionada || ex.unidade;
+        
+        // Se mudou a unidade e tem resultado, converte o valor
+        let novoResultado = ex.resultadoPaciente;
+        if (ex.resultadoPaciente && unidadeAtual !== novaUnidade) {
+          novoResultado = converterUnidade(ex.resultadoPaciente, unidadeAtual, novaUnidade, ex.exame);
+        }
+        
+        // Recalcula interpretação e conduta com novo valor, passando exame completo
+        const interpretacao = novoResultado ? 
+          gerarInterpretacao(novoResultado, ex.valoresReferencia, ex.valoresIdeais, ex) : 
+          ex.interpretacao;
+        const conduta = novoResultado ? 
+          gerarConduta(ex.exame, interpretacao, novoResultado) : 
+          ex.conduta;
+        
+        return { 
+          ...ex, 
+          unidadeSelecionada: novaUnidade,
+          resultadoPaciente: novoResultado,
+          interpretacao,
+          conduta
+        };
+      }
+      return ex;
+    }));
+  };
+
+  const toggleRow = (id) => {
+    setExpandedRows(prev => ({ ...prev, [id]: !prev[id] }));
+  };
+
+  const handleSalvar = () => {
+    try {
+      console.log('💾 Iniciando salvamento...');
+      console.log('📝 Nome do paciente:', pacienteNome);
+      console.log('📅 Data do exame:', dataExame);
+      console.log('🧪 Número de exames:', exames.length);
+      
+      const data = {
+        pacienteNome,
+        dataExame,
+        exames
+      };
+      
+      console.log('📦 Dados a salvar:', data);
+      
+      const jsonString = JSON.stringify(data);
+      console.log('📏 Tamanho do JSON:', jsonString.length, 'caracteres');
+      
+      localStorage.setItem('examesLaboratoriais', jsonString);
+      
+      // Verificação de salvamento
+      const saved = localStorage.getItem('examesLaboratoriais');
+      if (saved) {
+        console.log('✅ Dados salvos e verificados no localStorage!');
+        alert('✅ Dados salvos com sucesso!\n\nPaciente: ' + pacienteNome + '\nExames: ' + exames.length);
+      } else {
+        console.error('⚠️ Dados não foram encontrados após salvar');
+        alert('⚠️ Aviso: Dados podem não ter sido salvos corretamente.');
+      }
+    } catch (error) {
+      console.error('❌ Erro ao salvar:', error);
+      console.error('❌ Stack:', error.stack);
+      alert('❌ Erro ao salvar dados: ' + error.message);
+    }
+  };
+
+  const handleCondutaChange = (id, value) => {
+    setExames(prev => prev.map(ex => {
+      if (ex.id === id) {
+        return { ...ex, conduta: value };
+      }
+      return ex;
+    }));
+  };
+
+  const handleInterpretacaoChange = (id, value) => {
+    setExames(prev => prev.map(ex => {
+      if (ex.id === id) {
+        return { ...ex, interpretacao: value };
+      }
+      return ex;
+    }));
+  };
+
+  const gerarSignificadoFormatado = (alteracoes) => {
+    if (!alteracoes) return 'Consulte as observações clínicas para detalhes.';
+    
+    let texto = '';
+    
+    if (alteracoes.alto && alteracoes.alto.length > 0) {
+      texto += '🔴 VALORES ELEVADOS podem indicar:\n';
+      alteracoes.alto.forEach((item, idx) => {
+        texto += `${idx + 1}. ${item}\n`;
+      });
+    }
+    
+    if (alteracoes.baixo && alteracoes.baixo.length > 0) {
+      texto += '\n🔵 VALORES REDUZIDOS podem indicar:\n';
+      alteracoes.baixo.forEach((item, idx) => {
+        texto += `${idx + 1}. ${item}\n`;
+      });
+    }
+    
+    if (alteracoes.elevado && alteracoes.elevado.length > 0) {
+      texto += '\n🔴 VALORES ELEVADOS podem indicar:\n';
+      alteracoes.elevado.forEach((item, idx) => {
+        texto += `${idx + 1}. ${item}\n`;
+      });
+    }
+    
+    if (alteracoes.reduzido && alteracoes.reduzido.length > 0) {
+      texto += '\n🔵 VALORES REDUZIDOS podem indicar:\n';
+      alteracoes.reduzido.forEach((item, idx) => {
+        texto += `${idx + 1}. ${item}\n`;
+      });
+    }
+    
+    return texto || 'Alterações requerem investigação individualizada.';
+  };
+
+  const handleImprimir = () => {
+    window.print();
+  };
+
+  const handleDownloadPDF = () => {
+    // Prepara dados para download
+    const data = {
+      paciente: {
+        nome: pacienteNome || dadosPaciente?.nome || '',
+        dataNascimento: dadosPaciente?.dataNasc || '',
+        idade: dadosPaciente?.idade || '',
+        telefone: dadosPaciente?.telefone || '',
+        email: dadosPaciente?.email || '',
+      },
+      dataExame,
+      exames: exames.map(ex => ({
+        exame: ex.exame,
+        valoresReferencia: ex.valoresReferencia,
+        valoresIdeais: ex.valoresIdeais,
+        resultado: ex.resultadoPaciente,
+        interpretacao: ex.interpretacao,
+        conduta: ex.conduta,
+        observacoes: ex.observacoes
+      }))
+    };
+    
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `exames-${pacienteNome || 'paciente'}-${dataExame}.json`;
+    link.click();
+    URL.revokeObjectURL(url);
+    
+    alert('✅ Arquivo JSON baixado!\n\nPara gerar PDF, use o botão Imprimir e selecione "Salvar como PDF".');
+  };
+
+  console.log('=== RENDER INICIO ===');
+  console.log('Loading:', loading);
+  console.log('Exames array?', Array.isArray(exames), 'Length:', exames?.length);
+  console.log('ExamesFiltrados array?', Array.isArray(examesFiltrados), 'Length:', examesFiltrados?.length);
+  console.log('Termo busca:', termoBusca);
+  console.log('=== RENDER INFO ===');
+
+  if (loading) {
+    console.log('RENDERIZANDO: Loading screen');
+    return <Box sx={{ p: 3 }}><Typography>Carregando...</Typography></Box>;
+  }
+  
+  if (!Array.isArray(exames) || exames.length === 0) {
+    console.error('ERRO CRITICO NO RENDER: exames não é array válido ou está vazio!');
+    return (
+      <Box sx={{ p: 3 }}>
+        <Alert severity="error">
+          Erro ao carregar exames. Por favor, recarregue a página.
+        </Alert>
+      </Box>
+    );
+  }
+
+  return (
+    <Box sx={{ p: 3 }}>
+      <style>
+        {`
+          @media print {
+            body * { visibility: hidden; }
+            #printable-area, #printable-area * { visibility: visible; }
+            #printable-area { 
+              position: absolute; 
+              left: 0; 
+              top: 0; 
+              width: 100%;
+              padding: 20px;
+            }
+            .no-print { display: none !important; }
+            .print-header { 
+              display: block !important; 
+              margin-bottom: 20px;
+              border-bottom: 2px solid #333;
+              padding-bottom: 15px;
+            }
+            table { font-size: 9pt; }
+            .MuiTableCell-root { padding: 4px !important; }
+            button, .no-print { display: none; }
+          }
+          .print-header { display: none; }
+        `}
+      </style>
+
+      <div id="printable-area">
+        {/* Cabeçalho de Impressão */}
+        <Box className="print-header">
+          <Grid container spacing={2}>
+            <Grid item xs={8}>
+              <Typography variant="h5" sx={{ fontWeight: 'bold', color: '#1976d2' }}>
+                NATUROPATIA INTEGRATIVA - WANDER PIRES
+              </Typography>
+              <Typography variant="body2" sx={{ mt: 1 }}>
+                <strong>Terapeuta:</strong> Wander Pires - Naturopata
+              </Typography>
+              <Typography variant="body2">
+                <strong>Especialidade:</strong> Medicina Integrativa | Iridologia | Biorressonância
+              </Typography>
+            </Grid>
+            <Grid item xs={4} sx={{ textAlign: 'right' }}>
+              <Typography variant="body2">
+                <strong>Data do Exame:</strong> {new Date(dataExame).toLocaleDateString('pt-BR')}
+              </Typography>
+              <Typography variant="body2">
+                <strong>Data de Emissão:</strong> {new Date().toLocaleDateString('pt-BR')}
+              </Typography>
+            </Grid>
+          </Grid>
+          
+          <Box sx={{ mt: 2, p: 2, bgcolor: '#f5f5f5', borderRadius: 1 }}>
+            <Typography variant="h6" sx={{ fontWeight: 'bold', mb: 1 }}>
+              DADOS DO PACIENTE
+            </Typography>
+            <Grid container spacing={1}>
+              <Grid item xs={8}>
+                <Typography variant="body2">
+                  <strong>Nome:</strong> {pacienteNome || dadosPaciente?.nome || 'Não informado'}
+                </Typography>
+              </Grid>
+              <Grid item xs={4}>
+                <Typography variant="body2">
+                  <strong>Idade:</strong> {dadosPaciente?.idade || 'N/A'} anos
+                </Typography>
+              </Grid>
+              {dadosPaciente?.dataNasc && (
+                <Grid item xs={6}>
+                  <Typography variant="body2">
+                    <strong>Data Nascimento:</strong> {new Date(dadosPaciente.dataNasc).toLocaleDateString('pt-BR')}
+                  </Typography>
+                </Grid>
+              )}
+              {dadosPaciente?.telefone && (
+                <Grid item xs={6}>
+                  <Typography variant="body2">
+                    <strong>Telefone:</strong> {dadosPaciente.telefone}
+                  </Typography>
+                </Grid>
+              )}
+            </Grid>
+          </Box>
+        </Box>
+
+        {/* Título e instruções */}
+        <Paper elevation={3} sx={{ p: 3, mb: 3 }} className="no-print">
+          <Typography variant="h4" gutterBottom sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <MedicalServicesIcon fontSize="large" color="primary" />
+            📊 Exames Laboratoriais
+          </Typography>
+          
+          <Alert severity="info" sx={{ mb: 3 }}>
+            <strong>Sistema Inteligente:</strong> Digite apenas o <strong>Resultado</strong> do paciente. 
+            A <strong>Interpretação</strong> e <strong>Conduta</strong> serão geradas automaticamente! 
+            ✨ Você pode editar manualmente se desejar.
+          </Alert>
+
+          <Box sx={{ display: 'flex', gap: 2, mb: 3 }}>
+            <Button
+              variant="contained"
+              color="primary"
+              startIcon={<AssessmentIcon />}
+              onClick={() => navigate('/relatorio-exames')}
+              sx={{ 
+                background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+                fontWeight: 600,
+                px: 3
+              }}
+            >
+              Ver Relatório Integrativo
+            </Button>
+          </Box>
+
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Nome do Paciente"
+                value={pacienteNome}
+                onChange={(e) => setPacienteNome(e.target.value)}
+                variant="outlined"
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Data do Exame"
+                type="date"
+                value={dataExame}
+                onChange={(e) => setDataExame(e.target.value)}
+                variant="outlined"
+                InputLabelProps={{ shrink: true }}
+              />
+            </Grid>
+            
+            {/* NOVO: Seletor de Perfil do Paciente */}
+            <Grid item xs={12} md={6}>
+              <FormControl fullWidth variant="outlined">
+                <Typography variant="body2" sx={{ mb: 0.5, fontWeight: 600, color: '#1976d2' }}>
+                  👤 Perfil do Paciente (para valores de referência)
+                </Typography>
+                <Select
+                  value={perfilPaciente}
+                  onChange={(e) => {
+                    setPerfilPaciente(e.target.value);
+                    // Reprocessar todos os exames com resultados quando mudar o perfil
+                    setExames(prev => prev.map(ex => {
+                      if (ex.resultadoPaciente && ex.resultadoPaciente.trim() !== '') {
+                        const interpretacao = gerarInterpretacao(ex.resultadoPaciente, ex.valoresReferencia, ex.valoresIdeais, ex);
+                        const conduta = gerarConduta(ex.exame, interpretacao, parseFloat(ex.resultadoPaciente));
+                        return { ...ex, interpretacao, conduta };
+                      }
+                      return ex;
+                    }));
+                  }}
+                  sx={{ bgcolor: '#e3f2fd' }}
+                >
+                  <MenuItem value="masculinoAdulto">👨 Masculino Adulto (≥12 anos)</MenuItem>
+                  <MenuItem value="femininoAdulto">👩 Feminino Adulto (≥12 anos)</MenuItem>
+                  <MenuItem value="masculinoInfantil">👦 Masculino Infantil (&lt;12 anos)</MenuItem>
+                  <MenuItem value="femininoInfantil">👧 Feminino Infantil (&lt;12 anos)</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            
+            <Grid item xs={12} md={6}>
+              <Alert severity="info" sx={{ py: 0.5 }}>
+                <Typography variant="caption">
+                  <strong>Importante:</strong> Os valores de referência e ideais são ajustados automaticamente 
+                  baseado no perfil selecionado conforme literatura médica (Luciana Caxito et al.).
+                </Typography>
+              </Alert>
+            </Grid>
+          </Grid>
+        </Paper>
+
+        {/* Componente de Correlações Funcionais e Diagnósticos Previstos */}
+        <CorrelacoesExames exames={exames} />
+
+        {/* Campo de Busca */}
+        <Paper elevation={2} sx={{ p: 2, mb: 3 }}>
+          <TextField
+            fullWidth
+            label="🔍 Buscar Exame"
+            placeholder="Digite o nome do exame (ex: Glicemia, Hemoglobina, TSH...)"
+            value={termoBusca}
+            onChange={(e) => setTermoBusca(e.target.value)}
+            variant="outlined"
+            autoComplete="off"
+            sx={{ 
+              '& .MuiOutlinedInput-root': {
+                '&:hover fieldset': {
+                  borderColor: '#1976d2',
+                },
+                '&.Mui-focused fieldset': {
+                  borderColor: '#1976d2',
+                },
+              },
+            }}
+          />
+          {termoBusca && (
+            <Box sx={{ mt: 1, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <Typography variant="body2" sx={{ color: examesFiltrados.length > 0 ? '#1976d2' : '#d32f2f', fontWeight: 600 }}>
+                {examesFiltrados.length > 0 
+                  ? `✓ ${examesFiltrados.length} exame(s) encontrado(s) ${termoBusca.length < 3 ? '(continue digitando para refinar)' : ''}`
+                  : '✗ Nenhum exame encontrado'}
+              </Typography>
+              <Button 
+                size="small" 
+                onClick={() => setTermoBusca('')}
+                variant="outlined"
+                sx={{ textTransform: 'none' }}
+              >
+                ✕ Limpar
+              </Button>
+            </Box>
+          )}
+          {!termoBusca && (
+            <Typography variant="caption" sx={{ mt: 1, display: 'block', color: 'text.secondary' }}>
+              💡 Dica: Digite qualquer parte do nome do exame para filtrar. A busca é em tempo real!
+            </Typography>
+          )}
+        </Paper>
+
+        {/* Tabela de Exames */}
+        <TableContainer component={Paper} elevation={3} sx={{ mb: 3 }} key={`table-${examesFiltrados.length}-${termoBusca}`}>
+          <Table size="small">
+            <TableHead>
+              <TableRow sx={{ bgcolor: '#1976d2' }}>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: '0.8rem', width: '50px', p: 1 }}>
+                  Expandir
+                </TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: '0.8rem', width: '180px', p: 1 }}>
+                  Exame
+                </TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: '0.8rem', width: '130px', p: 1 }}>
+                  Valores Referência
+                </TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: '0.8rem', width: '100px', p: 1 }}>
+                  Valores Ideais
+                </TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: '0.8rem', width: '90px', p: 1 }}>
+                  Resultado
+                </TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: '0.8rem', width: '90px', p: 1 }}>
+                  Unidade
+                </TableCell>
+                <TableCell sx={{ color: 'white', fontWeight: 'bold', fontSize: '0.8rem', width: '140px', p: 1 }}>
+                  Interpretação
+                </TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {examesFiltrados.length === 0 ? (
+                <TableRow>
+                  <TableCell colSpan={7} sx={{ textAlign: 'center', p: 3 }}>
+                    <Typography variant="body1" color="text.secondary">
+                      {termoBusca 
+                        ? `Nenhum exame encontrado para "${termoBusca}"` 
+                        : loading 
+                          ? 'Carregando exames...' 
+                          : 'Nenhum exame disponível'}
+                    </Typography>
+                  </TableCell>
+                </TableRow>
+              ) : (
+                examesFiltrados.map((exame) => {
+                  // Verifica se o nome do exame corresponde EXATAMENTE ao termo buscado
+                  // E se há busca ativa (não vazia)
+                  const hasBusca = termoBusca && termoBusca.trim() !== '';
+                  const isExactMatch = hasBusca && 
+                                       exame.exame.toLowerCase().trim() === termoBusca.toLowerCase().trim();
+                  
+                  return (
+                <React.Fragment key={exame.id}>
+                  <TableRow 
+                    hover 
+                    sx={{ 
+                      cursor: 'pointer',
+                      bgcolor: isExactMatch ? '#fff59d' : (expandedRows[exame.id] ? '#f5f5f5' : 'inherit'),
+                      '&:hover': { bgcolor: '#f5f5f5' },
+                      transition: 'background-color 0.3s ease'
+                    }}
+                  >
+                    <TableCell sx={{ p: 0.5 }}>
+                      <IconButton
+                        size="small"
+                        onClick={() => toggleRow(exame.id)}
+                        sx={{ 
+                          transform: expandedRows[exame.id] ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.3s'
+                        }}
+                      >
+                        <ExpandMoreIcon />
+                      </IconButton>
+                    </TableCell>
+                    <TableCell sx={{ fontWeight: 600, fontSize: '0.8rem', p: 1 }}>{exame.exame}</TableCell>
+                    <TableCell sx={{ fontSize: '0.75rem', p: 1 }}>{formatarValoresParaExibicao(exame, 'referencia')}</TableCell>
+                    <TableCell sx={{ fontSize: '0.75rem', color: 'green', fontWeight: 500, p: 1 }}>{formatarValoresParaExibicao(exame, 'ideais')}</TableCell>
+                    <TableCell sx={{ p: 0.5 }}>
+                      <TextField
+                        fullWidth
+                        size="small"
+                        type="text"
+                        inputMode="decimal"
+                        value={exame.resultadoPaciente || ''}
+                        onChange={(e) => {
+                          e.stopPropagation();
+                          console.log('✏️ Digitando no exame:', exame.exame, 'Valor:', e.target.value);
+                          handleResultadoChange(exame.id, e.target.value);
+                        }}
+                        onClick={(e) => e.stopPropagation()}
+                        onFocus={(e) => {
+                          e.stopPropagation();
+                          console.log('🎯 Foco no campo:', exame.exame);
+                        }}
+                        placeholder="Digite"
+                        variant="outlined"
+                        autoComplete="off"
+                        sx={{ bgcolor: '#fffbf0', '& .MuiInputBase-input': { fontSize: '0.8rem', p: 0.75 } }}
+                      />
+                    </TableCell>
+                    <TableCell sx={{ p: 0.5 }}>
+                      <FormControl fullWidth size="small">
+                        <Select
+                          value={exame.unidadeSelecionada || exame.unidade || ''}
+                          onChange={(e) => {
+                            e.stopPropagation();
+                            handleUnidadeChange(exame.id, e.target.value);
+                          }}
+                          onClick={(e) => e.stopPropagation()}
+                          sx={{ 
+                            bgcolor: '#e3f2fd', 
+                            fontSize: '0.75rem',
+                            '& .MuiSelect-select': { p: 0.5 }
+                          }}
+                        >
+                          {(exame.unidadesDisponiveis || ['']).map((unidade, idx) => (
+                            <MenuItem key={idx} value={unidade} sx={{ fontSize: '0.75rem' }}>
+                              {unidade || '-'}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </TableCell>
+                    <TableCell sx={{ p: 0.5 }}>
+                      <TextField
+                        fullWidth
+                        size="small"
+                        value={exame.interpretacao || ''}
+                        onChange={(e) => {
+                          e.stopPropagation();
+                          handleInterpretacaoChange(exame.id, e.target.value);
+                        }}
+                        onClick={(e) => e.stopPropagation()}
+                        placeholder="Auto"
+                        variant="outlined"
+                        sx={{ 
+                          bgcolor: exame.interpretacao?.includes('IDEAL') ? '#e8f5e9' :
+                                 exame.interpretacao?.includes('ALTO') ? '#ffebee' :
+                                 exame.interpretacao?.includes('BAIXO') ? '#fff3e0' :
+                                 '#faf5ff',
+                          '& .MuiInputBase-input': { fontSize: '0.75rem', p: 0.75, fontWeight: 600 }
+                        }}
+                      />
+                    </TableCell>
+                  </TableRow>
+                  
+                  {/* Linha expandida com TODOS OS CAMPOS DETALHADOS */}
+                  <TableRow>
+                    <TableCell colSpan={7} sx={{ p: 0, borderBottom: expandedRows[exame.id] ? '2px solid #e0e0e0' : 'none' }}>
+                      <Collapse in={expandedRows[exame.id]} timeout="auto" unmountOnExit>
+                        <Box sx={{ p: 3, bgcolor: '#fafafa' }}>
+                          <Grid container spacing={3}>
+                            {/* FISIOLOGIA E BIOQUÍMICA */}
+                            <Grid item xs={12}>
+                              <Paper elevation={1} sx={{ p: 2, bgcolor: '#e3f2fd', borderLeft: '4px solid #1976d2' }}>
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#1976d2', mb: 1.5 }}>
+                                  🧬 FISIOLOGIA E BIOQUÍMICA
+                                </Typography>
+                                <Box sx={{ mb: 2 }}>
+                                  <Typography variant="body2" sx={{ fontWeight: 600, color: '#0d47a1', mb: 0.5 }}>
+                                    Fisiologia:
+                                  </Typography>
+                                  <Typography variant="body2" sx={{ fontSize: '0.875rem', lineHeight: 1.6, textAlign: 'justify' }}>
+                                    {getFisiologiaBioquimica(exame.exame).fisiologia}
+                                  </Typography>
+                                </Box>
+                                <Box>
+                                  <Typography variant="body2" sx={{ fontWeight: 600, color: '#0d47a1', mb: 0.5 }}>
+                                    Bioquímica:
+                                  </Typography>
+                                  <Typography variant="body2" sx={{ fontSize: '0.875rem', lineHeight: 1.6, textAlign: 'justify' }}>
+                                    {getFisiologiaBioquimica(exame.exame).bioquimica}
+                                  </Typography>
+                                </Box>
+                              </Paper>
+                            </Grid>
+
+                            {/* ALTERAÇÕES E SIGNIFICADOS FUNCIONAIS */}
+                            <Grid item xs={12}>
+                              <Paper elevation={1} sx={{ p: 2, bgcolor: '#fff3e0', borderLeft: '4px solid #f57c00' }}>
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#f57c00', mb: 1 }}>
+                                  ⚠️ ALTERAÇÕES E SIGNIFICADOS FUNCIONAIS
+                                </Typography>
+                                <Typography variant="body2" sx={{ fontSize: '0.875rem', lineHeight: 1.6, textAlign: 'justify' }}>
+                                  {getFisiologiaBioquimica(exame.exame).significado}
+                                </Typography>
+                              </Paper>
+                            </Grid>
+
+                            {/* CONDUTA TERAPÊUTICA */}
+                            <Grid item xs={12}>
+                              <Paper elevation={1} sx={{ p: 2, bgcolor: '#e8f5e9', borderLeft: '4px solid #2e7d32' }}>
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#2e7d32', mb: 1.5 }}>
+                                  💊 CONDUTA TERAPÊUTICA INTEGRATIVA / ABORDAGEM NATUROPÁTICA
+                                </Typography>
+                                <TextField
+                                  fullWidth
+                                  multiline
+                                  rows={12}
+                                  value={exame.conduta || ''}
+                                  onChange={(e) => handleCondutaChange(exame.id, e.target.value)}
+                                  placeholder={exame.resultadoPaciente ? "Gerando protocolo..." : "Digite um resultado acima para gerar automaticamente o protocolo terapêutico completo com nutracêuticos, fitoterapia, homeopatia, florais, frequenciais, dietoterapia e investigações complementares."}
+                                  variant="outlined"
+                                  sx={{ 
+                                    bgcolor: 'white', 
+                                    '& .MuiInputBase-input': { 
+                                      fontSize: '0.813rem', 
+                                      fontFamily: 'monospace',
+                                      lineHeight: 1.5
+                                    } 
+                                  }}
+                                />
+                              </Paper>
+                            </Grid>
+
+                            {/* OBSERVAÇÕES CLÍNICAS */}
+                            <Grid item xs={12}>
+                              <Paper elevation={1} sx={{ p: 2, bgcolor: '#fce4ec', borderLeft: '4px solid #c2185b' }}>
+                                <Typography variant="subtitle1" sx={{ fontWeight: 'bold', color: '#c2185b', mb: 1 }}>
+                                  📌 OBSERVAÇÕES CLÍNICAS ADICIONAIS
+                                </Typography>
+                                <Typography variant="body2" sx={{ fontSize: '0.875rem', lineHeight: 1.6 }}>
+                                  {exame.observacoes}
+                                </Typography>
+                              </Paper>
+                            </Grid>
+                          </Grid>
+                        </Box>
+                      </Collapse>
+                    </TableCell>
+                  </TableRow>
+                </React.Fragment>
+              );
+            }))}
+
+            </TableBody>
+          </Table>
+        </TableContainer>
+
+        {/* Legenda */}
+        <Paper elevation={2} sx={{ p: 2, mb: 3, bgcolor: '#f9f9f9' }} className="no-print">
+          <Typography variant="body2" color="text.secondary">
+            💡 <strong>Legenda:</strong> Clique na seta de cada exame para expandir Conduta e Observações detalhadas.
+            Os valores ideais são baseados em Medicina Funcional.
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+            📊 <strong>Total:</strong> {exames.length} exames cadastrados | 
+            ✅ <strong>Preenchidos:</strong> {exames.filter(e => e.resultadoPaciente).length} resultados
+          </Typography>
+        </Paper>
+
+        {/* Botões de ação */}
+        <Box sx={{ display: 'flex', gap: 2, mb: 3 }} className="no-print">
+          <Button variant="contained" startIcon={<SaveIcon />} onClick={handleSalvar}>
+            Salvar
+          </Button>
+          <Button variant="contained" color="success" startIcon={<PrintIcon />} onClick={handleImprimir}>
+            Imprimir / PDF
+          </Button>
+          <Button 
+            variant="contained" 
+            color="secondary" 
+            onClick={() => {
+              enviarParaTherapySuggestions(exames, pacienteNome);
+              alert('✅ Dados enviados para Prescrição e Terapias!\n\nVocê pode agora acessar:\n• Therapy Suggestions\n• Prescription');
+            }}
+          >
+            📤 Enviar para Prescrição
+          </Button>
+          <Button variant="outlined" startIcon={<DownloadIcon />} onClick={handleDownloadPDF}>
+            Download JSON
+          </Button>
+          <Button 
+            variant="outlined" 
+            color="error" 
+            onClick={() => {
+              if (window.confirm('⚠️ Isso vai limpar todos os dados salvos e recarregar os 88 exames padrão. Confirma?')) {
+                localStorage.removeItem('examesLaboratoriais');
+                window.location.reload();
+              }
+            }}
+          >
+            🔄 Resetar Exames
+          </Button>
+        </Box>
+      </div>
+    </Box>
+  );
+};
+
+// Wrapper com tratamento de erro
+const ExamesLaboratoriaisWrapper = () => {
+  console.log('🌟 ExamesLaboratoriaisWrapper CARREGANDO...');
+  
+  return (
+    <ErrorBoundary>
+      <ExamesLaboratoriais />
+    </ErrorBoundary>
+  );
+};
+
+export default ExamesLaboratoriaisWrapper;

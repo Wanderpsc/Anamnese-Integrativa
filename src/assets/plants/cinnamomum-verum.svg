@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <rect fill="#fff8e1" width="160" height="160" rx="12"/>
+  <rect x="24" y="48" width="112" height="44" rx="6" fill="#ffcc80" opacity="0.9"/>
+  <text x="50%" y="120" dominant-baseline="middle" text-anchor="middle" fill="#6d4c41" font-family="Inter, Arial" font-size="12">Cinnamomum verum</text>
+</svg>

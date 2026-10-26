@@ -1,0 +1,90 @@
+{
+  "appId": "com.wanderpires.anamneseapp",
+  "productName": "Anamnese Integrativa",
+  "copyright": "Copyright © 2025 Wander Pires Silva Coelho",
+  "directories": {
+    "buildResources": "build-resources",
+    "output": "dist",
+    "app": "."
+  },
+  "files": [
+    "build/**/*",
+    "package.json"
+  ],
+  "extraResources": [
+    {
+      "from": "src/assets/therapeutic-data",
+      "to": "therapeutic-data",
+      "filter": ["**/*"]
+    }
+  ],
+  "win": {
+    "target": [
+      {
+        "target": "nsis",
+        "arch": ["x64"]
+      }
+    ],
+    "artifactName": "${productName}-Setup-${version}.${ext}",
+    "fileAssociations": [
+      {
+        "ext": "anm",
+        "name": "Anamnese File",
+        "description": "Arquivo de Anamnese"
+      }
+    ]
+  },
+  "nsis": {
+    "oneClick": false,
+    "allowToChangeInstallationDirectory": true,
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "shortcutName": "Anamnese Integrativa",
+    "language": "1046",
+    "deleteAppDataOnUninstall": false
+  },
+  "portable": {
+    "artifactName": "${productName}-Portable-${version}.${ext}"
+  },
+  "linux": {
+    "target": [
+      {
+        "target": "AppImage",
+        "arch": ["x64"]
+      },
+      {
+        "target": "deb",
+        "arch": ["x64"]
+      }
+    ],
+    "icon": "public/icon-512x512.png",
+    "category": "Office;Healthcare",
+    "synopsis": "Sistema de Anamnese e Sugestões Terapêuticas",
+    "description": "Sistema completo para gestão de consultas, anamneses e protocolos terapêuticos naturais."
+  },
+  "mac": {
+    "target": [
+      {
+        "target": "dmg",
+        "arch": ["x64", "arm64"]
+      }
+    ],
+    "icon": "public/icon-512x512.png",
+    "category": "public.app-category.healthcare-fitness"
+  },
+  "dmg": {
+    "contents": [
+      {
+        "x": 130,
+        "y": 220
+      },
+      {
+        "x": 410,
+        "y": 220,
+        "type": "link",
+        "path": "/Applications"
+      }
+    ]
+  },
+  "publish": null
+}

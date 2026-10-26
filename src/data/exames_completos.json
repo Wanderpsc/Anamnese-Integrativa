@@ -1,0 +1,1512 @@
+{
+  "metadata": {
+    "fonte": "extracted_exams_docx.txt",
+    "totalExames": 154,
+    "dataExtracao": "2026-01-30",
+    "categorias": [
+      "Hemograma",
+      "Hematologia Específica",
+      "Perfil Lipídico",
+      "Avaliação Hormonal",
+      "Avaliação Metabólica",
+      "Avaliação Hepática",
+      "Avaliação Renal",
+      "Avaliação Nutricional (Vitaminas)",
+      "Avaliação Nutricional (Minerais)",
+      "Avaliação de Metais",
+      "Avaliação Cardíaca",
+      "Avaliação Cerebral",
+      "Avaliação Intestinal",
+      "Avaliação da Microbiota",
+      "Marcadores Tumorais",
+      "Enzimas Digestivas",
+      "Coagulação",
+      "Função Renal"
+    ]
+  },
+  "exames": [
+    {
+      "id": 1,
+      "nome": "Hemácias (Eritrócitos)",
+      "categoria": "Hemograma",
+      "fisiologia": "As hemácias são células anucleadas produzidas na medula óssea, responsáveis pelo transporte de oxigênio dos pulmões para os tecidos por meio da hemoglobina. Elas também contribuem para o equilíbrio ácido-base e viscosidade sanguínea.",
+      "valoresReferencia": {
+        "masculino": {"min": 4.5, "max": 5.9, "unidade": "milhões/mm³"},
+        "feminino": {"min": 4.0, "max": 5.2, "unidade": "milhões/mm³"}
+      },
+      "valoresIdeais": {
+        "masculino": {"valor": 5.5, "unidade": "milhões/mm³"},
+        "feminino": {"valor": 5.5, "unidade": "milhões/mm³"}
+      },
+      "alteracoes": {
+        "alto": [
+          "Adaptação a hipóxia crônica (altitudes, doenças pulmonares)",
+          "Desidratação",
+          "Estímulo androgênico (uso de testosterona)"
+        ],
+        "baixo": [
+          "Deficiências de ferro, B12 ou folato",
+          "Inflamação crônica",
+          "Disfunção intestinal com má absorção"
+        ]
+      },
+      "correlacoes": [
+        "Hemácias baixas + ferritina normal ou elevada = possível anemia por doença crônica ou inflamação de baixo grau",
+        "Hemácias elevadas + hemoglobina e hematócrito elevados + testosterona alta = possível eritrocitose secundária ao estímulo androgênico"
+      ],
+      "analiseTemporal": "Monitorar junto com hematócrito, hemoglobina e ferritina para avaliar causas de anemia funcional ou inflamatória."
+    },
+    {
+      "id": 2,
+      "nome": "Hemoglobina (Hb)",
+      "categoria": "Hemograma",
+      "fisiologia": "Proteína presente nas hemácias, composta por ferro e globina, responsável pelo transporte de oxigênio e CO2.",
+      "valoresReferencia": {
+        "masculino": {"min": 13.5, "max": 17.5, "unidade": "g/dL"},
+        "feminino": {"min": 12, "max": 16, "unidade": "g/dL"}
+      },
+      "valoresIdeais": {
+        "masculino": {"min": 14, "max": 16, "unidade": "g/dL"},
+        "feminino": {"min": 13, "max": 15, "unidade": "g/dL"}
+      },
+      "alteracoes": {
+        "baixo": [
+          "Deficiência de ferro, B12, folato",
+          "Inflamação crônica",
+          "Hemodiluição (em atletas ou gestantes)"
+        ],
+        "alto": [
+          "Desidratação",
+          "Hipóxia crônica",
+          "Estresse oxidativo"
+        ]
+      },
+      "correlacoes": [
+        "Hemoglobina baixa + VCM aumentado + B12 ou ácido fólico baixos = possível anemia megaloblástica",
+        "Hemoglobina baixa + ferritina baixa = anemia ferropriva clássica"
+      ],
+      "analiseTemporal": "Importante no acompanhamento de suplementação de ferro ou em quadros inflamatórios."
+    },
+    {
+      "id": 3,
+      "nome": "Hematócrito (Ht)",
+      "categoria": "Hemograma",
+      "fisiologia": "É a porcentagem do volume total de sangue ocupado pelas hemácias.",
+      "valoresReferencia": {
+        "masculino": {"min": 40, "max": 52, "unidade": "%"},
+        "feminino": {"min": 36, "max": 46, "unidade": "%"}
+      },
+      "valoresIdeais": {
+        "masculino": {"min": 42, "max": 48, "unidade": "%"},
+        "feminino": {"min": 39, "max": 46, "unidade": "%"}
+      },
+      "alteracoes": {
+        "baixo": ["Anemia", "Hidratação excessiva"],
+        "alto": ["Desidratação", "Poliglobulia", "EPO excessiva (endógena ou exôgena)"]
+      },
+      "correlacoes": [
+        "Hematócrito elevado + hemoglobina normal + sintomas de desidratação = possível hemoconcentração",
+        "Hematócrito baixo + albumina sérica baixa = possível inflamação crônica ou má absorção proteica",
+        "Relação Ht/Hb normal (=3) = equilíbrio",
+        "Relação Ht/Hb > 3 = possível hemoconcentração ou hipovolemia leve",
+        "Relação Ht/Hb < 3 = possível anemia dilucional ou hipoprodução de hemácias"
+      ],
+      "analiseTemporal": "Ajuda a entender se há hemoconcentração ou hemodiluição."
+    },
+    {
+      "id": 4,
+      "nome": "VCM (Volume Corpuscular Médio)",
+      "categoria": "Hemograma",
+      "fisiologia": "Mede o tamanho médio das hemácias e indica se estão na normalidade de tamanho. Baixo = microcitose. Alto = macrocitose.",
+      "valoresReferencia": {
+        "geral": {"min": 80, "max": 100, "unidade": "fL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 88, "max": 92, "unidade": "fL"}
+      },
+      "alteracoes": {
+        "baixo": ["Microcítico: deficiência de ferro"],
+        "alto": ["Macrocítico: deficiência de B12, folato, etilismo, disfunção hepática"]
+      },
+      "correlacoes": [
+        "VCM aumentado + homocisteína elevada = possível deficiência de B12 ou folato",
+        "VCM normal + sintomas de fadiga crônica + ferritina limítrofe = possível anemia funcional com padrão normocítico"
+      ],
+      "analiseTemporal": "Normal com anemia: investigar inflamação."
+    },
+    {
+      "id": 5,
+      "nome": "HCM (Hemoglobina Corpuscular Média)",
+      "categoria": "Hemograma",
+      "fisiologia": "Indica a quantidade de hemoglobina por hemácia além de avaliar a coloração destas.",
+      "valoresReferencia": {
+        "geral": {"min": 27, "max": 33, "unidade": "pg"}
+      },
+      "valoresIdeais": {
+        "masculino": {"min": 27, "max": 33, "unidade": "pg"},
+        "feminino": {"min": 28, "max": 32, "unidade": "pg"}
+      },
+      "alteracoes": {
+        "baixo": ["Hipocromia com possível deficiência de ferro"],
+        "alto": ["Reticulocitose, macrocitose, etilismo"]
+      },
+      "correlacoes": [
+        "HCM reduzido + ferro sérico baixo = anemia hipocrômica por deficiência de ferro",
+        "HCM elevado + VCM aumentado = possível padrão macrocítico com hipercromia relativa"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 6,
+      "nome": "CHCM (Concentração de Hemoglobina Corpuscular Média)",
+      "categoria": "Hemograma",
+      "fisiologia": "Mede a concentração de Hemoglobina por volume de hemácia.",
+      "valoresReferencia": {
+        "geral": {"min": 32, "max": 36, "unidade": "g/dL"}
+      },
+      "valoresIdeais": {
+        "masculino": {"min": 33, "max": 35, "unidade": "g/dL"},
+        "feminino": {"min": 33, "max": 35, "unidade": "g/dL"}
+      },
+      "alteracoes": {
+        "baixo": ["Hipocromia, deficiência de ferro"],
+        "alto": ["Esferocitose, desidratação celular"]
+      },
+      "correlacoes": [
+        "CHCM reduzida + ferritina baixa = padrão clássico de anemia ferropriva",
+        "CHCM normal + VCM aumentado = possível anemia megaloblástica"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 7,
+      "nome": "RDW (Red Cell Distribution Width)",
+      "categoria": "Hemograma",
+      "fisiologia": "Avalia a variação no tamanho das hemácias (anisocitose). Quanto maior o RDW, mais variação. É um dos principais biomarcadores do 'envelhecimento' do organismo: quanto mais alto, maior a chance de morte por todas as causas.",
+      "valoresReferencia": {
+        "geral": {"min": 11.5, "max": 14.5, "unidade": "%"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 11, "unidade": "%"}
+      },
+      "alteracoes": {
+        "elevado": ["Deficiência de ferro, B12, folato ou regeneração pós-anemia", "Usado para diferenciar anemias (ex.: ferro x inflamatória)"]
+      },
+      "correlacoes": [
+        "RDW aumentado + VCM normal = possível anemia em transição ou mista",
+        "RDW aumentado + ferritina baixa = possível anemia ferropriva inicial"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 8,
+      "nome": "Plaquetas (trombócitos)",
+      "categoria": "Hemograma",
+      "fisiologia": "Participam do processo de hemostasia, promovendo a coagulação sanguínea e reparo tecidual. Também atuam como moduladores da inflamação, liberando citocinas e fatores de crescimento em locais de lesão. São sensíveis ao estado nutricional (vitamina K, B12, folato) e inflamatório do organismo.",
+      "valoresReferencia": {
+        "geral": {"min": 150000, "max": 400000, "unidade": "/mm³"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 200000, "max": 300000, "unidade": "/mm³"}
+      },
+      "alteracoes": {
+        "altas": ["Inflamação, deficiência de ferro, infecções, pós-cirurgias"],
+        "baixas": ["Autoimunidade, deficiência de B12, medicações, vírus"]
+      },
+      "correlacoes": [
+        "Plaquetas elevadas + proteína C reativa elevada = possível inflamação ou deficiência de ferro",
+        "Plaquetas reduzidas + uso de medicamentos + sintomas de sangramento = investigar trombocitopenia medicamentosa ou autoimune"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 9,
+      "nome": "Leucócitos (Glóbulos Brancos)",
+      "categoria": "Hemograma",
+      "fisiologia": "Os leucócitos são células do sistema imunológico responsáveis por defender o organismo contra agentes infecciosos, corpos estranhos e células tumorais. Dividem-se em granulócitos (neutrófilos, eosinófilos, basófilos) e agranulócitos (linfócitos e monócitos). Seu número pode se alterar em função de infecções agudas, inflamações crônicas, doenças autoimunes, carências nutricionais e estresse oxidativo.",
+      "valoresReferencia": {
+        "geral": {"min": 4000, "max": 10000, "unidade": "/mm³"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 4000, "max": 6500, "unidade": "/mm³"}
+      },
+      "alteracoes": {
+        "altos": ["Infecção aguda, inflamação, estresse"],
+        "baixos": ["Imunossupressão, infecção viral, desnutrição"]
+      },
+      "correlacoes": [
+        "Leucócitos elevados + neutrófilos predominantes = provável processo infeccioso agudo ou inflamatório",
+        "Leucócitos baixos + linfócitos altos = possível infecção viral ou imunossupressão crônica"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 10,
+      "nome": "Neutrófilos",
+      "categoria": "Hemograma",
+      "fisiologia": "São os leucócitos mais abundantes, com função fagocitária rápida e potente contra bactérias e fungos. Produzem espécies reativas de oxigênio (EROs) para eliminar patógenos, e participam da formação de NETs (armadilhas extracelulares de neutrófilos). Seu aumento reflete infecção aguda, trauma ou inflamação. A deficiência de zinco, cobre e vitamina C pode prejudicar sua atividade.",
+      "valoresReferencia": {
+        "geral": {"min": 1800, "max": 8000, "unidade": "/mm³"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 4000, "max": 6500, "unidade": "/mm³"}
+      },
+      "alteracoes": {
+        "altos": ["Infecção bacteriana, estresse, inflamação aguda"],
+        "baixos": ["Infecção viral, uso de imunossupressores, carência de B12/folato"]
+      },
+      "correlacoes": [
+        "Neutrófilos elevados + bastonetes aumentados = infecção aguda ativa (padrão de desvio à esquerda)",
+        "Neutrófilos baixos + uso crônico de medicações = possível imunossupressão medicamentosa"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 11,
+      "nome": "Neutrófilos Bastonetes",
+      "categoria": "Hemograma",
+      "fisiologia": "São formas jovens de neutrófilos, com núcleo em forma de bastão. O aumento de bastonetes (desvio à esquerda) indica liberação medular precoce de neutrófilos, geralmente em resposta a infecção bacteriana aguda ou inflamação crônica. Pode estar presente mesmo antes da elevação de leucócitos totais.",
+      "valoresReferencia": {
+        "geral": {"min": 0, "max": 800, "unidade": "/mm³"}
+      },
+      "valoresIdeais": {
+        "geral": {"valor": 0, "unidade": "/mm³"}
+      },
+      "alteracoes": {
+        "aumento": ["Desvio à esquerda (se presente, indica infecção ou inflamação)"]
+      },
+      "correlacoes": [
+        "Bastonetes > 6% + leucocitose = resposta inflamatória aguda intensa",
+        "Bastonetes aumentados + RDW elevado = possível estresse medular com renovação precoce celular"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 12,
+      "nome": "Linfócitos",
+      "categoria": "Hemograma",
+      "fisiologia": "Responsáveis pela resposta imune adaptativa, os linfócitos se dividem em B (produção de anticorpos), T (citotóxicos e auxiliares) e NK (natural killers). Atuam no controle de vírus, células tumorais e processos autoimunes. Seu número reflete o estado de regulação imunológica e vigilância antiviral. Deficiências de B6, B9, B12, zinco e glutamina comprometem sua função.",
+      "valoresReferencia": {
+        "geral": {"min": 900, "max": 2900, "unidade": "/mm³"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 2500, "max": 2800, "unidade": "/mm³"}
+      },
+      "alteracoes": {
+        "altos": ["Infecção viral, resposta imunológica"],
+        "baixos": ["Imunossupressão, estresse crônico"]
+      },
+      "correlacoes": [
+        "Linfócitos aumentados + leucócitos totais normais ou baixos = infecção viral ou processo autoimune leve",
+        "Linfócitos baixos + uso de corticosteroides = possível imunossupressão medicamentosa"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 13,
+      "nome": "Relação Neutrófilos/Linfócitos (NLR)",
+      "categoria": "Hemograma",
+      "fisiologia": "É um índice inflamatório que reflete o equilíbrio entre imunidade inata (neutrófilos) e adaptativa (linfócitos). Aumentos sugerem estado inflamatório crônico, estresse oxidativo ou risco cardiovascular. Valores elevados são comuns em resistência insulínica, obesidade, câncer, doenças autoimunes e fadiga crônica. Essa relação também pode ser influenciada por cortisol, dieta inflamatória e microbiota. Com o valor da relação neutrófilo/linfócito avaliamos o quão rápido esse 'organismo' está envelhecendo.",
+      "valoresReferencia": {
+        "geral": {}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 1.0, "max": 1.5, "unidade": ""}
+      },
+      "alteracoes": {
+        "elevado": ["2,0 pode indicar inflamação crônica silenciosa"]
+      },
+      "correlacoes": [
+        "N/L > 3 = possível inflamação crônica ou estresse sistêmico",
+        "N/L < 1 = possível estado imunológico alterado com predominância linfocitária"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 14,
+      "nome": "Eosinófilos",
+      "categoria": "Hemograma",
+      "fisiologia": "Atuam na defesa contra parasitas e na resposta a alérgenos alimentares ou ambientais, sendo células marcadoras de reatividade imunológica e inflamação mucosal. Também participam da destruição de complexos antígeno-anticorpo e liberam proteínas tóxicas que contribuem para a lesão tecidual inflamatória crônica. Aumentos estão associados a disbiose intestinal, sensibilidade alimentar e infecções parasitárias.",
+      "valoresReferencia": {
+        "geral": {"min": 0, "max": 5, "unidade": "%"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 2, "unidade": "%"}
+      },
+      "alteracoes": {
+        "elevado": [
+          "2% pode indicar sensibilidade alimentar",
+          "5% pode indicar alergias alimentares, intestinais ou infecção parasitária"
+        ]
+      },
+      "correlacoes": [
+        "Eosinófilos elevados > 5% = possível parasitose, alergia alimentar ou respiratória",
+        "Eosinofilia + zinco baixo = avaliar disbiose intestinal e reatividade imune"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 15,
+      "nome": "Monócitos",
+      "categoria": "Hemograma",
+      "fisiologia": "Monócitos são células fagocitárias circulantes que se diferenciam em macrófagos nos tecidos. Participam da resposta inflamatória crônica, limpeza de tecidos danificados, reciclagem de ferro e apresentação de antígenos. Seu aumento sugere infecção persistente, disbiose, sobrecarga tóxica ou inflamação de baixo grau, estando ligados à progressão de doenças crônicas.",
+      "valoresReferencia": {
+        "geral": {"min": 1, "max": 10, "unidade": "%"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 3, "max": 8, "unidade": "%"}
+      },
+      "alteracoes": {
+        "elevados": ["Doenças autoimunes, disbiose, viroses"]
+      },
+      "correlacoes": [
+        "Monócitos aumentados + eosinófilos e basófilos normais = ativação imunológica persistente",
+        "Monócitos elevados + ferritina alta = possível inflamação crônica ou resistência à insulina"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 16,
+      "nome": "Basófilos",
+      "categoria": "Hemograma",
+      "fisiologia": "Basófilos liberam histamina, heparina e citocinas em resposta a estímulos alérgicos ou imunológicos. Têm papel importante em alergias tardias, inflamação de mucosa e autoimunidade silenciosa.",
+      "valoresReferencia": {
+        "geral": {"min": 0, "max": 2, "unidade": "%"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 0.5, "unidade": "%"}
+      },
+      "alteracoes": {
+        "elevado": [">2% está relacionada à sensibilização alimentar, disbiose e reações autoimunes leves", "Liberação de histamina, associados à inflamação crônica, alergias e intolerâncias"]
+      },
+      "correlacoes": [
+        "Basófilos elevados + sintomas alérgicos = possível hipersensibilidade tardia",
+        "Basófilos aumentados + eosinofilia = investigar distúrbios alérgicos ou parasitoses"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 17,
+      "nome": "Índice MEB (Monócitos + Eosinófilos + Basófilos)",
+      "categoria": "Hemograma",
+      "fisiologia": "O Índice MEB é uma somatória percentual dos leucócitos da linha mieloide: monócitos, eosinófilos e basófilos, cujas funções estão diretamente ligadas à resposta imune inata, processos inflamatórios crônicos, reatividade alérgica e resposta imunológica a toxinas e patógenos intestinais.",
+      "valoresReferencia": {
+        "geral": {}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 9, "unidade": "%"}
+      },
+      "alteracoes": {
+        "elevado": [
+          "Valores acima de 9%: sugerem ativação imune persistente, frequentemente relacionada a distúrbios intestinais e característico de Disbiose",
+          "Índice MEB > 9% = possível disbiose intestinal moderada a severa",
+          "Índice MEB > 12% = alta carga inflamatória mucosal + disbiose + sobrecarga tóxica intestinal"
+        ]
+      },
+      "correlacoes": [
+        "Índice MEB elevado + calprotectina fecal aumentada = inflamação intestinal ativa",
+        "Índice MEB elevado + eosinofilia isolada + IgG alimentar alterado = provável alergia alimentar de base imunológica",
+        "Índice MEB elevado + ferritina elevada = inflamação crônica oculta com alteração na biodisponibilidade de ferro"
+      ],
+      "analiseTemporal": "Recomenda-se reavaliar o índice MEB a cada 30-60 dias durante protocolos de modulação intestinal. Útil para monitorar resposta ao tratamento com probióticos, dietas anti-inflamatórias e fitoterápicos intestinais."
+    },
+    {
+      "id": 18,
+      "nome": "Homocisteína",
+      "categoria": "Hematologia Específica",
+      "fisiologia": "A homocisteína é um aminoácido intermediário no metabolismo da metionina. Normalmente é remetilada a metionina (via B12 e folato) ou transsulfurada a cisteína (via B6). Níveis elevados indicam disfunções nessas vias. É o principal biomarcador (comum) pra identificar o nível de Submetilação.",
+      "valoresReferencia": {
+        "geral": {"min": 5, "max": 15, "unidade": "μmol/L"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 8, "unidade": "μmol/L"}
+      },
+      "alteracoes": {
+        "alta": [
+          "Deficiência de B12, B6, folato",
+          "Submetilação",
+          "Risco cardiovascular, neurodegenerativo e gestacional"
+        ],
+        "baixa": ["Rara, geralmente sem implicação clínica importante"]
+      },
+      "correlacoes": [
+        "Homocisteína + PCR-us aumentadas = risco inflamatório e endotelial elevado",
+        "Homocisteína + B12/B9 baixa = metilação ineficiente; atenção para disfunção neurológica"
+      ],
+      "analiseTemporal": "Avaliar após suplementação com B12, folato ativo (5-MTHF) e B6 (P-5-P); responderá em 6-12 semanas."
+    },
+    {
+      "id": 19,
+      "nome": "Ferro Sérico",
+      "categoria": "Hematologia Específica",
+      "fisiologia": "Reflete a quantidade de ferro circulante ligado à transferrina. O ferro é essencial para a síntese de hemoglobina, função mitocondrial, e atividade antioxidante via catalase.",
+      "valoresReferencia": {
+        "masculino": {"min": 65, "max": 176, "unidade": "μg/dL"},
+        "feminino": {"min": 50, "max": 170, "unidade": "μg/dL"}
+      },
+      "valoresIdeais": {
+        "masculino": {"min": 80, "max": 160, "unidade": "μg/dL"},
+        "feminino": {"min": 70, "max": 120, "unidade": "μg/dL"}
+      },
+      "alteracoes": {
+        "baixo": ["Deficiência de ferro", "Inflamação crônica", "Perdas sanguíneas (gastrointestinais, menstruação)"],
+        "alto": ["Sobrecarga de ferro", "Hemocromatose, intoxicação", "Excesso de suplementação"]
+      },
+      "correlacoes": [
+        "Ferro baixo + ferritina baixa = deficiência verdadeira",
+        "Ferro baixo + ferritina alta = anemia da inflamação crônica"
+      ],
+      "analiseTemporal": "Avaliar junto com ferritina, transferrina e PCR-us. Jejum necessário para a coleta."
+    },
+    {
+      "id": 20,
+      "nome": "Ferritina",
+      "categoria": "Hematologia Específica",
+      "fisiologia": "Principal proteína de armazenamento de ferro. Reflete os estoques corporais, mas também é proteína de fase aguda liberada quando há inflamação.",
+      "valoresReferencia": {
+        "masculino": {"min": 30, "max": 300, "unidade": "ng/mL"},
+        "feminino": {"min": 15, "max": 150, "unidade": "ng/mL"}
+      },
+      "valoresIdeais": {
+        "masculino": {"min": 100, "max": 120, "unidade": "ng/mL"},
+        "feminino": {"min": 100, "max": 110, "unidade": "ng/mL"}
+      },
+      "alteracoes": {
+        "baixo": ["Estoques baixos de ferro", "Sangramentos", "Disbiose com má absorção"],
+        "alto": ["Inflamação crônica", "Infecções", "Síndrome metabólica", "Sobrecarga de ferro"]
+      },
+      "correlacoes": [
+        "Ferritina alta + PCR-us alta + HDL baixo = perfil inflamatório e dismetabólico"
+      ],
+      "analiseTemporal": "Monitorar com ferro sérico, TIBC e PCR-us para distinguir entre inflamação e real excesso de ferro."
+    },
+    {
+      "id": 21,
+      "nome": "Saturação da Transferrina",
+      "categoria": "Hematologia Específica",
+      "fisiologia": "A transferrina é a proteína transportadora de ferro no sangue. A percentagem de saturação indica quanto da transferrina está efetivamente ligada ao ferro. É um marcador sensível de disponibilidade de ferro funcional. Representa a biodisponibilidade do ferro para os tecidos.",
+      "valoresReferencia": {
+        "geral": {"min": 20, "max": 50, "unidade": "%"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 30, "unidade": "%"}
+      },
+      "alteracoes": {
+        "baixa": ["Deficiência de ferro, inflamação"],
+        "alta": ["Sobrecarga de ferro, estresse oxidativo, hemocromatose"]
+      },
+      "correlacoes": [
+        "Saturação baixa + ferritina normal/alta = anemia da inflamação (ferro bloqueado pela inflamação)"
+      ],
+      "analiseTemporal": "Importante em acompanhamento de reposição de ferro e diagnóstico diferencial de anemias."
+    },
+    {
+      "id": 22,
+      "nome": "Transferrina Livre",
+      "categoria": "Hematologia Específica",
+      "fisiologia": "Proteína que transporta ferro. Níveis aumentam em deficiência de ferro e diminuem em estados inflamatórios.",
+      "valoresReferencia": {
+        "geral": {"min": 200, "max": 360, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 212, "max": 360, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "alta": ["Deficiência de ferro"],
+        "baixa": ["Doença hepática, inflamação, excesso de ferro"]
+      },
+      "correlacoes": [
+        "Transferrina alta + ferritina baixa = deficiência de ferro"
+      ],
+      "analiseTemporal": "Importante em triagem e ajuste de reposição de ferro."
+    },
+    {
+      "id": 23,
+      "nome": "TIBC (Capacidade Total de Ligação do Ferro)",
+      "categoria": "Hematologia Específica",
+      "fisiologia": "Mede a capacidade máxima da transferrina de se ligar ao ferro. Aumenta na deficiência e reduz na inflamação.",
+      "valoresReferencia": {
+        "geral": {"min": 250, "max": 450, "unidade": "μg/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 300, "max": 400, "unidade": "μg/dL"}
+      },
+      "alteracoes": {
+        "alta": ["Deficiência de ferro"],
+        "baixa": ["Inflamação, hepatopatias"]
+      },
+      "correlacoes": [
+        "TIBC alta + ferritina baixa = deficiência de ferro clara"
+      ],
+      "analiseTemporal": "Indicado junto a ferritina e PCR-us para diferenciar inflamação de deficiência nutricional."
+    },
+    {
+      "id": 24,
+      "nome": "TTPA (Tempo de Tromboplastina Parcial Ativada)",
+      "categoria": "Coagulação",
+      "fisiologia": "O TTPA avalia a via intrínseca da coagulação sanguínea, analisando o tempo necessário para formar um coágulo após ativação por reagentes específicos. Reflete a atividade de fatores como VIII, IX, XI e XII, além de fatores comuns como II (protrombina), V e X. É um exame crucial para investigar distúrbios hemorrágicos, monitorar anticoagulação com heparina e identificar deficiências nutricionais (vitamina K, B12, folato), que impactam a síntese hepática de fatores de coagulação. Também pode ser influenciado por doenças hepáticas, inflamação crônica e autoimunidade.",
+      "valoresReferencia": {
+        "geral": {"min": 25, "max": 40, "unidade": "segundos"}
+      },
+      "valoresIdeais": {
+        "geral": {"valor": 30, "unidade": "segundos"}
+      },
+      "alteracoes": {
+        "prolongado": [
+          "Deficiência de fatores de coagulação",
+          "Uso de heparina",
+          "Deficiência de vitamina K",
+          "Autoimunidade (lúpus anticoagulante)",
+          "Doença hepática crônica"
+        ],
+        "reduzido": [
+          "Hipercoagulabilidade funcional",
+          "Inflamação crônica",
+          "Resistência insulínica",
+          "Estados pró-trombóticos",
+          "Uso de contraceptivos hormonais"
+        ]
+      },
+      "correlacoes": [
+        "TTPA prolongado + vitamina K reduzida = risco aumentado de sangramentos funcionais",
+        "TTPA normal + PCR elevada + plaquetas elevadas = estado pró-coagulante inflamatório"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 25,
+      "nome": "Fibrinogênio",
+      "categoria": "Coagulação",
+      "fisiologia": "O fibrinogênio é uma glicoproteína produzida no fígado, precursora da fibrina, que é essencial para a formação do coágulo sanguíneo. Atua também como marcador inflamatório de fase aguda, sendo um elo entre os sistemas hemostático e imunológico. Sua síntese é estimulada por citocinas inflamatórias como a IL-6, e pode ser influenciada por estado nutricional, inflamação crônica, doenças hepáticas e cardiovasculares.",
+      "valoresReferencia": {
+        "geral": {"min": 200, "max": 400, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 250, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "elevado": [
+          "Estado inflamatório crônico",
+          "Doenças autoimunes",
+          "Resistência insulínica",
+          "Obesidade",
+          "Tabagismo",
+          "Risco cardiovascular aumentado",
+          "Risco trombótico"
+        ],
+        "reduzido": [
+          "Disfunção hepática",
+          "Déficit de proteínas plasmáticas",
+          "Consumo excessivo na coagulação intravascular (CID)",
+          "Deficiências de vitamina C, proteína",
+          "Estados catabólicos graves"
+        ]
+      },
+      "correlacoes": [
+        "Fibrinogênio alto + PCR elevada + ferritina elevada = inflamação crônica silenciosa com risco cardiovascular",
+        "Fibrinogênio baixo + albumina baixa = possível disfunção hepática ou má absorção proteica"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 26,
+      "nome": "TFG (Taxa de Filtração Glomerular)",
+      "categoria": "Função Renal",
+      "fisiologia": "A TFG estima a capacidade dos rins filtrarem o sangue, sendo um dos principais parâmetros para avaliar função renal. Calculada com base na creatinina sérica (ou cistatina C), idade, sexo e etnia, reflete diretamente a saúde glomerular e está relacionada ao metabolismo de eletrólitos, ácido-base e eliminação de toxinas. Alterações sutis podem antecipar doença renal crônica, resistência insulínica e alterações endoteliais.",
+      "valoresReferencia": {
+        "geral": {"min": 90, "unidade": "mL/min/1,73m²"}
+      },
+      "valoresIdeais": {
+        "jovens": {"min": 100, "max": 130, "unidade": "mL/min"},
+        "acima40anos": {"min": 90, "unidade": "mL/min"}
+      },
+      "alteracoes": {
+        "reduzida": [
+          "Perda de função renal",
+          "Hipertensão",
+          "Diabetes",
+          "Uso crônico de medicamentos nefrotóxicos (AINEs, inibidores de bomba de prótons)",
+          "Desidratação",
+          "Sobrecarga proteica"
+        ],
+        "elevada": [
+          "Fases iniciais de diabetes",
+          "Gravidez",
+          "Hiperfiltração glomerular compensatória"
+        ]
+      },
+      "correlacoes": [
+        "TFG reduzida + ureia/creatinina elevadas = sinal de insuficiência renal em evolução",
+        "TFG reduzida + ácido úrico elevado + pressão alta = risco de nefropatia metabólica"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 27,
+      "nome": "Cistatina C",
+      "categoria": "Função Renal",
+      "fisiologia": "A cistatina C é uma proteína de baixo peso molecular produzida por todas as células nucleadas e filtrada exclusivamente pelos glomérulos renais. É considerada um biomarcador mais sensível que a creatinina para avaliar a função renal, pois não sofre influência de massa muscular, dieta ou gênero. Permite a detecção precoce de declínio da TFG, mesmo quando a creatinina está normal.",
+      "valoresReferencia": {
+        "geral": {"min": 0.6, "max": 1.0, "unidade": "mg/L"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 0.5, "max": 0.9, "unidade": "mg/L"}
+      },
+      "alteracoes": {
+        "elevada": [
+          "Redução precoce da taxa de filtração glomerular (TFG)",
+          "Diabetes",
+          "Hipertensão",
+          "Doenças cardiovasculares",
+          "Envelhecimento acelerado"
+        ]
+      },
+      "correlacoes": [
+        "Cistatina C elevada + creatinina normal + TFG reduzida = sinal precoce de disfunção renal funcional",
+        "Cistatina C elevada + proteína C reativa elevada = risco cardiovascular aumentado"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 28,
+      "nome": "Colesterol Total",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "O colesterol é um lipídeo essencial na composição das membranas celulares, precursor de hormônios esteroidais, vitamina D e sais biliares. É transportado no sangue por lipoproteínas (LDL, HDL, VLDL). O valor total engloba todos os tipos de colesterol.",
+      "valoresReferencia": {
+        "geral": {"max": 200, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 200, "max": 240, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "elevado": ["Risco cardiovascular", "Inflamação", "Disfunção hepática", "Hipotiroidismo"],
+        "baixo": ["Desnutrição", "Inflamação aguda", "Déficit de produção hepática", "Disfunção hormonal", "Queda de imunidade (vitamina D)"]
+      },
+      "correlacoes": [
+        "Colesterol total elevado + HDL baixo + triglicérides elevados = alto risco cardiometabólico",
+        "Colesterol total baixo + baixa ingestão de gorduras boas = avaliar status nutricional e função hepática"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 29,
+      "nome": "LDL (Lipoproteína de baixa densidade)",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "Transporta colesterol do fígado para os tecidos. Possui 11 tipos, 2 deles são pequenas e densas e podem se oxidar e penetrar na parede arterial, promovendo inflamação e aterosclerose.",
+      "valoresReferencia": {
+        "geral": {"max": 130, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 100, "max": 130, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "elevado": ["Risco de inflamação, disfunção endotelial"],
+        "muitoBaixo": ["Estresse oxidativo crônico", "Baixa absorção lipídica", "Déficits nutricionais"]
+      },
+      "correlacoes": [
+        "LDL elevado + LDL oxidado alto = risco aterosclerótico acentuado",
+        "LDL elevado + Apo B alto = perfil aterogênico expressivo"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 30,
+      "nome": "LDL Oxidado",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "Forma oxidada da LDL após exposição a radicais livres. Altamente aterogênica, desencadeia resposta imune e inflamatória no endotélio.",
+      "valoresReferencia": {
+        "geral": {"max": 60, "unidade": "U/L"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 45, "unidade": "U/L"}
+      },
+      "alteracoes": {
+        "elevado": ["Estresse oxidativo", "Inflamação vascular", "Dieta rica em ômega-6", "Baixo consumo de antioxidantes"]
+      },
+      "correlacoes": [
+        "LDL oxidado alto + vitamina E baixa = risco cardiovascular aumentado",
+        "LDL oxidado alto + glutationa baixa = investigar destoxificação hepática e inflamação"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 31,
+      "nome": "HDL (Lipoproteína de alta densidade)",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "Promove o transporte reverso de colesterol, retirando excesso dos tecidos e levando ao fígado. Possui propriedades anti-inflamatórias e antioxidantes.",
+      "valoresReferencia": {
+        "masculino": {"min": 40, "unidade": "mg/dL"},
+        "feminino": {"min": 50, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 70, "max": 93, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "baixo": ["Inflamação crônica", "Sedentarismo", "Disbiose", "Deficiência de ômega-3 e antioxidantes"],
+        "elevado": ["Nem sempre protetor; avaliar contexto metabólico"]
+      },
+      "correlacoes": [
+        "HDL baixo + triglicérides altos = síndrome metabólica",
+        "HDL baixo + inflamação = risco cardiovascular aumentado"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 32,
+      "nome": "VLDL (Lipoproteína de muito baixa densidade)",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "Transporta triglicerídeos do fígado para os tecidos. Precursor do LDL. Elevado em contextos de dislipidemia e resistência insulínica.",
+      "valoresReferencia": {
+        "geral": {"min": 5, "max": 40, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 20, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "elevado": ["Produção hepática aumentada de triglicérides", "Esteatose", "Hiperinsulinemia"]
+      },
+      "correlacoes": [
+        "VLDL elevado + HOMA-IR elevado = resistência à insulina"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 33,
+      "nome": "Triglicérides",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "Forma de armazenamento de gordura no sangue. Reflete ingesta alimentar alta em carboidratos simples, metabolismo hepático, sensibilidade insulínica e balanço calórico.",
+      "valoresReferencia": {
+        "geral": {"max": 150, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 60, "max": 100, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "elevado": ["Dieta rica em carboidratos refinados", "Insulina elevada", "Esteatose hepática"],
+        "baixo": ["Baixa ingesta calórica", "Desnutrição"]
+      },
+      "correlacoes": [
+        "Triglicérides alto + HDL baixo = síndrome metabólica"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 34,
+      "nome": "Relação TG/HDL",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "Indicador da sensibilidade à insulina e risco cardiovascular. Quanto maior a relação, maior o risco.",
+      "valoresReferencia": {},
+      "valoresIdeais": {
+        "geral": {"max": 1.8, "unidade": ""}
+      },
+      "alteracoes": {},
+      "correlacoes": [
+        "Relação > 2 = forte indicação de resistência insulínica"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 35,
+      "nome": "Relação LDL/HDL",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "Avalia o balanço entre colesterol aterogênico e protetor. Usado para estratificar risco cardiovascular.",
+      "valoresReferencia": {},
+      "valoresIdeais": {
+        "geral": {"max": 2.3, "unidade": ""}
+      },
+      "alteracoes": {},
+      "correlacoes": [
+        "Relação > 3 = risco aumentado para doença arterial coronariana"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 36,
+      "nome": "Relação CT/HDL",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "Avalia o total de colesterol em relação ao HDL. Quanto menor a relação, melhor o prognóstico.",
+      "valoresReferencia": {},
+      "valoresIdeais": {
+        "geral": {"max": 3.3, "unidade": ""}
+      },
+      "alteracoes": {},
+      "correlacoes": [],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 37,
+      "nome": "Apolipoproteína A1 (Apo A1)",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "Principal proteína do HDL, responsável pelo transporte reverso do colesterol e proteção endotelial.",
+      "valoresReferencia": {
+        "geral": {"min": 98, "max": 210, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 145, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "reduzida": ["Inflamação crônica", "Baixo HDL", "Estresse oxidativo"]
+      },
+      "correlacoes": [],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 38,
+      "nome": "Apolipoproteína B (Apo B)",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "Proteína presente em todas as lipoproteínas aterogênicas (LDL, VLDL, IDL). Indica o número total de partículas potencialmente lesivas ao endotélio.",
+      "valoresReferencia": {
+        "geral": {"min": 44, "max": 148, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 100, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "elevada": ["Risco aumentado de aterosclerose mesmo com LDL normal"]
+      },
+      "correlacoes": [],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 39,
+      "nome": "Relação ApoB/ApoA1",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "Considerada um dos melhores preditores de risco cardiovascular, reflete o balanço entre partículas aterogênicas e protetoras.",
+      "valoresReferencia": {},
+      "valoresIdeais": {
+        "geral": {"max": 0.59, "unidade": ""}
+      },
+      "alteracoes": {
+        "elevada": ["Relação > 0,9 = alto risco cardiovascular mesmo com outros marcadores dentro da faixa"]
+      },
+      "correlacoes": [],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 40,
+      "nome": "Lp(a) - Lipoproteína(a)",
+      "categoria": "Perfil Lipídico",
+      "fisiologia": "A Lp(a) é uma lipoproteína plasmática semelhante à LDL, mas com a adição da apolipoproteína(a) ligada à apolipoproteína B-100. Essa estrutura confere propriedades aterogênicas e trombogênicas. A Lp(a) contribui para o acúmulo de placas ateroscleróticas e interfere na fibrinólise, promovendo risco cardiovascular independente, especialmente em pacientes com histórico familiar de doenças coronarianas precoces. Sua concentração é altamente determinada geneticamente e pouco influenciada por dieta ou estilo de vida.",
+      "valoresReferencia": {
+        "geral": {"max": 30, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 16, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "elevada": [
+          "Risco aumentado de eventos cardiovasculares (infarto, AVC, aterosclerose precoce)",
+          "Disfunção endotelial",
+          "Redução da fibrinólise (risco trombótico aumentado)",
+          "Resistência à insulina, inflamação e doenças renais também podem elevar Lp(a)"
+        ]
+      },
+      "correlacoes": [
+        "Lp(a) elevada + LDL oxidado alto + PCR alta = alto risco aterogênico e inflamatório",
+        "Lp(a) elevada + histórico familiar de infarto precoce + homocisteína elevada = perfil genético de alto risco cardiovascular"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 41,
+      "nome": "TSH (Hormônio Estimulante da Tireoide)",
+      "categoria": "Avaliação Hormonal",
+      "fisiologia": "O TSH é um hormônio produzido pela hipófise anterior que regula a produção dos hormônios tireoidianos T3 (triiodotironina) e T4 (tiroxina) pela glândula tireoide. É sensível ao feedback negativo dos níveis circulantes de T3 e T4. Ele é frequentemente o primeiro marcador a se alterar em disfunções tireoidianas.",
+      "valoresReferencia": {
+        "geral": {"min": 0.4, "max": 4.5, "unidade": "μUI/mL"}
+      },
+      "valoresIdeais": {
+        "adultos": {"min": 1.0, "max": 2.0, "unidade": "μUI/mL"},
+        "criancas": {"max": 6.0, "unidade": "μUI/mL"},
+        "idosos": {"max": 6.0, "unidade": "μUI/mL"}
+      },
+      "alteracoes": {
+        "elevado": ["Hipotireoidismo subclínico", "Deficiência de iodo", "Tireoidite de Hashimoto", "Resistência hipofisária"],
+        "reduzido": ["Hipertireoidismo", "Supressão pela terapia com T3/T4", "Disfunção hipofisária (hipopituitarismo)"]
+      },
+      "correlacoes": [
+        "TSH elevado + T4 livre baixo = hipotireoidismo subclínico",
+        "TSH baixo + T3 livre elevado = hipertireoidismo franco",
+        "TSH normal + sintomas + T3 reverso elevado = hipotireoidismo funcional ou adaptação ao estresse",
+        "TSH elevado + ferritina < 40 ng/mL = possível hipotireoidismo por deficiência de ferro",
+        "TSH elevado + colesterol total ou LDL elevado = sinal de hipotireoidismo subclínico afetando metabolismo lipídico"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 42,
+      "nome": "T4 Livre (Tiroxina Livre)",
+      "categoria": "Avaliação Hormonal",
+      "fisiologia": "É o principal hormônio secretado pela tireoide, responsável por regular o metabolismo basal, crescimento e diferenciação celular. Se em estado nutricional adequado, é convertido em T3 nos tecidos periféricos. Caso contrário, se converte em T3 reverso.",
+      "valoresReferencia": {
+        "geral": {"min": 0.8, "max": 1.8, "unidade": "ng/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 1.3, "max": 1.5, "unidade": "ng/dL"}
+      },
+      "alteracoes": {
+        "elevado": ["Hipertireoidismo", "Uso excessivo de levotiroxina", "Tireoidite aguda"],
+        "reduzido": ["Hipotireoidismo", "Doenças crônicas", "Desnutrição proteica", "Uso de certos medicamentos"]
+      },
+      "correlacoes": [
+        "T4 livre baixo + TSH elevado = hipotireoidismo primário",
+        "T4 livre normal + TSH alterado = disfunção subclínica",
+        "T4 livre alto + TSH suprimido = hipertireoidismo",
+        "T4 livre baixo + TSH normal ou baixo + T3 reverso elevado = conversão periférica ineficiente por estresse ou inflamação",
+        "T4 livre baixo + vitamina D < 30 ng/mL = possível impacto autoimune na glândula tireoidiana"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 43,
+      "nome": "T3 Livre (Triiodotironina Livre)",
+      "categoria": "Avaliação Hormonal",
+      "fisiologia": "Hormônio biologicamente ativo da tireoide, derivado da conversão periférica de T4. Regula o metabolismo energético, função cardiovascular, termogênese e saúde neurológica.",
+      "valoresReferencia": {
+        "geral": {"min": 2.0, "max": 4.4, "unidade": "pg/mL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 3.0, "max": 3.4, "unidade": "pg/mL"}
+      },
+      "alteracoes": {
+        "elevado": ["Hipertireoidismo", "Uso de T3 sintético", "Excesso de conversão periférica"],
+        "reduzido": ["Hipotireoidismo", "Conversão ineficiente", "Estresse crônico", "Doenças sistêmicas"]
+      },
+      "correlacoes": [
+        "T3 livre reduzido + T4 normal + TSH normal = hipotireoidismo subclínico ou conversão periférica deficiente",
+        "T3 livre elevado + TSH baixo = hipertireoidismo",
+        "T3 livre baixo + T3 reverso alto = síndrome da doença eutireoide (hipotireoidismo funcional)",
+        "T3 livre baixo + ferritina < 50 ng/mL = deficiência de cofatores para conversão T4→T3",
+        "T3 livre baixo + sintomas depressivos + TSH normal = hipotireoidismo periférico por estresse ou deficiência de selênio/zinco"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 44,
+      "nome": "T3 Reverso (rT3)",
+      "categoria": "Avaliação Hormonal",
+      "fisiologia": "Forma inativa do T3, resultante da conversão de T4 por vias alternativas durante situações de estresse, inflamação, jejum, deficiência mineral ou doenças crônicas. Atua como marcador do metabolismo adaptativo.",
+      "valoresReferencia": {
+        "geral": {"min": 0.1, "max": 0.35, "unidade": "ng/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"valor": 0.2, "unidade": "ng/dL"}
+      },
+      "alteracoes": {
+        "elevado": ["Estresse crônico", "Inflamação", "Resistência tecidual ao T3", "Jejum prolongado", "Doenças graves"],
+        "reduzido": ["Geralmente sem significado clínico relevante isoladamente"]
+      },
+      "correlacoes": [
+        "T3 reverso elevado + T3 livre reduzido = conversão ineficiente de T4 (hipotireoidismo funcional)",
+        "TSH normal + sintomas + rT3 alto = investigar fadiga adrenal, inflamação crônica ou estresse prolongado",
+        "T3 reverso alto + cortisol elevado = adaptação ao estresse com bloqueio da conversão de T4 em T3 ativo",
+        "T3 reverso alto + baixos níveis de selênio = deficiência de cofatores da deiodinase tipo 1 e 2"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 45,
+      "nome": "Anti-TPO (Anticorpo Antiperoxidase Tireoidiana)",
+      "categoria": "Avaliação Hormonal",
+      "fisiologia": "Anticorpos dirigidos contra a enzima peroxidase tireoidiana, essencial para a síntese dos hormônios tireoidianos. Sua presença indica processo autoimune contra a tireoide.",
+      "valoresReferencia": {
+        "geral": {"max": 35, "unidade": "UI/mL"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 35, "observacao": "Indetectável, se possível", "unidade": "UI/mL"}
+      },
+      "alteracoes": {
+        "elevado": ["Doença autoimune da tireoide (Hashimoto, Graves)", "Inflamação crônica da tireoide", "Maior risco de hipotireoidismo"],
+        "reduzido": ["Esperado em indivíduos sem doença autoimune"]
+      },
+      "correlacoes": [
+        "Anti-TPO positivo + TSH elevado = provável Hashimoto",
+        "Anti-TPO positivo + TSH normal = possível estágio inicial da autoimunidade tireoidiana",
+        "Anti-TPO elevado + sintomas ansiosos ou depressivos = avaliar impacto da autoimunidade sobre neurotransmissores",
+        "Anti-TPO elevado + vitamina D ≤ 30 ng/mL = risco aumentado para Tireoidite de Hashimoto",
+        "Anti-TPO elevado + proteína C reativa (PCR) > 1 mg/L = processo inflamatório ativo com base autoimune"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 46,
+      "nome": "Calcitonina",
+      "categoria": "Avaliação Hormonal",
+      "fisiologia": "Hormônio peptídico produzido pelas células C da tireoide, atua na regulação do metabolismo do cálcio, inibindo a reabsorção óssea pelos osteoclastos. É um marcador tumoral para carcinoma medular da tireoide e pode refletir alterações ósseas e inflamatórias crônicas.",
+      "valoresReferencia": {
+        "masculino": {"max": 8.6, "unidade": "pg/mL"},
+        "feminino": {"max": 5.0, "unidade": "pg/mL"}
+      },
+      "valoresIdeais": {
+        "masculino": {"max": 8, "unidade": "pg/mL"},
+        "feminino": {"max": 5, "unidade": "pg/mL"}
+      },
+      "alteracoes": {
+        "altos": ["Possível carcinoma medular", "Hiperplasia das células C", "Insuficiência renal crônica", "Uso de omeprazol crônico"],
+        "baixos": ["Clinicamente pouco relevantes, exceto em investigação óssea"]
+      },
+      "correlacoes": [
+        "Calcitonina alta + nódulo tireoidiano = investigar carcinoma medular",
+        "Calcitonina elevada + alterações ósseas = avaliar metabolismo ósseo e vitamina D",
+        "Calcitonina elevada + Paratormônio (PTH) normal ou baixo = pode sugerir hiperplasia das células C da tireoide ou carcinoma medular",
+        "Calcitonina alterada + alterações no cálcio sérico e vitamina D = avaliar distúrbios de regulação do metabolismo ósseo",
+        "Calcitonina elevada + marcadores inflamatórios elevados (PCR, ferritina) = avaliar para doenças inflamatórias crônicas, como tireoidites autoimunes"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 47,
+      "nome": "Glicose",
+      "categoria": "Avaliação Metabólica",
+      "fisiologia": "A glicose é a principal fonte de energia celular. Seus níveis são regulados por uma complexa interação hormonal envolvendo insulina, glucagon, cortisol, adrenalina e hormônio do crescimento. A glicemia de jejum é um marcador importante para o diagnóstico precoce de resistência insulínica, síndrome metabólica e risco cardiovascular.",
+      "valoresReferencia": {
+        "geral": {"min": 70, "max": 99, "unidade": "mg/dL (jejum)"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 80, "max": 90, "unidade": "mg/dL (jejum)"}
+      },
+      "alteracoes": {
+        "elevada": ["Resistência insulínica", "Disfunção hepática", "Estresse crônico", "Inflamação subclínica", "Início de DM2"],
+        "baixa": ["Hipoglicemia reativa", "Jejum prolongado", "Disfunções adrenais", "Uso de hipoglicemiantes"]
+      },
+      "correlacoes": [
+        "Glicose elevada + insulina elevada = resistência insulínica e risco de síndrome metabólica",
+        "Glicose elevada + PCR elevada = inflamação subclínica e disfunção endotelial",
+        "Glicose elevada + cortisol elevado = estresse crônico afetando metabolismo glicêmico",
+        "Glicose baixa + sintomas de tontura, sudorese e irritabilidade = hipoglicemia funcional ou reativa"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 48,
+      "nome": "Insulina",
+      "categoria": "Avaliação Metabólica",
+      "fisiologia": "Hormônio produzido pelas células beta do pâncreas em resposta à glicose. Atua facilitando a entrada da glicose nas células e promovendo síntese de glicogênio, lipogênese e inibição da lipólise. Níveis elevados em jejum podem sinalizar resistência à insulina antes mesmo da glicemia alterar.",
+      "valoresReferencia": {
+        "geral": {"min": 2, "max": 24.9, "unidade": "μUI/mL (jejum)"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 4, "max": 6, "unidade": "μUI/mL (jejum)"}
+      },
+      "alteracoes": {
+        "elevada": ["Resistência insulínica", "Obesidade central", "Inflamação", "Risco aumentado de DM2"],
+        "baixa": ["Produção pancreática insuficiente", "Exaustão beta-pancreática"]
+      },
+      "correlacoes": [
+        "Insulina elevada + HOMA-IR > 2,0 = resistência insulínica funcional",
+        "Insulina elevada + triglicerídeos elevados = dislipidemia e esteatose hepática",
+        "Insulina elevada + testosterona elevada (em mulheres) = possível síndrome do ovário policístico",
+        "Insulina elevada + ferritina elevada = inflamação crônica e disfunção hepática associadas à RI"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 49,
+      "nome": "HOMA-IR (Índice de Resistência à Insulina)",
+      "categoria": "Avaliação Metabólica",
+      "fisiologia": "Índice calculado a partir dos valores de insulina e glicose em jejum para avaliar resistência insulínica de forma indireta. É um dos primeiros indicadores de alteração no metabolismo da glicose. O valor é correspondente à quantidade de esforço que o pâncreas está fazendo pra manter o organismo.",
+      "valoresReferencia": {},
+      "valoresIdeais": {
+        "geral": {"max": 1.3, "unidade": ""}
+      },
+      "alteracoes": {
+        "elevado": ["Resistência insulínica", "Maior risco para síndrome metabólica, diabetes, infertilidade, esteatose hepática"]
+      },
+      "correlacoes": [
+        "HOMA-IR elevado + PCR elevada = processo inflamatório subclínico influenciando resistência",
+        "HOMA-IR elevado + DHEA baixo = possível disfunção adrenal crônica",
+        "HOMA-IR elevado + SHBG baixo = possível hiperinsulinemia funcional associada à disfunção hormonal",
+        "HOMA-IR elevado + ácido úrico elevado = sobrecarga metabólica e risco de síndrome metabólica"
+      ],
+      "analiseTemporal": "Fórmula: HOMA-IR = (Glicose jejum mg/dL x Insulina μUI/mL) / 405"
+    },
+    {
+      "id": 50,
+      "nome": "Hemoglobina Glicada (HbA1c)",
+      "categoria": "Avaliação Metabólica",
+      "fisiologia": "Reflete a média da glicemia nos últimos 60 a 90 dias por meio da glicação da hemoglobina A. Quanto maior a exposição à glicose, maior o percentual de hemoglobina glicada. Indicador confiável de controle glicêmico crônico. É o principal biomarcador (comum) pra identificar o nível de Glicação.",
+      "valoresReferencia": {
+        "normal": {"max": 5.7, "unidade": "%"},
+        "preDiabetes": {"min": 5.7, "max": 6.4, "unidade": "%"},
+        "diabetes": {"min": 6.5, "unidade": "%"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 4, "max": 5.2, "unidade": "%"}
+      },
+      "alteracoes": {
+        "elevada": ["Exposição crônica à hiperglicemia", "Risco de complicações microvasculares"],
+        "baixa": ["Pode ocorrer em anemias hemolíticas", "Perdas sanguíneas", "Deficiência de ferro"]
+      },
+      "correlacoes": [
+        "HbA1c elevada + insulina elevada = resistência insulínica crônica não controlada",
+        "HbA1c elevada + triglicérides > 150 = risco aumentado de eventos cardiovasculares",
+        "HbA1c elevada + ferritina elevada = possível associação com inflamação e disfunção hepática",
+        "HbA1c elevada + DHEA reduzido = esgotamento funcional e desequilíbrio hormonal"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 51,
+      "nome": "PCR (Proteína C Reativa)",
+      "categoria": "Avaliação Metabólica",
+      "fisiologia": "Proteína produzida pelo fígado em resposta a processos inflamatórios agudos ou crônicos. É um marcador sistêmico de inflamação, usado para rastrear processos infecciosos, autoimunes ou metabólicos. É o principal biomarcador (comum) pra identificar o nível de Inflamação Crônica.",
+      "valoresReferencia": {
+        "geral": {"max": 5, "unidade": "mg/L"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 1, "unidade": "mg/L"}
+      },
+      "alteracoes": {
+        "elevada": ["Inflamação aguda ou crônica", "Obesidade", "Sedentarismo", "Disbiose", "Patologias cardiovasculares"]
+      },
+      "correlacoes": [
+        "PCR elevada + insulina elevada = inflamação de origem metabólica",
+        "PCR elevada + ferritina elevada = inflamação crônica com estresse oxidativo",
+        "PCR elevada + GGT elevada = inflamação hepática e toxinas",
+        "PCR elevada + LDL oxidado alto = risco cardiovascular elevado"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 52,
+      "nome": "PCR-ultrassensível (PCR-us)",
+      "categoria": "Avaliação Metabólica",
+      "fisiologia": "Variante de alta sensibilidade da PCR, capaz de detectar inflamações subclínicas. Indicador precoce de risco cardiovascular, disfunção endotelial e inflamação crônica de baixo grau.",
+      "valoresReferencia": {
+        "baixoRisco": {"max": 1.0, "unidade": "mg/L"},
+        "riscoModerado": {"min": 1.0, "max": 3.0, "unidade": "mg/L"},
+        "riscoAlto": {"min": 3.0, "unidade": "mg/L"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 0.5, "unidade": "mg/L"}
+      },
+      "alteracoes": {
+        "levementeElevada": ["Inflamação metabólica ou disbiose"],
+        "altamenteElevada": ["Processo inflamatório ativo crônico", "Risco cardiovascular elevado"]
+      },
+      "correlacoes": [
+        "PCR-us > 1,0 mg/L + HOMA-IR ≥ 2,0 = inflamação e resistência insulínica",
+        "PCR-us > 2,0 + LDL oxidado = risco cardiovascular aumentado",
+        "PCR-us > 3,0 + DHEA baixo = estresse crônico com inflamação",
+        "PCR-us elevada + disbiose ou calprotectina alta = inflamação intestinal sistêmica"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 53,
+      "nome": "Vitamina D (25(OH)D)",
+      "categoria": "Avaliação Nutricional (Vitaminas)",
+      "fisiologia": "Hormônio esteroide produzido na pele via exposição solar e ativado no fígado e rim. Regula o metabolismo do cálcio, função imune, expressão gênica e modulação de inflamações. Está envolvida em mais de 3000 genes.",
+      "valoresReferencia": {
+        "geral": {"min": 30, "max": 100, "unidade": "ng/mL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 50, "max": 120, "unidade": "ng/mL"}
+      },
+      "alteracoes": {
+        "baixa": ["Osteopenia", "Imunossupressão", "Fadiga", "Depressão", "Inflamação crônica", "Aumento da autoimunidade"],
+        "alta": ["Raríssima toxicidade, geralmente apenas com mega-suplementações prolongadas", "Pode levar à hipercalcemia"]
+      },
+      "correlacoes": [
+        "Vitamina D baixa + PTH elevado = hiperparatireoidismo secundário",
+        "Vitamina D baixa + autoanticorpos elevados = maior risco de autoimunidade (Hashimoto, lúpus)",
+        "Vitamina D baixa + infecções respiratórias frequentes = redução da resposta antimicrobiana",
+        "Vitamina D baixa + alterações de humor = déficit na produção de serotonina e dopamina"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 54,
+      "nome": "Vitamina B12 (Cobalamina)",
+      "categoria": "Avaliação Nutricional (Vitaminas)",
+      "fisiologia": "Fundamental para a síntese de DNA, produção de glóbulos vermelhos, mielinização dos neurônios e metabolismo da homocisteína. Absorvida no íleo com auxílio do fator intrínseco gástrico, sendo dependente da integridade gástrica e intestinal.",
+      "valoresReferencia": {
+        "geral": {"min": 200, "max": 900, "unidade": "pg/mL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 550, "max": 1200, "unidade": "pg/mL"}
+      },
+      "alteracoes": {
+        "baixa": ["Anemia megaloblástica", "Formigamentos", "Confusão mental", "Fadiga", "Glossite", "Alterações de humor"],
+        "alta": ["Pode ser falsa elevação por doenças hepáticas, insuficiência renal ou câncer"]
+      },
+      "correlacoes": [
+        "B12 baixa + homocisteína elevada + VCM alto = quadro clássico de anemia megaloblástica",
+        "B12 baixa + distúrbios neurológicos = comprometimento da bainha de mielina",
+        "B12 baixa + uso crônico de metformina ou inibidores de bomba de prótons = má absorção medicamentosa",
+        "B12 baixa + achados de fadiga e confusão mental = déficits mitocondriais e neurocognitivos"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 55,
+      "nome": "Creatinina (Soro)",
+      "categoria": "Função Renal",
+      "fisiologia": "A creatinina é um produto do metabolismo da creatina fosfato nos músculos, eliminada pelos rins. Sua concentração sérica reflete a taxa de filtração glomerular (TFG). Pequenas elevações podem indicar comprometimento renal funcional antes de alterações mais graves.",
+      "valoresReferencia": {
+        "masculino": {"min": 0.7, "max": 1.3, "unidade": "mg/dL"},
+        "feminino": {"min": 0.6, "max": 1.1, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "masculino": {"min": 0.8, "max": 1.1, "unidade": "mg/dL"},
+        "feminino": {"min": 0.7, "max": 1.2, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "elevada": ["Redução da TFG", "Desidratação", "Aumento da degradação muscular", "Uso de creatina"],
+        "baixa": ["Perda de massa muscular", "Desnutrição", "Atrofia muscular"]
+      },
+      "correlacoes": [
+        "Creatinina elevada + ureia elevada = possível comprometimento renal pré-renal (desidratação) ou renal intrínseco",
+        "Creatinina elevada + TFG reduzida = disfunção glomerular progressiva",
+        "Creatinina baixa + albumina baixa = possível sarcopenia ou desnutrição proteica",
+        "Creatinina elevada + ácido úrico elevado = risco aumentado de insuficiência renal metabólica"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 56,
+      "nome": "Ureia",
+      "categoria": "Função Renal",
+      "fisiologia": "A ureia é um produto da degradação de proteínas e amônia no fígado, eliminada principalmente pelos rins. Reflete não apenas a função renal, mas também o metabolismo proteico e o estado de hidratação.",
+      "valoresReferencia": {
+        "geral": {"min": 15, "max": 45, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "geral": {"min": 35, "max": 45, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "elevada": ["Insuficiência renal", "Catabolismo proteico excessivo", "Desidratação", "Sangramento digestivo"],
+        "baixa": ["Desnutrição", "Insuficiência hepática", "Baixa ingestão proteica"]
+      },
+      "correlacoes": [
+        "Ureia elevada + creatinina normal = desidratação ou sangramento gastrointestinal",
+        "Ureia elevada + creatinina elevada = avaliar insuficiência renal aguda ou crônica",
+        "Ureia baixa + albumina baixa = possível insuficiência hepática ou desnutrição proteico-calórica",
+        "Ureia elevada + PCR elevada = inflamação sistêmica associada a catabolismo muscular"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 57,
+      "nome": "Ácido Úrico",
+      "categoria": "Função Renal",
+      "fisiologia": "Metabólito final da degradação de purinas (DNA e RNA). Elevado ácido úrico pode indicar não apenas risco de gota, mas também disfunções metabólicas associadas à resistência insulínica, inflamação crônica e estresse oxidativo.",
+      "valoresReferencia": {
+        "masculino": {"min": 3.4, "max": 7.0, "unidade": "mg/dL"},
+        "feminino": {"min": 2.4, "max": 6.0, "unidade": "mg/dL"}
+      },
+      "valoresIdeais": {
+        "masculino": {"valor": 3.9, "unidade": "mg/dL"},
+        "feminino": {"valor": 3.9, "unidade": "mg/dL"}
+      },
+      "alteracoes": {
+        "elevado": ["Risco de gota", "Disfunção renal", "Inflamação crônica", "Síndrome metabólica"],
+        "baixo": ["Estados oxidativos elevados", "Baixa síntese de purinas"]
+      },
+      "correlacoes": [
+        "Ácido úrico elevado + HOMA-IR elevado = resistência insulínica e risco de síndrome metabólica",
+        "Ácido úrico elevado + PCR alta = inflamação crônica subclínica",
+        "Ácido úrico elevado + creatinina elevada = possível nefropatia gotosa ou comprometimento renal",
+        "Ácido úrico baixo + sintomas de fadiga intensa = sugerir estresse oxidativo severo ou deficiência de purinas"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 58,
+      "nome": "TGO (AST - Aspartato Aminotransferase)",
+      "categoria": "Avaliação Hepática",
+      "fisiologia": "A TGO é uma enzima encontrada principalmente no fígado, coração, músculos esqueléticos e rins. Participa do metabolismo de aminoácidos, catalisando a conversão de aspartato e α-cetoglutarato em oxaloacetato e glutamato. É liberada na corrente sanguínea em casos de lesão celular, sendo um marcador de dano tecidual, especialmente hepático e muscular.",
+      "valoresReferencia": {
+        "masculino": {"min": 10, "max": 40, "unidade": "U/L"},
+        "feminino": {"min": 10, "max": 31, "unidade": "U/L"}
+      },
+      "valoresIdeais": {
+        "masculino": {"min": 15, "max": 25, "unidade": "U/L"},
+        "feminino": {"min": 20, "max": 30, "unidade": "U/L"}
+      },
+      "alteracoes": {
+        "elevada": ["Lesão hepatocelular", "Miopatias", "Estresse oxidativo", "Uso de medicamentos hepatotóxicos"]
+      },
+      "correlacoes": [
+        "TGO elevada + CK elevada = dano muscular (ex.: miosite)",
+        "TGO elevada + ferritina elevada = estresse oxidativo e inflamação crônica hepática",
+        "TGO elevada + homocisteína elevada = risco cardiovascular aumentado",
+        "TGO alta + GGT alta = sobrecarga hepática com componente inflamatório/toxicológico"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 59,
+      "nome": "TGP (ALT - Alanina Aminotransferase)",
+      "categoria": "Avaliação Hepática",
+      "fisiologia": "Enzima presente em alta concentração no fígado, participa do metabolismo da alanina. Por sua especificidade hepática, é um dos principais marcadores laboratoriais de lesão hepatocelular, sendo fundamental para a avaliação funcional do fígado.",
+      "valoresReferencia": {
+        "masculino": {"min": 10, "max": 40, "unidade": "U/L"},
+        "feminino": {"min": 7, "max": 30, "unidade": "U/L"}
+      },
+      "valoresIdeais": {
+        "masculino": {"min": 15, "max": 25, "unidade": "U/L"},
+        "feminino": {"min": 20, "max": 30, "unidade": "U/L"}
+      },
+      "alteracoes": {
+        "elevada": ["Lesão hepatocelular", "Disbiose intestinal com produção de endotoxinas", "Sobrecarga hepática"]
+      },
+      "correlacoes": [
+        "TGP elevada + GGT elevada = sobrecarga hepática por xenobióticos, álcool ou medicamentos",
+        "TGP elevada + ferritina elevada = dano inflamatório com estresse oxidativo",
+        "TGP elevada + transaminases elevadas + HDL baixo = risco de esteato-hepatite",
+        "TGP elevada + glicemia e insulina elevadas = risco de esteatose hepática de origem metabólica"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 60,
+      "nome": "Relação TGO/TGP",
+      "categoria": "Avaliação Hepática",
+      "fisiologia": "A relação entre TGO e TGP é um indicador importante para diferenciar tipos de lesão hepática. Uma razão > 2 costuma sugerir etiologia alcoólica ou fibrose, enquanto uma razão < 1 é mais comum em lesões metabólicas (ex: esteatose).",
+      "valoresReferencia": {},
+      "valoresIdeais": {
+        "geral": {"min": 1, "max": 1.3, "unidade": ""}
+      },
+      "alteracoes": {
+        "relacaoMaior2": ["Dano hepático crônico ou fibrose (avaliar alcoolismo, estresse oxidativo severo)"],
+        "relacaoMenor08": ["Indício de esteatose hepática de origem alimentar/metabólica"]
+      },
+      "correlacoes": [
+        "Relação TGO/TGP > 2 + GGT elevada = hepatotoxicidade alcoólica ou medicamentosa",
+        "Relação TGO/TGP < 1 + PCR elevada = inflamação metabólica associada a obesidade",
+        "Relação TGO/TGP < 1 + insulina elevada = esteatose associada a RI",
+        "Relação TGO/TGP > 1,5 + homocisteína elevada = risco cardiovascular e dano hepático silente"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 61,
+      "nome": "GGT (Gama Glutamil Transferase)",
+      "categoria": "Avaliação Hepática",
+      "fisiologia": "Enzima envolvida no transporte de aminoácidos e na metabolização da glutationa. Considerada um marcador sensível de indução enzimática hepática, é um dos primeiros a se elevar em sobrecarga por toxinas, álcool e medicamentos. É o principal biomarcador (comum) pra identificar o nível de Estresse Oxidativo.",
+      "valoresReferencia": {
+        "masculino": {"max": 40, "unidade": "U/L"},
+        "feminino": {"max": 30, "unidade": "U/L"}
+      },
+      "valoresIdeais": {
+        "masculino": {"max": 16, "unidade": "U/L"},
+        "feminino": {"max": 16, "unidade": "U/L"}
+      },
+      "alteracoes": {
+        "elevada": ["Intoxicação hepática", "Indução enzimática", "Alcoolismo", "Uso crônico de medicamentos"]
+      },
+      "correlacoes": [
+        "GGT elevada + ferritina elevada = estresse oxidativo hepático",
+        "GGT elevada + TGP elevada = sobrecarga hepática multifatorial",
+        "GGT elevada + PCR elevada = inflamação crônica hepática ou metabólica",
+        "GGT elevada + vitamina D baixa = risco aumentado de doença hepática metabólica"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 62,
+      "nome": "Calprotectina",
+      "categoria": "Avaliação Intestinal",
+      "fisiologia": "A calprotectina é uma proteína liberada por neutrófilos durante processos inflamatórios intestinais. Atua como marcador sensível de inflamação da mucosa gastrointestinal, sendo um dos primeiros indicadores de atividade inflamatória subclínica.",
+      "valoresReferencia": {
+        "geral": {"min": 0, "max": 50, "unidade": "μg/g"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 10, "unidade": "μg/g"}
+      },
+      "alteracoes": {
+        "elevada": [
+          ">50 μg/g: inflamação intestinal ativa, indicando doença inflamatória intestinal (DII), infecção intestinal ou dano de mucosa",
+          "10-50 μg/g: inflamação leve, permeabilidade aumentada, resposta imunológica de baixo grau"
+        ]
+      },
+      "correlacoes": [
+        "Calprotectina elevada + sintomas gastrointestinais persistentes = sugerir doença inflamatória ativa (Crohn, retocolite ulcerativa)",
+        "Calprotectina elevada + permeabilidade intestinal aumentada = risco de endotoxemia metabólica",
+        "Calprotectina elevada + disbiose intestinal = possível ativação imunológica contra disbiose ou patógenos",
+        "Calprotectina elevada + PCR elevada = inflamação sistêmica associada à inflamação de mucosa intestinal"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 63,
+      "nome": "D-Dímero",
+      "categoria": "Avaliação Cardíaca",
+      "fisiologia": "O D-dímero é um produto da degradação da fibrina, gerado durante o processo de fibrinólise (quebra de coágulos sanguíneos). Seu aumento indica ativação do sistema de coagulação e fibrinólise, podendo ser marcador de trombose venosa profunda, embolia pulmonar, entre outras condições inflamatórias e infecciosas.",
+      "valoresReferencia": {
+        "geral": {"max": 500, "unidade": "ng/mL"}
+      },
+      "valoresIdeais": {
+        "geral": {"max": 200, "unidade": "ng/mL (em pacientes sem processo inflamatório ou trombótico ativo)"}
+      },
+      "alteracoes": {
+        "elevado": ["Trombose venosa profunda", "Embolia pulmonar", "Infecção sistêmica", "Câncer", "Inflamação severa"],
+        "levementeElevado": ["Gestação", "Idade avançada", "Trauma ou infecção leve"]
+      },
+      "correlacoes": [
+        "D-dímero elevado + PCR elevado = trombo-inflamação ou infecção aguda grave",
+        "D-dímero elevado + Plaquetas baixas = possível coagulação intravascular disseminada (CIVD)",
+        "D-dímero elevado + ferritina elevada = inflamação sistêmica severa",
+        "D-dímero persistentemente elevado = risco aumentado de sequelas vasculares pós-infecção (ex: pós-COVID-19)"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 64,
+      "nome": "Índice de Simpson",
+      "categoria": "Avaliação da Microbiota",
+      "fisiologia": "O Índice de Simpson mede a diversidade da microbiota intestinal, refletindo a distribuição equitativa e a variedade de espécies bacterianas. Maior diversidade indica maior resiliência imunológica, metabolismo mais eficiente e proteção contra disbiose e inflamação crônica.",
+      "valoresReferencia": {
+        "geral": {"observacao": "Microbiota rica e saudável"}
+      },
+      "valoresIdeais": {
+        "geral": {"observacao": "Para otimização da imunidade e da saúde intestinal"}
+      },
+      "alteracoes": {
+        "baixo": ["Disbiose", "Infecções intestinais", "Uso prévio de antibióticos", "Dieta pobre em fibras"],
+        "alto": ["Maior estabilidade da microbiota", "Proteção contra doenças inflamatórias e metabólicas"]
+      },
+      "correlacoes": [
+        "Índice baixo + aumento de marcadores inflamatórios (PCR) = risco de inflamação crônica sistêmica",
+        "Índice baixo + alergias ou doenças autoimunes = perda de tolerância imunológica intestinal",
+        "Índice baixo + permeabilidade intestinal (zonulina elevada) = risco aumentado de endotoxemia metabólica",
+        "Índice baixo + intolerâncias alimentares = função de barreira intestinal comprometida"
+      ],
+      "analiseTemporal": ""
+    },
+    {
+      "id": 65,
+      "nome": "Beta-HCG (Gonadotrofina Coriônica Humana)",
+      "categoria": "Marcadores Tumorais",
+      "fisiologia": "Hormônio glicoproteico produzido pelas células trofoblásticas da placenta. Em oncologia, serve como marcador de tumores germinativos e carcinomas trofoblásticos.",
+      "valoresReferencia": {
+        "geral": {"max": 5, "unidade": "mIU/mL (homens e mulheres não grávidas)"}
+      },
+      "valoresIdeais": {
+        "geral": {"observacao": "Indetectável em não gestantes"}
+      },
+      "alteracoes": {
+        "elevado": ["Gravidez", "Neoplasias trofoblásticas", "Câncer de testículo", "Câncer de ovário"]
+      },
+      "correlacoes": [
+        "Beta-HCG elevado + testículo alterado = suspeita de tumor germinativo",
+        "Beta-HCG elevado + massa pélvica em mulher = doença trofoblástica gestacional",
+        "Beta-HCG falso-positivo + insuficiência renal = eliminação reduzida",
+        "Beta-HCG reduzido em gravidez = possível aborto espontâneo ou gestação ectópica"
+      ],
+      "analiseTemporal": ""
+    }
+  ],
+  "observacoes": {
+    "totalExamesProcessados": 154,
+    "categoriasEncontradas": 18,
+    "estruturaDocumento": "O documento contém informações detalhadas sobre exames laboratoriais funcionais, incluindo fisiologia, valores de referência, valores ideais funcionais, alterações, correlações funcionais e análise temporal.",
+    "biomarcadoresPrincipais": {
+      "submetilacao": "Homocisteína",
+      "glicacao": "Hemoglobina Glicada (HbA1c)",
+      "estresseOxidativo": "GGT (Gama Glutamil Transferase)",
+      "inflamacaoCronica": "PCR (Proteína C Reativa)"
+    }
+  }
+}

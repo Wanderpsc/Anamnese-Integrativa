@@ -1,0 +1,15 @@
+{
+ "id": "doencas-autoimunes",
+ "titulo": "Doenças Autoimunes",
+ "fonte": "Doenças Autoimunes.docx",
+ "tipo": "docx",
+ "categoria": "tratamentos",
+ "caracteres": 76,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "Doenças Autoimunes: Lúpus, Artrite, Hashimoto, Diabetes tipo 1, Esclerose..."
+  }
+ ]
+}

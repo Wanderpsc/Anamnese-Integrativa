@@ -1,0 +1,323 @@
+import { ThemeProvider, CssBaseline, Container, Typography, Box, Chip, Button, Stack, Menu, MenuItem, IconButton, Tooltip, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider } from '@mui/material';
+import { 
+  Add as AddIcon, 
+  Dashboard as DashboardIcon, 
+  Upload as UploadIcon,
+  Compare as CompareIcon,
+  LocalPharmacy as LocalPharmacyIcon,
+  Psychology as PsychologyIcon,
+  Article as ArticleIcon,
+  MoreVert as MoreVertIcon,
+  Event as EventIcon,
+  Settings as SettingsIcon,
+  Brightness4 as DarkModeIcon,
+  Brightness7 as LightModeIcon,
+  MedicalServices as MedicalIcon,
+  Bloodtype as BloodtypeIcon,
+  Assessment as AssessmentIcon,
+  TableChart as TableChartIcon,
+  Medication as MedicationIcon,
+  Warning as WarningIcon,
+  FolderSpecial as FolderIcon,
+} from '@mui/icons-material';
+
+const DRAWER_WIDTH = 280;
+import { useState, useEffect, useMemo } from 'react';
+import { useAiModel } from './context/AiModelContext';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
+import AnamneseForm from './pages/AnamneseForm';
+import Dashboard from './pages/Dashboard';
+import AnamneseView from './pages/AnamneseView';
+import DataImport from './pages/DataImport';
+import CompareAnamneses from './pages/CompareAnamneses';
+import TherapySuggestions from './pages/TherapySuggestions';
+import TherapeuticDataManager from './pages/TherapeuticDataManager';
+import TherapeuticPrescription from './pages/TherapeuticPrescription';
+import PatientFullReport from './pages/PatientFullReport';
+import Appointments from './pages/Appointments';
+import AdvancedTherapies from './pages/AdvancedTherapies';
+import PatientSymptoms from './pages/PatientSymptoms';
+import BloodTestForm from './pages/BloodTestForm';
+import BloodTestsList from './pages/BloodTestsList';
+import ComparativeAnalysis from './pages/ComparativeAnalysis';
+import IntegrativeSpreadsheet from './pages/IntegrativeSpreadsheet';
+import DrugInteractions from './pages/DrugInteractions';
+import EmergencyAssistant from './pages/EmergencyAssistant';
+import LoginPage from './pages/LoginPage';
+import SettingsDialog from './components/SettingsDialog';
+import { initializeAuth, getCurrentSession, logout } from './lib/auth';
+import { getTheme } from './theme';
+
+// CONFIGURAÇÃO: Habilitar/Desabilitar autenticação
+const AUTH_ENABLED = false; // Mude para true para ativar autenticação
+
+function App() {
+  const { model } = useAiModel();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [currentUser, setCurrentUser] = useState(null);
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const [themeMode, setThemeMode] = useState(() => {
+    const saved = localStorage.getItem('theme-mode');
+    return saved || 'light';
+  });
+
+  const theme = useMemo(() => getTheme(themeMode), [themeMode]);
+
+  const toggleTheme = () => {
+    const newMode = themeMode === 'light' ? 'dark' : 'light';
+    setThemeMode(newMode);
+    localStorage.setItem('theme-mode', newMode);
+  };
+  
+  useEffect(() => {
+    if (AUTH_ENABLED) {
+      initializeAuth();
+      const user = getCurrentSession();
+      setCurrentUser(user);
+    }
+  }, []);
+  
+  const handleLogin = (user) => {
+    setCurrentUser(user);
+  };
+  
+  const handleLogout = () => {
+    logout();
+    setCurrentUser(null);
+    navigate('/');
+  };
+  
+  const handleMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+  };
+  
+  const handleNavigate = (path) => {
+    navigate(path);
+    handleMenuClose();
+  };
+  
+  // Se autenticação está habilitada e usuário não está logado, mostrar login
+  if (AUTH_ENABLED && !currentUser) {
+    return (
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <LoginPage onLoginSuccess={handleLogin} />
+      </ThemeProvider>
+    );
+  }
+  
+  let therapistImg = null;
+  try { therapistImg = require('./assets/therapist-symbol.jpg'); } catch (e) { /* optional */ }
+  const therapistFullTitle = 'Wander Pires Silva Coelho, Terapeuta Integrativo Funcional, Naturopatia e Iridologia - CRTH-BR 17821';
+  
+  const menuItems = [
+    { text: 'Nova Anamnese', icon: <AddIcon />, path: '/', color: '#2196f3', gradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' },
+    { text: 'Interagentes', icon: <DashboardIcon />, path: '/dashboard', color: '#9c27b0', gradient: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' },
+    { text: '🚨 Emergência & Fitoterapia', icon: <WarningIcon />, path: '/emergency', color: '#f44336', gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)' },
+    { text: 'Agendamentos', icon: <EventIcon />, path: '/appointments', color: '#00bcd4', gradient: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)' },
+    { text: 'Sintomas e Queixas', icon: <MedicalIcon />, path: '/patient-symptoms', color: '#ff9800', gradient: 'linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%)' },
+    { text: 'Exames de Sangue', icon: <BloodtypeIcon />, path: '/blood-tests-list', color: '#e91e63', gradient: 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)' },
+    { text: 'Comparar Anamneses', icon: <CompareIcon />, path: '/compare', color: '#673ab7', gradient: 'linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%)' },
+    { text: 'Resumo Comparativo', icon: <AssessmentIcon />, path: '/comparative-analysis', color: '#3f51b5', gradient: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' },
+    { text: 'Resultados de Exames', icon: <PsychologyIcon />, path: '/therapy-suggestions', color: '#009688', gradient: 'linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)' },
+    { text: 'Relatório Clínico', icon: <FolderIcon />, path: '/clinical-report', color: '#8bc34a', gradient: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)' },
+    { text: 'Homeopatia', icon: <LocalPharmacyIcon />, path: '/advanced-therapies', color: '#4caf50', gradient: 'linear-gradient(135deg, #30cfd0 0%, #330867 100%)' },
+    { text: 'Sugestões Terapêuticas', icon: <ArticleIcon />, path: '/prescription', color: '#ff5722', gradient: 'linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%)' },
+    { text: 'Planilha Integrativa', icon: <TableChartIcon />, path: '/integrative-spreadsheet', color: '#607d8b', gradient: 'linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%)' },
+    { text: 'Interações Medicamentosas', icon: <MedicationIcon />, path: '/drug-interactions', color: '#ff6f00', gradient: 'linear-gradient(135deg, #fddb92 0%, #d1fdff 100%)' },
+  ];
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box sx={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+        {/* Barra Lateral Esquerda com Botões 3D */}
+        <Drawer
+          variant="permanent"
+          sx={{
+            width: DRAWER_WIDTH,
+            flexShrink: 0,
+            '& .MuiDrawer-paper': {
+              width: DRAWER_WIDTH,
+              boxSizing: 'border-box',
+              background: 'linear-gradient(180deg, #1a237e 0%, #0d47a1 100%)',
+              borderRight: 'none',
+              boxShadow: '4px 0 20px rgba(0,0,0,0.3)',
+            },
+          }}
+        >
+          {/* Cabeçalho */}
+          <Box sx={{ 
+            p: 2, 
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            borderBottom: '2px solid rgba(255,255,255,0.1)',
+          }}>
+            <Typography variant="h6" fontWeight="bold" sx={{ color: 'white', textAlign: 'center', textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}>
+              Anamnese Integrativa
+            </Typography>
+            <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.9)', display: 'block', textAlign: 'center', mt: 0.5 }}>
+              Menu Principal
+            </Typography>
+          </Box>
+          
+          {/* Controles do Topo */}
+          <Box sx={{ p: 1.5, display: 'flex', gap: 1, justifyContent: 'center', borderBottom: '1px solid rgba(255,255,255,0.1)' }}>
+            <Chip label={`${model}`} size="small" sx={{ bgcolor: 'rgba(255,255,255,0.2)', color: 'white', fontWeight: 600 }} />
+            <Tooltip title={themeMode === 'light' ? 'Modo Escuro' : 'Modo Claro'}>
+              <IconButton onClick={toggleTheme} size="small" sx={{ color: 'white' }}>
+                {themeMode === 'light' ? <DarkModeIcon /> : <LightModeIcon />}
+              </IconButton>
+            </Tooltip>
+          </Box>
+
+          <Divider sx={{ bgcolor: 'rgba(255,255,255,0.1)' }} />
+          
+          {/* Menu Items com efeito 3D */}
+          <List sx={{ pt: 2, px: 1, overflow: 'auto' }}>
+            {menuItems.map((item, index) => (
+              <ListItem key={index} disablePadding sx={{ mb: 1.5 }}>
+                <ListItemButton
+                  onClick={() => navigate(item.path)}
+                  selected={location.pathname === item.path || location.pathname.startsWith(item.path + '/')}
+                  sx={{
+                    borderRadius: 2,
+                    background: item.gradient,
+                    color: 'white',
+                    boxShadow: '0 4px 15px rgba(0,0,0,0.3)',
+                    transform: 'translateY(0)',
+                    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+                    '&:hover': {
+                      transform: 'translateY(-3px)',
+                      boxShadow: '0 8px 25px rgba(0,0,0,0.4)',
+                    },
+                    '&.Mui-selected': {
+                      background: item.gradient,
+                      boxShadow: '0 8px 25px rgba(0,0,0,0.5)',
+                      transform: 'translateY(-2px)',
+                      '&:hover': {
+                        background: item.gradient,
+                        transform: 'translateY(-3px)',
+                      },
+                    },
+                    py: 1.5,
+                    px: 2,
+                  }}
+                >
+                  <ListItemIcon sx={{ 
+                    color: 'white', 
+                    minWidth: 40,
+                    filter: 'drop-shadow(2px 2px 4px rgba(0,0,0,0.3))',
+                  }}>
+                    {item.icon}
+                  </ListItemIcon>
+                  <ListItemText 
+                    primary={item.text}
+                    primaryTypographyProps={{
+                      fontSize: '0.875rem',
+                      fontWeight: 600,
+                      textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+
+        {/* Conteúdo Principal */}
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            bgcolor: 'background.default',
+            overflow: 'auto',
+          }}
+        >
+          {/* Cabeçalho do Conteúdo */}
+          <Box sx={{ 
+            p: 2, 
+            borderBottom: '1px solid',
+            borderColor: 'divider',
+            bgcolor: 'background.paper',
+            boxShadow: 1,
+          }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+              {therapistImg && <img src={therapistImg} alt="Símbolo terapeuta" style={{ height: 50, cursor: 'pointer' }} onClick={() => navigate('/')} />}
+              <Box sx={{ flexGrow: 1 }}>
+                <Typography variant="h5" fontWeight="bold" color="primary">
+                  {menuItems.find(item => location.pathname === item.path || location.pathname.startsWith(item.path + '/'))?.text || 'Anamnese Integrativa'}
+                </Typography>
+                <Typography variant="caption" color="text.secondary">
+                  {therapistFullTitle}
+                </Typography>
+              </Box>
+              {AUTH_ENABLED && currentUser && (
+                <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+                  <Chip label={currentUser.name} size="small" color="secondary" />
+                  <IconButton size="small" onClick={() => setSettingsOpen(true)}>
+                    <SettingsIcon />
+                  </IconButton>
+                  <Button size="small" variant="outlined" onClick={handleLogout}>
+                    Sair
+                  </Button>
+                </Box>
+              )}
+            </Box>
+          </Box>
+
+          {/* Área de Conteúdo */}
+          <Box sx={{ p: 3 }}>
+
+            <Routes>
+              <Route path="/" element={<AnamneseForm />} />
+              <Route path="/edit/:id" element={<AnamneseForm />} />
+              <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/anamnese/:id" element={<AnamneseView />} />
+              <Route path="/appointments" element={<Appointments />} />
+              <Route path="/data-import" element={<DataImport />} />
+              <Route path="/patient-symptoms" element={<PatientSymptoms />} />
+              <Route path="/patient-symptoms/:id" element={<PatientSymptoms />} />
+              <Route path="/blood-tests-list" element={<BloodTestsList />} />
+              <Route path="/blood-test-form" element={<BloodTestForm />} />
+              <Route path="/blood-test-form/:id" element={<BloodTestForm />} />
+              <Route path="/compare" element={<CompareAnamneses />} />
+              <Route path="/compare/:id" element={<CompareAnamneses />} />
+              <Route path="/comparative-analysis" element={<ComparativeAnalysis />} />
+              <Route path="/comparative-analysis/:id" element={<ComparativeAnalysis />} />
+              <Route path="/integrative-spreadsheet" element={<IntegrativeSpreadsheet />} />
+              <Route path="/integrative-spreadsheet/:id" element={<IntegrativeSpreadsheet />} />
+              <Route path="/drug-interactions" element={<DrugInteractions />} />
+              <Route path="/drug-interactions/:id" element={<DrugInteractions />} />
+              <Route path="/emergency" element={<EmergencyAssistant />} />
+              <Route path="/therapy-suggestions" element={<TherapySuggestions />} />
+              <Route path="/clinical-report" element={<TherapySuggestions defaultSection="report" />} />
+              <Route path="/clinical-report/:id" element={<TherapySuggestions defaultSection="report" />} />
+              <Route path="/advanced-therapies" element={<AdvancedTherapies />} />
+              <Route path="/prescription" element={<TherapeuticPrescription />} />
+              <Route path="/prescription/:id" element={<TherapeuticPrescription />} />
+              <Route path="/patient-report/:id" element={<PatientFullReport />} />
+            </Routes>
+          </Box>
+        </Box>
+
+        {/* Settings Dialog */}
+        {AUTH_ENABLED && (
+          <SettingsDialog
+            open={settingsOpen}
+            onClose={() => setSettingsOpen(false)}
+            currentUser={currentUser}
+          />
+        )}
+      </Box>
+    </ThemeProvider>
+  );
+}
+
+export default App;
+

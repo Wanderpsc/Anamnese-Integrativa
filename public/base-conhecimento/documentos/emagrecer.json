@@ -1,0 +1,15 @@
+{
+ "id": "emagrecer",
+ "titulo": "emagrecer",
+ "fonte": "emagrecer.docx",
+ "tipo": "docx",
+ "categoria": "fitoterapia",
+ "caracteres": 52,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "Mais plantas amargas\n\nAgua com limão\n\nAntiglicémicos"
+  }
+ ]
+}

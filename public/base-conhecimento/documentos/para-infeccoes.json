@@ -1,0 +1,15 @@
+{
+ "id": "para-infeccoes",
+ "titulo": "Para infecções",
+ "fonte": "Para infecções.docx",
+ "tipo": "docx",
+ "categoria": "geral",
+ "caracteres": 35,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "Para infecções, gripes e resfriados"
+  }
+ ]
+}

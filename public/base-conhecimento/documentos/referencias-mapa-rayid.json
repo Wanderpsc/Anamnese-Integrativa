@@ -1,0 +1,15 @@
+{
+ "id": "referencias-mapa-rayid",
+ "titulo": "REFERÊNCIAS - MAPA RAYID",
+ "fonte": "REFERÊNCIAS - MAPA RAYID.xlsx",
+ "tipo": "xlsx",
+ "categoria": "iridologia",
+ "caracteres": 674,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "[Planilha: Planilha1]\n1,Carinho.,10,Comunicação.,19,Serenidade.,28,Voz.,37,Diplomacia.\n2,Perdão. ,11,Predominância.,20,Gentileza.,29,Sinceridade.,38,Virtude.\n3,Graça.,12,Harmonização. ,21,Conhecimento.,30,Discernimento.,39,Ego.\n4,Realização.,13,Bom senso.,22,Intimidade.,31,Conselho.,40,Filosofia.\n5,Compartilhar.,14,Paciência.,23,Solidão.,32,Testemunha.,41,Ideias.\n6,Independência.,15,Perfeição.,24,Iluminação.,33,Contemplação.,42,Autoridade.\n7,Preocupação.,16,Espírito.,25,Autodidata.,34,Doçura.,43,Vontade. \n8,Originalidade.,17,Confiança.,26,Orgulho.,35,Sabedoria.,44,Compreensão.\n9,Nascimento.,18,Infância.,27,Êxtase.,36,Receptividade.,45,Caridade.\n,,,,,,,,46,Compaixão."
+  }
+ ]
+}

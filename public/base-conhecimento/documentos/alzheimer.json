@@ -1,0 +1,15 @@
+{
+ "id": "alzheimer",
+ "titulo": "ALZHEIMER",
+ "fonte": "ALZHEIMER.docx",
+ "tipo": "docx",
+ "categoria": "geral",
+ "caracteres": 63,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "ALZHEIMER\n\nColostro\n\nÓleo de coco\n\nAzeite de oliva\n\nGema de ovo"
+  }
+ ]
+}

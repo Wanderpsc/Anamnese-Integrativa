@@ -1,0 +1,19 @@
+{
+ "id": "cardapio-completo-receitas-v2",
+ "titulo": "cardapio_completo_receitas_v2",
+ "fonte": "cardapio_completo_receitas_v2.xlsx",
+ "tipo": "xlsx",
+ "categoria": "fitoterapia",
+ "caracteres": 3029,
+ "totalSecoes": 2,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "[Planilha: Cardápio Semanal]\nDia,Desjejum,Almoço,Jantar,Lanches\nSegunda,Suco terapêutico + ovo mexido,Salada variada + legumes + arroz integral + grão de bico,Salada + omelete de legumes,\"Chás, água, castanhas, mix de fibras com frutas\"\nTerça,Suco terapêutico + iogurte + aveia,Salada + quinoa + tofu grelhado,Caldo de legumes + ricota,\"Chás, água, castanhas, mix de fibras com frutas\"\nQuarta,Suco terapêutico + crepioca,Salada + arroz 7 grãos + soja,Fruta + iogurte + coco,\"Chás, água, castanhas, mix de fibras com frutas\"\nQuinta,Suco terapêutico + castanhas + fruta,Salada + batata doce + lentilhas,Salada + ovos cozidos,\"Chás, água, castanhas, mix de fibras com frutas\"\nSexta,Pão integral + ricota + fruta,Salada + tabule + tofu,Caldo verde low carb + tofu,\"Chás, água, castanhas, mix de fibras com frutas\"\nSábado,Iogurte + granola sem açúcar + chia,Salada + quinoa + cogumelos,Fruta + crepioca,\"Chás, água, castanhas, mix de fibras com frutas\"\nDomingo,Crepioca + abacate,Salada + arroz integral + feijão fradinho,Salada completa + omelete,\"Chás, água, castanhas, mix de fibras com frutas\"\n\n[Planilha: Lista de Compras]\nCategoria,Itens\nVerduras,\"Couve, alface, rúcula, espinafre\"\nLegumes,\"Abobrinha, cenoura, chuchu, brócolis, batata doce\"\nProteínas,\"Ovos, tofu, grão de bico, lentilhas, iogurte\"\nCarboidratos,\"Arroz integral, quinoa, pão integral, tapioca\"\nFrutas,\"Maçã, pera, kiwi, banana, goiaba\"\nExtras,\"Castanhas, azeite, chia, psyllium, vinagre de maçã\"\n\n[Planilha: Sucos Terapêuticos]\nReceita,Ingredientes,Modo de preparo\nSuco Terapêutico Base,2 folhas couve; 2 galhos salsa; 1/3 pepino; 1/2 batata yacon; 1/2 cenoura ou maçã; água ou água de coco; suco de 1 limão,Bater no liquidificador e consumir sem coar\n\n[Planilha: Receitas Ricota]\nReceita,Ingredientes,Modo de preparo\nRicota Temperada,Ricota; azeite; ervas finas; limão; sal; pimenta,\"Amassar ricota, misturar temperos e servir em pães ou saladas\"\n\n[Planilha: Mix de Fibras]\nReceita,Ingredientes,Modo de preparo\nMix de Fibras,Farelo aveia 100g; chia 100g; quinoa flocos 100g; psyllium 50g; gérmen trigo 50g; sementes girassol 100g; sementes abóbora 50g,Misturar e consumir 1-2 colheres com frutas ou iogurte\n\n[Planilha: Caldos]\nReceita,Ingredientes,Modo de preparo\nCaldo Verde Low Carb,Abobrinha; chuchu; couve; alho; cebola; azeite; água; sal,\"Cozinhar legumes, bater e finalizar com couve e azeite\"\nCaldo de Legumes Base,Abóbora; cenoura; chuchu; salsão; alho poró; ervas; água,Cozinhar tudo e bater até textura cremosa\n\n[Planilha: Crepioca]\nReceita,Ingredientes,Modo de preparo\nCrepioca Proteica,1 ovo; 2 col sopa tapioca; sal; ervas,Misturar tudo e preparar como panqueca\n\n[Planilha: Omeletes]\nReceita,Ingredientes,Modo de preparo\nOmelete de Legumes,2 ovos; cenoura ralada; abobrinha; cebola; ervas,\"Bater ovos, adicionar legumes e cozinhar\""
+  },
+  {
+   "n": 2,
+   "texto": "[Planilha: Patês]\nReceita,Ingredientes,Modo de preparo\nPatê de Ricota,Ricota; azeite; limão; ervas; sal,Misturar tudo até virar creme\nPatê de Abacate,Abacate; limão; azeite; sal; alho,Amassar e misturar ingredientes"
+  }
+ ]
+}

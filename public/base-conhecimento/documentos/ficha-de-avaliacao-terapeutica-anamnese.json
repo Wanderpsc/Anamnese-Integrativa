@@ -1,0 +1,15 @@
+{
+ "id": "ficha-de-avaliacao-terapeutica-anamnese",
+ "titulo": "ficha-de-avaliacao-terapeutica-anamnese",
+ "fonte": "ficha-de-avaliacao-terapeutica-anamnese.docx",
+ "tipo": "docx",
+ "categoria": "iridologia",
+ "caracteres": 887,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "Avaliação Terapêutica\n\nNome:\n\nSexo: \n\nData:\n\nRua: \n\nBairro: \n\nCidade: \n\nLocal de Atendimento:\n\nCelular: \n\nTelefone: \n\nProfissão:\n\nE-mail:\n\nEstado Civil: \n\nIdade:\n\nPeso:\n\nAlt.:\n\nIMC: ()\n\nTipo da íris\n\nSinais da Íris\n\nHistórico Famíliar genético. \n\nQuadro Clínico, queixas e antecedentes patológicos pessoais e familiares:\n\n( ) DM ( ) HAS ( ) Col. 🡩 ( ) Obstipação ( ) Gastrite ( ) Insônia ( ) Ansiedade ( ) Compulsão\n\nExames Bioquímicos / Medicamentos em uso: \n\nAtiv. Física. \n\nOpção Dietética: Intolerâncias/Alergia alimentar: \n\nAversão:\n\nIngestão de água: \n\nPreferências e hábitos alimentares: \n\nIntestino:\n\nSono:\n\nCiclo menstrual:\n\nDesjejum\n\nhora:\n\nlocal: \n\nColação\n\nhora:\n\nlocal: \n\nAlmoço\n\nhora:\n\nlocal: \n\nLanche\n\nhora:\n\nlocal: \n\nJantar\n\nhora:\n\nlocal: \n\nCeia\n\nhora: \n\nlocal: \n\nAvaliação da dieta: \n\nEvolução Clínica\n\nTeve alguma reação? (diarreia, enxaqueca, muco, coceiras, feridas)"
+  }
+ ]
+}

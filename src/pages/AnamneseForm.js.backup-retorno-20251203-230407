@@ -1,0 +1,1273 @@
+import { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import {
+  Container,
+  Paper,
+  Typography,
+  TextField,
+  Button,
+  Box,
+  Grid,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Select,
+  Divider,
+  Alert,
+  Stack,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+} from '@mui/material';
+import {
+  Save as SaveIcon,
+  Clear as ClearIcon,
+  ExpandMore as ExpandMoreIcon,
+  OpenInNew as OpenInNewIcon,
+  Download as DownloadIcon,
+  Upload as UploadIcon,
+} from '@mui/icons-material';
+import { ESTADOS_CIDADES } from '../data/estadosCidades';
+import SPREADSHEETS from '../config/spreadsheets';
+import IridologyAnalysis from '../components/IridologyAnalysis';
+import ClinicalSignsChecklistForm from '../components/ClinicalSignsChecklistForm';
+import VitalSignsAnalysis from '../components/VitalSignsAnalysis';
+import ScrollToTop from '../components/ScrollToTop';
+
+export default function AnamneseForm() {
+  const navigate = useNavigate();
+  const { id } = useParams();
+  const [formData, setFormData] = useState({
+    // Identificação
+    q01_nome: '',
+    q02_data_nasc: '',
+    q03_idade: '',
+    q04_sexo: '',
+    q05_estado_civil: '',
+    q06_profissao: '',
+    q07_endereco: '',
+    q08_cidade: '',
+    q09_estado: '',
+    q10_cep: '',
+    q11_telefone: '',
+    q12_email: '',
+    q13_rg: '',
+    q14_cpf: '',
+    q14_data_retorno: '',
+    q14_comparecimento_confirmado: false,
+    q14_historico_comparecimentos: [],
+    
+    // Queixa Principal
+    q15_queixa_principal: '',
+    q16_tempo_problema: '',
+    q17_tratamentos_anteriores: '',
+    
+    // Histórico Familiar
+    q18_doencas_familia: '',
+    q19_pais_vivos: '',
+    q20_doencas_pais: '',
+    
+    // Histórico Pessoal
+    q21_cirurgias: '',
+    q22_hospitalizacoes: '',
+    q23_alergias: '',
+    q24_medicamentos_uso: '',
+    q25_doencas_cronicas: '',
+    
+    // Hábitos de Vida
+    q26_tabagismo: '',
+    q27_etilismo: '',
+    q28_atividade_fisica: '',
+    q29_frequencia_exercicio: '',
+    
+    // Alimentação
+    q30_cafe_manha: '',
+    q31_almoco: '',
+    q32_jantar: '',
+    q33_lanches: '',
+    q34_agua_dia: '',
+    q35_restricoes_alimentares: '',
+    
+    // Sono e Repouso
+    q36_horas_sono: '',
+    q37_qualidade_sono: '',
+    q38_acorda_noite: '',
+    
+    // Sistema Digestivo
+    q39_intestino: '',
+    q40_gases: '',
+    q41_azia: '',
+    q42_nauseas: '',
+    
+    // Sistema Urinário
+    q43_urina_frequencia: '',
+    q44_cor_urina: '',
+    q45_ardor_urinar: '',
+    
+    // Outros Sintomas
+    q46_dores: '',
+    q47_cansaco: '',
+    q48_estresse: '',
+    q49_ansiedade: '',
+    q50_observacoes: '',
+    
+    // Análise de Iridologia
+    iridologyAnalysis: null,
+    
+    // Análise de Sinais Vitais
+    vitalSignsAnalysis: null,
+    
+    // Checklist de Sinais Clínicos
+    clinicalSignsChecklist: null,
+    
+    // Biorressonância
+    biorresonanciaBarraFile: null,
+    biorresonanciaBarraAnalysis: '',
+    biorresonanciaAuricularFile: null,
+    biorresonanciaAuricularAnalysis: '',
+  });
+
+  const [selectedEstado, setSelectedEstado] = useState('');
+  const [uploadingBarra, setUploadingBarra] = useState(false);
+  const [uploadingAuricular, setUploadingAuricular] = useState(false);
+
+  // Carregar dados da anamnese se estiver editando
+  useEffect(() => {
+    if (id) {
+      const anamneses = JSON.parse(localStorage.getItem('anamneses') || '[]');
+      const anamneseToEdit = anamneses.find(a => String(a.id) === String(id));
+      
+      if (anamneseToEdit) {
+        setFormData(anamneseToEdit);
+        if (anamneseToEdit.q09_estado) {
+          setSelectedEstado(anamneseToEdit.q09_estado);
+        }
+      }
+    }
+  }, [id]);
+
+  // Função para calcular idade a partir da data de nascimento
+  const calculateAge = (birthDate) => {
+    if (!birthDate) return '';
+    
+    const today = new Date();
+    const birth = new Date(birthDate);
+    
+    let age = today.getFullYear() - birth.getFullYear();
+    const monthDiff = today.getMonth() - birth.getMonth();
+    
+    // Ajusta se ainda não fez aniversário este ano
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+      age--;
+    }
+    
+    return age >= 0 ? age : '';
+  };
+
+  const handleChange = (field, value) => {
+    setFormData(prev => {
+      const updated = { ...prev, [field]: value };
+      
+      // Calcula idade automaticamente quando a data de nascimento muda
+      if (field === 'q02_data_nasc') {
+        updated.q03_idade = calculateAge(value);
+      }
+      
+      return updated;
+    });
+  };
+
+  const handleEstadoChange = (value) => {
+    setSelectedEstado(value);
+    handleChange('q09_estado', value);
+    handleChange('q08_cidade', ''); // Limpa cidade ao mudar estado
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const anamneses = JSON.parse(localStorage.getItem('anamneses') || '[]');
+    
+    if (id) {
+      // Modo edição: atualizar anamnese existente
+      const index = anamneses.findIndex(a => String(a.id) === String(id));
+      if (index !== -1) {
+        anamneses[index] = {
+          ...formData,
+          id: anamneses[index].id,
+          createdAt: anamneses[index].createdAt,
+          updatedAt: new Date().toISOString(),
+        };
+        localStorage.setItem('anamneses', JSON.stringify(anamneses));
+        alert('Anamnese atualizada com sucesso!');
+      }
+    } else {
+      // Modo criação: adicionar nova anamnese
+      const newAnamnese = {
+        ...formData,
+        id: Date.now(),
+        createdAt: new Date().toISOString(),
+      };
+      anamneses.push(newAnamnese);
+      localStorage.setItem('anamneses', JSON.stringify(anamneses));
+      alert('Anamnese salva com sucesso!');
+    }
+    
+    navigate('/dashboard');
+  };
+
+  const handleClear = () => {
+    setFormData({
+      q01_nome: '', q02_data_nasc: '', q03_idade: '', q04_sexo: '', q05_estado_civil: '',
+      q06_profissao: '', q07_endereco: '', q08_cidade: '', q09_estado: '', q10_cep: '',
+      q11_telefone: '', q12_email: '', q13_rg: '', q14_cpf: '', q15_queixa_principal: '',
+      q16_tempo_problema: '', q17_tratamentos_anteriores: '', q18_doencas_familia: '',
+      q19_pais_vivos: '', q20_doencas_pais: '', q21_cirurgias: '', q22_hospitalizacoes: '',
+      q23_alergias: '', q24_medicamentos_uso: '', q25_doencas_cronicas: '', q26_tabagismo: '',
+      q27_etilismo: '', q28_atividade_fisica: '', q29_frequencia_exercicio: '', q30_cafe_manha: '',
+      q31_almoco: '', q32_jantar: '', q33_lanches: '', q34_agua_dia: '',
+      q35_restricoes_alimentares: '', q36_horas_sono: '', q37_qualidade_sono: '',
+      q38_acorda_noite: '', q39_intestino: '', q40_gases: '', q41_azia: '', q42_nauseas: '',
+      q43_urina_frequencia: '', q44_cor_urina: '', q45_ardor_urinar: '', q46_dores: '',
+      q47_cansaco: '', q48_estresse: '', q49_ansiedade: '', q50_observacoes: '',
+      iridologyAnalysis: null,
+      vitalSignsAnalysis: null,
+      clinicalSignsChecklist: null,
+      biorresonanciaBarraFile: null,
+      biorresonanciaBarraAnalysis: '',
+      biorresonanciaAuricularFile: null,
+      biorresonanciaAuricularAnalysis: '',
+    });
+    setSelectedEstado('');
+  };
+
+  const handleOpenSheet = (url) => {
+    window.open(url, '_blank');
+  };
+
+  const handleImportSheet = (exportCsv) => {
+    navigate(`/data-import?importUrl=${encodeURIComponent(exportCsv)}`);
+  };
+
+  const handleBiorresonanciaBarraUpload = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    setUploadingBarra(true);
+    
+    try {
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const content = e.target.result;
+        
+        // Salvar arquivo
+        handleChange('biorresonanciaBarraFile', {
+          name: file.name,
+          type: file.type,
+          size: file.size,
+          content: content
+        });
+
+        // Análise simples do conteúdo
+        const analysis = `Arquivo carregado: ${file.name}\n` +
+                        `Tipo: Biorressonância I (BARRA)\n` +
+                        `Tamanho: ${(file.size / 1024).toFixed(2)} KB\n` +
+                        `Data: ${new Date().toLocaleString('pt-BR')}\n\n` +
+                        `Análise preliminar realizada. Aguarde processamento completo.`;
+        
+        handleChange('biorresonanciaBarraAnalysis', analysis);
+        alert('Resultado de Biorressonância I (BARRA) carregado com sucesso!');
+      };
+      
+      reader.readAsText(file);
+    } catch (error) {
+      console.error('Erro ao carregar arquivo:', error);
+      alert('Erro ao carregar arquivo. Tente novamente.');
+    } finally {
+      setUploadingBarra(false);
+    }
+  };
+
+  const handleBiorresonanciaAuricularUpload = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    setUploadingAuricular(true);
+    
+    try {
+      const reader = new FileReader();
+      reader.onload = async (e) => {
+        const content = e.target.result;
+        
+        // Salvar arquivo
+        handleChange('biorresonanciaAuricularFile', {
+          name: file.name,
+          type: file.type,
+          size: file.size,
+          content: content
+        });
+
+        // Análise simples do conteúdo
+        const analysis = `Arquivo carregado: ${file.name}\n` +
+                        `Tipo: Biorressonância II (AURICULAR)\n` +
+                        `Tamanho: ${(file.size / 1024).toFixed(2)} KB\n` +
+                        `Data: ${new Date().toLocaleString('pt-BR')}\n\n` +
+                        `Análise preliminar realizada. Aguarde processamento completo.`;
+        
+        handleChange('biorresonanciaAuricularAnalysis', analysis);
+        alert('Resultado de Biorressonância II (AURICULAR) carregado com sucesso!');
+      };
+      
+      reader.readAsText(file);
+    } catch (error) {
+      console.error('Erro ao carregar arquivo:', error);
+      alert('Erro ao carregar arquivo. Tente novamente.');
+    } finally {
+      setUploadingAuricular(false);
+    }
+  };
+
+  return (
+    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      <Paper sx={{ p: 4 }}>
+        <Typography variant="h4" gutterBottom color="primary">
+          {id ? 'Editar Anamnese Integrativa' : 'Nova Anamnese Integrativa'}
+        </Typography>
+        
+        <Typography variant="body2" color="text.secondary" paragraph>
+          {id ? 'Atualize os campos necessários da avaliação do paciente' : 'Preencha todos os campos necessários para uma avaliação completa do paciente'}
+        </Typography>
+
+        <form onSubmit={handleSubmit}>
+          {/* Identificação - PRIMEIRO */}
+          <Box sx={{ mb: 4, p: 3, borderRadius: 2, backgroundColor: '#e3f2fd', border: '2px solid #1976d2' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#1976d2', fontWeight: 600 }}>
+              📋 Identificação
+            </Typography>
+            <Divider sx={{ mb: 2, borderColor: '#1976d2' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={8}>
+                <TextField
+                  fullWidth
+                  label="Nome Completo *"
+                  value={formData.q01_nome}
+                  onChange={(e) => handleChange('q01_nome', e.target.value)}
+                  required
+                />
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <TextField
+                  fullWidth
+                  type="date"
+                  label="Data de Nascimento *"
+                  InputLabelProps={{ shrink: true }}
+                  value={formData.q02_data_nasc}
+                  onChange={(e) => handleChange('q02_data_nasc', e.target.value)}
+                  required
+                />
+              </Grid>
+              
+              <Grid item xs={12} md={2}>
+                <TextField
+                  fullWidth
+                  label="Idade"
+                  type="number"
+                  value={formData.q03_idade}
+                  disabled
+                  InputProps={{
+                    readOnly: true,
+                  }}
+                  helperText="Calculado automaticamente"
+                />
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <FormControl fullWidth>
+                  <InputLabel>Sexo</InputLabel>
+                  <Select
+                    value={formData.q04_sexo}
+                    label="Sexo"
+                    onChange={(e) => handleChange('q04_sexo', e.target.value)}
+                  >
+                    <MenuItem value="Masculino">Masculino</MenuItem>
+                    <MenuItem value="Feminino">Feminino</MenuItem>
+                    <MenuItem value="Outro">Outro</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <FormControl fullWidth>
+                  <InputLabel>Estado Civil</InputLabel>
+                  <Select
+                    value={formData.q05_estado_civil}
+                    label="Estado Civil"
+                    onChange={(e) => handleChange('q05_estado_civil', e.target.value)}
+                  >
+                    <MenuItem value="Solteiro(a)">Solteiro(a)</MenuItem>
+                    <MenuItem value="Casado(a)">Casado(a)</MenuItem>
+                    <MenuItem value="Divorciado(a)">Divorciado(a)</MenuItem>
+                    <MenuItem value="Viúvo(a)">Viúvo(a)</MenuItem>
+                    <MenuItem value="União Estável">União Estável</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <TextField
+                  fullWidth
+                  label="Profissão"
+                  value={formData.q06_profissao}
+                  onChange={(e) => handleChange('q06_profissao', e.target.value)}
+                />
+              </Grid>
+
+              <Grid item xs={12} md={8}>
+                <TextField
+                  fullWidth
+                  label="Endereço"
+                  value={formData.q07_endereco}
+                  onChange={(e) => handleChange('q07_endereco', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <TextField
+                  fullWidth
+                  label="CEP"
+                  value={formData.q10_cep}
+                  onChange={(e) => handleChange('q10_cep', e.target.value)}
+                />
+              </Grid>
+
+              <Grid item xs={12} md={3}>
+                <FormControl fullWidth>
+                  <InputLabel>Estado</InputLabel>
+                  <Select
+                    value={selectedEstado}
+                    label="Estado"
+                    onChange={(e) => handleEstadoChange(e.target.value)}
+                  >
+                    {Object.keys(ESTADOS_CIDADES).map(uf => (
+                      <MenuItem key={uf} value={uf}>{uf}</MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={5}>
+                <FormControl fullWidth disabled={!selectedEstado}>
+                  <InputLabel>Cidade</InputLabel>
+                  <Select
+                    value={formData.q08_cidade}
+                    label="Cidade"
+                    onChange={(e) => handleChange('q08_cidade', e.target.value)}
+                  >
+                    {selectedEstado && ESTADOS_CIDADES[selectedEstado]?.map(cidade => (
+                      <MenuItem key={cidade} value={cidade}>{cidade}</MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <TextField
+                  fullWidth
+                  label="Telefone"
+                  value={formData.q11_telefone}
+                  onChange={(e) => handleChange('q11_telefone', e.target.value)}
+                />
+              </Grid>
+
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  label="E-mail"
+                  type="email"
+                  value={formData.q12_email}
+                  onChange={(e) => handleChange('q12_email', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <TextField
+                  fullWidth
+                  label="RG"
+                  value={formData.q13_rg}
+                  onChange={(e) => handleChange('q13_rg', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <TextField
+                  fullWidth
+                  label="CPF"
+                  value={formData.q14_cpf}
+                  onChange={(e) => handleChange('q14_cpf', e.target.value)}
+                />
+              </Grid>
+              
+              <Grid item xs={12}>
+                <Divider sx={{ my: 2 }} />
+                <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600, color: '#1976d2' }}>
+                  📅 Agendamento de Retorno
+                </Typography>
+              </Grid>
+              
+              <Grid item xs={12} md={4}>
+                <TextField
+                  fullWidth
+                  type="date"
+                  label="Data de Retorno"
+                  InputLabelProps={{ shrink: true }}
+                  value={formData.q14_data_retorno}
+                  onChange={(e) => handleChange('q14_data_retorno', e.target.value)}
+                  helperText="Agende a próxima consulta"
+                />
+              </Grid>
+              
+              <Grid item xs={12} md={4}>
+                <Button
+                  fullWidth
+                  variant={formData.q14_comparecimento_confirmado ? "contained" : "outlined"}
+                  color={formData.q14_comparecimento_confirmado ? "success" : "primary"}
+                  onClick={() => {
+                    const novoStatus = !formData.q14_comparecimento_confirmado;
+                    const historico = formData.q14_historico_comparecimentos || [];
+                    
+                    if (novoStatus) {
+                      // Confirmando comparecimento
+                      historico.push({
+                        data: new Date().toISOString(),
+                        tipo: 'confirmacao',
+                        observacao: 'Comparecimento confirmado'
+                      });
+                    }
+                    
+                    setFormData({
+                      ...formData,
+                      q14_comparecimento_confirmado: novoStatus,
+                      q14_historico_comparecimentos: historico
+                    });
+                  }}
+                  sx={{ height: '56px' }}
+                >
+                  {formData.q14_comparecimento_confirmado ? '✓ Comparecimento Confirmado' : 'Confirmar Comparecimento'}
+                </Button>
+              </Grid>
+              
+              <Grid item xs={12} md={4}>
+                <Alert severity={formData.q14_comparecimento_confirmado ? "success" : "info"} sx={{ height: '56px', display: 'flex', alignItems: 'center' }}>
+                  {formData.q14_comparecimento_confirmado ? 'Presença registrada' : 'Aguardando confirmação'}
+                </Alert>
+              </Grid>
+              
+              {formData.q14_historico_comparecimentos && formData.q14_historico_comparecimentos.length > 0 && (
+                <Grid item xs={12}>
+                  <Typography variant="caption" color="text.secondary">
+                    Histórico: {formData.q14_historico_comparecimentos.length} registro(s) de comparecimento
+                  </Typography>
+                </Grid>
+              )}
+            </Grid>
+          </Box>
+
+          {/* Botões de Planilhas */}
+          <Box sx={{ mb: 4, display: 'flex', gap: 2, flexWrap: 'wrap' }} aria-label="planilhas-panel">
+            {SPREADSHEETS.map((sheet, index) => (
+              <Button
+                key={index}
+                variant="outlined"
+                startIcon={<OpenInNewIcon />}
+                onClick={() => handleOpenSheet(sheet.url)}
+                sx={{ 
+                  textTransform: 'none',
+                  borderRadius: 2,
+                  px: 2
+                }}
+                aria-label={`open-sheet-${index}`}
+              >
+                {sheet.label}
+              </Button>
+            ))}
+          </Box>
+
+          {/* Queixa Principal */}
+          <Box sx={{ mb: 4, p: 3, borderRadius: 2, backgroundColor: '#ffebee', border: '2px solid #d32f2f' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#d32f2f', fontWeight: 600 }}>
+              🩺 Queixa Principal
+            </Typography>
+            <Divider sx={{ mb: 2, borderColor: '#d32f2f' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={3}
+                  label="Qual é a queixa principal? *"
+                  value={formData.q15_queixa_principal}
+                  onChange={(e) => handleChange('q15_queixa_principal', e.target.value)}
+                  required
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  label="Há quanto tempo?"
+                  value={formData.q16_tempo_problema}
+                  onChange={(e) => handleChange('q16_tempo_problema', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  label="Tratamentos anteriores"
+                  value={formData.q17_tratamentos_anteriores}
+                  onChange={(e) => handleChange('q17_tratamentos_anteriores', e.target.value)}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* Histórico Familiar */}
+          <Box sx={{ mb: 4, p: 3, borderRadius: 2, backgroundColor: '#f3e5f5', border: '2px solid #7b1fa2' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#7b1fa2', fontWeight: 600 }}>
+              👨‍👩‍👧‍👦 Histórico Familiar
+            </Typography>
+            <Divider sx={{ mb: 2, borderColor: '#7b1fa2' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={2}
+                  label="Doenças na família (hipertensão, diabetes, câncer, etc.)"
+                  value={formData.q18_doencas_familia}
+                  onChange={(e) => handleChange('q18_doencas_familia', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  label="Pais vivos?"
+                  value={formData.q19_pais_vivos}
+                  onChange={(e) => handleChange('q19_pais_vivos', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  label="Doenças dos pais"
+                  value={formData.q20_doencas_pais}
+                  onChange={(e) => handleChange('q20_doencas_pais', e.target.value)}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* Histórico Pessoal */}
+          <Box sx={{ mb: 4, p: 3, borderRadius: 2, backgroundColor: '#fff3e0', border: '2px solid #f57c00' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#f57c00', fontWeight: 600 }}>
+              📝 Histórico Pessoal
+            </Typography>
+            <Divider sx={{ mb: 2, borderColor: '#f57c00' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={2}
+                  label="Cirurgias realizadas"
+                  value={formData.q21_cirurgias}
+                  onChange={(e) => handleChange('q21_cirurgias', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={2}
+                  label="Hospitalizações"
+                  value={formData.q22_hospitalizacoes}
+                  onChange={(e) => handleChange('q22_hospitalizacoes', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={2}
+                  label="Alergias"
+                  value={formData.q23_alergias}
+                  onChange={(e) => handleChange('q23_alergias', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={2}
+                  label="Medicamentos em uso"
+                  value={formData.q24_medicamentos_uso}
+                  onChange={(e) => handleChange('q24_medicamentos_uso', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={2}
+                  label="Doenças crônicas"
+                  value={formData.q25_doencas_cronicas}
+                  onChange={(e) => handleChange('q25_doencas_cronicas', e.target.value)}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* Hábitos de Vida */}
+          <Box sx={{ mb: 4, p: 3, borderRadius: 2, backgroundColor: '#e8f5e9', border: '2px solid #388e3c' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#388e3c', fontWeight: 600 }}>
+              🚶 Hábitos de Vida
+            </Typography>
+            <Divider sx={{ mb: 2, borderColor: '#388e3c' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={3}>
+                <FormControl fullWidth>
+                  <InputLabel>Fumante?</InputLabel>
+                  <Select
+                    value={formData.q26_tabagismo}
+                    label="Fumante?"
+                    onChange={(e) => handleChange('q26_tabagismo', e.target.value)}
+                  >
+                    <MenuItem value="Não">Não</MenuItem>
+                    <MenuItem value="Sim">Sim</MenuItem>
+                    <MenuItem value="Ex-fumante">Ex-fumante</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <FormControl fullWidth>
+                  <InputLabel>Consome álcool?</InputLabel>
+                  <Select
+                    value={formData.q27_etilismo}
+                    label="Consome álcool?"
+                    onChange={(e) => handleChange('q27_etilismo', e.target.value)}
+                  >
+                    <MenuItem value="Não">Não</MenuItem>
+                    <MenuItem value="Ocasionalmente">Ocasionalmente</MenuItem>
+                    <MenuItem value="Regularmente">Regularmente</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <FormControl fullWidth>
+                  <InputLabel>Pratica exercícios?</InputLabel>
+                  <Select
+                    value={formData.q28_atividade_fisica}
+                    label="Pratica exercícios?"
+                    onChange={(e) => handleChange('q28_atividade_fisica', e.target.value)}
+                  >
+                    <MenuItem value="Não">Não</MenuItem>
+                    <MenuItem value="Sim">Sim</MenuItem>
+                    <MenuItem value="Às vezes">Às vezes</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={3}>
+                <TextField
+                  fullWidth
+                  label="Frequência (ex: 3x semana)"
+                  value={formData.q29_frequencia_exercicio}
+                  onChange={(e) => handleChange('q29_frequencia_exercicio', e.target.value)}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* Alimentação */}
+          <Box sx={{ mb: 4, p: 3, borderRadius: 2, backgroundColor: '#e0f2f1', border: '2px solid #00796b' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#00796b', fontWeight: 600 }}>
+              🍽️ Alimentação
+            </Typography>
+            <Divider sx={{ mb: 2, borderColor: '#00796b' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={2}
+                  label="Café da manhã (o que costuma comer?)"
+                  value={formData.q30_cafe_manha}
+                  onChange={(e) => handleChange('q30_cafe_manha', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={2}
+                  label="Almoço (o que costuma comer?)"
+                  value={formData.q31_almoco}
+                  onChange={(e) => handleChange('q31_almoco', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={2}
+                  label="Jantar (o que costuma comer?)"
+                  value={formData.q32_jantar}
+                  onChange={(e) => handleChange('q32_jantar', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={2}
+                  label="Lanches entre refeições"
+                  value={formData.q33_lanches}
+                  onChange={(e) => handleChange('q33_lanches', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  label="Quantos copos de água por dia?"
+                  value={formData.q34_agua_dia}
+                  onChange={(e) => handleChange('q34_agua_dia', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  label="Restrições alimentares"
+                  value={formData.q35_restricoes_alimentares}
+                  onChange={(e) => handleChange('q35_restricoes_alimentares', e.target.value)}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* Sono e Repouso */}
+          <Box sx={{ mb: 4, p: 3, borderRadius: 2, backgroundColor: '#e8eaf6', border: '2px solid #303f9f' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#303f9f', fontWeight: 600 }}>
+              😴 Sono e Repouso
+            </Typography>
+            <Divider sx={{ mb: 2, borderColor: '#303f9f' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={4}>
+                <TextField
+                  fullWidth
+                  label="Horas de sono por noite"
+                  type="number"
+                  value={formData.q36_horas_sono}
+                  onChange={(e) => handleChange('q36_horas_sono', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <FormControl fullWidth>
+                  <InputLabel>Qualidade do sono</InputLabel>
+                  <Select
+                    value={formData.q37_qualidade_sono}
+                    label="Qualidade do sono"
+                    onChange={(e) => handleChange('q37_qualidade_sono', e.target.value)}
+                  >
+                    <MenuItem value="Ótima">Ótima</MenuItem>
+                    <MenuItem value="Boa">Boa</MenuItem>
+                    <MenuItem value="Regular">Regular</MenuItem>
+                    <MenuItem value="Ruim">Ruim</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <FormControl fullWidth>
+                  <InputLabel>Acorda durante a noite?</InputLabel>
+                  <Select
+                    value={formData.q38_acorda_noite}
+                    label="Acorda durante a noite?"
+                    onChange={(e) => handleChange('q38_acorda_noite', e.target.value)}
+                  >
+                    <MenuItem value="Não">Não</MenuItem>
+                    <MenuItem value="Raramente">Raramente</MenuItem>
+                    <MenuItem value="Frequentemente">Frequentemente</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* Sistema Digestivo */}
+          <Box sx={{ mb: 4, p: 3, borderRadius: 2, backgroundColor: '#fce4ec', border: '2px solid #c2185b' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#c2185b', fontWeight: 600 }}>
+              🫃 Sistema Digestivo
+            </Typography>
+            <Divider sx={{ mb: 2, borderColor: '#c2185b' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth>
+                  <InputLabel>Funcionamento intestinal</InputLabel>
+                  <Select
+                    value={formData.q39_intestino}
+                    label="Funcionamento intestinal"
+                    onChange={(e) => handleChange('q39_intestino', e.target.value)}
+                  >
+                    <MenuItem value="Normal (1x ao dia)">Normal (1x ao dia)</MenuItem>
+                    <MenuItem value="Constipação">Constipação</MenuItem>
+                    <MenuItem value="Diarreia">Diarreia</MenuItem>
+                    <MenuItem value="Irregular">Irregular</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth>
+                  <InputLabel>Gases/Flatulência</InputLabel>
+                  <Select
+                    value={formData.q40_gases}
+                    label="Gases/Flatulência"
+                    onChange={(e) => handleChange('q40_gases', e.target.value)}
+                  >
+                    <MenuItem value="Não">Não</MenuItem>
+                    <MenuItem value="Raramente">Raramente</MenuItem>
+                    <MenuItem value="Frequentemente">Frequentemente</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth>
+                  <InputLabel>Azia/Refluxo</InputLabel>
+                  <Select
+                    value={formData.q41_azia}
+                    label="Azia/Refluxo"
+                    onChange={(e) => handleChange('q41_azia', e.target.value)}
+                  >
+                    <MenuItem value="Não">Não</MenuItem>
+                    <MenuItem value="Raramente">Raramente</MenuItem>
+                    <MenuItem value="Frequentemente">Frequentemente</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth>
+                  <InputLabel>Náuseas/Vômitos</InputLabel>
+                  <Select
+                    value={formData.q42_nauseas}
+                    label="Náuseas/Vômitos"
+                    onChange={(e) => handleChange('q42_nauseas', e.target.value)}
+                  >
+                    <MenuItem value="Não">Não</MenuItem>
+                    <MenuItem value="Raramente">Raramente</MenuItem>
+                    <MenuItem value="Frequentemente">Frequentemente</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* Sistema Urinário */}
+          <Box sx={{ mb: 4, p: 3, borderRadius: 2, backgroundColor: '#e1f5fe', border: '2px solid #0288d1' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#0288d1', fontWeight: 600 }}>
+              💧 Sistema Urinário
+            </Typography>
+            <Divider sx={{ mb: 2, borderColor: '#0288d1' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={4}>
+                <FormControl fullWidth>
+                  <InputLabel>Frequência urinária</InputLabel>
+                  <Select
+                    value={formData.q43_urina_frequencia}
+                    label="Frequência urinária"
+                    onChange={(e) => handleChange('q43_urina_frequencia', e.target.value)}
+                  >
+                    <MenuItem value="Normal">Normal</MenuItem>
+                    <MenuItem value="Aumentada">Aumentada</MenuItem>
+                    <MenuItem value="Diminuída">Diminuída</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <FormControl fullWidth>
+                  <InputLabel>Cor da urina</InputLabel>
+                  <Select
+                    value={formData.q44_cor_urina}
+                    label="Cor da urina"
+                    onChange={(e) => handleChange('q44_cor_urina', e.target.value)}
+                  >
+                    <MenuItem value="Clara">Clara</MenuItem>
+                    <MenuItem value="Amarelo claro">Amarelo claro</MenuItem>
+                    <MenuItem value="Amarelo escuro">Amarelo escuro</MenuItem>
+                    <MenuItem value="Outra">Outra</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <FormControl fullWidth>
+                  <InputLabel>Ardor ao urinar</InputLabel>
+                  <Select
+                    value={formData.q45_ardor_urinar}
+                    label="Ardor ao urinar"
+                    onChange={(e) => handleChange('q45_ardor_urinar', e.target.value)}
+                  >
+                    <MenuItem value="Não">Não</MenuItem>
+                    <MenuItem value="Às vezes">Às vezes</MenuItem>
+                    <MenuItem value="Frequentemente">Frequentemente</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* Outros Sintomas */}
+          <Box sx={{ mb: 4, p: 3, borderRadius: 2, backgroundColor: '#fbe9e7', border: '2px solid #e64a19' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#e64a19', fontWeight: 600 }}>
+              💭 Outros Sintomas e Observações
+            </Typography>
+            <Divider sx={{ mb: 2, borderColor: '#e64a19' }} />
+            
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={6}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={2}
+                  label="Dores (localização e intensidade)"
+                  value={formData.q46_dores}
+                  onChange={(e) => handleChange('q46_dores', e.target.value)}
+                />
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth>
+                  <InputLabel>Nível de cansaço</InputLabel>
+                  <Select
+                    value={formData.q47_cansaco}
+                    label="Nível de cansaço"
+                    onChange={(e) => handleChange('q47_cansaco', e.target.value)}
+                  >
+                    <MenuItem value="Nenhum">Nenhum</MenuItem>
+                    <MenuItem value="Leve">Leve</MenuItem>
+                    <MenuItem value="Moderado">Moderado</MenuItem>
+                    <MenuItem value="Intenso">Intenso</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth>
+                  <InputLabel>Nível de estresse</InputLabel>
+                  <Select
+                    value={formData.q48_estresse}
+                    label="Nível de estresse"
+                    onChange={(e) => handleChange('q48_estresse', e.target.value)}
+                  >
+                    <MenuItem value="Baixo">Baixo</MenuItem>
+                    <MenuItem value="Moderado">Moderado</MenuItem>
+                    <MenuItem value="Alto">Alto</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl fullWidth>
+                  <InputLabel>Ansiedade</InputLabel>
+                  <Select
+                    value={formData.q49_ansiedade}
+                    label="Ansiedade"
+                    onChange={(e) => handleChange('q49_ansiedade', e.target.value)}
+                  >
+                    <MenuItem value="Não">Não</MenuItem>
+                    <MenuItem value="Leve">Leve</MenuItem>
+                    <MenuItem value="Moderada">Moderada</MenuItem>
+                    <MenuItem value="Intensa">Intensa</MenuItem>
+                  </Select>
+                </FormControl>
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  fullWidth
+                  multiline
+                  rows={4}
+                  label="Observações adicionais"
+                  placeholder="Qualquer informação adicional que considere relevante..."
+                  value={formData.q50_observacoes}
+                  onChange={(e) => handleChange('q50_observacoes', e.target.value)}
+                />
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* Upload de Biorressonância */}
+          <Box sx={{ mb: 4, p: 3, borderRadius: 2, backgroundColor: '#f3e5f5', border: '2px solid #9c27b0' }}>
+            <Typography variant="h6" gutterBottom sx={{ color: '#9c27b0', fontWeight: 600 }}>
+              🔬 Resultados de Biorressonância
+            </Typography>
+            <Divider sx={{ mb: 2, borderColor: '#9c27b0' }} />
+            
+            <Grid container spacing={3}>
+              {/* Biorressonância I (BARRA) */}
+              <Grid item xs={12} md={6}>
+                <Box sx={{ p: 2, border: '1px solid #e0e0e0', borderRadius: 2, bgcolor: 'white' }}>
+                  <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
+                    📊 Biorressonância I (BARRA)
+                  </Typography>
+                  
+                  <Button
+                    variant="contained"
+                    component="label"
+                    fullWidth
+                    disabled={uploadingBarra}
+                    startIcon={<UploadIcon />}
+                    sx={{ mb: 2 }}
+                  >
+                    {uploadingBarra ? 'Carregando...' : 'Upload Resultado BARRA'}
+                    <input
+                      type="file"
+                      hidden
+                      accept=".txt,.csv,.pdf,.doc,.docx"
+                      onChange={handleBiorresonanciaBarraUpload}
+                    />
+                  </Button>
+                  
+                  {formData.biorresonanciaBarraFile && (
+                    <Box sx={{ mt: 2, p: 2, bgcolor: '#f5f5f5', borderRadius: 1 }}>
+                      <Typography variant="caption" color="text.secondary" display="block">
+                        Arquivo carregado:
+                      </Typography>
+                      <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                        📄 {formData.biorresonanciaBarraFile.name}
+                      </Typography>
+                      <Typography variant="caption" color="text.secondary">
+                        {(formData.biorresonanciaBarraFile.size / 1024).toFixed(2)} KB
+                      </Typography>
+                    </Box>
+                  )}
+                  
+                  {formData.biorresonanciaBarraAnalysis && (
+                    <Box sx={{ mt: 2 }}>
+                      <TextField
+                        fullWidth
+                        multiline
+                        rows={4}
+                        label="Análise Automática"
+                        value={formData.biorresonanciaBarraAnalysis}
+                        InputProps={{ readOnly: true }}
+                        variant="outlined"
+                        size="small"
+                      />
+                    </Box>
+                  )}
+                </Box>
+              </Grid>
+
+              {/* Biorressonância II (AURICULAR) */}
+              <Grid item xs={12} md={6}>
+                <Box sx={{ p: 2, border: '1px solid #e0e0e0', borderRadius: 2, bgcolor: 'white' }}>
+                  <Typography variant="subtitle1" sx={{ mb: 2, fontWeight: 600 }}>
+                    🎧 Biorressonância II (AURICULAR)
+                  </Typography>
+                  
+                  <Button
+                    variant="contained"
+                    component="label"
+                    fullWidth
+                    disabled={uploadingAuricular}
+                    startIcon={<UploadIcon />}
+                    sx={{ mb: 2 }}
+                  >
+                    {uploadingAuricular ? 'Carregando...' : 'Upload Resultado AURICULAR'}
+                    <input
+                      type="file"
+                      hidden
+                      accept=".txt,.csv,.pdf,.doc,.docx"
+                      onChange={handleBiorresonanciaAuricularUpload}
+                    />
+                  </Button>
+                  
+                  {formData.biorresonanciaAuricularFile && (
+                    <Box sx={{ mt: 2, p: 2, bgcolor: '#f5f5f5', borderRadius: 1 }}>
+                      <Typography variant="caption" color="text.secondary" display="block">
+                        Arquivo carregado:
+                      </Typography>
+                      <Typography variant="body2" sx={{ fontWeight: 600 }}>
+                        📄 {formData.biorresonanciaAuricularFile.name}
+                      </Typography>
+                      <Typography variant="caption" color="text.secondary">
+                        {(formData.biorresonanciaAuricularFile.size / 1024).toFixed(2)} KB
+                      </Typography>
+                    </Box>
+                  )}
+                  
+                  {formData.biorresonanciaAuricularAnalysis && (
+                    <Box sx={{ mt: 2 }}>
+                      <TextField
+                        fullWidth
+                        multiline
+                        rows={4}
+                        label="Análise Automática"
+                        value={formData.biorresonanciaAuricularAnalysis}
+                        InputProps={{ readOnly: true }}
+                        variant="outlined"
+                        size="small"
+                      />
+                    </Box>
+                  )}
+                </Box>
+              </Grid>
+            </Grid>
+          </Box>
+
+          {/* Análise de Iridologia */}
+          <IridologyAnalysis
+            patientId={null}
+            patientName={formData.q01_nome}
+            onAnalysisComplete={(analysis) => {
+              setFormData(prev => ({ ...prev, iridologyAnalysis: analysis }));
+            }}
+          />
+
+          {/* Análise de Sinais Vitais e Medidas Corporais */}
+          <VitalSignsAnalysis
+            onAnalysisComplete={(analysis) => {
+              setFormData(prev => ({ ...prev, vitalSignsAnalysis: analysis }));
+            }}
+          />
+
+          {/* Checklist de Sinais Clínicos - Sem Upload */}
+          <ClinicalSignsChecklistForm
+            bloodType={formData.q08_tipo_sanguineo}
+            onAnalysisComplete={(analysis) => {
+              setFormData(prev => ({ ...prev, clinicalSignsChecklist: analysis }));
+            }}
+          />
+
+          {/* Botões de Ação */}
+          <Box sx={{ display: 'flex', justifyContent: 'flex-end', gap: 2, mt: 4 }}>
+            <Button
+              type="button"
+              variant="outlined"
+              color="error"
+              startIcon={<ClearIcon />}
+              onClick={handleClear}
+            >
+              Limpar Formulário
+            </Button>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              size="large"
+              startIcon={<SaveIcon />}
+            >
+              {id ? 'Atualizar Anamnese' : 'Salvar Anamnese'}
+            </Button>
+          </Box>
+        </form>
+
+        <Alert severity="info" sx={{ mt: 3 }}>
+          <strong>Dica:</strong> Todos os dados são salvos localmente no navegador. Use as planilhas de referência para importar dados complementares.
+        </Alert>
+      </Paper>
+      <ScrollToTop />
+    </Container>
+  );
+}

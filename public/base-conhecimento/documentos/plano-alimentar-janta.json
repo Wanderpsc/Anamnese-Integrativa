@@ -1,0 +1,15 @@
+{
+ "id": "plano-alimentar-janta",
+ "titulo": "PLANO ALIMENTAR - JANTA",
+ "fonte": "PLANO ALIMENTAR - JANTA.xlsx",
+ "tipo": "xlsx",
+ "categoria": "fitoterapia",
+ "caracteres": 2061,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "[Planilha: Sheet1]\nRefeição,Categoria,Alimento,Porção/Observação\nDesjejum,Opção 1,Suco terapêutico,4 dias/semana\nJantar,Opção 1,Prato de saladas + legumes + ovos,Mesma quantidade do almoço\nJantar,Opção 2 - Caldo,Caldo com Abobrinha,1 prato\nJantar,Opção 2 - Caldo,Caldo com Mandioquinha,1 prato\nJantar,Opção 2 - Caldo,Caldo com Abóbora cabotiá,1 prato\nJantar,Opção 2 - Caldo,Caldo com Espinafre,1 prato\nJantar,Opção 2 - Caldo,Caldo com Chuchu,1 prato\nJantar,Opção 2 - Caldo,Caldo com Brócolis,1 prato\nJantar,Opção 2 - Caldo,Caldo com Cenoura,1 prato\nJantar,Opção 2 - Caldo,Caldo com Alho poró,1 prato\nJantar,Opção 2 - Caldo,Caldo com Salsão,1 prato\nJantar,Opção 2 - Proteína,Ricota ou Tofu,1 fatia\nJantar,Opção 3 - Reguladores,Maçã verde,1 fruta\nJantar,Opção 3 - Reguladores,Maçã,1 fruta\nJantar,Opção 3 - Reguladores,Goiaba,1 fruta\nJantar,Opção 3 - Reguladores,Melão,1 fruta\nJantar,Opção 3 - Gorduras,Abacate ou coco,2 colheres sopa\nJantar,Opção 3 - Construtores,2 ovos caipira,1 porção\nJantar,Opção 3 - Construtores,Crepioca,1 porção\nJantar,Opção 3 - Construtores,Iogurte natural,1 porção\nReceitas,Suco terapêutico,Couve (2 folhas),Bater no liquidificador\nReceitas,Suco terapêutico,Salsa (2 galhos),Bater no liquidificador\nReceitas,Suco terapêutico,Pepino (1/3),Bater no liquidificador\nReceitas,Suco terapêutico,Batata yacon (1/2),Bater no liquidificador\nReceitas,Suco terapêutico,Cenoura ou maçã (1/2),Bater no liquidificador\nReceitas,Suco terapêutico,Água de coco ou água,Bater no liquidificador\nReceitas,Suco terapêutico,Suco de 1 limão,Bater no liquidificador\nReceitas,Mix fibras,Farelo de aveia 100g,Misturar e consumir 1-2 colheres\nReceitas,Mix fibras,Chia 100g,Misturar e consumir 1-2 colheres\nReceitas,Mix fibras,Quinoa flocos 100g,Misturar e consumir 1-2 colheres\nReceitas,Mix fibras,Psyllium 50g,Misturar e consumir 1-2 colheres\nReceitas,Mix fibras,Gérmen de trigo 50g,Misturar e consumir 1-2 colheres\nReceitas,Mix fibras,Sementes girassol 100g,Misturar e consumir 1-2 colheres\nReceitas,Mix fibras,Sementes abóbora 50g,Misturar e consumir 1-2 colheres"
+  }
+ ]
+}

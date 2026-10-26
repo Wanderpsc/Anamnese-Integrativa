@@ -1,0 +1,212 @@
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { DataGrid } from '@mui/x-data-grid';
+import { Container, Typography, Button, Box, Paper, IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
+import { Add as AddIcon, Visibility as VisibilityIcon, Delete as DeleteIcon, Edit as EditIcon, Assessment as AssessmentIcon, TableChart as TableChartIcon, Medication as MedicationIcon } from '@mui/icons-material';
+
+export default function Dashboard() {
+  const [anamneses, setAnamneses] = useState([]);
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
+
+  useEffect(() => {
+    const savedAnamneses = JSON.parse(localStorage.getItem('anamneses') || '[]');
+    // Ordenar alfabeticamente por nome
+    const sortedAnamneses = savedAnamneses.sort((a, b) => {
+      const nomeA = (a.q01_nome || '').toLowerCase();
+      const nomeB = (b.q01_nome || '').toLowerCase();
+      return nomeA.localeCompare(nomeB);
+    });
+    setAnamneses(sortedAnamneses);
+  }, []);
+
+  const handleDeleteClick = (id) => {
+    setSelectedId(id);
+    setDeleteDialogOpen(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    const updatedAnamneses = anamneses.filter(a => a.id !== selectedId);
+    localStorage.setItem('anamneses', JSON.stringify(updatedAnamneses));
+    setAnamneses(updatedAnamneses);
+    setDeleteDialogOpen(false);
+    setSelectedId(null);
+  };
+
+  const handleDeleteCancel = () => {
+    setDeleteDialogOpen(false);
+    setSelectedId(null);
+  };
+
+  const columns = [
+    { field: 'q01_nome', headerName: 'Nome', flex: 1.5 },
+    {
+      field: 'q02_data_nasc',
+      headerName: 'Data Nasc.',
+      width: 110,
+      valueFormatter: (params) => {
+        if (!params.value) return '';
+        return new Date(params.value).toLocaleDateString('pt-BR');
+      }
+    },
+    {
+      field: 'q14_data_retorno',
+      headerName: 'Data Retorno',
+      width: 120,
+      valueFormatter: (params) => {
+        if (!params.value) return '-';
+        return new Date(params.value).toLocaleDateString('pt-BR');
+      }
+    },
+    {
+      field: 'q14_comparecimento_confirmado',
+      headerName: 'Status',
+      width: 100,
+      renderCell: (params) => {
+        const confirmado = params.row.q14_comparecimento_confirmado;
+        return (
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: 0.5,
+            color: confirmado ? '#2e7d32' : '#ed6c02',
+            fontWeight: 600,
+            fontSize: '0.75rem'
+          }}>
+            {confirmado ? '✓ Confirmado' : '⏳ Pendente'}
+          </Box>
+        );
+      }
+    },
+    {
+      field: 'actions',
+      headerName: 'Ações',
+      width: 420,
+      sortable: false,
+      renderCell: (params) => (
+        <Box sx={{ display: 'flex', gap: 0.3, alignItems: 'center' }}>
+          <IconButton
+            component={Link}
+            to={`/anamnese/${params.row.id}`}
+            size="small"
+            color="primary"
+            title="Ver"
+            sx={{ p: 0.5 }}
+          >
+            <VisibilityIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            component={Link}
+            to={`/edit/${params.row.id}`}
+            size="small"
+            color="primary"
+            title="Editar"
+            sx={{ p: 0.5 }}
+          >
+            <EditIcon fontSize="small" />
+          </IconButton>
+          <Button
+            component={Link}
+            to={`/prescription/${params.row.id}`}
+            size="small"
+            variant="contained"
+            color="success"
+            sx={{ minWidth: 'auto', px: 1, py: 0.5, fontSize: '0.7rem' }}
+          >
+            Rx
+          </Button>
+          <IconButton
+            component={Link}
+            to={`/comparative-analysis/${params.row.id}`}
+            size="small"
+            color="info"
+            title="Análise"
+            sx={{ p: 0.5 }}
+          >
+            <AssessmentIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            component={Link}
+            to={`/integrative-spreadsheet/${params.row.id}`}
+            size="small"
+            color="success"
+            title="Planilha"
+            sx={{ p: 0.5 }}
+          >
+            <TableChartIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            component={Link}
+            to={`/drug-interactions/${params.row.id}`}
+            size="small"
+            color="warning"
+            title="Interações"
+            sx={{ p: 0.5 }}
+          >
+            <MedicationIcon fontSize="small" />
+          </IconButton>
+          <IconButton
+            size="small"
+            color="error"
+            onClick={() => handleDeleteClick(params.row.id)}
+            title="Excluir"
+            sx={{ p: 0.5 }}
+          >
+            <DeleteIcon fontSize="small" />
+          </IconButton>
+        </Box>
+      ),
+    },
+  ];
+
+  return (
+    <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      <Box sx={{ display: 'flex', justifyContent: 'space-between', mb: 3, alignItems: 'center' }}>
+        <Typography variant="h4" color="primary">
+          Interagentes
+        </Typography>
+        <Button 
+          component={Link} 
+          to="/" 
+          variant="contained" 
+          color="primary"
+          startIcon={<AddIcon />}
+        >
+          Nova Anamnese
+        </Button>
+      </Box>
+
+      <Paper sx={{ height: 600, width: '100%' }}>
+        <DataGrid
+          rows={anamneses}
+          columns={columns}
+          initialState={{
+            pagination: {
+              paginationModel: { pageSize: 10 },
+            },
+          }}
+          disableRowSelectionOnClick
+        />
+      </Paper>
+
+      {/* Dialog de confirmação de exclusão */}
+      <Dialog
+        open={deleteDialogOpen}
+        onClose={handleDeleteCancel}
+      >
+        <DialogTitle>Confirmar Exclusão</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Tem certeza que deseja excluir este interagente? Esta ação não pode ser desfeita.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDeleteCancel}>Cancelar</Button>
+          <Button onClick={handleDeleteConfirm} color="error" variant="contained">
+            Excluir
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </Container>
+  );
+}

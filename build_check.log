@@ -1,0 +1,14 @@
+
+> anamnese-app@2.1.0 prebuild
+> node scripts/copy-pdf-worker.js
+
+Ô£à PDF.js worker copiado com sucesso para public/pdf.worker.min.js
+   Tamanho: 1045.68 KB
+
+> anamnese-app@2.1.0 build
+> react-scripts build
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+(node:2724) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Creating an optimized production build...

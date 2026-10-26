@@ -1,0 +1,15 @@
+{
+ "id": "ticket-imersao-online",
+ "titulo": "Ticket Imersão Online",
+ "fonte": "Ticket Imersão Online.docx",
+ "tipo": "docx",
+ "categoria": "geral",
+ "caracteres": 104,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "Horario:\n\nRow\n\nSeat\n\ndas 9h as 17h\n\n8 E 9 DE SETEMBRO DE 2024\n\nLocal:\n\nHotel Dan Inn, Sorocaba —Sp\n\nGate"
+  }
+ ]
+}

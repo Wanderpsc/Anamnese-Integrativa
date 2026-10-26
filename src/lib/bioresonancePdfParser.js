@@ -1,0 +1,473 @@
+/**
+ * Extrai texto de um arquivo PDF
+ * @param {File|ArrayBuffer|string} pdfSource - Arquivo PDF, ArrayBuffer ou base64
+ * @returns {Promise<string>} Texto extraído do PDF
+ */
+export async function extractTextFromPDF(pdfSource) {
+  try {
+    // Importação dinâmica para evitar problemas de inicialização
+    const pdfjsLib = await import('pdfjs-dist');
+    
+    // Configurar o worker do PDF.js
+    if (typeof window !== 'undefined' && !pdfjsLib.GlobalWorkerOptions.workerSrc) {
+      // Usar worker da pasta public (será copiado via script)
+      pdfjsLib.GlobalWorkerOptions.workerSrc = `${window.location.origin}/pdf.worker.min.js`;
+    }
+    
+    let typedArray;
+    
+    if (pdfSource instanceof File) {
+      typedArray = new Uint8Array(await pdfSource.arrayBuffer());
+    } else if (pdfSource instanceof ArrayBuffer) {
+      typedArray = new Uint8Array(pdfSource);
+    } else if (typeof pdfSource === 'string') {
+      // Assume base64
+      const base64 = pdfSource.includes('base64,') 
+        ? pdfSource.split('base64,')[1] 
+        : pdfSource;
+      const binaryString = atob(base64);
+      const bytes = new Uint8Array(binaryString.length);
+      for (let i = 0; i < binaryString.length; i++) {
+        bytes[i] = binaryString.charCodeAt(i);
+      }
+      typedArray = bytes;
+    } else {
+      throw new Error('Formato de PDF não suportado');
+    }
+
+    const pdf = await pdfjsLib.getDocument({ data: typedArray }).promise;
+    let fullText = '';
+
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+      const page = await pdf.getPage(pageNum);
+      const textContent = await page.getTextContent();
+      const pageText = textContent.items.map(item => item.str).join(' ');
+      fullText += pageText + '\n';
+    }
+
+    return fullText;
+  } catch (error) {
+    console.error('Erro ao extrair texto do PDF:', error);
+    throw new Error('Não foi possível extrair o texto do PDF: ' + error.message);
+  }
+}
+
+/**
+ * Parseia o texto extraído do PDF de biorressonância e identifica parâmetros
+ * @param {string} text - Texto extraído do PDF
+ * @returns {Object} Objeto com resultados estruturados
+ */
+export function parseBioresonanceResults(text) {
+  console.log('🔬 Iniciando parse do PDF de biorressonância...');
+  console.log(`📄 Tamanho do texto: ${text.length} caracteres`);
+  
+  const results = {
+    testType: '',
+    testDate: '',
+    parameters: [],
+    detectedIssues: [],
+    recommendations: [],
+    rawText: text
+  };
+  
+  // Debug: mostrar primeiras linhas do texto
+  const previewLines = text.split('\n').slice(0, 20);
+  console.log('👀 Prévia das primeiras 20 linhas:', previewLines);
+
+  // Detectar tipo de teste
+  if (text.toLowerCase().includes('barra') || text.toLowerCase().includes('quantum')) {
+    results.testType = 'Biorressonância Quantum (BARRA)';
+  } else if (text.toLowerCase().includes('auricular') || text.toLowerCase().includes('orelha')) {
+    results.testType = 'Biorressonância Auricular';
+  } else {
+    results.testType = 'Biorressonância';
+  }
+
+  // Extrair data do teste
+  const datePatterns = [
+    /data[:\s]+(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})/i,
+    /(\d{1,2}[\/\-]\d{1,2}[\/\-]\d{2,4})/
+  ];
+  
+  for (const pattern of datePatterns) {
+    const match = text.match(pattern);
+    if (match) {
+      results.testDate = match[1] || match[0];
+      break;
+    }
+  }
+
+  // Estratégia 1: Detectar formato de planilha/tabela
+  console.log('📋 Tentando extração formato planilha...');
+  const allLines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+  
+  // Detectar cabeçalho de tabela
+  let tableStartIndex = -1;
+  let columnPositions = null;
+  
+  for (let i = 0; i < Math.min(allLines.length, 30); i++) {
+    const line = allLines[i].toLowerCase();
+    // Procurar linha com palavras-chave de cabeçalho
+    if ((line.includes('ponto') && line.includes('crítico')) || 
+        (line.includes('item') && line.includes('resultado')) ||
+        (line.includes('parâmetro') && line.includes('valor')) ||
+        (line.includes('nome') && line.includes('referência'))) {
+      tableStartIndex = i;
+      console.log(`✓ Cabeçalho encontrado na linha ${i}: "${allLines[i]}"`);
+      
+      // Analisar posições das colunas pelo cabeçalho
+      const headerLine = allLines[i];
+      columnPositions = {
+        hasSeparator: headerLine.includes('|') || headerLine.includes('\t')
+      };
+      break;
+    }
+  }
+  
+  // Se encontrou tabela, extrair dados
+  if (tableStartIndex !== -1) {
+    for (let i = tableStartIndex + 1; i < allLines.length; i++) {
+      const line = allLines[i];
+      
+      // Parar se encontrar fim óbvio da tabela
+      if (line.toLowerCase().includes('observ') || 
+          line.toLowerCase().includes('conclus') ||
+          line.toLowerCase().includes('recomend') ||
+          line.length < 5) {
+        continue;
+      }
+      
+      let param = null;
+      
+      // Formato com separadores (| ou \t)
+      if (columnPositions.hasSeparator) {
+        const cells = line.split(/\||\t/).map(c => c.trim()).filter(c => c);
+        
+        if (cells.length >= 2) {
+          // Filtrar valores que parecem ser nomes de pessoas
+          const value = cells[1] || 'N/A';
+          const isPersonName = /^(?:nome|paciente|interagente):/i.test(value) || 
+                              (/^[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]+$/.test(value) && value.split(' ').length >= 2);
+          
+          if (isPersonName) continue; // Pular esta linha
+          
+          param = {
+            name: cells[0],
+            value: value,
+            reference: cells[2] || 'N/A',
+            status: 'normal'
+          };
+          
+          // Detectar status por palavras-chave
+          const valueText = (cells[1] + ' ' + (cells[2] || '')).toLowerCase();
+          if (valueText.includes('crítico') || valueText.includes('alto') || valueText.includes('elevado')) {
+            param.status = 'alto';
+          } else if (valueText.includes('baixo') || valueText.includes('reduzido')) {
+            param.status = 'baixo';
+          } else if (valueText.includes('alterado') || valueText.includes('atenção')) {
+            param.status = 'alterado';
+          }
+        }
+      } else {
+        // Formato com espaços (colunas alinhadas)
+        // Padrão: Nome (várias palavras) seguido de números/palavras-chave
+        const match = line.match(/^([A-Za-zÀ-ÿ\s\-()]+?)\s{2,}(.+)$/);
+        
+        if (match) {
+          const name = match[1].trim();
+          const rest = match[2].trim();
+          
+          // Separar valor e referência se possível
+          const parts = rest.split(/\s{2,}/);
+          const value = parts[0] || rest;
+          
+          // Filtrar valores que parecem ser nomes próprios
+          const isPersonName = /^(?:nome|paciente|interagente):/i.test(value) || 
+                              (/^[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]+$/.test(value) && value.split(' ').length >= 2);
+          
+          if (isPersonName) continue; // Pular esta linha
+          
+          param = {
+            name: name,
+            value: value,
+            reference: parts[1] || 'N/A',
+            status: 'normal'
+          };
+          
+          // Detectar status
+          const allText = (name + ' ' + rest).toLowerCase();
+          if (allText.includes('crítico') || allText.includes('alto') || allText.includes('elevado')) {
+            param.status = 'alto';
+          } else if (allText.includes('baixo') || allText.includes('reduzido')) {
+            param.status = 'baixo';
+          } else if (allText.includes('alterado') || allText.includes('atenção')) {
+            param.status = 'alterado';
+          }
+        }
+      }
+      
+      // Validar e adicionar parâmetro
+      if (param && param.name.length > 2 && param.name.length < 150) {
+        // Ignorar linhas que são claramente cabeçalhos repetidos ou nomes de pessoas
+        const isHeader = /^(ponto|item|nome|parâmetro|resultado|valor|referência|data|página|paciente|interagente)/i.test(param.name);
+        const valueIsPersonName = typeof param.value === 'string' && 
+                                   (/^(?:nome|paciente|interagente):/i.test(param.value) || 
+                                   (/^[A-ZÁÀÂÃÉÈÊÍÏÓÔÕÖÚÇÑ\s]+$/.test(param.value) && param.value.split(' ').length >= 2));
+        
+        if (!isHeader && !valueIsPersonName) {
+          results.parameters.push(param);
+        }
+      }
+    }
+  }
+  
+  console.log(`📋 Planilha: ${results.parameters.length} parâmetros extraídos`);
+
+  // Estratégia 2: Padrões estruturados (fallback se estratégia 1 falhou)
+  if (results.parameters.length === 0) {
+    console.log('📊 Tentando padrões estruturados...');
+    const structuredPatterns = [
+      // Formato: "Nome: Valor (Referência: X-Y)"
+      /([A-Za-zÀ-ÿ\s]+):\s*([0-9.,]+)\s*(?:\(|-)?\s*(?:Ref\.?|Referência|Normal)[:\s]*([0-9.,]+\s*[-–]\s*[0-9.,]+)/gi,
+      // Formato: "Nome Valor Ref: X-Y"
+      /([A-Za-zÀ-ÿ\s]+)\s+([0-9.,]+)\s+(?:Ref\.?|Referência)[:\s]*([0-9.,]+\s*[-–]\s*[0-9.,]+)/gi,
+      // Formato: "Nome | Valor | Referência"
+      /([A-Za-zÀ-ÿ\s]+)\s*\|\s*([0-9.,]+)\s*\|\s*([0-9.,]+\s*[-–]\s*[0-9.,]+)/gi
+    ];
+
+    for (const pattern of structuredPatterns) {
+      let match;
+      while ((match = pattern.exec(text)) !== null) {
+        const param = {
+          name: match[1].trim(),
+          value: parseFloat(match[2].replace(',', '.')),
+          reference: match[3].trim(),
+          status: 'normal'
+        };
+
+        // Determinar se está dentro ou fora da referência
+        const refRange = match[3].match(/([0-9.,]+)\s*[-–]\s*([0-9.,]+)/);
+        if (refRange) {
+          const min = parseFloat(refRange[1].replace(',', '.'));
+          const max = parseFloat(refRange[2].replace(',', '.'));
+          
+          if (param.value < min) {
+            param.status = 'baixo';
+          } else if (param.value > max) {
+            param.status = 'alto';
+          }
+        }
+
+        results.parameters.push(param);
+      }
+    }
+  }
+
+  // Estratégia 3: Se não encontrou parâmetros, tentar extrair por linhas
+  if (results.parameters.length === 0) {
+    console.log('📄 Tentando extração por linhas...');
+    
+    for (let i = 0; i < allLines.length; i++) {
+      const line = allLines[i].trim();
+      
+      // Ignorar linhas muito curtas ou muito longas
+      if (line.length < 5 || line.length > 200) continue;
+      
+      // Ignorar cabeçalhos e títulos comuns
+      if (/^(nome|parâmetro|item|resultado|data|paciente|exame)/i.test(line)) continue;
+      
+      // Buscar linhas que parecem ser parâmetros com valores
+      // Padrão: palavra(s) seguida(s) de número(s)
+      const lineMatch = line.match(/^([^0-9]+?)\s+([0-9.,]+(?:\s*%|\s*mg|\s*ml)?)\s*(.*)$/i);
+      
+      if (lineMatch) {
+        const name = lineMatch[1].trim();
+        const valueStr = lineMatch[2].trim();
+        const rest = lineMatch[3].trim();
+        
+        // Verificar se parece um nome válido (não é só pontuação ou números)
+        if (name.length > 2 && /[a-záàâãéèêíïóôõöúçñ]/i.test(name)) {
+          const param = {
+            name: name,
+            value: valueStr,
+            reference: rest || 'N/A',
+            status: 'normal'
+          };
+          
+          // Tentar detectar status por palavras-chave
+          const lowerRest = rest.toLowerCase();
+          if (lowerRest.includes('alto') || lowerRest.includes('elevado') || lowerRest.includes('aumentado')) {
+            param.status = 'alto';
+          } else if (lowerRest.includes('baixo') || lowerRest.includes('reduzido') || lowerRest.includes('diminuído')) {
+            param.status = 'baixo';
+          } else if (lowerRest.includes('alterado') || lowerRest.includes('anormal')) {
+            param.status = 'alterado';
+          }
+          
+          results.parameters.push(param);
+        }
+      }
+    }
+  }
+
+  // Estratégia 4: Buscar indicadores de alterações/problemas no texto
+  if (results.parameters.length === 0) {
+    console.log('🔍 Tentando extração por indicadores de alteração...');
+    const alterationPatterns = [
+      /([^.\n]+?)\s+(?:está|apresenta|encontra-se)\s+(alterado|elevado|alto|baixo|reduzido|comprometido|deficiente)/gi,
+      /([^.\n]+?)\s*[:]\s*(alterado|elevado|alto|baixo|reduzido|comprometido|deficiente)/gi
+    ];
+    
+    for (const pattern of alterationPatterns) {
+      let match;
+      while ((match = pattern.exec(text)) !== null) {
+        const name = match[1].trim();
+        const statusWord = match[2].toLowerCase();
+        
+        if (name.length > 3 && name.length < 100) {
+          const param = {
+            name: name,
+            value: statusWord.charAt(0).toUpperCase() + statusWord.slice(1),
+            reference: 'Avaliar contexto clínico',
+            status: statusWord.includes('alto') || statusWord.includes('elevado') ? 'alto' : 
+                    statusWord.includes('baixo') || statusWord.includes('reduzido') ? 'baixo' : 'alterado'
+          };
+          
+          results.parameters.push(param);
+        }
+      }
+    }
+  }
+
+  console.log(`✅ Total de parâmetros extraídos: ${results.parameters.length}`);
+
+  // Identificar problemas detectados (palavras-chave comuns)
+  const issueKeywords = [
+    'alteração', 'desequilíbrio', 'comprometimento', 'deficiência',
+    'elevado', 'reduzido', 'anormal', 'atípico', 'irregular',
+    'sobrecarga', 'toxicidade', 'inflamação', 'alergia', 'intolerância',
+    'disbiose', 'candidíase', 'parasita', 'vírus', 'bactéria',
+    'estresse oxidativo', 'metais pesados', 'deficiência nutricional'
+  ];
+
+  for (const line of allLines) {
+    const lowerLine = line.toLowerCase();
+    for (const keyword of issueKeywords) {
+      if (lowerLine.includes(keyword) && line.length > 20 && line.length < 200) {
+        results.detectedIssues.push(line.trim());
+        break;
+      }
+    }
+  }
+
+  // Identificar recomendações
+  const recommendationKeywords = [
+    'recomend', 'sugest', 'indicad', 'trat', 'terapia', 'protocolo',
+    'suplementa', 'nutrição', 'diet', 'exercício', 'medicamento'
+  ];
+
+  for (const line of allLines) {
+    const lowerLine = line.toLowerCase();
+    for (const keyword of recommendationKeywords) {
+      if (lowerLine.includes(keyword) && line.length > 20 && line.length < 250) {
+        results.recommendations.push(line.trim());
+        break;
+      }
+    }
+  }
+
+  // Remover duplicatas
+  results.detectedIssues = [...new Set(results.detectedIssues)];
+  results.recommendations = [...new Set(results.recommendations)];
+
+  return results;
+}
+
+/**
+ * Categoriza parâmetros por sistema corporal
+ * @param {Array} parameters - Array de parâmetros extraídos
+ * @returns {Object} Parâmetros agrupados por sistema
+ */
+export function categorizeParametersBySystem(parameters) {
+  const systems = {
+    cardiovascular: [],
+    digestivo: [],
+    respiratorio: [],
+    nervoso: [],
+    endocrino: [],
+    imunologico: [],
+    urinario: [],
+    musculoesqueletico: [],
+    outros: []
+  };
+
+  const keywords = {
+    cardiovascular: ['coração', 'cardíaco', 'pressão', 'circulação', 'vascular', 'artéria', 'veia'],
+    digestivo: ['estômago', 'intestino', 'fígado', 'vesícula', 'pâncreas', 'digestão', 'digestivo'],
+    respiratorio: ['pulmão', 'brônquio', 'respiratório', 'respiração', 'oxigênio'],
+    nervoso: ['cérebro', 'nervoso', 'neural', 'neurológico', 'stress', 'ansiedade'],
+    endocrino: ['hormônio', 'tireoide', 'adrenal', 'endócrino', 'metabólico'],
+    imunologico: ['imune', 'imunológico', 'defesa', 'anticorpo', 'alergia'],
+    urinario: ['rim', 'renal', 'bexiga', 'urinário', 'urina'],
+    musculoesqueletico: ['músculo', 'osso', 'articulação', 'esquelético', 'ósseo']
+  };
+
+  parameters.forEach(param => {
+    const nameLower = param.name.toLowerCase();
+    let categorized = false;
+
+    for (const [system, words] of Object.entries(keywords)) {
+      if (words.some(word => nameLower.includes(word))) {
+        systems[system].push(param);
+        categorized = true;
+        break;
+      }
+    }
+
+    if (!categorized) {
+      systems.outros.push(param);
+    }
+  });
+
+  return systems;
+}
+
+/**
+ * Gera um resumo dos resultados
+ * @param {Object} results - Resultados parseados
+ * @returns {Object} Resumo com estatísticas
+ */
+export function generateResultsSummary(results) {
+  const summary = {
+    totalParameters: results.parameters.length,
+    normalCount: 0,
+    highCount: 0,
+    lowCount: 0,
+    alteredCount: 0,
+    criticalParameters: [],
+    mainIssues: results.detectedIssues.slice(0, 5),
+    mainRecommendations: results.recommendations.slice(0, 5)
+  };
+
+  results.parameters.forEach(param => {
+    switch (param.status) {
+      case 'normal':
+        summary.normalCount++;
+        break;
+      case 'alto':
+        summary.highCount++;
+        if (param.value && typeof param.value === 'string' && param.value.toLowerCase().includes('crítico')) {
+          summary.criticalParameters.push(param);
+        }
+        break;
+      case 'baixo':
+        summary.lowCount++;
+        break;
+      case 'alterado':
+        summary.alteredCount++;
+        break;
+    }
+  });
+
+  return summary;
+}

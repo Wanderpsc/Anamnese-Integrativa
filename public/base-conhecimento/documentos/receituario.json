@@ -1,0 +1,15 @@
+{
+ "id": "receituario",
+ "titulo": "receituario",
+ "fonte": "receituario.docx",
+ "tipo": "docx",
+ "categoria": "geral",
+ "caracteres": 414,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "Terapeuta _____\n\nCRT 9999\n\nCel./watts (11) 99999 – aaa@gmail.com\n\nReceituário \n\nNome: ___________________________________ Data: __ / __ / ____\n\n_____________________\n\nFelipe \n\nTerapeuta Holístico\n\nCRT 99999\n\nTerapeuta _____\n\nCRT 9999\n\nCel./watts (11) 99999 – aaa@gmail.com\n\nReceituário \n\nNome: ___________________________________ Data: __ / __ / ____\n\n_____________________\n\nFelipe \n\nTerapeuta Holístico\n\nCRT 99999"
+  }
+ ]
+}

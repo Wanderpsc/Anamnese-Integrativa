@@ -1,0 +1,15 @@
+{
+ "id": "arquivocsv-hiperagentes",
+ "titulo": "ArquivoCSV-hiperagentes",
+ "fonte": "ArquivoCSV-hiperagentes.docx",
+ "tipo": "docx",
+ "categoria": "nutricao",
+ "caracteres": 1734,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "ARQUIVO CSV\n\nUm recurso que permite alimentar a IA com informações estruturadas (planilhas), para ela responder com base nesses dados.\n\n📁 O que é um CSV?\n\nÉ um arquivo, onde os dados ficam organizados por vírgulas.\n\nConteúdo licenciado para Wander Pires Silva Coelho - 036.236.556-35\n\n🧩 PARA QUE SERVE?\n\nCatálogo de produtos Perguntas frequentes (FAQs) Listas de preços ou estoques Informações de serviços Glossários e termos técnicos\n\nConteúdo licenciado para Wander Pires Silva Coelho - 036.236.556-35\n\n📋\n\nREGRAS E LIMITAÇÕES\n\nSomente CSV com cabeçalhos Só aceita arquivos em UTF-8 Arquivo deve ter no máximo 5MB\n\nCada agente pode contar até 2 CSV ativos Não junta dados de diferentes arquivos CSV\n\nEm buscas por itens específicos, a IA retorna no máximo 5 resultados relevantes.\n\nConteúdo licenciado para Wander Pires Silva Coelho - 036.236.556-35\n\n📋\n\n✅ COMO USAR NA PRÁTICA:\n\nPrepare seu CSV: dados limpos, organizados, cabeçalhos claros\n\nSuba na área “Dados de Contexto CSV”\n\nPreencha nome, descrição, e envie\n\nAtive ou desative conforme quiser\n\nA IA já começa a usar os dados nas conversas automaticamente.\n\nConteúdo licenciado para Wander Pires Silva Coelho - 036.236.556-35\n\n🔍\n\nBUSCA CONTEXTUAL\n\n📋 Limitada a busca de palavras-chave maiores que 3 caracteres.\n\nSignifica que, quando a IA faz uma busca dentro do CSV, ela considera palavras com mais de 3 letras (ou seja, com 4 ou mais caracteres).\n\nConteúdo licenciado para Wander Pires Silva Coelho - 036.236.556-35\n\n🔍\n\nCOMO FUNCIONA\n\n✅ O que entra na busca, palavras como:\n\n\"notebook\" \"preço\" \"smartphone\" \"estoque\"\n\n❌ O que NÃO entra na busca, palavras muito curtas, como:\n\n\"de\"\n\n\"em\"\n\n\"ver\"\n\n\"abc\"\n\nConteúdo licenciado para Wander Pires Silva Coelho - 036.236.556-35"
+  }
+ ]
+}

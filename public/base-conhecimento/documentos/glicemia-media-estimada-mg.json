@@ -1,0 +1,15 @@
+{
+ "id": "glicemia-media-estimada-mg",
+ "titulo": "Glicemia média estimada mg",
+ "fonte": "Glicemia média estimada mg.docx",
+ "tipo": "docx",
+ "categoria": "exames",
+ "caracteres": 98,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "Glicemia média estimada mg/dL\n\nInsulina Basal (INSU-B) microUl/mL 9,5 \n\nUrina\n\nLevotiroxina sódica"
+  }
+ ]
+}

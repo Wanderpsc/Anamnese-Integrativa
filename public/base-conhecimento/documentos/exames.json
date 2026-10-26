@@ -1,0 +1,15 @@
+{
+ "id": "exames",
+ "titulo": "EXAMES",
+ "fonte": "EXAMES.docx",
+ "tipo": "docx",
+ "categoria": "exames",
+ "caracteres": 1015,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "EXAMES – LEITURA DE EXAMES\n\nVITAMINA D abaixo de 40 causa fadiga, dores musculares, imunidade baixa, depressão.\n\nFERRITINA abaixo de 70 causa queda de cabelo, tontura, unhas quebradiças, cansaço, dores nas pernas.\n\nVITAMINA B12 abaixo de 600 causa memória ruim dificuldade e falta de concentração, fadiga pós atividade física.\n\nHOMOCISTEÍNA maior que 8 causa ansiedade, cognição ruim, risco cardiovascular.\n\nTSH maior que 2,5 causa sonolência, cansaço, cabelos fracos, sem brilho, constipação.\n\nPor 05 dias, antes de levantar, pela manhã, aferir temperatura e registrar.\n\nNo quinto dia, aferir e tirar uma média das temperaturas.\n\nSe o valor for menor que 36,6º, constata-se hipotireoidismo (subclínico).\n\nPara ver a situação do colesterol:\n\nColesterol Total dividido pelo HDL = risco alto (acima de 5,0) – risco baixo (abaixo de 3,5).\n\nLDL dividido pelo HDL = risco alto (acima de 3,5) – risco baixo (abaixo de 2,3).\n\nTriglicerídeos dividido pelo HDL = risco alto (acima de 5,0) – risco baixo (abaixo de 2,5/ 1,7)."
+  }
+ ]
+}

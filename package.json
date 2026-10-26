@@ -1,0 +1,96 @@
+{
+  "name": "anamnese-app",
+  "version": "2.1.0",
+  "description": "Sistema de Anamnese e Sugestões Terapêuticas Integrativas",
+  "author": "Wander Pires Silva Coelho <wanderpsc@gmail.com>",
+  "main": "build/electron.js",
+  "homepage": "/",
+  "private": true,
+  "dependencies": {
+    "@date-io/date-fns": "^3.2.1",
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@hookform/resolvers": "^5.2.2",
+    "@mui/icons-material": "6.5.0",
+    "@mui/material": "6.5.0",
+    "@mui/x-data-grid": "6.20.4",
+    "@supabase/supabase-js": "^2.86.2",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/user-event": "^13.5.0",
+    "ajv": "^8.17.1",
+    "date-fns": "^4.1.0",
+    "formik": "^2.4.9",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.12.1",
+    "jspdf": "^2.5.2",
+    "jspdf-autotable": "^5.0.2",
+    "mammoth": "^1.12.0",
+    "papaparse": "^5.5.3",
+    "pdfjs-dist": "^5.4.449",
+    "qrcode": "^1.5.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-hook-form": "^7.68.0",
+    "react-router-dom": "^7.10.1",
+    "react-scripts": "5.0.1",
+    "web-vitals": "^2.1.4",
+    "yup": "^1.7.1"
+  },
+  "scripts": {
+    "postinstall": "node scripts/copy-pdf-worker.js",
+    "prestart": "node scripts/copy-pdf-worker.js && node scripts/setup-biblioteca.js",
+    "prebuild": "node scripts/copy-pdf-worker.js && node scripts/generate-biblioteca-index.js && node scripts/clean-biblioteca-for-build.js && node scripts/generate-therapeutic-pdf-index.mjs && node scripts/generate-receitas-avulsas-data.mjs",
+    "start": "react-scripts --max_old_space_size=4096 start",
+    "build": "react-scripts build",
+    "build:knowledge": "node scripts/generate-therapeutic-pdf-index.mjs",
+    "postbuild": "node scripts/prepare-surge.js",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "deploy-surge": "npm run build && surge build anamneseintegrativa.surge.sh",
+    "deploy-vercel": "vercel --prod",
+    "electron": "electron .",
+    "electron-dev": "concurrently \"cross-env BROWSER=none npm start\" \"wait-on http://localhost:3000 && electron .\"",
+    "electron-build": "npm run build && electron-builder",
+    "electron-build-win": "npm run build && electron-builder --win --x64",
+    "electron-build-linux": "npm run build && electron-builder --linux",
+    "electron-build-all": "npm run build && electron-builder -wl"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.0.0",
+    "@capacitor/cli": "^8.0.0",
+    "@capacitor/core": "^8.0.0",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^39.2.7",
+    "electron-builder": "^26.0.12",
+    "electron-is-dev": "^3.0.1",
+    "gh-pages": "^6.3.0",
+    "wait-on": "^9.0.3"
+  },
+  "overrides": {
+    "@mui/utils": "6.4.9",
+    "@mui/system": "6.5.0"
+  }
+}

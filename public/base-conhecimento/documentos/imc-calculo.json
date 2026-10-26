@@ -1,0 +1,15 @@
+{
+ "id": "imc-calculo",
+ "titulo": "IMC CÁLCULO",
+ "fonte": "IMC CÁLCULO.docx",
+ "tipo": "docx",
+ "categoria": "geral",
+ "caracteres": 207,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "IMC CÁLCULO\n\nIMC <18,5kg/m2 - baixo peso. IMC >18,5 até 24,9kg/m2 - eutrofia (peso adequado) IMC ≥25 até 29,9kg/m2 - sobrepeso. IMC >30,0kg/m2 até 34,9kg/m2 - obesidade grau 1.\n\nIMC = peso/(altura x altura)."
+  }
+ ]
+}

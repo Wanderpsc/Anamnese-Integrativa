@@ -1,0 +1,15 @@
+{
+ "id": "reumatismo",
+ "titulo": "Reumatismo",
+ "fonte": "Reumatismo.docx",
+ "tipo": "docx",
+ "categoria": "geral",
+ "caracteres": 30,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "Reumatismo, Artrite e Artrose."
+  }
+ ]
+}

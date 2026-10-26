@@ -1,0 +1,4 @@
+
+> anamnese-app@2.1.0 start
+> react-scripts --max_old_space_size=4096 start
+

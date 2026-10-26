@@ -1,0 +1,174 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+/* Print styling for generated PDFs / print preview */
+@media print {
+  /* ── A4 page setup ── */
+  @page { size: A4 portrait; margin: 12mm 15mm; }
+  /* make printed page look like a letterhead */
+  html, body { background: white !important; color: #000 !important; margin: 0 !important; padding: 0 !important; width: 100%; overflow-x: hidden; -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+  .MuiContainer-root { padding: 0 !important; max-width: 100% !important; }
+  /* hide sidebar/drawer and app chrome */
+  .MuiDrawer-root, .MuiAppBar-root, .MuiToolbar-root { display: none !important; }
+  /* ensure main content fills the page */
+  .MuiBox-root[style*="margin-left"] { margin-left: 0 !important; }
+  main, [role="main"] { margin-left: 0 !important; width: 100% !important; }
+  
+  /* Medical prescription header styling */
+  .medical-prescription-header, .prescription-header { 
+    border-bottom: 3px double #1976d2 !important;
+    padding-bottom: 16px !important;
+    margin-bottom: 24px !important;
+    background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%) !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Prescription footer with stamp */
+  .prescription-footer {
+    page-break-inside: avoid !important;
+    margin-top: auto !important;
+  }
+  
+  .print-header { margin-bottom: 0 !important; padding-bottom: 0; }
+  .print-header-symbol { height: 90px !important; object-fit: contain; }
+  .print-header-stamp { height: 120px !important; opacity: 0.95; }
+
+  /* ensure print areas expand full width and are not clipped */
+  #anamnese-print-area, #suggestions-print-area, #full-report-print-area, #prescription-print-area { 
+    box-shadow: none !important; 
+    border: 2px solid #1976d2 !important; 
+    padding: 24pt !important; 
+    margin: 0 !important;
+    background: white !important;
+  }
+
+  /* hide navigation and controls during print */
+  nav, .no-print, .MuiChip-root, .assistant-panel { display: none !important; }
+
+  /* Treatment protocols print styling */
+  .treatment-protocols-section {
+    page-break-before: auto !important;
+    page-break-after: auto !important;
+    page-break-inside: avoid !important;
+  }
+  
+  .treatment-protocols-section .MuiPaper-root {
+    box-shadow: none !important;
+    border: 2px solid #1976d2 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  .treatment-protocols-section .MuiAccordion-root {
+    page-break-inside: avoid !important;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+  
+  .treatment-protocols-section .MuiTableContainer-root {
+    page-break-inside: auto !important;
+  }
+  
+  .treatment-protocols-section .MuiTableRow-root {
+    page-break-inside: avoid !important;
+  }
+
+  /* prevent page breaks inside critical sections */
+  #anamnese-print-area, #suggestions-print-area, #full-report-print-area, #prescription-print-area,
+  .print-header, .medical-prescription-header { 
+    page-break-inside: avoid !important; 
+  }
+  
+  /* Ensure titles are prominent and visible */
+  #suggestions-print-area h4, #full-report-print-area h4, #prescription-print-area h4 {
+    color: #1976d2 !important;
+    font-size: 22pt !important;
+    font-weight: 700 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  #suggestions-print-area h5, #full-report-print-area h5, #prescription-print-area h5 {
+    color: #1976d2 !important;
+    font-size: 16pt !important;
+    font-weight: 600 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  #suggestions-print-area h6, #full-report-print-area h6, #prescription-print-area h6 {
+    color: #1976d2 !important;
+    font-size: 14pt !important;
+    font-weight: 600 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Preserve colors and backgrounds for important elements */
+  .MuiPaper-root, .MuiBox-root, .MuiAlert-root {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Keep colored borders visible */
+  #suggestions-print-area::before, #full-report-print-area::before, #prescription-print-area::before {
+    background: linear-gradient(90deg, #1976d2 0%, #42a5f5 50%, #1976d2 100%) !important;
+    height: 8px !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Section-specific print styling */
+  #suggestions-section, #protocol-section, #report-section {
+    page-break-before: always;
+    page-break-inside: avoid;
+  }
+
+  /* Hide sections when printing specific content */
+  body.print-suggestions #protocol-section,
+  body.print-suggestions #report-section,
+  body.print-protocol #suggestions-section,
+  body.print-protocol #report-section,
+  body.print-report #suggestions-section,
+  body.print-report #protocol-section {
+    display: none !important;
+  }
+  
+  /* Preserve styling in specific elements */
+  .MuiTypography-h4, .MuiTypography-h5, .MuiTypography-h6 {
+    color: #1976d2 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  
+  /* Ensure text is readable */
+  p, span, div, li, td, th {
+    color: #000 !important;
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+  }
+  
+  /* Keep strong text bold */
+  strong, b {
+    font-weight: 700 !important;
+  }
+  
+  /* Preserve borders and dividers */
+  .MuiDivider-root {
+    border-color: #1976d2 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

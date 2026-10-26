@@ -1,0 +1,10 @@
+
+> anamnese-app@2.1.0 start
+> react-scripts --max_old_space_size=4096 start
+
+Attempting to bind to HOST environment variable: 127.0.0.1
+If this was unintentional, check that you haven't mistakenly set it in your shell.
+Learn more here: https://cra.link/advanced-config
+
+Starting the development server...
+

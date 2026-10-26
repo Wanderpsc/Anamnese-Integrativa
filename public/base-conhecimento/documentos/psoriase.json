@@ -1,0 +1,15 @@
+{
+ "id": "psoriase",
+ "titulo": "psoríase",
+ "fonte": "psoríase.docx",
+ "tipo": "docx",
+ "categoria": "fitoterapia",
+ "caracteres": 99,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "psoríase\n\nÓleo de copaíba – tomar 1 gota por quilo – passar no local\n\nErva baleeira, cardo mariano,"
+  }
+ ]
+}

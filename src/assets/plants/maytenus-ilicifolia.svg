@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <rect fill="#f1f8e9" width="160" height="160" rx="12"/>
+  <circle cx="80" cy="60" r="34" fill="#8bc34a" opacity="0.6"/>
+  <text x="50%" y="110" dominant-baseline="middle" text-anchor="middle" fill="#33691e" font-family="Inter, Arial" font-size="14">Maytenus ilicifolia</text>
+</svg>

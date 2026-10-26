@@ -1,0 +1,259 @@
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { DataGrid } from '@mui/x-data-grid';
+import { Container, Typography, Button, Box, Paper, IconButton, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions, Drawer, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider } from '@mui/material';
+import { Add as AddIcon, Visibility as VisibilityIcon, Delete as DeleteIcon, Edit as EditIcon, Assessment as AssessmentIcon, TableChart as TableChartIcon, Medication as MedicationIcon, LocalHospital as EmergencyIcon, Healing as HomeopathyIcon, ScienceOutlined as TherapyIcon, CompareArrows as CompareIcon, CalendarMonth as CalendarIcon, Bloodtype as BloodIcon, FolderSpecial as SymptomsIcon } from '@mui/icons-material';
+
+const DRAWER_WIDTH = 280;
+
+export default function Dashboard() {
+  const navigate = useNavigate();
+  const [anamneses, setAnamneses] = useState([]);
+  const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
+  const [selectedId, setSelectedId] = useState(null);
+
+  useEffect(() => {
+    const savedAnamneses = JSON.parse(localStorage.getItem('anamneses') || '[]');
+    setAnamneses(savedAnamneses);
+  }, []);
+
+  const handleDeleteClick = (id) => {
+    setSelectedId(id);
+    setDeleteDialogOpen(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    const updatedAnamneses = anamneses.filter(a => a.id !== selectedId);
+    localStorage.setItem('anamneses', JSON.stringify(updatedAnamneses));
+    setAnamneses(updatedAnamneses);
+    setDeleteDialogOpen(false);
+    setSelectedId(null);
+  };
+
+  const handleDeleteCancel = () => {
+    setDeleteDialogOpen(false);
+    setSelectedId(null);
+  };
+
+  const menuItems = [
+    { text: 'Nova Anamnese', icon: <AddIcon />, path: '/', color: 'primary' },
+    { text: '🚨 Emergência & Fitoterapia', icon: <EmergencyIcon />, path: '/emergency', color: 'error' },
+    { text: 'Agendamentos', icon: <CalendarIcon />, path: '/appointments', color: 'info' },
+    { text: 'Sintomas', icon: <SymptomsIcon />, path: '/patient-symptoms', color: 'secondary' },
+    { text: 'Exames de Sangue', icon: <BloodIcon />, path: '/blood-tests', color: 'error' },
+    { text: 'Comparar', icon: <CompareIcon />, path: '/compare', color: 'warning' },
+    { text: 'Homeopatia', icon: <HomeopathyIcon />, path: '/homeopathy', color: 'success' },
+    { text: 'Sugestões Terapêuticas', icon: <TherapyIcon />, path: '/therapy-suggestions', color: 'primary' },
+  ];
+
+  const columns = [
+    { field: 'q01_nome', headerName: 'Nome', flex: 1.5 },
+    {
+      field: 'q02_data_nasc',
+      headerName: 'Data Nasc.',
+      width: 120,
+      valueFormatter: (params) => {
+        if (!params.value) return '';
+        return new Date(params.value).toLocaleDateString('pt-BR');
+      }
+    },
+    {
+      field: 'createdAt',
+      headerName: 'Criado em',
+      width: 120,
+      valueFormatter: (params) => {
+        if (!params.value) return '';
+        return new Date(params.value).toLocaleDateString('pt-BR');
+      }
+    },
+    {
+      field: 'q14_data_retorno',
+      headerName: 'Data Retorno',
+      width: 130,
+      valueFormatter: (params) => {
+        if (!params.value) return '';
+        return new Date(params.value).toLocaleDateString('pt-BR');
+      }
+    },
+    {
+      field: 'actions',
+      headerName: 'Ações',
+      width: 350,
+      sortable: false,
+      renderCell: (params) => (
+        <Box sx={{ display: 'flex', gap: 0.5, flexWrap: 'wrap' }}>
+          <Button
+            component={Link}
+            to={`/anamnese/${params.row.id}`}
+            size="small"
+            startIcon={<VisibilityIcon />}
+            variant="outlined"
+          >
+            Ver
+          </Button>
+          <Button
+            component={Link}
+            to={`/edit/${params.row.id}`}
+            size="small"
+            startIcon={<EditIcon />}
+            variant="contained"
+            color="primary"
+          >
+            Editar
+          </Button>
+          <Button
+            component={Link}
+            to={`/prescription/${params.row.id}`}
+            size="small"
+            variant="contained"
+            color="success"
+            sx={{ fontSize: '0.75rem' }}
+          >
+            Rx
+          </Button>
+          <IconButton
+            component={Link}
+            to={`/comparative-analysis/${params.row.id}`}
+            size="small"
+            color="info"
+            title="Resumo Comparativo"
+          >
+            <AssessmentIcon />
+          </IconButton>
+          <IconButton
+            component={Link}
+            to={`/integrative-spreadsheet/${params.row.id}`}
+            size="small"
+            color="success"
+            title="Planilha Integrativa"
+          >
+            <TableChartIcon />
+          </IconButton>
+          <IconButton
+            component={Link}
+            to={`/drug-interactions/${params.row.id}`}
+            size="small"
+            color="warning"
+            title="Interações Medicamentosas"
+          >
+            <MedicationIcon />
+          </IconButton>
+          <IconButton
+            size="small"
+            color="error"
+            onClick={() => handleDeleteClick(params.row.id)}
+            title="Excluir"
+          >
+            <DeleteIcon />
+          </IconButton>
+        </Box>
+      ),
+    },
+  ];
+
+  return (
+    <Box sx={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
+      {/* Barra Lateral Esquerda */}
+      <Drawer
+        variant="permanent"
+        sx={{
+          width: DRAWER_WIDTH,
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: DRAWER_WIDTH,
+            boxSizing: 'border-box',
+            bgcolor: '#f5f5f5',
+            borderRight: '2px solid #e0e0e0',
+          },
+        }}
+      >
+        <Box sx={{ p: 2, bgcolor: 'primary.main', color: 'white' }}>
+          <Typography variant="h6" fontWeight="bold">
+            Menu Principal
+          </Typography>
+        </Box>
+        <Divider />
+        <List sx={{ pt: 2 }}>
+          {menuItems.map((item, index) => (
+            <ListItem key={index} disablePadding sx={{ mb: 1 }}>
+              <ListItemButton
+                onClick={() => navigate(item.path)}
+                sx={{
+                  mx: 1,
+                  borderRadius: 1,
+                  '&:hover': {
+                    bgcolor: `${item.color}.light`,
+                    color: 'white',
+                  },
+                }}
+              >
+                <ListItemIcon sx={{ color: `${item.color}.main`, minWidth: 40 }}>
+                  {item.icon}
+                </ListItemIcon>
+                <ListItemText 
+                  primary={item.text}
+                  primaryTypographyProps={{
+                    fontSize: '0.95rem',
+                    fontWeight: 500,
+                  }}
+                />
+              </ListItemButton>
+            </ListItem>
+          ))}
+        </List>
+      </Drawer>
+
+      {/* Conteúdo Principal */}
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          bgcolor: 'background.default',
+          p: 3,
+          overflow: 'auto',
+        }}
+      >
+        <Box sx={{ mb: 3 }}>
+          <Typography variant="h4" color="primary" fontWeight="bold">
+            Interagentes
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mt: 0.5 }}>
+            Gerencie todos os seus interagentes e suas anamneses
+          </Typography>
+        </Box>
+
+        <Paper sx={{ height: 'calc(100vh - 160px)', width: '100%' }}>
+          <DataGrid
+            rows={anamneses}
+            columns={columns}
+            initialState={{
+              pagination: {
+                paginationModel: { pageSize: 10 },
+              },
+            }}
+            disableRowSelectionOnClick
+          />
+        </Paper>
+
+        {/* Dialog de confirmação de exclusão */}
+        <Dialog
+          open={deleteDialogOpen}
+          onClose={handleDeleteCancel}
+        >
+          <DialogTitle>Confirmar Exclusão</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Tem certeza que deseja excluir este interagente? Esta ação não pode ser desfeita.
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleDeleteCancel}>Cancelar</Button>
+            <Button onClick={handleDeleteConfirm} color="error" variant="contained">
+              Excluir
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </Box>
+    </Box>
+  );
+}

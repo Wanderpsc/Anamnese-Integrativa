@@ -1,0 +1,15 @@
+{
+ "id": "diabetes-transdermico",
+ "titulo": "diabetes transdérmico",
+ "fonte": "diabetes transdérmico.docx",
+ "tipo": "docx",
+ "categoria": "tratamentos",
+ "caracteres": 189,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "DIABETES\n\nMETFORMINA 300MG\n\nGel Transdérico PENTRAVAN 50ml\n\nSugestão de posologia: aplicar 1 PUMP sob a pele em regiões sem pêlos, duas vezes ao dia, após o desjejum e após o café da tarde."
+  }
+ ]
+}

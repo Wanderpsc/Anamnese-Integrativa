@@ -1,0 +1,632 @@
+import { useState, useEffect } from 'react';
+import { 
+  Container, 
+  Paper, 
+  Typography, 
+  Box, 
+  Button,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  TextField,
+  Grid,
+  Card,
+  CardContent,
+  Chip,
+  IconButton,
+  Alert,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Tabs,
+  Tab,
+  Badge
+} from '@mui/material';
+import {
+  Add as AddIcon,
+  Edit as EditIcon,
+  Delete as DeleteIcon,
+  WhatsApp as WhatsAppIcon,
+  Email as EmailIcon,
+  Sms as SmsIcon,
+  Event as EventIcon,
+  Person as PersonIcon,
+  Phone as PhoneIcon,
+  AccessTime as TimeIcon,
+  CheckCircle as CheckIcon,
+  Cancel as CancelIcon,
+  Pending as PendingIcon,
+  Notifications as NotificationsIcon
+} from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
+
+const APPOINTMENT_STATUS = {
+  scheduled: { label: 'Agendado', color: 'primary', icon: <EventIcon /> },
+  confirmed: { label: 'Confirmado', color: 'success', icon: <CheckIcon /> },
+  completed: { label: 'Realizado', color: 'info', icon: <CheckIcon /> },
+  cancelled: { label: 'Cancelado', color: 'error', icon: <CancelIcon /> },
+  pending: { label: 'Pendente', color: 'warning', icon: <PendingIcon /> }
+};
+
+const APPOINTMENT_TYPES = [
+  'Consulta Inicial',
+  'Retorno',
+  'Iridologia',
+  'Biorressonância',
+  'Acupuntura',
+  'Terapia Floral',
+  'Avaliação Nutricional',
+  'Acompanhamento'
+];
+
+export default function Appointments() {
+  const navigate = useNavigate();
+  const [appointments, setAppointments] = useState([]);
+  const [patients, setPatients] = useState([]);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [editingAppointment, setEditingAppointment] = useState(null);
+  const [tabValue, setTabValue] = useState(0);
+  const [alert, setAlert] = useState(null);
+  
+  const [formData, setFormData] = useState({
+    patientId: '',
+    patientName: '',
+    patientPhone: '',
+    patientEmail: '',
+    date: '',
+    time: '',
+    type: '',
+    duration: 60,
+    notes: '',
+    status: 'scheduled'
+  });
+
+  // Carregar agendamentos e pacientes
+  useEffect(() => {
+    loadAppointments();
+    loadPatients();
+  }, []);
+
+  const loadAppointments = () => {
+    const saved = JSON.parse(localStorage.getItem('appointments') || '[]');
+    setAppointments(saved);
+  };
+
+  const loadPatients = () => {
+    const saved = JSON.parse(localStorage.getItem('anamneses') || '[]');
+    setPatients(saved);
+  };
+
+  const saveAppointment = () => {
+    if (!formData.patientName || !formData.date || !formData.time || !formData.type) {
+      setAlert({ type: 'error', message: 'Preencha todos os campos obrigatórios' });
+      return;
+    }
+
+    const appointmentData = {
+      ...formData,
+      id: editingAppointment?.id || Date.now(),
+      createdAt: editingAppointment?.createdAt || new Date().toISOString(),
+      updatedAt: new Date().toISOString()
+    };
+
+    let updated;
+    if (editingAppointment) {
+      updated = appointments.map(apt => apt.id === editingAppointment.id ? appointmentData : apt);
+    } else {
+      updated = [...appointments, appointmentData];
+    }
+
+    localStorage.setItem('appointments', JSON.stringify(updated));
+    setAppointments(updated);
+    setOpenDialog(false);
+    resetForm();
+    setAlert({ 
+      type: 'success', 
+      message: editingAppointment ? 'Agendamento atualizado!' : 'Agendamento criado com sucesso!' 
+    });
+  };
+
+  const deleteAppointment = (id) => {
+    if (window.confirm('Confirma exclusão do agendamento?')) {
+      const updated = appointments.filter(apt => apt.id !== id);
+      localStorage.setItem('appointments', JSON.stringify(updated));
+      setAppointments(updated);
+      setAlert({ type: 'info', message: 'Agendamento excluído' });
+    }
+  };
+
+  const resetForm = () => {
+    setFormData({
+      patientId: '',
+      patientName: '',
+      patientPhone: '',
+      patientEmail: '',
+      date: '',
+      time: '',
+      type: '',
+      duration: 60,
+      notes: '',
+      status: 'scheduled'
+    });
+    setEditingAppointment(null);
+  };
+
+  const handleEdit = (appointment) => {
+    setEditingAppointment(appointment);
+    setFormData(appointment);
+    setOpenDialog(true);
+  };
+
+  const handlePatientSelect = (patientId) => {
+    const patient = patients.find(p => p.id === parseInt(patientId));
+    if (patient) {
+      setFormData({
+        ...formData,
+        patientId: patient.id,
+        patientName: patient.nome || '',
+        patientPhone: patient.telefone || patient.celular || '',
+        patientEmail: patient.email || ''
+      });
+    }
+  };
+
+  const sendNotification = (appointment, channel) => {
+    const message = `
+Olá ${appointment.patientName}!
+
+🗓️ Lembrete de Consulta
+📅 Data: ${new Date(appointment.date).toLocaleDateString('pt-BR')}
+🕐 Horário: ${appointment.time}
+📋 Tipo: ${appointment.type}
+⏱️ Duração estimada: ${appointment.duration} minutos
+
+📍 Local: [Seu endereço aqui]
+
+Por favor, confirme sua presença.
+
+Att,
+${localStorage.getItem('therapistName') || 'Wander Pires Silva Coelho'}
+Terapeuta Integrativo - CRTH-BR 17821
+    `.trim();
+
+    switch (channel) {
+      case 'whatsapp':
+        const whatsappUrl = `https://wa.me/55${appointment.patientPhone.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+        setAlert({ type: 'success', message: 'WhatsApp aberto! Envie a mensagem.' });
+        break;
+      
+      case 'email':
+        const emailSubject = 'Lembrete de Consulta';
+        const emailBody = message.replace(/\n/g, '%0D%0A');
+        const emailUrl = `mailto:${appointment.patientEmail}?subject=${encodeURIComponent(emailSubject)}&body=${emailBody}`;
+        window.open(emailUrl, '_blank');
+        setAlert({ type: 'success', message: 'Cliente de email aberto!' });
+        break;
+      
+      case 'sms':
+        const smsUrl = `sms:${appointment.patientPhone}?body=${encodeURIComponent(message)}`;
+        window.open(smsUrl, '_blank');
+        setAlert({ type: 'success', message: 'App de SMS aberto!' });
+        break;
+      
+      default:
+        break;
+    }
+  };
+
+  const updateStatus = (appointmentId, newStatus) => {
+    const updated = appointments.map(apt => 
+      apt.id === appointmentId ? { ...apt, status: newStatus } : apt
+    );
+    localStorage.setItem('appointments', JSON.stringify(updated));
+    setAppointments(updated);
+    setAlert({ type: 'success', message: 'Status atualizado!' });
+  };
+
+  const filterAppointments = (status) => {
+    if (tabValue === 0) return appointments; // Todos
+    if (tabValue === 1) return appointments.filter(apt => apt.status === 'scheduled' || apt.status === 'confirmed');
+    if (tabValue === 2) return appointments.filter(apt => apt.status === 'completed');
+    if (tabValue === 3) return appointments.filter(apt => apt.status === 'cancelled');
+    return appointments;
+  };
+
+  const todayAppointments = appointments.filter(apt => 
+    apt.date === new Date().toISOString().split('T')[0] && 
+    (apt.status === 'scheduled' || apt.status === 'confirmed')
+  );
+
+  const upcomingAppointments = appointments.filter(apt => 
+    new Date(apt.date) > new Date() && 
+    (apt.status === 'scheduled' || apt.status === 'confirmed')
+  );
+
+  return (
+    <Container maxWidth="xl" sx={{ py: 4 }}>
+      <Paper sx={{ p: 3 }}>
+        {/* Header */}
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 3 }}>
+          <Box>
+            <Typography variant="h4" sx={{ color: '#1976d2', mb: 1 }}>
+              📅 Agendamentos
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              Gerencie consultas e envie lembretes aos pacientes
+            </Typography>
+          </Box>
+          <Box sx={{ display: 'flex', gap: 1 }}>
+            <Button 
+              variant="contained" 
+              startIcon={<AddIcon />}
+              onClick={() => {
+                resetForm();
+                setOpenDialog(true);
+              }}
+            >
+              Novo Agendamento
+            </Button>
+            <Button 
+              variant="outlined"
+              onClick={() => navigate('/dashboard')}
+            >
+              Voltar
+            </Button>
+          </Box>
+        </Box>
+
+        {/* Alerts */}
+        {alert && (
+          <Alert 
+            severity={alert.type} 
+            onClose={() => setAlert(null)}
+            sx={{ mb: 2 }}
+          >
+            {alert.message}
+          </Alert>
+        )}
+
+        {/* Statistics */}
+        <Grid container spacing={2} sx={{ mb: 3 }}>
+          <Grid item xs={12} sm={6} md={3}>
+            <Card sx={{ backgroundColor: '#e3f2fd' }}>
+              <CardContent>
+                <Typography variant="h4" sx={{ color: '#1976d2', fontWeight: 600 }}>
+                  {todayAppointments.length}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Consultas Hoje
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <Card sx={{ backgroundColor: '#f3e5f5' }}>
+              <CardContent>
+                <Typography variant="h4" sx={{ color: '#9c27b0', fontWeight: 600 }}>
+                  {upcomingAppointments.length}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Próximas Consultas
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <Card sx={{ backgroundColor: '#e8f5e9' }}>
+              <CardContent>
+                <Typography variant="h4" sx={{ color: '#2e7d32', fontWeight: 600 }}>
+                  {appointments.filter(a => a.status === 'confirmed').length}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Confirmados
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <Card sx={{ backgroundColor: '#fff3e0' }}>
+              <CardContent>
+                <Typography variant="h4" sx={{ color: '#f57c00', fontWeight: 600 }}>
+                  {appointments.filter(a => a.status === 'pending').length}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Pendentes
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+
+        {/* Tabs */}
+        <Tabs value={tabValue} onChange={(e, v) => setTabValue(v)} sx={{ mb: 2 }}>
+          <Tab label={`Todos (${appointments.length})`} />
+          <Tab label={`Ativos (${appointments.filter(a => a.status === 'scheduled' || a.status === 'confirmed').length})`} />
+          <Tab label={`Realizados (${appointments.filter(a => a.status === 'completed').length})`} />
+          <Tab label={`Cancelados (${appointments.filter(a => a.status === 'cancelled').length})`} />
+        </Tabs>
+
+        {/* Appointments List */}
+        <Grid container spacing={2}>
+          {filterAppointments().length === 0 ? (
+            <Grid item xs={12}>
+              <Box sx={{ textAlign: 'center', py: 4 }}>
+                <EventIcon sx={{ fontSize: 64, color: '#ccc', mb: 2 }} />
+                <Typography variant="h6" color="text.secondary">
+                  Nenhum agendamento encontrado
+                </Typography>
+              </Box>
+            </Grid>
+          ) : (
+            filterAppointments()
+              .sort((a, b) => new Date(b.date + ' ' + b.time) - new Date(a.date + ' ' + a.time))
+              .map(appointment => (
+                <Grid item xs={12} md={6} lg={4} key={appointment.id}>
+                  <Card 
+                    sx={{ 
+                      border: '2px solid',
+                      borderColor: APPOINTMENT_STATUS[appointment.status].color + '.main',
+                      position: 'relative'
+                    }}
+                  >
+                    <CardContent>
+                      {/* Status Badge */}
+                      <Chip
+                        label={APPOINTMENT_STATUS[appointment.status].label}
+                        color={APPOINTMENT_STATUS[appointment.status].color}
+                        size="small"
+                        icon={APPOINTMENT_STATUS[appointment.status].icon}
+                        sx={{ position: 'absolute', top: 8, right: 8 }}
+                      />
+
+                      {/* Patient Info */}
+                      <Box sx={{ display: 'flex', alignItems: 'center', mb: 2, mt: 1 }}>
+                        <PersonIcon sx={{ mr: 1, color: '#666' }} />
+                        <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                          {appointment.patientName}
+                        </Typography>
+                      </Box>
+
+                      {/* Date & Time */}
+                      <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                        <EventIcon sx={{ mr: 1, fontSize: 20, color: '#666' }} />
+                        <Typography variant="body2">
+                          {new Date(appointment.date).toLocaleDateString('pt-BR', {
+                            weekday: 'long',
+                            day: '2-digit',
+                            month: 'long',
+                            year: 'numeric'
+                          })}
+                        </Typography>
+                      </Box>
+
+                      <Box sx={{ display: 'flex', alignItems: 'center', mb: 1 }}>
+                        <TimeIcon sx={{ mr: 1, fontSize: 20, color: '#666' }} />
+                        <Typography variant="body2">
+                          {appointment.time} ({appointment.duration} min)
+                        </Typography>
+                      </Box>
+
+                      {/* Type */}
+                      <Chip 
+                        label={appointment.type}
+                        size="small"
+                        sx={{ mb: 2 }}
+                      />
+
+                      {/* Contact Info */}
+                      {appointment.patientPhone && (
+                        <Box sx={{ display: 'flex', alignItems: 'center', mb: 0.5 }}>
+                          <PhoneIcon sx={{ mr: 1, fontSize: 18, color: '#666' }} />
+                          <Typography variant="caption">
+                            {appointment.patientPhone}
+                          </Typography>
+                        </Box>
+                      )}
+
+                      {/* Notes */}
+                      {appointment.notes && (
+                        <Typography variant="caption" color="text.secondary" sx={{ display: 'block', mt: 1 }}>
+                          📝 {appointment.notes}
+                        </Typography>
+                      )}
+
+                      {/* Actions */}
+                      <Box sx={{ display: 'flex', gap: 1, mt: 2, flexWrap: 'wrap' }}>
+                        {/* Notification Buttons */}
+                        <IconButton
+                          size="small"
+                          color="success"
+                          title="Enviar WhatsApp"
+                          onClick={() => sendNotification(appointment, 'whatsapp')}
+                          disabled={!appointment.patientPhone}
+                        >
+                          <WhatsAppIcon fontSize="small" />
+                        </IconButton>
+                        <IconButton
+                          size="small"
+                          color="primary"
+                          title="Enviar Email"
+                          onClick={() => sendNotification(appointment, 'email')}
+                          disabled={!appointment.patientEmail}
+                        >
+                          <EmailIcon fontSize="small" />
+                        </IconButton>
+                        <IconButton
+                          size="small"
+                          color="info"
+                          title="Enviar SMS"
+                          onClick={() => sendNotification(appointment, 'sms')}
+                          disabled={!appointment.patientPhone}
+                        >
+                          <SmsIcon fontSize="small" />
+                        </IconButton>
+
+                        <Box sx={{ flexGrow: 1 }} />
+
+                        {/* Edit/Delete */}
+                        <IconButton
+                          size="small"
+                          onClick={() => handleEdit(appointment)}
+                          title="Editar"
+                        >
+                          <EditIcon fontSize="small" />
+                        </IconButton>
+                        <IconButton
+                          size="small"
+                          color="error"
+                          onClick={() => deleteAppointment(appointment.id)}
+                          title="Excluir"
+                        >
+                          <DeleteIcon fontSize="small" />
+                        </IconButton>
+                      </Box>
+
+                      {/* Status Update */}
+                      <FormControl fullWidth size="small" sx={{ mt: 2 }}>
+                        <InputLabel>Alterar Status</InputLabel>
+                        <Select
+                          value={appointment.status}
+                          label="Alterar Status"
+                          onChange={(e) => updateStatus(appointment.id, e.target.value)}
+                        >
+                          {Object.entries(APPOINTMENT_STATUS).map(([key, value]) => (
+                            <MenuItem key={key} value={key}>
+                              {value.label}
+                            </MenuItem>
+                          ))}
+                        </Select>
+                      </FormControl>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              ))
+          )}
+        </Grid>
+      </Paper>
+
+      {/* Dialog for Create/Edit */}
+      <Dialog open={openDialog} onClose={() => setOpenDialog(false)} maxWidth="md" fullWidth>
+        <DialogTitle>
+          {editingAppointment ? 'Editar Agendamento' : 'Novo Agendamento'}
+        </DialogTitle>
+        <DialogContent>
+          <Grid container spacing={2} sx={{ mt: 1 }}>
+            {/* Patient Selection */}
+            <Grid item xs={12}>
+              <FormControl fullWidth>
+                <InputLabel>Selecionar Paciente (Opcional)</InputLabel>
+                <Select
+                  value={formData.patientId}
+                  label="Selecionar Paciente (Opcional)"
+                  onChange={(e) => handlePatientSelect(e.target.value)}
+                >
+                  <MenuItem value="">Novo Paciente</MenuItem>
+                  {patients.map(patient => (
+                    <MenuItem key={patient.id} value={patient.id}>
+                      {patient.nome} - {patient.telefone || patient.celular}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Grid>
+
+            {/* Patient Info */}
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Nome do Paciente *"
+                value={formData.patientName}
+                onChange={(e) => setFormData({ ...formData, patientName: e.target.value })}
+              />
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <TextField
+                fullWidth
+                label="Telefone/WhatsApp *"
+                value={formData.patientPhone}
+                onChange={(e) => setFormData({ ...formData, patientPhone: e.target.value })}
+                placeholder="(00) 00000-0000"
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Email"
+                type="email"
+                value={formData.patientEmail}
+                onChange={(e) => setFormData({ ...formData, patientEmail: e.target.value })}
+              />
+            </Grid>
+
+            {/* Appointment Details */}
+            <Grid item xs={12} md={4}>
+              <TextField
+                fullWidth
+                label="Data *"
+                type="date"
+                value={formData.date}
+                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                InputLabelProps={{ shrink: true }}
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <TextField
+                fullWidth
+                label="Horário *"
+                type="time"
+                value={formData.time}
+                onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                InputLabelProps={{ shrink: true }}
+              />
+            </Grid>
+            <Grid item xs={12} md={4}>
+              <TextField
+                fullWidth
+                label="Duração (min)"
+                type="number"
+                value={formData.duration}
+                onChange={(e) => setFormData({ ...formData, duration: parseInt(e.target.value) })}
+              />
+            </Grid>
+
+            <Grid item xs={12}>
+              <FormControl fullWidth>
+                <InputLabel>Tipo de Consulta *</InputLabel>
+                <Select
+                  value={formData.type}
+                  label="Tipo de Consulta *"
+                  onChange={(e) => setFormData({ ...formData, type: e.target.value })}
+                >
+                  {APPOINTMENT_TYPES.map(type => (
+                    <MenuItem key={type} value={type}>{type}</MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Grid>
+
+            <Grid item xs={12}>
+              <TextField
+                fullWidth
+                label="Observações"
+                multiline
+                rows={3}
+                value={formData.notes}
+                onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+              />
+            </Grid>
+          </Grid>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setOpenDialog(false)}>Cancelar</Button>
+          <Button variant="contained" onClick={saveAppointment}>
+            {editingAppointment ? 'Atualizar' : 'Criar'}
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </Container>
+  );
+}

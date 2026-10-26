@@ -1,0 +1,15 @@
+{
+ "id": "doses",
+ "titulo": "Doses",
+ "fonte": "Doses.docx",
+ "tipo": "docx",
+ "categoria": "fitoterapia",
+ "caracteres": 658,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "Doses\n\nAdultos: 1 colher de sopa para 1 copo de água\n\nCrianças: 1 colher de sobremesa para 1 copo de água\n\n10-15 anos: 2 a 3 vezes ao dia\n\nCrianças: 1 colher de chá para 1 copo de água\n\n5-10 anos: 2 a 3 vezes ao dia\n\nCrianças: 1 colher de cafezinho para meia xícara de água\n\n0-5 anos: 2 a 3 vezes ao dia\n\nUm punhado................20-30 g de planta seca e triturada\n\n1 colher pequena..........4-6 g de raízes secas trituradas\n\n1 colher pequena..........1-6 g de folhas secas e trituradas\n\n1 colher grande.............8-10 g de raízes secas e trituradas\n\n1 colher grande.............3-5 g de folhas\n\n1 pitada........................1-2 g de flores ou sementes"
+  }
+ ]
+}

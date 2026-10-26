@@ -1,0 +1,72 @@
+﻿
+> anamnese-app@2.1.0 prebuild
+> node scripts/copy-pdf-worker.js && node scripts/generate-therapeutic-pdf-index.mjs
+
+Ô£à PDF.js worker copiado com sucesso para public/pdf.worker.min.js
+   Tamanho: 1045.68 KB
+node.exe : Warning: TT: undefined function: 32
+No linha:1 caractere:1
++ & "E:\/node.exe" "C:\Users\Wander Pires\AppData\Roaming\npm/node_modu ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Warning: TT: undefined function:  
+   32:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 32
+Warning: TT: undefined function: 21
+Ô£à ├ìndice de PDFs terap├¬uticos gerado: E:\1. Nova pasta\MEUS PROJETOS DE PROGRAMA├ç├âO 2\anamnese-app\src\data\therapeuticPdfKnowledgeIndex.json
+­ƒôÜ Total indexado: 94 PDFs relevantes
+
+> anamnese-app@2.1.0 build
+> react-scripts build
+
+[baseline-browser-mapping] The data in this module is over two months old.  To 
+ensure accurate Baseline data, please update: `npm i 
+baseline-browser-mapping@latest -D`
+(node:20236) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use 
+fs.constants.F_OK instead
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Creating an optimized production build...
+Browserslist: browsers data (caniuse-lite) is 6 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: 
+https://github.com/browserslist/update-db#readme
+[baseline-browser-mapping] The data in this module is over two months old.  To 
+ensure accurate Baseline data, please update: `npm i 
+baseline-browser-mapping@latest -D`
+Browserslist: browsers data (caniuse-lite) is 6 months old. Please run:
+  npx update-browserslist-db@latest
+  Why you should do it regularly: 
+https://github.com/browserslist/update-db#readme
+Compiled with warnings.
+
+Critical dependency: require function is used in a way in which dependencies cannot be statically extracted
+
+Critical dependency: require function is used in a way in which dependencies cannot be statically extracted
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+File sizes after gzip:
+
+  246.61 kB (+486 B)  build\static\js\main.48879f8d.js
+  20.52 kB (+1 B)     build\static\js\478.d761e6c8.chunk.js
+
+The project was built assuming it is hosted at ./.
+You can control this with the homepage field in your package.json.
+
+The build folder is ready to be deployed.
+
+Find out more about deployment here:
+
+  https://cra.link/deployment
+
+
+> anamnese-app@2.1.0 postbuild
+> node scripts/prepare-surge.js
+
+Ô£à 200.html criado para rotas SPA no Surge

@@ -1,0 +1,15 @@
+{
+ "id": "tabelas-enfermidades",
+ "titulo": "TABELAS ENFERMIDADES ....",
+ "fonte": "TABELAS ENFERMIDADES .... .docx",
+ "tipo": "docx",
+ "categoria": "exames",
+ "caracteres": 31,
+ "totalSecoes": 1,
+ "secoes": [
+  {
+   "n": 1,
+   "texto": "LEITURA DE RESULTADOS DE EXAMES"
+  }
+ ]
+}

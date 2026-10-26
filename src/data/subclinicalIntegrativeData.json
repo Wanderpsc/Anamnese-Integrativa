@@ -1,0 +1,1999 @@
+[
+  {
+    "id": "sc-lingua-colon",
+    "categoria": "Língua e Digestão",
+    "emoji": "👅",
+    "title": "Língua — Cólon, Pulmões, Rins, Coração",
+    "image": "image1.png",
+    "sinais": [
+      "Aumento da sensibilidade do cólon",
+      "Toxinas no cólon (revestimento esbranquiçado)",
+      "Toxinas no trato gastrointestinal",
+      "Doenças crônicas do cólon",
+      "Enterocolite Crônica (marcas de dentes nas bordas)",
+      "Hipofunção dos pulmões",
+      "Bronquite crônica (espuma na superfície)",
+      "Pneumonia bilateral (coloração marrom)",
+      "Distúrbios renais",
+      "Fraqueza do coração",
+      "Tremores na língua (hipertireoidismo, neurastenia, alcoolismo ou ansiedade)",
+      "Excitação na coluna vertebral (linha média)"
+    ],
+    "diagnostico": "A língua é espelho dos órgãos internos. Marcas de dentes nas bordas indicam edema e deficiência de baço. Coloração amarelada indica calor umidade no estômago/intestino. Tremores são sinal de vento interno, relacionados a hipertireoidismo ou déficit neurológico.",
+    "condutas": {
+      "fitoterapia": [
+        "Curcuma longa (açafrão-da-terra) 500mg 2x/dia com refeições — anti-inflamatório intestinal",
+        "Melissa officinalis (erva-cidreira) 300mg 2x/dia — antiespasmódico digestivo e calmante",
+        "Camellia sinensis (chá-verde) 200mg 2x/dia — antioxidante e modulador intestinal",
+        "Cynara scolymus (alcachofra) 500mg 3x/dia — colerético e hepatoprotetor digestivo"
+      ],
+      "suplementacao": [
+        "Magnésio glicinato 300-400mg/dia",
+        "Probióticos multiestirpe",
+        "Vitamina B1 (tiamina)",
+        "Zinco quelado"
+      ],
+      "dietoterapia": [
+        "Retirar glúten e laticínios por 30 dias",
+        "Aumentar fibras solúveis (aveia, linhaça)",
+        "Chá de hortelã-pimenta após refeições",
+        "Evitar alimentos industrializados"
+      ],
+      "estilo_vida": [
+        "Mastigar 20-30 vezes por mordida",
+        "Hidratação 30ml/kg/dia",
+        "Evitar estresse durante refeições"
+      ],
+      "orientacoes": [
+        "Reavaliar em 21 dias",
+        "Parasitologia e cultura de fezes se sintomas persistem"
+      ],
+      "contraindicacoes": [
+        "Curcuma longa: gestantes, lactantes, cálculos biliares, uso de anticoagulantes (warfarina)",
+        "Melissa officinalis: hipotireoidismo — pode reduzir função tireoidiana",
+        "Camellia sinensis (chá-verde): gravidez, anemia ferropriva (inibe absorção de ferro), hipotensão",
+        "Cynara scolymus: obstrução do ducto biliar, alergia a Asteraceae/Compositae",
+        "Magnésio: insuficiência renal grave (creatinina > 2,0 mg/dL)"
+      ]
+    }
+  },
+  {
+    "id": "sc-intestino-delgado",
+    "categoria": "Intestino",
+    "emoji": "🫀",
+    "title": "Sulco Nasogeniano — Intestino Delgado e Duodeno",
+    "image": "image2.png",
+    "sinais": [
+      "Sulco nasogeniano profundo (linha do nariz ao queixo)",
+      "Predisposição para úlcera péptica ou duodenal",
+      "Dor abdominal inferior irradiando para rins",
+      "Necessidade frequente de urinar",
+      "Sensação de ardor e vermelhidão na língua",
+      "Dor que se irradia para órgãos genitais"
+    ],
+    "diagnostico": "O sulco nasogeniano profundo, especialmente quando assimétrico, indica predisposição para úlcera péptica e disfunção do intestino delgado. A linha F-Lin é marcador clínico de disbiose e inflamação intestinal crônica.",
+    "condutas": {
+      "fitoterapia": [
+        "Glycyrrhiza glabra (alcaçuz) 300-500mg 2x/dia — gastroprotetor e anti-ulceroso; máx. 3 semanas contínuas",
+        "Aloe vera (gel interno) 50-100ml em jejum — cicatrizante e anti-inflamatório da mucosa",
+        "Matricaria recutita (camomila) 400mg 3x/dia ou chá 3x/dia — antiespasmódico e anti-inflamatório",
+        "Melissa officinalis (erva-cidreira) 300mg 2x/dia — calmante digestivo e antiespasmódico"
+      ],
+      "suplementacao": [
+        "L-Glutamina 5-10g/dia em jejum",
+        "Zinco carnosina",
+        "Vitamina A (retinol)",
+        "Probióticos multiestirpe"
+      ],
+      "dietoterapia": [
+        "Dieta anti-inflamatória intestinal",
+        "Retirar irritantes (álcool, cafeína, pimenta)",
+        "Banana com linhaça moída",
+        "Caldo de ossos (colágeno intestinal)"
+      ],
+      "estilo_vida": [
+        "Reduzir uso de AINEs",
+        "Gerenciar estresse (principal fator de úlcera)"
+      ],
+      "orientacoes": [
+        "Investigar H. pylori",
+        "Endoscopia se dor persistir mais de 2 semanas"
+      ],
+      "contraindicacoes": [
+        "Glycyrrhiza glabra: hipertensão arterial, hipocalemia, gestantes, insuficiência renal ou hepática; não usar >4 semanas",
+        "Aloe vera interno: gestantes (estimula contrações uterinas), crianças <12 anos, diarreia ativa",
+        "L-Glutamina: epilepsia, encefalopatia hepática, neoplasias ativas",
+        "Zinco carnosina: não usar com antibióticos quinolonas ou tetraciclinas sem espaçamento de 2h"
+      ]
+    }
+  },
+  {
+    "id": "sc-bexiga",
+    "categoria": "Sistema Urinário",
+    "emoji": "💧",
+    "title": "Bexiga — Sinais Faciais de Disfunção Urinária",
+    "image": "image6.png",
+    "sinais": [
+      "Bolsas sob os olhos (sinal de pressão sobre a bexiga)",
+      "Boca pequena e arredondada (fraqueza da bexiga)",
+      "Lábio inferior muito espesso (problemas urinários)",
+      "Edema nas bochechas (violação da circulação energética)",
+      "Fraqueza e sensação de frio",
+      "Dores de cabeça frequentes",
+      "Hemorroidas",
+      "Lacrimejamento excessivo especialmente no frio",
+      "Doenças de pele variadas"
+    ],
+    "diagnostico": "As bolsas abaixo dos olhos são projeções da bexiga e rins na face. Lábio inferior espessado indica excesso de calor umidade no baixo aquecedor (região pélvica). Sinais de fraqueza na bexiga afetam também o sistema nervoso e imunidade.",
+    "condutas": {
+      "fitoterapia": [
+        "Equisetum arvense (cavalinha) chá 3x/dia ou 300mg extrato seco — diurético e remineralizante",
+        "Solidago virgaurea (solidago) 300mg 3x/dia — anti-inflamatório das vias urinárias",
+        "Arctostaphylos uva-ursi 400mg 3x/dia por 7-10 dias — antisséptico urinário (arbutina)",
+        "Hibiscus sabdariffa (hibisco) chá ou extrato 500mg — diurético e antioxidante urinário"
+      ],
+      "suplementacao": [
+        "D-Manose 2g/dia preventivo",
+        "Vitamina C 1000mg/dia",
+        "Cranberry concentrado",
+        "Magnésio (relaxamento da bexiga)"
+      ],
+      "dietoterapia": [
+        "Hidratação 2-3L água/dia",
+        "Evitar cafeína e bebidas gaseificadas",
+        "Incluir melancia e pepino",
+        "Evitar alimentos condimentados"
+      ],
+      "estilo_vida": [
+        "Esvaziar bexiga completamente",
+        "Não segurar urina por longos períodos",
+        "Exercícios de Kegel se houver incontinência"
+      ],
+      "orientacoes": [
+        "Urina tipo I e urocultura para descartar ITU",
+        "Ultrassom renal e vias urinárias"
+      ],
+      "contraindicacoes": [
+        "Arctostaphylos uva-ursi: gestantes, lactantes, crianças, insuficiência renal, uso prolongado >10 dias (hepatotóxico)",
+        "Equisetum arvense: alcoolismo (contém tiaminase), gestantes, insuficiência cardíaca grave",
+        "D-Manose: diabetes mellitus descompensado (monitorar glicemia)",
+        "Diuréticos em geral: cautela com anti-hipertensivos e diuréticos prescritos (potencialização)"
+      ]
+    }
+  },
+  {
+    "id": "sc-manchas-rugas",
+    "categoria": "Fígado e Metabolismo",
+    "emoji": "🍂",
+    "title": "Manchas e Rugas Faciais — Fígado e Estagnação",
+    "image": "image7.png",
+    "sinais": [
+      "Mancha marrom na raiz do cabelo",
+      "Enrugamentos longitudinais e transversais",
+      "Coloração castanha em torno dos olhos",
+      "Vasos dilatados nas bochechas (telangiectasias)",
+      "Oco na bochecha direita (hipofunção digestiva)",
+      "Rugas profundas nos cantos da boca",
+      "Lábio inferior espessado",
+      "Manchas marrons ao redor da boca",
+      "Maçãs do rosto com aparência cerosa",
+      "Nódulo no lóbulo da orelha (sinal de Frank — risco cardiovascular)"
+    ],
+    "diagnostico": "Manchas marrons e coloração escura são sinais de estagnação do sangue e sobrecarga hepática. O nódulo diagonal no lóbulo da orelha (sinal de Frank) é marcador clínico de risco cardiovascular. Manchas ao redor da boca indicam disfunção de baço/pâncreas.",
+    "condutas": {
+      "fitoterapia": [
+        "Silybum marianum (cardo-mariano) 300mg 3x/dia (silimarina 70%) — hepatoproteção e regeneração",
+        "Taraxacum officinale (dente-de-leão) 300-500mg 2x/dia — colagogo e depurativo hepático",
+        "Schisandra chinensis 500mg 2x/dia — adaptógeno hepatoprotetor e antioxidante",
+        "Rosmarinus officinalis (alecrim) 300mg ou chá 2x/dia — antioxidante e estimulante hepático"
+      ],
+      "suplementacao": [
+        "NAC N-acetilcisteína 600mg/dia",
+        "Alpha-lipoico 600mg/dia",
+        "Vitamina E natural 400UI",
+        "Astaxantina (antioxidante potente)"
+      ],
+      "dietoterapia": [
+        "Detox hepático 7 dias",
+        "Brassicas diárias (brócolis, couve, repolho)",
+        "Reduzir gordura saturada e frituras",
+        "Beterraba, cenoura e maçã diariamente"
+      ],
+      "estilo_vida": [
+        "Reduzir álcool e medicamentos hepatotóxicos",
+        "Atividade física regular (melhora fluxo biliar)"
+      ],
+      "orientacoes": [
+        "TGO, TGP, GGT, fosfatase alcalina",
+        "Perfil lipídico completo e homocisteína"
+      ],
+      "contraindicacoes": [
+        "Silybum marianum: alergia a Asteraceae; cautela com medicamentos metabolizados pela CYP450 (ajustar dose com médico)",
+        "Taraxacum officinale: obstrução biliar, úlcera péptica ativa, alergia a Asteraceae",
+        "Schisandra chinensis: gestantes, epilepsia, hipertensão não controlada",
+        "NAC: asma brônquica (pode precipitar broncoespasmo), cautela com anticoagulantes",
+        "Alpha-lipoico: hipoglicemia em diabéticos (potencializa efeito de insulina) — monitorar glicemia"
+      ]
+    }
+  },
+  {
+    "id": "sc-sinais-faciais-gerais",
+    "categoria": "Circulação e Metabolismo",
+    "emoji": "🔵",
+    "title": "Sinais Faciais — Circulação, Rins e Acidose",
+    "image": "image10.png",
+    "sinais": [
+      "Mancha marrom na raiz do cabelo",
+      "Coloração escura ao redor dos olhos",
+      "Vasos dilatados nos tecidos (telangiectasias)",
+      "Oco na bochecha direita",
+      "Rugas prematuras",
+      "Lábio inferior espessado (energia renal reduzida)",
+      "Lábio superior inchado (sinal de acidose)",
+      "Lábios pálidos (anemia ou déficit de sangue)"
+    ],
+    "diagnostico": "Combinação de sinais apontando para depleção de energia vital, sobrecarga renal e déficit imunológico. Coloração escura ao redor dos olhos é sinal clássico de deficiência renal na Medicina Tradicional. Lábios pálidos indicam anemia ferropriva ou deficiência de vitamina B12.",
+    "condutas": {
+      "fitoterapia": [
+        "Panax ginseng 200-400mg/dia (extrato padronizado 4% ginsenosídeos) — adaptógeno energético e imune",
+        "Eleutherococcus senticosus (eleuterococo) 300-600mg/dia — adaptógeno, fadiga e imunidade",
+        "Rhodiola rosea 300-500mg/dia (rosavinas 3%) — fadiga mental e resistência ao estresse",
+        "Astragalus membranaceus 500-1000mg/dia — imunomodulador e energizante renal"
+      ],
+      "suplementacao": [
+        "Coenzima Q10 200mg/dia",
+        "Vitamina D3 + K2",
+        "Ferro quelado (se deficiência)",
+        "Ômega-3 EPA/DHA 2g/dia"
+      ],
+      "dietoterapia": [
+        "Proteínas de qualidade (ovos, peixe, leguminosas)",
+        "Vegetais verde-escuros diariamente",
+        "Sopas e caldos minerais",
+        "Sementes de abóbora e girassol"
+      ],
+      "estilo_vida": [
+        "Sono reparador 7-8h",
+        "Meditação e gestão do estresse",
+        "Evitar consumo excessivo de café"
+      ],
+      "orientacoes": [
+        "Hemograma completo e ferritina",
+        "Função renal (creatinina, ureia, TFG)",
+        "Vitamina B12 e ácido fólico"
+      ],
+      "contraindicacoes": [
+        "Panax ginseng: hipertensão grave, insônia, ansiedade aguda, gestantes, sangramento ativo; cautela com anticoagulantes e antidiabéticos",
+        "Rhodiola rosea: transtorno bipolar (pode precipitar mania), cautela com antidepressivos ISRS",
+        "Coenzima Q10: cautela com varfarina (pode reduzir efeito anticoagulante)",
+        "Ferro quelado: hemocromatose, anemia não ferropriva — solicitar ferritina antes de suplementar",
+        "Ômega-3: cautela com anticoagulantes (>3g/dia aumenta risco de sangramento)"
+      ]
+    }
+  },
+  {
+    "id": "sc-calvicie-rins",
+    "categoria": "Rins e Hormônios",
+    "emoji": "🫘",
+    "title": "Calvície / Artéria Temporal — Rins e Pressão Arterial",
+    "image": "image11.png",
+    "sinais": [
+      "Calvície na testa (declínio da função renal)",
+      "Duas rugas profundas entre as sobrancelhas (fraqueza renal)",
+      "Artéria temporal pulsante com face avermelhada",
+      "Orelhas avermelhadas (calor renal, inflamação)",
+      "Pálpebras inferiores inchadas (estagnação renal)",
+      "Rugas na frente da orelha (falta de energia renal, potência reduzida)",
+      "Queixo inchado (fraqueza dos rins)",
+      "Espessamento do lábio inferior (redução da energia renal)"
+    ],
+    "diagnostico": "Na MTC, os rins governam o Jing (essência vital), ossos, cabelo e orelhas. Calvície prematura, orelhas vermelhas e edema palpebral são sinais clássicos de depleção renal. A artéria temporal pulsante associada a rubor facial indica hipertensão e risco aumentado de AVC.",
+    "condutas": {
+      "fitoterapia": [
+        "Tribulus terrestris 300-500mg 2x/dia — estímulo da função androgênica e renal",
+        "Withania somnifera (ashwagandha) 300-600mg/dia (withanolídeos 5%) — adaptógeno renal e hormonal",
+        "Rehmannia glutinosa 500mg 2x/dia — tônico renal da MTC e modulador do cortisol",
+        "Urtica dioica (urtiga) 300-500mg 2x/dia — mineralizante, renal e androgênico suave"
+      ],
+      "suplementacao": [
+        "Magnésio glicinato 400mg/dia",
+        "Zinco + Selênio",
+        "Vitamina D3 (avaliar níveis)",
+        "Coenzima Q10 (pressão e energia celular)"
+      ],
+      "dietoterapia": [
+        "Reduzir sódio < 2g/dia",
+        "Aumentar potássio (banana, batata-doce, abacate)",
+        "Alimentos de cor preta (gergelim preto, feijão preto)",
+        "Evitar proteína animal em excesso"
+      ],
+      "estilo_vida": [
+        "Monitorar pressão arterial regularmente",
+        "Evitar esforço físico intenso com pressão elevada",
+        "Praticar Qigong ou Tai Chi"
+      ],
+      "orientacoes": [
+        "Creatinina, ureia, ácido úrico",
+        "MAPA (monitoramento ambulatorial de pressão)",
+        "PSA nos homens acima de 45 anos"
+      ],
+      "contraindicacoes": [
+        "Tribulus terrestris: gestantes, lactantes, neoplasias hormônio-dependentes, cautela com anti-hipertensivos",
+        "Ashwagandha: gestantes (estimula contrações), hipotireoidismo autoimune (cautela), cirurgia (descontinuar 2 semanas antes)",
+        "Magnésio glicinato: insuficiência renal grave (TFG < 30 mL/min)",
+        "Vitamina D3: hipercalcemia, sarcoidose, linfoma; monitorar calcidiol antes de doses altas"
+      ]
+    }
+  },
+  {
+    "id": "sc-pescoco-circulacao",
+    "categoria": "Circulação e Sistema Nervoso",
+    "emoji": "🧠",
+    "title": "Pescoço / Orelhas Pálidas — Circulação e Risco Cerebral",
+    "image": "image12.png",
+    "sinais": [
+      "Pescoço angulado ou tenso",
+      "Orelhas pálidas (déficit de energia renal)",
+      "Coloração marrom-escura ao redor dos olhos",
+      "Placa vascular nas bochechas (aterosclerose/estagnação)",
+      "Sobrancelhas: risco cerebrovascular",
+      "Nariz esbranquiçado (deficiência de energia pulmonar)",
+      "Lábio superior inchado (sinal de acidose)",
+      "Lábios pálidos (anemia ou déficit de sangue)",
+      "Dobra nasio-labial aprofundada",
+      "Queixo com aparência vítreo-cerosa"
+    ],
+    "diagnostico": "Orelhas pálidas e frias indicam déficit de Yang renal. Placa vascular nas bochechas é sinal de aterosclerose e estagnação de sangue. Sobrancelhas tensas com rugas profundas podem indicar predisposição neurológica e vascular. Lábios pálidos apontam para anemia.",
+    "condutas": {
+      "fitoterapia": [
+        "Ginkgo biloba 120-240mg/dia (EGb761) — circulação cerebral e anti-agregação plaquetária",
+        "Crataegus oxyacantha (espinheiro branco) 160-900mg/dia — cardiotônico e vasodilatador",
+        "Allium sativum (alho) 600-1200mg/dia em pó seco — antiaterosclerótico e anti-hipertensivo suave",
+        "Valeriana officinalis 300-600mg ao dormir — miorrelaxante cervical e ansiolítico"
+      ],
+      "suplementacao": [
+        "Ômega-3 EPA/DHA 3g/dia",
+        "Vitamina B12 + B6 + Folato",
+        "Magnésio glicinato",
+        "Vitamina K2 MK-7 (descalcificação vascular)"
+      ],
+      "dietoterapia": [
+        "Dieta mediterrânea",
+        "Reduzir gorduras trans e açúcar",
+        "Azeite de oliva extra-virgem diário",
+        "Folhas verde-escuras (espinafre, couve)"
+      ],
+      "estilo_vida": [
+        "Atividade aeróbica 30min/dia",
+        "Alongamento cervical diário",
+        "Evitar tabagismo"
+      ],
+      "orientacoes": [
+        "Doppler de carótidas",
+        "Perfil lipídico, homocisteína, PCR ultrassensível"
+      ],
+      "contraindicacoes": [
+        "Ginkgo biloba: anticoagulantes (varfarina, AAS — potencializa efeito), gestantes, epilepsia, 2 semanas antes de cirurgia",
+        "Crataegus oxyacantha: hipotensão, uso de digoxina ou outros cardiotônicos — cautela com potencialização",
+        "Valeriana: não combinar com benzodiazepínicos ou álcool (potencialização sedativa)",
+        "Vitamina K2 MK-7: anticoagulantes cumarínicos (varfarina) — antagonismo; orientar médico",
+        "Ômega-3 >3g/dia: anticoagulantes e AAS — risco de sangramento aumentado"
+      ]
+    }
+  },
+  {
+    "id": "sc-baco-pancreas",
+    "categoria": "Digestão e Energia",
+    "emoji": "🟡",
+    "title": "Pálpebras — Baço, Pâncreas e Estômago",
+    "image": "image15.png",
+    "sinais": [
+      "Pálpebras pastosas ou edemaciadas",
+      "Linhas finas nas pálpebras (fadiga crônica e estresse)",
+      "Dupla dobra na pálpebra superior (fraqueza de baço/pâncreas)",
+      "Bolsas pálidas abaixo dos olhos",
+      "Aspecto pesado e sem brilho nos olhos"
+    ],
+    "diagnostico": "Na MTC, baço/pâncreas e estômago são projetados nas pálpebras. Pálpebras edemaciadas indicam umidade excessiva (retenção de líquidos, disbiose). Linhas finas sugerem déficit de Yin e sangue. Dupla dobra na pálpebra superior é sinal clássico de fraqueza digestiva e pancreática.",
+    "condutas": {
+      "fitoterapia": [
+        "Gentiana lutea (genciana) 200-400mg antes das refeições — amargo digestivo e estimulante biliar",
+        "Zingiber officinale (gengibre) 250-500mg 3x/dia ou chá fresco — digestivo, antiemético e anti-inflamatório",
+        "Taraxacum officinale (dente-de-leão) 300mg 2x/dia — colerético e estimulante digestivo",
+        "Fumaria officinalis (fumária) 300mg 3x/dia — regulador biliar e antiespasmódico digestivo"
+      ],
+      "suplementacao": [
+        "Enzimas digestivas (protease, lipase, amilase)",
+        "Betaína HCl (se hipocloridria)",
+        "Vitamina B1 + B5",
+        "Cromo picolinato (regulação glicêmica)"
+      ],
+      "dietoterapia": [
+        "Mastigar lentamente",
+        "Comer em horários regulares",
+        "Evitar bebidas geladas durante as refeições",
+        "Reduzir açúcar e carboidratos refinados"
+      ],
+      "estilo_vida": [
+        "Caminhada após refeições (10-15min)",
+        "Evitar estresse emocional durante a alimentação"
+      ],
+      "orientacoes": [
+        "Glicemia de jejum e HbA1c",
+        "Ultrassom abdominal (pâncreas/fígado)"
+      ],
+      "contraindicacoes": [
+        "Gentiana lutea: úlcera péptica ativa, gastrite erosiva, hipotensão",
+        "Zingiber officinale: cálculos biliares (estimula fluxo biliar), gestantes (doses terapêuticas altas), anticoagulantes",
+        "Fumaria officinalis: gestantes, hipotensão arterial, epilepsia",
+        "Betaína HCl: úlcera péptica ativa, gastrite, esofagite de refluxo — contraindicada",
+        "Cromo picolinato: insuficiência renal; cautela em combinação com insulina e hipoglicemiantes"
+      ]
+    }
+  },
+  {
+    "id": "sc-mapa-facial",
+    "categoria": "Mapeamento Facial",
+    "emoji": "🗺️",
+    "title": "Mapa de Projeção dos Órgãos no Rosto",
+    "image": "image19.png",
+    "sinais": [
+      "Testa: cabeça, face, cérebro",
+      "Garganta: amígdalas, tireoide",
+      "Pulmões (zona central alta)",
+      "Tórax (zona média superior)",
+      "Coração (zona nasal central)",
+      "Fígado (lateral direita do rosto)",
+      "Vesícula biliar (lateral direita inferior)",
+      "Baço (lateral esquerda do rosto)",
+      "Estômago (zona central nasal)",
+      "Bexiga e útero (queixo)",
+      "Cólon (ao redor da boca)",
+      "Rins (abaixo dos olhos)"
+    ],
+    "diagnostico": "Referência didática de mapeamento facial segundo a Medicina Tradicional Chinesa e Ayurveda. Cada região do rosto corresponde a um órgão interno. Alterações de cor, textura, manchas ou rugas nessas zonas indicam desequilíbrios nos órgãos correspondentes.",
+    "condutas": {
+      "fitoterapia": [
+        "Abordagem individualizada conforme região afetada — consultar protocolos específicos"
+      ],
+      "suplementacao": [
+        "Avaliação integrativa completa necessária"
+      ],
+      "dietoterapia": [
+        "Alimentação anti-inflamatória como base"
+      ],
+      "estilo_vida": [
+        "Observar combinação de sinais para diagnóstico mais preciso"
+      ],
+      "orientacoes": [
+        "Usar este mapa em conjunto com outros sinais observados",
+        "Não diagnosticar isoladamente por zona facial"
+      ],
+      "contraindicacoes": [
+        "Este item é didático — consultar protocolos específicos de cada região para contraindicações detalhadas"
+      ]
+    }
+  },
+  {
+    "id": "sc-tipo-neurogeico",
+    "categoria": "Tipos Constitucionais",
+    "emoji": "🧬",
+    "title": "Tipo Constitucional Neurogênico — Íris Radial",
+    "image": "image21.png",
+    "sinais": [
+      "Íris com estrutura radial densa e bem definida",
+      "Trabéculas simples e organizadas",
+      "Zona ciliar proeminente",
+      "Hipersensibilidade a dor",
+      "Tendência a asma e úlcera gástrica",
+      "Alta sensibilidade emocional",
+      "Tendência a conter pensamentos e sentimentos",
+      "Predisposição a desordens do sistema nervoso"
+    ],
+    "diagnostico": "O tipo neurogênico indica predisposição a desordens funcionais do coração, circulação, estômago, intestinos e glândulas endócrinas. Alta reatividade do sistema nervoso. Tendem a acumular emoções e podem ter manifestações psicossomáticas intensas.",
+    "condutas": {
+      "fitoterapia": [
+        "Passiflora incarnata 200-400mg 2x/dia — ansiolítico, antiespasmódico e hipnótico leve",
+        "Valeriana officinalis 300-600mg ao dormir — hipnótico e ansiolítico (actua em GABA)",
+        "Hypericum perforatum (hipérico) 300mg 3x/dia (0,3% hipericina) — antidepressivo leve e ansiolítico",
+        "Lavandula angustifolia (lavanda) 80mg/dia (Silexan) — ansiedade generalizada e insônia"
+      ],
+      "suplementacao": [
+        "Magnésio glicinato (ansiedade e sono)",
+        "Vitamina B6 + B12",
+        "L-Triptofano ou 5-HTP",
+        "Ashwagandha (adaptógeno)"
+      ],
+      "dietoterapia": [
+        "Evitar estimulantes (cafeína, açúcar refinado)",
+        "Aumentar triptofano (banana, aveia, ovo)",
+        "Chás calmantes à noite (camomila, cidreira)"
+      ],
+      "estilo_vida": [
+        "Respiração diafragmática 10min/dia",
+        "Meditação ou mindfulness",
+        "Atividade física regular (aumenta serotonina)"
+      ],
+      "orientacoes": [
+        "Avaliar cortisol salivar (manhã/noite)",
+        "TSH, T3, T4 livre (predisposição tireoidiana)"
+      ],
+      "contraindicacoes": [
+        "Hypericum perforatum (hipérico): CONTRAINDICADO com antidepressivos ISRS/IRSN (síndrome serotonérgica), anticoagulantes, anticoncepcionais orais, imunossupressores, antiretrovirais (indutor CYP3A4)",
+        "Passiflora incarnata: gestantes, sedativos prescritos (potencialização), operadores de máquinas pesadas",
+        "Valeriana: não combinar com álcool, benzodiazepínicos, opioides; sonolência residual possível",
+        "L-Triptofano / 5-HTP: CONTRAINDICADO com antidepressivos ISRS ou IMAO (síndrome serotonérgica)",
+        "Ashwagandha: gestantes, hipotireoidismo autoimune, cirurgia iminente"
+      ]
+    }
+  },
+  {
+    "id": "sc-tipo-linfatico",
+    "categoria": "Tipos Constitucionais",
+    "emoji": "🟤",
+    "title": "Tipo Constitucional Linfático — Íris com Lacunas",
+    "image": "image36.png",
+    "sinais": [
+      "Íris com lacunas elípticas na zona ciliar",
+      "Lacunas pequenas (disfunção hormonal)",
+      "Lacunas grandes (distúrbios orgânicos)",
+      "Predisposição a artrite e reumatismo",
+      "Risco de cálculos renais e hepáticos",
+      "Tendência a gota",
+      "Variações de humor intensas (tristeza, raiva, medo)",
+      "Sistema linfático e venoso comprometido"
+    ],
+    "diagnostico": "Lacunas na zona ciliar indicam falha das glândulas endócrinas, sistema venoso e linfático com deficiência de secreção intestinal. Lacunas pequenas apontam para disfunção hormonal; lacunas grandes para distúrbios orgânicos. Alta carga emocional e tendência a inflamação crônica.",
+    "condutas": {
+      "fitoterapia": [
+        "Echinacea purpurea 400mg 3x/dia por 7-10 dias (não usar contínuo >8 semanas) — imunoestimulante",
+        "Phytolacca decandra 30CH (homeopático) — drenagem linfática e inflamação ganglionar",
+        "Galium aparine (amor-perfeito) 300mg 2x/dia ou chá — drenagem linfática e depurativo",
+        "Astragalus membranaceus 500-1000mg/dia — imunomodulador de longo prazo"
+      ],
+      "suplementacao": [
+        "Vitamina D3 (imunomodulador)",
+        "Serrapeptase (anti-inflamatório enzimático)",
+        "Bromelina",
+        "Quercetina (anti-inflamatório natural)"
+      ],
+      "dietoterapia": [
+        "Anti-inflamatória mediterrânea",
+        "Reduzir ácido úrico (evitar carne vermelha, frutos do mar)",
+        "Aumentar água e chás drenantes",
+        "Frutas vermelhas ricas em antocianinas"
+      ],
+      "estilo_vida": [
+        "Drenagem linfática manual regular",
+        "Exercício físico moderado (ativa sistema linfático)",
+        "Sauna ou banho quente/frio alternado"
+      ],
+      "orientacoes": [
+        "VHS, PCR, ácido úrico, fator reumatoide",
+        "Ultrassom de linfonodos se aumentados"
+      ],
+      "contraindicacoes": [
+        "Echinacea: doenças autoimunes ativas (lúpus, EM, artrite reumatoide), imunossuprimidos (transplantados), uso de imunossupressores — CONTRAINDICADA",
+        "Astragalus: imunossuprimidos, não usar durante uso de medicamentos imunossupressores",
+        "Serrapeptase: anticoagulantes, plaquetopenia, cirurgia iminente",
+        "Bromelina: alergia a abacaxi, anticoagulantes, plaquetopenia; cautela com AAS",
+        "Quercetina: cautela com antibióticos fluoroquinolonas e ciclosporina (interação com CYP3A4)"
+      ]
+    }
+  },
+  {
+    "id": "sc-status-linfatico-iris",
+    "categoria": "Tipos Constitucionais",
+    "emoji": "⚪",
+    "title": "Status Linfático — Anel Esbranquiçado na Íris",
+    "image": "image44.png",
+    "sinais": [
+      "Anel esbranquiçado/acinzentado na periferia da zona ciliar",
+      "Risco aumentado de gota",
+      "Predisposição a artrite e reumatismo",
+      "Risco de cálculos renais e hepáticos",
+      "Trauma mental e emocional elevado",
+      "Tendência a relacionamentos fixos e problemas de perdão",
+      "Sensação de mundo hostil ou desconfiança"
+    ],
+    "diagnostico": "O anel linfático na periferia da íris indica sobrecarga do sistema linfático e acúmulo de toxinas no tecido conjuntivo. Associado a predisposição inflamatória crônica, retenção de líquidos e dificuldade de depuração. Aspecto emocional: padrão de rigidez e dificuldade de desapego.",
+    "condutas": {
+      "fitoterapia": [
+        "Galium aparine (amor-perfeito) 300mg 2x/dia — linfático, depurativo e anti-inflamatório",
+        "Calendula officinalis 300mg 3x/dia — anti-inflamatória e drenante linfática",
+        "Arctium lappa (bardana) 300-500mg 2x/dia — depurativa hepática e drenante linfática",
+        "Sambucus nigra (sabugueiro) 400mg 2x/dia — drenante, imunomodulador e antioxidante"
+      ],
+      "suplementacao": [
+        "Vitamina C lipossomal 2g/dia",
+        "Magnésio (articulações)",
+        "Silício orgânico",
+        "Colágeno tipo II (articulações)"
+      ],
+      "dietoterapia": [
+        "Protocolo depurativo semanal",
+        "Aumentar ingestão hídrica",
+        "Reduzir proteína animal e purinas",
+        "Cerejas e morango (anti-inflamatório natural)"
+      ],
+      "estilo_vida": [
+        "Drenagem linfática manual quinzenal",
+        "Caminhadas na natureza (aterramento)",
+        "Trabalho emocional ou psicoterapia"
+      ],
+      "orientacoes": [
+        "VHS, PCR, ácido úrico, complemento C3/C4",
+        "Urina de 24h para cálcio e oxalato"
+      ],
+      "contraindicacoes": [
+        "Arctium lappa: gestantes (estimulante uterino), alergia a Asteraceae, diabetes (pode potencializar hipoglicemia)",
+        "Calendula officinalis: gestantes (abortiva em altas doses), alergia a Asteraceae",
+        "Sambucus nigra: diabetes (monitorar glicemia — efeito hipoglicemiante), imunossuprimidos",
+        "Silício orgânico: insuficiência renal grave",
+        "Colágeno tipo II: alergia a frango ou derivados"
+      ]
+    }
+  },
+  {
+    "id": "sc-sinais-pes",
+    "categoria": "Sinais nos Pés",
+    "emoji": "🦶",
+    "title": "O que seus Pés Dizem sobre sua Saúde",
+    "image": "pes-saude.jpg",
+    "sinais": [
+      "Dormência e Formigamento nos pés (→ Diabetes / neuropatia periférica)",
+      "Inchaço nos pés e tornozelos (→ Doença renal / insuficiência venosa)",
+      "Dor em queimação ou dormência (→ Dano nervoso / neuropatia)",
+      "Veias tortuosas e pernas pesadas (→ Varizes / insuficiência venosa)",
+      "Inchaço e vermelhidão nos pés (→ Infecção / celulite bacteriana)",
+      "Dor intensa e repentina no dedão do pé (→ Gota / hiperuricemia)",
+      "Dor aguda no calcanhar pela manhã (→ Fascite plantar / esporão)",
+      "Pés frios com pele azulada ou pálida (→ Doença cardíaca / má circulação)",
+      "Dor, inchaço e rigidez nas articulações dos pés (→ Artrite reumatoide)",
+      "Pés pálidos e frios (→ Anemia / deficiência de ferro)",
+      "Coceira, descamação e odor nos pés (→ Infecção fúngica / tinea pedis)",
+      "Calcanhares rachados e unhas frágeis (→ Deficiência de vitaminas / desidratação)"
+    ],
+    "diagnostico": "Os pés revelam o estado circulatório, metabólico e neurológico do organismo. Dormência e formigamento indicam neuropatia periférica — frequente em diabetes, deficiência de B12 e síndrome metabólica. Inchaço bilateral remete a função renal comprometida ou insuficiência cardíaca. Pés frios e cianóticos alertam para comprometimento cardiovascular. Unhas quebradiças e calcanhares rachados indicam deficiência de vitaminas A, C, E, biotina e ômega-3. Dor intensa no hálux aponta para hiperuricemia (gota). Infecção fúngica crônica sugere disbiose, imunidade baixa ou hiperglicemia.",
+    "condutas": {
+      "fitoterapia": [
+        "Ginkgo biloba 120mg/dia — circulação periférica e neuropatia",
+        "Hamamelis virginiana (creme tópico) — varizes e inchaço",
+        "Cynara scolymus (alcachofra) 500mg — depuração hepática e ácido úrico",
+        "Equisetum arvense (cavalinha) em chá — retenção hídrica e rins",
+        "Própolis verde tópico 11% — infecções fúngicas e bacterianas",
+        "Curcuma longa 500mg 3x/dia — inflamação articular (artrite, gota)"
+      ],
+      "suplementacao": [
+        "Vitamina B12 (metilcobalamina) 1000mcg/dia — neuropatia periférica",
+        "Vitamina D3 5000 UI + K2 100mcg — metabolismo ósseo e articular",
+        "Ômega-3 EPA+DHA 2-3g/dia — anti-inflamatório e circulação",
+        "Biotina 5mg/dia — unhas frágeis e pele ressecada",
+        "Vitamina C lipossomal 1g/dia — colágeno, cicatrização e imunidade",
+        "Magnésio glicinato 300-400mg/dia — cãibras e circulação muscular",
+        "Ferro quelado + Vitamina C (se anemia) — hemoglobina e oxigenação",
+        "Berberina 500mg 2x/dia — resistência insulínica e controle glicêmico"
+      ],
+      "dietoterapia": [
+        "Reduzir purinas: evitar carnes vermelhas, vísceras e frutos do mar (gota)",
+        "Cerejas e mirtilo — antocianinas que reduzem ácido úrico",
+        "Dieta anti-inflamatória: azeite, cúrcuma, gengibre, frutas vermelhas",
+        "Reduzir açúcar e carboidratos refinados — controle glicêmico e prevenção fúngica",
+        "Alimentos ricos em ferro: folhas verde-escuras, leguminosas, sementes de abóbora",
+        "Hidratação mínima 35ml/kg/dia para drenagem renal"
+      ],
+      "estilo_vida": [
+        "Elevação dos pés 30min/dia — drenagem venosa e redução de edema",
+        "Caminhada leve 30min/dia — ativação da circulação periférica",
+        "Massagem com óleo de calêndula + tea tree nos pés — fungos e hidratação",
+        "Meias de compressão graduada — varizes e insuficiência venosa",
+        "Hidroterapia: banhos alternados quente/frio para ativação circulatória"
+      ],
+      "orientacoes": [
+        "Pés frios + pele azulada: encaminhar para avaliação cardiovascular urgente",
+        "Dor persistente no calcanhar: fisioterapia + palmilha ortopédica personalizada",
+        "Infecção fúngica crônica: investigar diabetes e disbiose intestinal",
+        "Monitorar glicemia em jejum e HbA1c se dormência bilateral",
+        "Reavaliar em 30 dias após protocolo iniciado"
+      ],
+      "contraindicacoes": [
+        "Ginkgo biloba: anticoagulantes, gestantes, epilepsia, 2 semanas antes de cirurgia",
+        "Curcuma longa: gestantes, cálculos biliares, anticoagulantes; pode aumentar ácido gástrico",
+        "Berberina: gestantes, lactantes, crianças; cautela com metformina (potencialização hipoglicêmica)",
+        "Ferro quelado: hemocromatose, anemia não ferropriva — confirmar ferritina <30ng/mL antes",
+        "Vitamina D3 >5000UI/dia: hipercalcemia, sarcoidose; monitorar calcidiol 25-OH-D3 a cada 90 dias"
+      ]
+    }
+  },
+  {
+    "id": "sc-sinais-olhos",
+    "categoria": "Sinais nos Olhos",
+    "emoji": "👁️",
+    "title": "O que seus Olhos Revelam sobre sua Saúde",
+    "image": "olhos-saude.jpg",
+    "sinais": [
+      "Olhos amarelados / esclerótica ictérica (→ Problema no fígado / icterícia)",
+      "Olhos vermelhos / injeção conjuntival (→ Falta de sono, irritação ou alergia)",
+      "Pálpebras inchadas ao acordar (→ Retenção hídrica ou problema renal)",
+      "Olheiras escuras e roxas (→ Cansaço crônico, estresse ou anemia)",
+      "Tremor involuntário na pálpebra (→ Deficiência de magnésio)",
+      "Olhos secos com ardência e sensação de areia (→ Baixo nível de vitamina A)",
+      "Visão embaçada ou turva (→ Possível glicose elevada / hipertensão ocular)"
+    ],
+    "diagnostico": "Os olhos são janelas precisas do estado metabólico e sistêmico. Esclerótica amarelada indica comprometimento hepático — hepatite, cálculos biliares ou sobrecarga tóxica. Pálpebras edemaciadas ao amanhecer sugerem filtração renal comprometida. Olheiras escuras crônicas apontam para anemia ferropriva, estresse oxidativo ou distúrbio suprarrenal. Tremor palpebral é sinal clássico de hipomagnesemia. Olhos secos persistentes indicam deficiência de vitamina A e ácidos graxos essenciais. Visão embaçada intermitente deve levantar suspeita de hiperglicemia.",
+    "condutas": {
+      "fitoterapia": [
+        "Silybum marianum (silimarina) 300mg 3x/dia — proteção e regeneração hepática",
+        "Vaccinium myrtillus (mirtilo) — circulação microvascular ocular e retiniana",
+        "Ginkgo biloba 120mg/dia — fluxo sanguíneo ocular e perfusão",
+        "Taraxacum officinale (dente-de-leão) — drenagem hepática e renal",
+        "Withania somnifera (Ashwagandha) 300mg — cortisol, fadiga adrenal e olheiras"
+      ],
+      "suplementacao": [
+        "Magnésio glicinato 400mg/dia — tremor palpebral e pressão ocular",
+        "Vitamina A (retinol) 5000-10.000 UI — olhos secos e integridade da córnea",
+        "Ômega-3 DHA 1g/dia — qualidade do filme lacrimal",
+        "Complexo B (B1, B2, B6, B12) — neuropatia óptica e olheiras",
+        "Vitamina C 1g + Vitamina E 400 UI — antioxidante e proteção ocular",
+        "Luteína 20mg + Zeaxantina 4mg — proteção macular e retiniana",
+        "Zinco quelado 30mg — metabolismo hepático e imunidade ocular",
+        "Silimarina 150mg 3x/dia (se olhos amarelados) — hepatoproteção urgente"
+      ],
+      "dietoterapia": [
+        "Cenoura, manga, batata-doce — betacaroteno (pró-vitamina A) para olhos secos",
+        "Ovos com gema — luteína e zeaxantina naturais para a mácula",
+        "Frutas vermelhas e mirtilo — antocianinas para microvasculatura ocular",
+        "Reduzir álcool e ultraprocessados — sobrecarga hepática (olhos amarelados)",
+        "Vegetais verde-escuros — folato, ferro e clorofila para olheiras"
+      ],
+      "estilo_vida": [
+        "Compressas de camomila fria nos olhos inchados — descongestionante",
+        "Regra 20-20-20: a cada 20 min de tela, olhar 20m por 20 seg",
+        "Dormir 7-9 horas — regeneração hepática noturna e redução de olheiras",
+        "Umidificador no ambiente — prevenção de ressecamento ocular"
+      ],
+      "orientacoes": [
+        "Olhos amarelados: solicitar TGO, TGP, GGT, fosfatase alcalina e bilirrubinas com urgência",
+        "Visão embaçada: solicitar glicemia em jejum e hemoglobina glicada (HbA1c)",
+        "Olheiras crônicas em jovens: investigar anemia ferropriva, tireoide e suprarrenais",
+        "Pálpebras inchadas persistentes: solicitar creatinina, ureia e urinálise",
+        "Encaminhar para oftalmologista se pressão ocular suspeita ou visão turva contínua"
+      ],
+      "contraindicacoes": [
+        "Silybum marianum: alergia a Asteraceae; pode interagir com CYP2C9 (ajustar anticoagulantes)",
+        "Withania somnifera (Ashwagandha): gestantes, hipotireoidismo autoimune, cirurgia iminente",
+        "Vitamina A >10.000UI/dia crônico: gestantes (teratogênico), hepatopatia",
+        "Zinco >50mg/dia crônico: pode inibir absorção de cobre — suplementar 2mg cobre/dia",
+        "Luteína/Zeaxantina: segura; cautela com altas doses em fumantes pesados (associação com câncer de pulmão com beta-caroteno)"
+      ]
+    }
+  },
+  {
+    "id": "sc-lesoes-pele-abcde",
+    "categoria": "Avaliação Dermatológica",
+    "emoji": "🔬",
+    "title": "Regra ABCDE — Avaliação de Lesões de Pele",
+    "image": "lesoes-pele-abcde.jpg",
+    "sinais": [
+      "A — Assimetria: um lado da lesão diferente do outro",
+      "B — Bordas: irregulares, mal definidas, escorregadas ou festonadas",
+      "C — Cor: variação de cores (marrom, preto, vermelho, branco) na mesma lesão",
+      "D — Diâmetro: maior que 6mm (tamanho de uma borracha de lápis)",
+      "E — Evolução: lesão que mudou de tamanho, forma, cor ou desenvolveu coceira, sangramento ou crosta"
+    ],
+    "diagnostico": "A regra ABCDE é o método padrão de rastreamento visual de lesões malignas de pele, especialmente melanoma. A presença de qualquer critério exige encaminhamento dermatológico urgente para dermoscopia e possível biópsia. Fatores de risco: exposição solar crônica sem proteção, histórico familiar de melanoma, pele clara, múltiplos nevos e imunossupressão. A abordagem integrativa atua na prevenção, detecção precoce e suporte ao tratamento convencional.",
+    "condutas": {
+      "fitoterapia": [
+        "Camellia sinensis (chá verde) — EGCG com atividade antioxidante e anticarcinogênica",
+        "Aloe vera gel tópico — cicatrização, hidratação e fotoproteção",
+        "Silybum marianum (silimarina) — hepatoproteção durante quimioterapia",
+        "Uncaria tomentosa (Unha-de-gato) — imunomodulação e ação antiproliferativa",
+        "Calendula officinalis tópico — cicatrização pós-biópsia ou cirurgia"
+      ],
+      "suplementacao": [
+        "Vitamina D3 5000 UI/dia — imunomodulação e prevenção oncológica",
+        "Vitamina C lipossomal 2-3g/dia — antioxidante e síntese de colágeno dérmico",
+        "Vitamina E tocoferol 400 UI — proteção lipídica cutânea",
+        "Selênio 200mcg/dia — antioxidante enzimático (glutationa peroxidase)",
+        "Zinco quelado 30mg — imunidade e regeneração celular",
+        "Astaxantina 12mg — fotoproteção interna e antioxidante potente"
+      ],
+      "dietoterapia": [
+        "Tomate cozido e pimentão vermelho — licopeno para proteção solar interna",
+        "Chá verde 3 xícaras/dia — catequinas com ação antineoplásica",
+        "Brócolis, couve e repolho — sulforafano e indol-3-carbinol (antiproliferativo)",
+        "Evitar carnes processadas e álcool — fatores pró-carcinogênicos",
+        "Açaí, mirtilo, amora — antocianinas e resveratrol antioxidantes"
+      ],
+      "estilo_vida": [
+        "ENCAMINHAR AO DERMATOLOGISTA — qualquer critério ABCDE positivo exige avaliação urgente",
+        "Protetor solar FPS 50+ diário — proteção UVA e UVB",
+        "Evitar exposição solar entre 10h e 16h",
+        "Autoexame mensal de pele (inclusive couro cabeludo e plantas dos pés)",
+        "Dermoscopia anual com dermatologista para pacientes de risco"
+      ],
+      "orientacoes": [
+        "URGENTE: qualquer critério ABCDE positivo → dermatologista imediatamente",
+        "Não cauterizar ou extrair a lesão suspeita antes da avaliação médica",
+        "Fotografar a lesão mensalmente para documentar evolução",
+        "Investigar histórico familiar de melanoma e câncer de pele",
+        "Histórico de câncer de pele: dermoscopia a cada 6 meses"
+      ],
+      "contraindicacoes": [
+        "Silybum marianum: alergia a Asteraceae; interação com CYP450 (quimioterápicos — orientar oncologista)",
+        "Uncaria tomentosa: gestantes, lactantes, CONTRAINDICADA com imunossupressores (transplante)",
+        "Vitamina D3 >5000UI/dia: hipercalcemia; monitorar calcidiol, cálcio sérico e calciúria",
+        "Selênio >400mcg/dia: selenose (toxicidade), queda de cabelo, neuropatia",
+        "Astaxantina: cautela com anticoagulantes; interação com 5-alfa-redutase (dados limitados)"
+      ]
+    }
+  },
+  {
+    "id": "sc-secrecao-nasal",
+    "categoria": "Sinais Nasais",
+    "emoji": "👃",
+    "title": "O que a Secreção Nasal Revela sobre sua Saúde",
+    "image": "secrecao-nasal.jpg",
+    "sinais": [
+      "Secreção transparente e líquida (→ Normal, alergia ou início de resfriado)",
+      "Secreção branca e espessa (→ Congestão nasal ou resfriado inicial)",
+      "Secreção amarela (→ Sistema imunológico combatendo infecção ativa)",
+      "Secreção verde e purulenta (→ Possível infecção bacteriana ou viral avançada)",
+      "Secreção marrom (→ Poeira, poluição intensa ou sangue ressecado)",
+      "Secreção cinza ou preta (→ Exposição a poluição, fumaça ou partículas inaladas)"
+    ],
+    "diagnostico": "A cor e consistência da secreção nasal espelha o estado imunológico e inflamatório das vias aéreas superiores. Secreção transparente fluida é fisiológica ou alérgica (rinite). Secreção amarela indica mobilização ativa de neutrófilos — o corpo está combatendo um agente infeccioso. Secreção verde (leucócitos degradados) sugere infecção bacteriana secundária ou sinusite. Secreção cinza/preta pode indicar Aspergillus ou outros fungos em imunossuprimidos.",
+    "condutas": {
+      "fitoterapia": [
+        "Echinacea purpurea 400mg 3x/dia — estimulação imune em infecções virais",
+        "Pelargonium sidoides (Umckaloabo) — sinusite e resfriado bacteriano",
+        "Allium sativum (alho) 600mg/dia — antimicrobiano de amplo espectro",
+        "Sambucus nigra (sabugueiro) — redução da replicação viral",
+        "Andrographis paniculata — anti-inflamatório das vias respiratórias",
+        "Eucalyptus globulus (inalação) — descongestionante e antisséptico"
+      ],
+      "suplementacao": [
+        "Vitamina C 2g/dia — imunomodulação e modulação de citocinas",
+        "Vitamina D3 5000 UI/dia — imunidade inata e adaptativa",
+        "Zinco 30mg/dia — antiviral e reduz duração do resfriado",
+        "Quercetina 500mg 2x/dia — anti-histamínico natural e anti-inflamatório",
+        "Probióticos multiestirpe — eixo intestino-pulmão e imunidade mucosa",
+        "N-Acetilcisteína (NAC) 600mg 2x/dia — fluidificação de muco espesso",
+        "Própolis extrato seco 400mg — antimicrobiano e imunomodulador"
+      ],
+      "dietoterapia": [
+        "Caldo de galinha caseiro — lisozima e glutamina para mucosa respiratória",
+        "Alho e cebola crus — compostos sulfurados antimicrobianos",
+        "Mel de qualidade 1 colher/dia — antisséptico e imunoestimulante",
+        "Eliminar laticínios temporariamente — reduz produção de muco",
+        "Xarope: gengibre + limão + mel + própolis — imunoestimulante potente",
+        "Hidratação generosa — fluidifica secreção e facilita drenagem"
+      ],
+      "estilo_vida": [
+        "Lavagem nasal com solução salina isotônica 2x/dia — higiene e drenagem",
+        "Umidificador de ar no quarto — previne ressecamento da mucosa nasal",
+        "Inalação com eucalipto ou hortelã — desobstrução e antissepsia",
+        "Cabeceira elevada ao dormir — drenagem postural das vias aéreas",
+        "Máscara em locais com muito pó, fuligem ou mofo"
+      ],
+      "orientacoes": [
+        "Secreção verde + febre + dor facial > 7 dias: avaliar sinusite bacteriana",
+        "Secreção escura + tosse em imunossuprimidos: descartar aspergilose",
+        "Secreção persistente + espirros matinais: investigar rinite alérgica (IgE total)",
+        "Sangue na secreção recorrente: verificar pressão arterial e coagulograma",
+        "Reavaliar em 10-14 dias; sem melhora: encaminhar ao ORL"
+      ],
+      "contraindicacoes": [
+        "Echinacea purpurea: doenças autoimunes ativas, imunossuprimidos, transplantados",
+        "Andrographis paniculata: gestantes (abortivo), lactantes, transplantados (imunomodulador)",
+        "Zinco >40mg/dia crônico: inibição de absorção de cobre e ferro; náuseas em jejum",
+        "NAC: asma grave (pode precipitar broncoespasmo), cautela com nitroglicerina (hipotensão)",
+        "Própolis: alergia a própolis, abelhas ou mel — reação cruzada possível; asmáticos"
+      ]
+    }
+  },
+  {
+    "id": "sc-espinhas-mapa-facial",
+    "categoria": "Mapeamento de Acne",
+    "emoji": "🫦",
+    "title": "O que as Espinhas Dizem sobre seus Órgãos",
+    "image": "espinhas-mapa-facial.jpg",
+    "sinais": [
+      "Espinhas na Testa (→ Má digestão / Excesso de toxinas / Privação de sono)",
+      "Espinhas entre as Sobrancelhas (→ Fígado sobrecarregado / Álcool / Excesso de laticínios)",
+      "Espinhas no Nariz (→ Pressão arterial elevada / Problemas cardíacos / Deficiência de vitamina B)",
+      "Espinhas nas Bochechas (→ Alergias respiratórias / Bactérias do celular / Excesso de açúcar)",
+      "Espinhas no Queixo e Mandíbula (→ Desequilíbrio hormonal / Ovários / Estresse intenso)",
+      "Espinhas no Pescoço (→ Corpo combatendo infecção / Tireoide / Estresse)"
+    ],
+    "diagnostico": "O mapeamento facial de acne correlaciona a localização das lesões com desequilíbrios orgânicos — conceito da medicina tradicional chinesa e dermatologia funcional. Espinhas na testa apontam para disbiose intestinal e sobrecarga digestiva. Entre as sobrancelhas indica estase hepática. Acne no nariz relaciona-se ao eixo cardiovascular e pressório. Bochechas refletem o estado pulmonar e contaminação de celular. Queixo e mandíbula são locais clássicos de acne hormonal — andrógenos elevados, resistência insulínica ou SOP. Pescoço indica linfadenopatia e possível disfunção da tireoide.",
+    "condutas": {
+      "fitoterapia": [
+        "Silybum marianum (silimarina) 300mg 3x/dia — desintoxicação hepática",
+        "Vitex agnus-castus 400mg/dia — reequilíbrio hormonal (acne queixo/mandíbula)",
+        "Arctium lappa (bardana) — depurativa e antiandrogênica para pele",
+        "Sambucus nigra + Echinacea — reforço imune (acne pescoço/infecção)",
+        "Aloe vera gel tópico — anti-inflamatório e cicatrizante",
+        "Camellia sinensis (chá verde) oral — EGCG antiandrogênico"
+      ],
+      "suplementacao": [
+        "Zinco quelado 30-50mg/dia — antiandrogênico, cicatrização e imunidade",
+        "Vitamina B5 (ácido pantotênico) 2-5g/dia — reduz produção de sebo",
+        "Complexo B completo — metabolismo hepático, hormonal e energético",
+        "Ômega-3 EPA+DHA 2g/dia — anti-inflamatório e regulação sebácea",
+        "Probióticos multiestirpe — eixo intestino-pele e modulação androgênica",
+        "Inositol (mio-inositol) 2-4g/dia — sensibilidade insulínica e acne hormonal (SOP)",
+        "Selênio 200mcg/dia — antioxidante e antiandrogênico"
+      ],
+      "dietoterapia": [
+        "Eliminar laticínios por 30 dias — IGF-1 e andrógenos do leite agravam acne",
+        "Reduzir açúcar e índice glicêmico — pico insulínico estimula andrógenos",
+        "Aumentar fibras e prebióticos — saúde da microbiota intestinal",
+        "Sementes de abóbora, carne magra, leguminosas — fontes de zinco",
+        "Brócolis, couve, repolho — DIM (indol-3-carbinol) para metabolismo estrogênico",
+        "Testar retirada do glúten por 4 semanas"
+      ],
+      "estilo_vida": [
+        "Higienizar o celular com álcool 70% diariamente (acne nas bochechas)",
+        "Trocar fronha do travesseiro 2x/semana",
+        "Não tocar o rosto com as mãos durante o dia",
+        "Gerenciar cortisol: respiração diafragmática, meditação, sono 7-8h",
+        "Cosméticos não comedogênicos (oil-free)"
+      ],
+      "orientacoes": [
+        "Acne queixo/mandíbula em mulheres: investigar SOP (testosterona, DHEA-S, insulina)",
+        "Acne testa + digestão ruim: parasitologia, H. pylori, disbiose intestinal",
+        "Acne pescoço + cansaço + ganho de peso: TSH, T4 livre — avaliar tireoide",
+        "Acne sobrancelhas: TGO, TGP, GGT, bilirrubinas — função hepática",
+        "Acne inflamatória grave (nódulos, cistos): encaminhar ao dermatologista"
+      ],
+      "contraindicacoes": [
+        "Vitex agnus-castus: gestantes, lactantes, neoplasias hormônio-dependentes; não combinar com anticoncepcionais hormonais ou agonistas dopaminérgicos",
+        "Silybum marianum: alergia a Asteraceae; interação com CYP450",
+        "Zinco >50mg/dia: depleção de cobre; náuseas — tomar com alimento",
+        "Inositol (mio-inositol): dados limitados na gestação — preferir evitar no 1º trimestre",
+        "Vitamina B5 (ácido pantotênico) >2g/dia: diarreia e desconforto GI possíveis"
+      ]
+    }
+  },
+  {
+    "id": "sc-dor-cabeca-tipos",
+    "categoria": "Mapa da Dor de Cabeça",
+    "emoji": "🧠",
+    "title": "O que sua Dor de Cabeça está Tentando Dizer",
+    "image": "dor-cabeca-tipos.jpg",
+    "sinais": [
+      "Dor na testa e bochechas (→ Sinusite / pressão dos seios da face / alergias)",
+      "Faixa apertando a cabeça toda (→ Cefaleia tensional / estresse / tensão muscular)",
+      "Dor só de um lado, latejante (→ Enxaqueca / origem neurológica / vascular)",
+      "Dor atrás dos olhos (→ Sobrecarga visual / excesso de telas / desidratação)",
+      "Dor na nuca subindo para o topo (→ Tensão cervical / postura inadequada)",
+      "Dor difusa após longo tempo sem beber água (→ Cefaleia por desidratação)",
+      "Dor ao acordar como pressão pesada (→ Noites mal dormidas / bruxismo / apneia)",
+      "Dor que começa no pescoço e vai para a testa (→ Origem muscular e articular cervical)",
+      "Dor associada a ciclos hormonais (→ Hormônios modulam vasos cerebrais / enxaqueca menstrual)"
+    ],
+    "diagnostico": "O padrão e localização da dor de cabeça é um guia clínico preciso de sua origem. Cefaleias frontais com pressão facial apontam para sinusite ou rinosinusite alérgica. A faixa que aperta toda a cabeça é a cefaleia tensional — a mais comum, relacionada ao estresse e tensão miofascial. Dor unilateral latejante com fotofobia ou náusea é padrão de enxaqueca. Dor cervicogênica começa na nuca e irradia para a fronte. Cefaleia matinal persistente associada a ronco pode indicar apneia do sono. Dor cíclica em mulheres associada ao período menstrual é enxaqueca hormonal — responde à modulação estrogênica.",
+    "condutas": {
+      "fitoterapia": [
+        "Tanacetum parthenium (Matricária) 125mg/dia — prevenção de enxaqueca",
+        "Petasites hybridus (Petácia) — redução da frequência de enxaquecas",
+        "Lavandula angustifolia (aromaterapia) — cefaleia tensional e ansiedade",
+        "Salix alba (salgueiro branco) — analgésico natural (salicilatos)",
+        "Zingiber officinale (gengibre) — náusea da enxaqueca e anti-inflamatório",
+        "Ginkgo biloba 120mg — melhora da circulação cerebral"
+      ],
+      "suplementacao": [
+        "Magnésio glicinato 400-600mg/dia — prevenção de enxaqueca (deficiência comprovada)",
+        "Riboflavina (B2) 400mg/dia — reduz frequência de enxaquecas",
+        "Coenzima Q10 100-300mg/dia — energética mitocondrial neuronal",
+        "Vitamina D3 5000 UI — correlacionada com maior frequência de enxaquecas quando baixa",
+        "Ômega-3 EPA+DHA 2g/dia — anti-inflamatório e modulação vascular cerebral",
+        "Melatonina 3mg ao dormir — cefaleia matinal e regulação do sono"
+      ],
+      "dietoterapia": [
+        "Identificar e eliminar gatilhos: vinho tinto, queijo envelhecido, chocolate, glutamato",
+        "Evitar hipoglicemia — manter refeições regulares (cefaleia por hipoglicemia)",
+        "Aumentar ingestão de água: 35ml/kg/dia (cefaleia por desidratação)",
+        "Cafeína controlada: retirada abrupta causa cefaleia",
+        "Sementes de linhaça e chia — ômega-3 e lignanas anti-inflamatórias",
+        "Evitar nitratos (embutidos) e aspartame — gatilhos vasculares"
+      ],
+      "estilo_vida": [
+        "Fisioterapia e osteopatia cervical — cefaleia cervicogênica e tensional",
+        "Acupuntura — eficácia comprovada para enxaqueca e cefaleia tensional",
+        "Técnicas de relaxamento muscular progressivo — tensão miofascial",
+        "Óculos com filtro de luz azul — cefaleia por excesso de telas",
+        "Horários regulares de sono, refeições e hidratação",
+        "Higiene postural e ergonomia no trabalho — cefaleia cervical"
+      ],
+      "orientacoes": [
+        "Cefaleia de início súbito e intensa (\"pior da vida\"): emergência — descartar hemorragia subaracnoidea",
+        "Cefaleia progressiva em piora ao longo de semanas: neuroimagem urgente",
+        "Enxaqueca com aura: avaliar risco cardiovascular e ajustar contraceptivos",
+        "Solicitar: hemograma, ferritina, TSH, B12, magnésio sérico, 25-OH-D3",
+        "Bruxismo confirmado: placa miorrelaxante + fisioterapia"
+      ],
+      "contraindicacoes": [
+        "Tanacetum parthenium (Matricária): gestantes (abortivo), não interromper abruptamente (síndrome de rebote — cefaleia mais intensa)",
+        "Petasites hybridus (Petácia): usar apenas extratos sem alcalóides pirrolizidínicos certificados (risco hepatotóxico)",
+        "Hypericum perforatum (hipérico): ISRS, anticoagulantes, anticoncepcionais (indutor CYP3A4)",
+        "Salix alba: alergia a AAS/aspirina, úlcera péptica ativa, anticoagulantes, crianças <16 anos (risco de síndrome de Reye)",
+        "Riboflavina (B2) 400mg/dia: urina pode ficar amarelo-intensa (normal); segura em geral"
+      ]
+    }
+  },
+  {
+    "id": "sc-sinais-olhos-doencas",
+    "categoria": "Sinais nos Olhos",
+    "emoji": "⚠️",
+    "title": "Sinais de Alerta nos Olhos — Doenças Sistêmicas Graves",
+    "image": "sinais-olhos-doencas.jpg",
+    "sinais": [
+      "Anel cinza ou esbranquiçado ao redor da córnea (→ Colesterol alto / arco corneal)",
+      "Cor amarelada na parte branca do olho / esclerótica (→ Problemas no fígado / icterícia)",
+      "Vasos sanguíneos vermelhos ou rompidos na esclera (→ Hipertensão arterial)",
+      "Olhos saltados, olhar fixo ou pálpebras retraídas (→ Tireoide / Doença de Graves)",
+      "Queda súbita da pálpebra ou visão turva de início súbito (→ Alerta de AVC / Derrame)",
+      "Dilatação assimétrica da pupila ou visão turva repentina (→ Aneurisma Cerebral — EMERGÊNCIA)"
+    ],
+    "diagnostico": "Estes sinais oculares apontam para condições sistêmicas graves que requerem avaliação médica urgente. O arco corneal (anel branco ao redor da córnea) em pacientes abaixo de 45 anos é marcador de hipercolesterolemia familiar. Icterícia escleral indica hiperbilirrubinemia — hepatite, cirrose ou obstrução biliar. Vasos rompidos na esclera podem indicar crise hipertensiva. Exoftalmia com olhar fixo é clássico de Doença de Graves. Ptose palpebral súbita ou diplopia de início agudo são sinais de AVC — emergência. Anisocoria de início súbito associada a cefaleia intensa indica aneurisma cerebral — EMERGÊNCIA ABSOLUTA.",
+    "condutas": {
+      "fitoterapia": [
+        "Silybum marianum (silimarina) — hepatoproteção (olhos amarelados)",
+        "Cynara scolymus (alcachofra) + Berberina — redução de colesterol LDL",
+        "Melissa officinalis + Lycopus europaeus — modulação tireoidiana (Graves)",
+        "Ginkgo biloba 240mg — circulação cerebrovascular e proteção neuronal",
+        "Viscum album (visco europeu) — suporte anti-hipertensivo adjuvante"
+      ],
+      "suplementacao": [
+        "Ômega-3 EPA+DHA 3-4g/dia — redução de triglicérides e colesterol (arco corneal)",
+        "Berberina 500mg 2x/dia — redução de colesterol e proteção cardiovascular",
+        "Silimarina 300mg 3x/dia — hepatoproteção e regeneração (icterícia)",
+        "Selênio 200mcg + Inositol (se Doença de Graves) — modulação autoimune tireoidiana",
+        "CoQ10 200mg — proteção cardiovascular e anti-hipertensivo adjuvante",
+        "Magnésio glicinato 400mg — relaxamento vascular e anti-hipertensivo"
+      ],
+      "dietoterapia": [
+        "Dieta mediterrânea — redução de colesterol e proteção cardiovascular",
+        "Eliminar gorduras trans e saturadas em excesso",
+        "Aveia, linhaça, feijão — fibras solúveis que reduzem colesterol",
+        "Alho e cebola — aliicina cardiovascular",
+        "Reduzir álcool — hepatoproteção",
+        "Dieta de eliminação se autoimunidade (glúten, laticínios) na Doença de Graves"
+      ],
+      "estilo_vida": [
+        "QUALQUER SINAL SÚBITO: ligar 192 (SAMU) ou ir à emergência imediatamente",
+        "AVC/Aneurisma: NÃO AGUARDAR — janela terapêutica de minutos a horas",
+        "Monitorar PA em casa — alvo <130/80 mmHg",
+        "Atividade aeróbica 150min/semana — controle do colesterol",
+        "Exame oftalmológico anual — detecção precoce de sinais oculares"
+      ],
+      "orientacoes": [
+        "URGÊNCIA MÁXIMA: ptose palpebral súbita, visão turva, pupila assimétrica → EMERGÊNCIA",
+        "Arco corneal <45 anos: lipidograma completo + Lp(a) urgente",
+        "Olhos amarelados: TGO, TGP, GGT, bilirrubinas, sorologias virais",
+        "Olhos saltados: TSH, T3 livre, T4 livre, anti-TPO, TRAb",
+        "Encaminhar ao endocrinologista (Graves), hepatologista (icterícia), neurologista (AVC)"
+      ],
+      "contraindicacoes": [
+        "ATENÇÃO: sinais de AVC, aneurisma ou crise hipertensiva — PRIORIDADE É EMERGÊNCIA MÉDICA, não fitoterapia",
+        "Ginkgo biloba: anticoagulantes (AAS, varfarina, heparina), gestantes, epilepsia",
+        "Melissa officinalis + Lycopus europaeus (para Graves): não combinar com hormônio tireoidiano sintético sem monitoramento, gestantes",
+        "Berberina: gestantes, lactantes, crianças; interação com metformina e ciclosporina",
+        "Ômega-3 >3g/dia: anticoagulantes — risco de sangramento"
+      ]
+    }
+  },
+  {
+    "id": "sc-sinais-rosto",
+    "categoria": "Sinais Faciais",
+    "emoji": "😶",
+    "title": "Sinais do Rosto — O que o Rosto Revela sobre sua Saúde",
+    "image": "sinais-rosto.jpg",
+    "sinais": [
+      "Olheiras Escuras (→ Sobrecarga adrenal, intolerância alimentar ou sono ruim)",
+      "Inchaço nos Olhos (→ Fígado sobrecarregado)",
+      "Olho Amarelado (→ Excesso de bilirrubina, cirrose, hepatite ou problemas hepáticos)",
+      "Acne Inflamada (→ Resistência insulínica, intestino desregulado ou desequilíbrio hormonal)",
+      "Boca Ressecada (→ Falta de vitaminas do complexo B, ferro ou imunidade baixa)",
+      "Gordura Facial (→ Má alimentação, inflamação ou disfunção metabólica)",
+      "Mancha Escura na Pele (→ Estresse, inflamação, resistência insulínica ou hormônios)",
+      "Rosto Inchado (→ Cortisol alto, retenção de líquido ou distúrbio da tireoide)"
+    ],
+    "diagnostico": "O rosto é um espelho do metabolismo interno. Olheiras escuras refletem sobrecarga suprarrenal e dificuldade hepática em processar toxinas — também aparecem em intolerâncias alimentares e sono fragmentado. Inchaço palpebral matinal é sinal clássico de filtração renal diminuída. Acne inflamada difusa remete a eixo intestino-pele com disbiose e hiperandrogenismo. Boca ressecada cronicamente indica deficiência de vitaminas do grupo B e baixa imunidade de mucosas. Gordura facial (bochechas e papada) é marcador de resistência insulínica. Manchas escuras (melasma, acanthosis nigricans) apontam para desequilíbrio hormonal. Rosto em lua cheia com estrias indica hipercortisolismo ou hipotireoidismo.",
+    "condutas": {
+      "fitoterapia": [
+        "Withania somnifera (Ashwagandha) — modulação de cortisol e suprarrenais",
+        "Silybum marianum (silimarina) — hepatoproteção e metabolismo hormonal",
+        "Vitex agnus-castus — reequilíbrio hormonal (acne, manchas hormonais)",
+        "Chá verde + Curcuma longa — anti-inflamatório metabólico e pele",
+        "Arctium lappa (bardana) — depurativa hepática e cutânea"
+      ],
+      "suplementacao": [
+        "Complexo B (B1, B2, B3, B5, B6, B12) — boca ressecada, energia e imunidade",
+        "Zinco quelado 30-50mg — acne, imunidade e metabolismo hormonal",
+        "Vitamina C 1-2g/dia — síntese de colágeno e clareamento de manchas",
+        "Ômega-3 EPA+DHA 2g — anti-inflamatório e regulação sebácea",
+        "Magnésio glicinato 400mg — cortisol, sono e metabolismo",
+        "Vitamina D3 5000 UI — imunidade e regulação metabólica",
+        "Probióticos multiestirpe — eixo intestino-pele"
+      ],
+      "dietoterapia": [
+        "Eliminar laticínios e glúten por 30 dias — acne e inchaço",
+        "Reduzir açúcar e índice glicêmico — resistência insulínica e manchas",
+        "Vegetais verde-escuros — folato, ferro, clorofila",
+        "Alimentos ricos em vitamina B: ovos, leguminosas, sementes, carnes magras",
+        "Antioxidantes: açaí, mirtilo, tomate, cenoura",
+        "Hidratação 35ml/kg — drenagem e metabolismo celular"
+      ],
+      "estilo_vida": [
+        "Sono de qualidade 7-9h — regeneração suprarrenal e hepática",
+        "Gestão de estresse — cortisol alto = rosto inchado e manchas",
+        "Exercício aeróbico regular — sensibilidade insulínica e gordura facial",
+        "Protetor solar FPS 50 diariamente — prevenção de manchas",
+        "Linfodrenagem facial — inchaço e circulação"
+      ],
+      "orientacoes": [
+        "Rosto em lua cheia + estrias roxas + ganho abdominal: investigar Síndrome de Cushing",
+        "Rosto inchado + cansaço + ganho de peso: TSH, T4 livre (hipotireoidismo)",
+        "Olho amarelado: TGO, TGP, GGT, bilirrubinas urgente",
+        "Manchas escuras em pescoço/axilas (acanthosis): glicemia, insulina, HOMA-IR",
+        "Reavaliar após 60 dias de protocolo integrado"
+      ],
+      "contraindicacoes": [
+        "Vitex agnus-castus: gestantes, lactantes, anticoncepcionais hormonais, neoplasias hormônio-dependentes",
+        "Hypericum perforatum (hipérico): ISRS/IRSN, varfarina, anticoncepcionais — CONTRAINDICADO",
+        "Ashwagandha: gestantes, hipotireoidismo autoimune (cautela), cirurgia iminente",
+        "Zinco >50mg/dia crônico: depleção de cobre; hepatotoxicidade em altas doses prolongadas",
+        "Probióticos: imunossuprimidos graves e prematuros — usar com orientação médica"
+      ]
+    }
+  },
+  {
+    "id": "sc-sinais-emocionais-rosto",
+    "categoria": "Sinais Emocionais",
+    "emoji": "🧘",
+    "title": "O que seu Rosto está Tentando Contar — Sinais Emocionais",
+    "image": "sinais-emocionais-rosto.jpg",
+    "sinais": [
+      "Olheiras / olhos cansados (→ Rins sobrecarregados / energia vital baixa / cansaço emocional silencioso)",
+      "Linhas ao redor da boca (→ Intestino sobrecarregado / sentimentos não expressos / emoções reprimidas)",
+      "Marcas e linhas na testa (→ Sistema nervoso sobrecarregado / pensamento excessivo / preocupação constante)",
+      "Nariz vermelho ou irritado (→ Coração sobrecarregado / sensibilidade emocional elevada / pressão interna)"
+    ],
+    "diagnostico": "A leitura emocional do rosto integra a psicossomática, a medicina tradicional chinesa (MTC) e a linguagem do corpo. Na MTC, os olhos espelham os Rins — órgão que armazena a energia vital (Jing) e governa o medo e a exaustão emocional. As linhas ao redor da boca refletem o estado do Intestino — que processa o que \"não foi digerido emocionalmente\". Linhas horizontais na testa associam-se ao Pulmão e ao Sistema Nervoso — ruminação e preocupação crônica. O nariz vermelho é sinal de calor no Coração — hipersensibilidade emocional e pressão interna não liberada.",
+    "condutas": {
+      "fitoterapia": [
+        "Passiflora incarnata — ansiedade, ruminação e insônia por pensamentos",
+        "Withania somnifera (Ashwagandha) — fadiga adrenal e esgotamento emocional",
+        "Valeriana officinalis — tensão nervosa e agitação mental",
+        "Hypericum perforatum (Hipérico) — humor baixo e processamento emocional",
+        "Melissa officinalis — calma o sistema nervoso e coração agitado",
+        "Schisandra chinensis — tonificante renal e adaptógeno emocional"
+      ],
+      "suplementacao": [
+        "Magnésio glicinato 400mg ao dormir — sistema nervoso, ruminação e sono",
+        "L-Teanina 200mg — ansiedade sem sedação (pensamentos excessivos)",
+        "Vitamina B6 100mg + Zinco 30mg — metabolismo da serotonina e dopamina",
+        "5-HTP 100mg (sem ISRS) — serotonina e processamento emocional",
+        "Ômega-3 DHA 1g — neurotransmissão e regulação emocional",
+        "Vitamina D3 5000 UI — humor, energia e saúde suprarrenal",
+        "Rhodiola rosea 300mg — adaptógeno, fadiga mental e resiliência emocional"
+      ],
+      "dietoterapia": [
+        "Probióticos e prebióticos — eixo intestino-cérebro e equilíbrio emocional",
+        "Bananas, ovos, peru — triptofano (precursor da serotonina)",
+        "Reduzir cafeína e açúcar — flutuações de humor e ansiedade",
+        "Chá de camomila e erva-cidreira — sistema nervoso entérico",
+        "Alimentos fermentados: kefir, kombucha, chucrute — microbiota e humor"
+      ],
+      "estilo_vida": [
+        "Psicoterapia (TCC, gestáltica, integrativa) — processamento emocional profundo",
+        "Meditação mindfulness 10-20min/dia — regulação do pensamento excessivo",
+        "Journaling (diário emocional) — expressão de sentimentos reprimidos",
+        "Acupuntura — equilíbrio dos meridianos renais, cardíacos e intestinais",
+        "Práticas corporais: ioga, tai chi, respiração holotrópica"
+      ],
+      "orientacoes": [
+        "Exaustão emocional crônica: avaliar burnout e síndrome de fadiga crônica",
+        "Solicitar: cortisol salivar matinal e vespertino, DHEA-S, ferritina",
+        "Emoções reprimidas crônicas: encaminhar para psicoterapia especializada",
+        "Investigar déficit de vitamina D, B12 e magnésio como causas físicas de humor baixo",
+        "Integrar abordagem psicossomática ao plano terapêutico global"
+      ],
+      "contraindicacoes": [
+        "5-HTP: CONTRAINDICADO com antidepressivos ISRS, IRSN, IMAO (síndrome serotonérgica)",
+        "Hypericum perforatum (hipérico): ISRS, anticoncepcionais, anticoagulantes, antiretrovirais — CONTRAINDICADO",
+        "Rhodiola rosea: transtorno bipolar (pode induzir mania), ISRS (cautela por potencialização serotonérgica)",
+        "Valeriana: benzodiazepínicos, álcool, opioides — potencialização sedativa",
+        "L-Teanina: hipotensivos (potencialização de efeito anti-hipertensivo) — monitorar PA"
+      ]
+    }
+  },
+  {
+    "id": "sc-sintomas-nutrientes",
+    "categoria": "Deficiências Nutricionais",
+    "emoji": "💊",
+    "title": "O que seu Corpo está Dizendo — Sintomas e Nutrientes",
+    "image": "sintomas-nutrientes.jpg",
+    "sinais": [
+      "Mãos frias (→ Deficiência de Ferro / anemia)",
+      "Perda de apetite (→ Deficiência de Zinco)",
+      "Olhos secos (→ Deficiência de Vitamina A)",
+      "Falta de ar (→ Deficiência de Ferro / anemia)",
+      "Queda de cabelo (→ Deficiência de Ferro / ferritina baixa)",
+      "Boca seca (→ Deficiência de Vitamina A)",
+      "Unhas quebradiças (→ Deficiência de Biotina / B7)",
+      "Fadiga constante (→ Deficiência de Vitamina D)",
+      "Irritabilidade e humor baixo (→ Deficiência de Vitamina B6)",
+      "Problemas de memória e concentração (→ Deficiência de Ômega-3)",
+      "Cãibras nas pernas (→ Deficiência de Magnésio)",
+      "Névoa mental / brain fog (→ Deficiência de Vitamina B12)",
+      "Fraqueza muscular (→ Deficiência de Potássio)",
+      "Infecções frequentes (→ Deficiência de Vitamina C)",
+      "Formigamento e adormecimento (→ Deficiência de Vitamina B6)",
+      "Sono ruim (→ Deficiência de Magnésio)"
+    ],
+    "diagnostico": "Sintomas aparentemente difusos frequentemente têm origem em deficiências nutricionais subclínicas — baixas o suficiente para causar sintomas, mas não sempre detectadas em exames de rotina. A abordagem funcional investiga os níveis ótimos (não apenas \"normais\"). Ferro baixo (ferritina <30 em mulheres) causa fadiga, queda de cabelo e mãos frias mesmo sem anemia franca. B12 abaixo de 400 pg/mL causa névoa mental e formigamento. Vitamina D <30 ng/mL está associada a fadiga e infecções. Magnésio é o \"mineral do estresse\" — sua deficiência causa cãibras, insônia e ansiedade.",
+    "condutas": {
+      "fitoterapia": [
+        "Urtica dioica (urtiga) — ferro, minerais e fortalecimento do organismo",
+        "Silybum marianum (silimarina) — absorção de nutrientes e hepatoproteção",
+        "Melissa officinalis + Passiflora — sono ruim e deficiência de magnésio",
+        "Equisetum arvense (cavalinha) — minerais, sílica, unhas e cabelo",
+        "Withania somnifera (Ashwagandha) — energia, cortisol e imunidade"
+      ],
+      "suplementacao": [
+        "Ferro bisglicinato 30mg (ferritina <30) + Vitamina C para absorção",
+        "Vitamina D3 10.000 UI/dia por 30 dias (se <20 ng/mL); manutenção 5000 UI",
+        "Zinco quelado 30mg — apetite, imunidade e metabolismo",
+        "Vitamina A (retinol) 5000-10.000 UI — olhos secos e mucosas",
+        "Vitamina B6 (piridoxina) 50-100mg — formigamento, humor e TPM",
+        "Biotina 5-10mg/dia — unhas quebradiças e queda de cabelo",
+        "Vitamina B12 (metilcobalamina) 1000mcg sublingual — névoa mental",
+        "Ômega-3 DHA+EPA 2-3g — memória, concentração e anti-inflamatório",
+        "Magnésio glicinato 400mg — cãibras, sono e ansiedade",
+        "Vitamina C 1-2g — imunidade e absorção de ferro"
+      ],
+      "dietoterapia": [
+        "Ferro: carnes magras, feijão, lentilha, espinafre + vitamina C",
+        "Vitamina A: cenoura, manga, batata-doce, gema de ovo",
+        "Zinco: sementes de abóbora, carne de boi, leguminosas",
+        "Magnésio: banana, abacate, sementes de girassol, cacau 70%",
+        "B12: carnes, ovos, laticínios (veganos: suplementar obrigatoriamente)",
+        "Vitamina C: acerola, goiaba, kiwi, pimentão cru",
+        "Potássio: banana, batata-doce, feijão, espinafre"
+      ],
+      "estilo_vida": [
+        "Exposição solar 15-20min/dia (braços e pernas) — vitamina D natural",
+        "Não tomar café junto com as refeições — inibe absorção de ferro",
+        "Cozinhar em panela de ferro — incrementa ferro nos alimentos",
+        "Dormir 7-9h — regeneração e síntese de nutrientes essenciais",
+        "Reduzir álcool — interfere na absorção de B1, B12, magnésio e zinco"
+      ],
+      "orientacoes": [
+        "Solicitar: hemograma, ferritina, B12, 25-OH-D3, zinco sérico, magnésio",
+        "Ferritina ideal em mulheres: >60 ng/mL (não apenas \"normal\")",
+        "Vitamina D ideal: 40-80 ng/mL",
+        "B12 funcional: >400 pg/mL",
+        "Vegetarianos/veganos: monitorar B12, ferro, D3, zinco e ômega-3 trimestralmente",
+        "Reavaliar exames após 90 dias de suplementação"
+      ],
+      "contraindicacoes": [
+        "Ferro bisglicinato: hemocromatose, anemia falciforme, hemossiderose — CONTRAINDICADO; confirmar ferritina e CTLF antes",
+        "Vitamina D3 >10.000UI/dia: hipercalcemia, hipercalciúria; monitorar 25-OH-D3 a cada 30-60 dias na dose de ataque",
+        "Vitamina A >10.000UI/dia: teratogênico em gestantes; hepatotóxico em uso prolongado",
+        "Biotina >5mg/dia: pode interferir em exames laboratoriais (TSH, troponina, beta-hCG) — descontinuar 24h antes de coleta",
+        "B12 sublingual: segura; não interfere com medicamentos; monitorar B12 sérica após 90 dias"
+      ]
+    }
+  },
+  {
+    "id": "sc-sinais-ouvido",
+    "categoria": "Sinais no Ouvido",
+    "emoji": "👂",
+    "title": "O que seu Ouvido está Avisando",
+    "image": "sinais-ouvido.jpg",
+    "sinais": [
+      "Vinco no lóbulo da orelha (→ Alerta para o coração e artérias / risco cardiovascular)",
+      "Pelos no ouvido interno (→ Ligado a hormônios e risco cardíaco em homens)",
+      "Orelhas vermelhas (→ Sinal de estresse ou pressão arterial alta)",
+      "Zumbido pulsátil (→ Prestar atenção ao fluxo sanguíneo / pressão e circulação)",
+      "Coceira no ouvido (→ Alerta para o intestino ou imunidade comprometida)",
+      "Orelha pálida (→ Má circulação e falta de oxigênio / anemia)"
+    ],
+    "diagnostico": "O ouvido externo e seus sinais são marcadores de saúde cardiovascular e metabólica. O sinal de Frank (vinco diagonal no lóbulo da orelha) tem correlação documentada com aterosclerose e risco cardiovascular aumentado. Pelos no ouvido interno em homens são marcadores de androgenização. Orelhas vermelhas indicam vasodilatação por estresse ou hipertensão — resposta autonômica ao cortisol. Zumbido pulsátil (sincrônico com o batimento cardíaco) pode indicar hipertensão, aterosclerose carotídea ou fístula arteriovenosa. Coceira crônica no ouvido correlaciona-se com candidíase sistêmica, disbiose e alergia alimentar. Orelha pálida indica vasoconstrição — típica de anemia ou baixa pressão.",
+    "condutas": {
+      "fitoterapia": [
+        "Ginkgo biloba 120-240mg/dia — zumbido, circulação coclear e microvascular",
+        "Cynara scolymus + Berberina — colesterol e proteção cardiovascular",
+        "Ashwagandha + Rhodiola — cortisol e orelhas vermelhas por estresse",
+        "Própolis 400mg — infecção fúngica de ouvido e imunidade",
+        "Allium sativum (alho) — antifúngico e cardiovascular"
+      ],
+      "suplementacao": [
+        "Magnésio 400mg — proteção coclear e prevenção de zumbido",
+        "Ômega-3 EPA+DHA 2-3g — anti-inflamatório cardiovascular",
+        "Coenzima Q10 200mg — função cardíaca e energia mitocondrial coclear",
+        "Zinco 30mg — imunidade do canal auditivo externo",
+        "Vitamina B12 (se zumbido + dormência) — neuropatia auditiva",
+        "Ferro quelado (se orelha pálida + anemia) — oxigenação tecidual",
+        "Niacina B3 — vasodilatação e microcirculação coclear"
+      ],
+      "dietoterapia": [
+        "Dieta mediterrânea — proteção cardiovascular (sinal de Frank)",
+        "Reduzir sal <2g/dia — controle da pressão arterial",
+        "Probióticos e prebióticos — disbiose e coceira de ouvido",
+        "Eliminar açúcar e laticínios — candidíase e coceira",
+        "Mirtilo, romã, uva roxa — polifenóis protetores cardiovasculares"
+      ],
+      "estilo_vida": [
+        "Proteção auditiva em ambientes ruidosos — prevenção de zumbido",
+        "Monitorar PA em casa — hipertensão e orelhas vermelhas",
+        "Reduzir cafeína — pode agravar zumbido",
+        "Exercício aeróbico regular — circulação e saúde cardiovascular",
+        "Higiene: limpar apenas a parte externa do ouvido, nunca cotonete interno"
+      ],
+      "orientacoes": [
+        "Sinal de Frank (vinco no lóbulo): solicitar lipidograma, ECG, Lp(a), PCR-us",
+        "Zumbido pulsátil: otorrinolaringologista + doppler de carótidas + PA",
+        "Orelhas vermelhas persistentes: monitorar PA, cortisol salivar",
+        "Coceira crônica refratária: investigar candidíase sistêmica e alergias alimentares",
+        "Perda auditiva súbita: audiologista em 24-48h (janela terapêutica)"
+      ],
+      "contraindicacoes": [
+        "Ginkgo biloba: anticoagulantes, gestantes, epilepsia, 2 semanas antes de cirurgia",
+        "Niacina (B3): hepatopatia crônica, úlcera péptica ativa, gota — pode elevar ácido úrico; causa rubor (flushing) com nicotinic acid — preferir niacinamida para menos efeitos",
+        "Ferro quelado: hemocromatose; não combinar com antibióticos quinolonas ou tetraciclinas sem 2h de espaçamento",
+        "Zinco >40mg/dia crônico: depleção de cobre, inibição de ferro",
+        "Própolis: alergia a própolis e abelhas"
+      ]
+    }
+  },
+  {
+    "id": "sc-unhas-avisando",
+    "categoria": "Sinais nas Unhas",
+    "emoji": "💅",
+    "title": "Suas Unhas estão Avisando — Sinais de Saúde",
+    "image": "unhas-avisando.jpg",
+    "sinais": [
+      "Manchas brancas nas unhas (→ Deficiência de Zinco ou pequeno trauma)",
+      "Unhas amareladas (→ Infecção fúngica ou problema na tireoide)",
+      "Formato de colher / côncava / coiloníquia (→ Anemia grave por deficiência de ferro)",
+      "Linhas verticais nas unhas (→ Envelhecimento normal ou deficiência de B12)",
+      "Linhas horizontais / ranhuras / Linhas de Beau (→ Doença grave recente ou desnutrição)",
+      "Unhas azuladas ou roxeadas (→ Baixo oxigênio / problema cardíaco ou pulmonar)",
+      "Linha preta na unha (→ Aviso de Melanoma — procurar médico urgente)",
+      "Unhas descamando / friáveis (→ Desidratação ou deficiência de Biotina)",
+      "Unhas em baqueta / clubbing (→ Doença crônica pulmonar, cardíaca ou hepática)"
+    ],
+    "diagnostico": "As unhas são formadas por queratina e refletem o estado nutricional, metabólico e sistêmico ao longo de meses. Coiloníquia (forma de colher) é patognomônica de anemia ferropriva grave. Unhas azuladas (cianose periférica) indicam hipóxia — emergência se aguda. Linha preta longitudinal (melanoniquía) deve sempre ser avaliada dermatologicamente — pode ser melanoma subungueal. Unhas em baqueta (clubbing) indicam doença pulmonar crônica (DPOC, fibrose), cardiopatia cianótica ou cirrose. Linhas de Beau (sulcos horizontais) marcam o momento de um estresse sistêmico grave.",
+    "condutas": {
+      "fitoterapia": [
+        "Equisetum arvense (cavalinha) — sílica orgânica para fortalecimento de unhas",
+        "Urtica dioica (urtiga) — ferro, minerais e queratina",
+        "Própolis tópico 11% — antifúngico natural para onicomicose",
+        "Tea tree oil diluído 5% — antifúngico tópico para unhas amareladas"
+      ],
+      "suplementacao": [
+        "Zinco quelado 30-50mg — manchas brancas e imunidade das unhas",
+        "Biotina 5-10mg/dia — unhas frágeis, quebradiças e descamando",
+        "Ferro bisglicinato + vitamina C (coiloníquia) — reposição de ferro",
+        "Vitamina B12 (metilcobalamina) 1000mcg — linhas verticais e neuropatia",
+        "Colágeno hidrolisado 10g/dia — estrutura da matriz ungueal",
+        "Ômega-3 EPA+DHA — hidratação e inflamação das unhas"
+      ],
+      "dietoterapia": [
+        "Gelatina natural e caldo de ossos — colágeno para estrutura ungueal",
+        "Ovos, sementes e leguminosas — biotina, zinco e proteínas",
+        "Carnes magras e folhas verde-escuras + vitamina C — ferro biodisponível",
+        "Hidratação 35ml/kg/dia — unhas descamando e ressecadas",
+        "Reduzir álcool — depleta zinco, B12 e biotina"
+      ],
+      "estilo_vida": [
+        "Usar luvas ao lavar louça ou usar produtos químicos",
+        "Hidratante com ureia 10% nas unhas e cutículas",
+        "Evitar acetona frequente — resseca e fragiliza a lâmina ungueal",
+        "LINHA PRETA NA UNHA: dermatologista urgente",
+        "UNHAS AZULADAS AGUDAS: emergência — oximetria imediata"
+      ],
+      "orientacoes": [
+        "Linha preta subungueal: biópsia ungueal urgente (melanoma subungueal)",
+        "Unhas azuladas: oximetria de pulso imediata; SpO2 <94% → emergência",
+        "Clubbing: Rx de tórax, espirometria, ecocardiograma",
+        "Coiloníquia: hemograma, ferritina, ferro sérico",
+        "Onicomicose resistente a tópico: encaminhar ao dermatologista para sistêmico"
+      ],
+      "contraindicacoes": [
+        "URGÊNCIA — linha preta subungueal: não iniciar protocolo fitoterápico antes de avaliação dermatológica",
+        "URGÊNCIA — unhas azuladas agudas: emergência cardiopulmonar — não aguardar",
+        "Ferro bisglicinato: hemocromatose; confirmar ferritina + CTLF antes",
+        "Biotina >10mg/dia: interfere em exames de TSH, troponina, beta-hCG — suspender 24h antes de exames",
+        "Tea tree oil tópico: tóxico se ingerido; não usar puro — diluir 5-10% em óleo carreador"
+      ]
+    }
+  },
+  {
+    "id": "sc-lingua-homeopatia",
+    "categoria": "Língua e Digestão",
+    "emoji": "🌿",
+    "title": "A Língua Fala — Leitura Funcional e Homeopática",
+    "image": "sinais-lingua.jpg",
+    "sinais": [
+      "Aspecto saudável: língua rosada, úmida, sem saburra ou fissuras",
+      "Camada branca persistente / saburra (→ Desequilíbrio da microbiota / disbiose)",
+      "Coloração muito clara ou pálida (→ Baixa oxigenação / anemia / deficiência de ferro ou B12)",
+      "Tom amarelado na língua (→ Sobrecarga metabólica / fígado / resistência insulínica)",
+      "Rachaduras ou fissuras (→ Desidratação / estresse crônico / alterações digestivas)",
+      "Inchaço ou marcas laterais de dentes (→ Hipotireoidismo / inflamação / retenção hídrica)",
+      "Vermelha brilhante e sensível (→ Inflamação sistêmica / déficit de vitaminas)",
+      "Escurecida ou acinzentada (→ Antibióticos frequentes / tabagismo / metais pesados)"
+    ],
+    "diagnostico": "A língua é um órgão altamente vascularizado e de renovação celular rápida. Na medicina funcional e na MTC, é o espelho do estado digestivo e metabólico global. Saburra branca persistente indica disbiose intestinal. Língua pálida é marcador de anemia — deficiência de ferro, B12 ou folato. Língua amarela indica calor-umidade no estômago e intestinos (MTC) — estase hepática, SIBO e resistência insulínica. Fissuras crônicas ligam-se ao estresse crônico e desidratação. Língua inchada com marcas de dentes: acúmulo de fluídos — hipotireoidismo ou insuficiência renal. Língua vermelha brilhante sem saburra: inflamação crônica e esgotamento.",
+    "condutas": {
+      "fitoterapia": [
+        "Antimonium crudum (homeopático) — saburra branca espessa e digestão lenta",
+        "Nux vomica (homeopático) — língua amarelada posterior com toxemia digestiva",
+        "Bryonia alba (homeopático) — língua seca, castanha ou rachada por desidratação",
+        "Mercurius solubilis (homeopático) — língua flácida com marcas de dentes",
+        "Curcuma longa + Cynara scolymus — detox hepático e digestão",
+        "Probióticos + Saccharomyces boulardii — disbiose e saburra"
+      ],
+      "suplementacao": [
+        "Vitamina B12 (metilcobalamina) 1000mcg — língua pálida/clara e neuropatia",
+        "Ferro quelado + vitamina C — língua pálida com anemia",
+        "Zinco quelado 30mg — imunidade da mucosa oral",
+        "Vitamina B2 (riboflavina) 50mg — língua sensível e fissuras",
+        "Ácido fólico 800mcg — úlceras orais e língua pálida",
+        "Probióticos de amplo espectro — microbiota oral e intestinal",
+        "Magnésio glicinato 400mg — língua tensa e fissuras por estresse"
+      ],
+      "dietoterapia": [
+        "Eliminar açúcar e farináceos refinados — saburra e disbiose",
+        "Aumentar hidratação: 35ml/kg/dia — fissuras e ressecamento",
+        "Probióticos alimentares: kefir, iogurte natural, kombucha",
+        "Vegetais fermentados — microbiota saudável",
+        "Reduzir álcool e cigarro — língua escurecida e acinzentada",
+        "Chá de erva-cidreira e hortelã-pimenta — digestão e mucosa oral"
+      ],
+      "estilo_vida": [
+        "Raspagem lingual com raspador de língua ao acordar — higiene e detox",
+        "Óleo pulling (bochechar óleo de coco 10-15min) — detox oral e microbiota",
+        "Não fumar — principal causa de língua escurecida e leucoplasia",
+        "Hidratação regular ao longo do dia",
+        "Reduzir estresse — língua tensa com fissuras e marcas de dentes"
+      ],
+      "orientacoes": [
+        "Saburra espessa persistente: investigar SIBO, H. pylori, disbiose",
+        "Língua pálida: hemograma, ferritina, vitamina B12, folato",
+        "Língua inchada com marcas de dentes: TSH, creatinina, albumina",
+        "Língua vermelha lisa (glossite atrófica): B12, B2, ferro — urgente",
+        "Manchas brancas não removíveis: encaminhar ao dentista (leucoplasia)",
+        "Língua assimétrica ou com massa: avaliação médica urgente"
+      ],
+      "contraindicacoes": [
+        "Homeopáticos (Antimonium crudum, Nux vomica, Bryonia, Mercurius): contraindicação absoluta rara; cautela em hipersensibilidade ao veículo (lactose ou álcool)",
+        "Zinco quelado >50mg/dia: depleção de cobre, inibição de absorção de ferro",
+        "Vitamina B2 (riboflavina): urina amarelo-intensa normal; segura; rara hipersensibilidade",
+        "Probióticos: imunossuprimidos graves (sepse, pós-transplante) — usar sob orientação médica",
+        "Ácido fólico >1mg/dia: pode mascarar anemia megaloblástica por B12 — dosar B12 antes"
+      ]
+    }
+  },
+  {
+    "id": "sc-disturbios-unhas-clinico",
+    "categoria": "Sinais nas Unhas",
+    "emoji": "🔬",
+    "title": "Sinais e Distúrbios das Unhas — Referência Clínica",
+    "image": "disturbios-unhas-clinico.jpg",
+    "sinais": [
+      "Linhas de Beau (sulcos horizontais profundos) (→ Estresse físico grave, doença sistêmica recente, quimioterapia)",
+      "Onicorrexe (linhas longitudinais com fragilidade) (→ Envelhecimento, tireoide, deficiência de B12)",
+      "Traquioníquia (unhas rugosas como lixa) (→ Líquen plano, alopecia areata, psoríase)",
+      "Onicosquizia (unhas em camadas / laminação) (→ Desidratação, acetona frequente, deficiência de ferro)",
+      "Onicólise (separação da lâmina do leito) (→ Hipotireoidismo, psoríase, infecção fúngica, trauma)",
+      "Hemorragias em estilhaço (→ Endocardite bacteriana, vasculite, trauma local)",
+      "Pontilhado psoriático / pitting (→ Psoríase, artrite psoriática)",
+      "Unhas de Terry (base branca, extremidade rosa) (→ Cirrose, insuficiência cardíaca ou renal)",
+      "Baqueteamento digital / clubbing (→ DPOC, fibrose pulmonar, cardiopatia cianótica, cirrose)",
+      "Coiloníquia / formato colher (→ Anemia ferropriva grave, hemocromatose)",
+      "Sinal de Hutchinson / linha preta subungueal (→ Melanoma subungueal — URGENTE)",
+      "Síndrome da unha amarela (→ Linfedema, doenças respiratórias crônicas)"
+    ],
+    "diagnostico": "Os distúrbios ungueais são sinais clínicos de alta relevância diagnóstica. Hemorragias em estilhaço múltiplas sem trauma são alerta para endocardite bacteriana subaguda. Unhas de Terry (2/3 brancos + 1/3 rosa) indicam albumina baixa — cirrose, ICC ou IR. Baqueteamento digital com ângulo de Lovibond >180° indica hipóxia tecidual crônica — DPOC ou fibrose pulmonar. Onicólise bilateral sem trauma deve levantar suspeita de hipotireoidismo. Pitting associado a artralgia indica artrite psoriática. Sinal de Hutchinson (pigmento escuro que se estende da matriz às dobras ungueais) é sinal de melanoma subungueal — emergência dermatológica.",
+    "condutas": {
+      "fitoterapia": [
+        "Equisetum arvense (cavalinha) — sílica e fortalecimento ungueal",
+        "Uncaria tomentosa (Unha-de-gato) — imunomodulação (psoríase, líquen plano)",
+        "Silybum marianum — hepatoproteção (unhas de Terry / cirrose)",
+        "Curcuma longa — anti-inflamatório (artrite psoriática)",
+        "Própolis + Tea tree oil tópico — onicomicose"
+      ],
+      "suplementacao": [
+        "Ferro bisglicinato + vitamina C — coiloníquia e anemia ferropriva",
+        "Vitamina B12 (metilcobalamina) — onicorrexe e neuropatia",
+        "Biotina 10mg/dia — onicosquizia e fragilidade",
+        "Zinco 50mg — imunidade e formação da matriz ungueal",
+        "Vitamina D3 + K2 — regulação imune (psoríase, líquen plano)",
+        "Colágeno hidrolisado 10g + vitamina C — estrutura da lâmina",
+        "Ômega-3 EPA+DHA 3g — anti-inflamatório psoríase e sistêmico"
+      ],
+      "dietoterapia": [
+        "Dieta anti-inflamatória — psoríase, líquen plano e condições autoimunes",
+        "Testar eliminar glúten 60 dias — psoríase frequentemente associada",
+        "Proteína de qualidade 1,5-2g/kg/dia — síntese de queratina",
+        "Gelatina, caldo de ossos — colágeno e estrutura ungueal",
+        "Vegetais fermentados e probióticos — microbiota e autoimunidade"
+      ],
+      "estilo_vida": [
+        "SINAL DE HUTCHINSON: dermatologista urgente — melanoma subungueal",
+        "UNHAS DE TERRY + ICTERÍCIA: emergência hepática",
+        "HEMORRAGIAS EM ESTILHAÇO MÚLTIPLAS: hemocultura urgente (endocardite)",
+        "Luvas de proteção em tarefas úmidas",
+        "Hidratante de ureia 10% para onicosquizia"
+      ],
+      "orientacoes": [
+        "Sinal de Hutchinson: biópsia ungueal urgente",
+        "Unhas de Terry: albumina, TGO, TGP, creatinina, pro-BNP",
+        "Hemorragias em estilhaço múltiplas: hemocultura, ecocardiograma",
+        "Onicólise: TSH, T4 livre (hipotireoidismo), cultura fúngica",
+        "Pitting ungueal + artralgia: encaminhar reumatologista (artrite psoriática)",
+        "Clubbing progressivo: Rx tórax, espirometria, ecocardiograma"
+      ],
+      "contraindicacoes": [
+        "URGÊNCIA — Sinal de Hutchinson (linha preta): biópsia ungueal IMEDIATA — não iniciar protocolo sem avaliação",
+        "URGÊNCIA — Hemorragias em estilhaço múltiplas: hemocultura (endocardite bacteriana)",
+        "Uncaria tomentosa (Unha-de-gato): gestantes, lactantes, imunossuprimidos (transplantados)",
+        "Vitamina D3 + K2: cautela com anticoagulantes cumarínicos (K2 antagoniza varfarina)",
+        "Ômega-3 EPA+DHA >3g: anticoagulantes — risco de sangramento; suspender 7 dias antes de cirurgia"
+      ]
+    }
+  },
+  {
+    "id": "sc-palma-mao",
+    "categoria": "Sinais nas Mãos",
+    "emoji": "✋",
+    "title": "Palmas das Mãos — Fígado, Circulação e Carências",
+    "image": "palma-mao.jpg",
+    "sinais": [
+      "Eritema palmar (avermelhamento das palmas)",
+      "Palidez acentuada nas palmas e polpas dos dedos",
+      "Dedos em baqueta de tambor (clubbing)",
+      "Tremor fino de repouso ou postural",
+      "Hiperhidrose palmar (suor excessivo)",
+      "Linhas palmares escurecidas / hiperpigmentadas",
+      "Pele seca e descamativa nas mãos",
+      "Articulações dos dedos inchadas / nodosas",
+      "Petéquias ou hemorragias subungueais",
+      "Xantomas tendinosos nas mãos",
+      "Mãos frias com cianose periférica",
+      "Nódulos de Heberden ou Bouchard"
+    ],
+    "diagnostico": "As palmas são espelho do estado hepático, hematológico e neurológico. Eritema palmar indica sobrecarga hepática, cirrose ou hipertireoidismo. Palidez sugere anemia ferropriva ou megaloblástica. Dedos em baqueta relacionam-se a hipóxia crônica, doença inflamatória intestinal ou endocardite. Hiperhidrose palmar aponta para disfunção autonômica, ansiedade ou hipertireoidismo. Mãos frias com cianose apontam para insuficiência circulatória periférica ou doença de Raynaud.",
+    "condutas": {
+      "fitoterapia": [
+        "Silybum marianum (cardo-mariano) 140mg silimarina 3x/dia com refeições — hepatoprotetor (eritema palmar por sobrecarga hepática); duração: 90 dias",
+        "Taraxacum officinale (dente-de-leão) 300mg extrato seco 2x/dia — depurativo hepático e diurético suave; duração: 60 dias",
+        "Ginkgo biloba 120mg extrato padronizado 2x/dia — melhora circulação periférica (mãos frias, cianose); contraindicado com anticoagulantes",
+        "Passiflora incarnata 200mg 2x/dia — ansiolítico para hiperhidrose por ansiedade; duração: 30-60 dias",
+        "Equisetum arvense (cavalinha) 300mg 2x/dia — remineralizante e tônico da pele seca; duração: 60 dias"
+      ],
+      "suplementacao": [
+        "Ferro bisglicinato 30-60mg/dia em jejum + Vitamina C 500mg — anemia (palmas pálidas); duração: 90-180 dias conforme ferritina",
+        "Vitamina B12 1000mcg/dia sublingual — anemia megaloblástica, tremores; duração: 90 dias",
+        "Zinco quelado 30mg/dia após jantar — integridade da pele e imunidade; duração: 60 dias",
+        "Vitamina E 400UI/dia com refeição gordurosa — circulação periférica e antioxidante",
+        "Coenzima Q10 100-200mg/dia — energia celular e saúde cardiovascular (mãos frias, cianose)",
+        "Magnésio glicinato 300-400mg/dia — relaxamento muscular, reduz tremor e ansiedade"
+      ],
+      "dietoterapia": [
+        "Alimentos ricos em ferro heme: fígado bovino, carne vermelha magra, atum — 3-4x/semana",
+        "Evitar álcool completamente (eritema palmar hepático)",
+        "Aumentar vegetais verde-escuros: espinafre, couve, rúcula (ferro + ácido fólico)",
+        "Ômega-3: sardinha, salmão, atum 3x/semana ou linhaça moída 30g/dia",
+        "Reduzir alimentos ultraprocessados e frituras (sobrecarga hepática)",
+        "Chá de gengibre 2x/dia — estimula circulação periférica"
+      ],
+      "estilo_vida": [
+        "Evitar exposição a agrotóxicos, solventes e álcool industrial",
+        "Exercício aeróbico moderado 150min/semana — melhora circulação",
+        "Técnicas de relaxamento: respiração diafragmática, meditação (hiperhidrose por ansiedade)",
+        "Hidratação corporal 35ml/kg/dia",
+        "Banhos de contraste nas mãos (quente-frio alternado) para circulação"
+      ],
+      "orientacoes": [
+        "Solicitar: Hemograma completo + ferro sérico + ferritina + vitamina B12",
+        "TSH + T4L para tremor/hiperhidrose",
+        "TGO + TGP + GGT + bilirrubinas para eritema palmar",
+        "Reavaliar em 30 dias; controle laboratorial em 90 dias",
+        "Encaminhar ao reumatologista se nódulos articulares"
+      ],
+      "contraindicacoes": [
+        "Silybum marianum: gestação (1º trimestre), alergia a Asteraceae, litíase biliar obstrutiva",
+        "Ginkgo biloba: anticoagulantes (varfarina, AAS, clopidogrel), ISRS, convulsões",
+        "Ferro: hemocromatose, talassemia — NÃO usar sem diagnóstico confirmado de deficiência",
+        "Vitamina E >400UI/dia: anticoagulantes — risco de sangramento; suspender 7 dias pré-cirurgia",
+        "Coenzima Q10: potencializa anticoagulantes — monitorar INR"
+      ]
+    }
+  },
+  {
+    "id": "sc-pele-corporal",
+    "categoria": "Pele Corporal",
+    "emoji": "🩹",
+    "title": "Pele Corporal — Sinais Sistêmicos na Pele",
+    "image": "pele-corporal.jpg",
+    "sinais": [
+      "Acantose nigricans (escurecimento em pescoço, axilas, virilha)",
+      "Icterícia cutânea (pele amarelada)",
+      "Cianose central ou periférica (pele azulada)",
+      "Urticária crônica espontânea (> 6 semanas)",
+      "Psoríase em placas (placas avermelhadas com escamas prateadas)",
+      "Eczema/dermatite atópica (descamação, coceira, liquenificação)",
+      "Ceratose pilar (bolinhas nos braços e coxas)",
+      "Estrias violáceas / avermelhadas recentes",
+      "Petéquias e equimoses espontâneas",
+      "Vitiligo (manchas brancas despigmentadas)",
+      "Rash eritematoso em borboleta (malar)",
+      "Xantomas cutâneos (depósitos gordurosos amarelados)",
+      "Pele acinzentada ou terrosa generalizada",
+      "Líquen plano (pápulas violáceas brilhantes)"
+    ],
+    "diagnostico": "Acantose nigricans é marcador de resistência insulínica e hiperinsulinemia — rastrear síndrome metabólica. Vitiligo associa-se a autoimunidade (Hashimoto, DM tipo 1). Petéquias espontâneas alertam para trombocitopenia ou vasculite. Rash malar em borboleta é característico do lúpus eritematoso sistêmico (LES). Estrias violáceas largas podem indicar hipercortisolismo (síndrome de Cushing). Xantomas revelam dislipidemia grave.",
+    "condutas": {
+      "fitoterapia": [
+        "Curcuma longa 500mg 3x/dia com pimenta-preta (piperina 5mg) — anti-inflamatório sistêmico (psoríase, eczema, LES); duração: 90 dias",
+        "Uncaria tomentosa (unha-de-gato) 300mg 2x/dia — imunomodulador em condições autoimunes (vitiligo, LES); duração: 60 dias",
+        "Arctium lappa (bardana) 300mg 2x/dia — depurativo cutâneo e anti-inflamatório; duração: 60 dias",
+        "Aloe vera gel 200mg extrato 2x/dia — cicatrizante, anti-inflamatório em eczema; uso tópico complementar",
+        "Silybum marianum 140mg silimarina 3x/dia — hepatoprotetor em icterícia e dislipidemia"
+      ],
+      "suplementacao": [
+        "Vitamina D3 5000-10000UI/dia — imunomodulador fundamental em psoríase, vitiligo e LES; ajustar conforme 25-OH-D3",
+        "Ômega-3 EPA+DHA 3g/dia — anti-inflamatório sistêmico em psoríase e eczema",
+        "Zinco quelado 30-50mg/dia — imunidade, cicatrização e regulação autoimune",
+        "Vitamina A 5000-10000UI/dia — regeneração epitelial em ceratose pilar e eczema",
+        "Selênio 100-200mcg/dia — antioxidante, essencial em doenças autoimunes",
+        "Quercetina 500mg 2x/dia — anti-histamínico natural (urticária) e anti-inflamatório",
+        "Berberina 500mg 2-3x/dia — resistência insulínica (acantose nigricans), comparável à metformina",
+        "Probióticos: Lactobacillus rhamnosus + L. acidophilus 10-20 bilhões UFC/dia — eixo intestino-pele"
+      ],
+      "dietoterapia": [
+        "Dieta anti-inflamatória mediterrânea como base",
+        "Excluir glúten 30-60 dias (eczema, psoríase, LES — protocolo eliminação)",
+        "Excluir laticínios 30 dias (eczema atópico — caseína inflamatória)",
+        "Reduzir açúcar e carboidratos refinados (acantose nigricans / resistência insulínica)",
+        "Aumentar vegetais coloridos (carotenoides, polifenóis)",
+        "Cúrcuma + gengibre diariamente em sucos ou refeições",
+        "Evitar alimentos processados com corantes e conservantes (urticária)"
+      ],
+      "estilo_vida": [
+        "Fotoproteção FPS 50+ diária (vitiligo, lúpus — fotossensibilidade)",
+        "Hidratante corporal com ceramidas 2x/dia (eczema, ceratose pilar)",
+        "Gestão do estresse: psoríase e urticária se agravam com cortisol elevado",
+        "Banhos mornos (não quentes) e curtos em eczema",
+        "Roupas de algodão orgânico em contato com pele sensível"
+      ],
+      "orientacoes": [
+        "Acantose nigricans: solicitar glicemia jejum + insulina + HOMA-IR + perfil lipídico",
+        "Rash malar: ANA + anti-DNA dupla fita + complemento (C3/C4) — rastrear LES",
+        "Vitiligo: TSH + anti-TPO (Hashimoto), glicemia (DM1)",
+        "Petéquias: hemograma urgente (plaquetometria) + coagulograma",
+        "Estrias violáceas largas: cortisol urinário 24h + ACTH",
+        "Encaminhar dermatologista para lesões suspeitas ou diagnóstico duvidoso"
+      ],
+      "contraindicacoes": [
+        "Vitamina A >10000UI/dia: teratogênica — CONTRAINDICADA na gestação; hepatotóxica em dose alta crônica",
+        "Uncaria tomentosa: gestação, imunossupressores, transplantados",
+        "Selênio >400mcg/dia: toxicidade (selenose) — queda de cabelo, neuropatia",
+        "Berberina: gestação, amamentação, não associar a imunossupressores sem monitoramento",
+        "Quercetina: anticoagulantes, hipotireoidismo (pode reduzir conversão T4→T3)"
+      ]
+    }
+  },
+  {
+    "id": "sc-cabelo-couro",
+    "categoria": "Cabelo e Couro Cabeludo",
+    "emoji": "💇",
+    "title": "Cabelo e Couro Cabeludo — Carências e Alterações Hormonais",
+    "image": "cabelo-couro.jpg",
+    "sinais": [
+      "Queda difusa de cabelo (eflúvio telógeno)",
+      "Alopecia em placas bem delimitadas (areata)",
+      "Recessão frontal / entradas (androgenética)",
+      "Cabelos finos, opacos e sem brilho",
+      "Cabelos quebradiços e ressecados",
+      "Pontas duplas excessivas",
+      "Canície precoce (embranquecimento antes dos 30 anos)",
+      "Caspa seca excessiva (pitiriase)",
+      "Caspa oleosa com aderência (dermatite seborreica)",
+      "Couro cabeludo eritematoso e descamativo",
+      "Foliculite no couro cabeludo",
+      "Ausência de pelos nas sobrancelhas / cílios",
+      "Tricorrexia nodosa (nódulos visíveis no fio)"
+    ],
+    "diagnostico": "A queda capilar difusa é o sinal mais frequente de hipotireoidismo, deficiência de ferritina (<30ng/mL), zinco ou vitamina D. A alopecia areata é autoimune (Th1). Dermatite seborreica envolve Malassezia furfur e inflamação cutânea. Canície precoce associa-se a deficiência de B12, cobre e estresse oxidativo crônico. Cabelo sem brilho e quebradiço aponta para deficiência proteica, biotina ou ômega-3.",
+    "condutas": {
+      "fitoterapia": [
+        "Serenoa repens (palmeira-anã) 160mg 2x/dia — antiandrogênico em alopecia androgenética; duração: 6 meses",
+        "Panax ginseng 200mg extrato padronizado (ginsenosídeos 5%)/dia — adaptógeno e estimulante capilar; duração: 90 dias",
+        "Urtica dioica (urtiga) 300mg 2x/dia — rico em sílica, ferro e vitaminas capilares; duração: 60 dias",
+        "Arctium lappa (bardana) 300mg 2x/dia — antifúngico em caspa seborreica, antipruriginoso",
+        "Melaleuca alternifolia (tea tree) 5% xampú tópico — antifúngico efetivo contra Malassezia (caspa); uso 3x/semana"
+      ],
+      "suplementacao": [
+        "Biotina (vitamina B7) 5000-10000mcg/dia — fortalecimento do fio; ATENÇÃO: avisa laboratório pois pode interferir nos exames",
+        "Ferro bisglicinato 30-60mg/dia + Vitamina C 500mg (ferritina <30ng/mL = causa queda capilar)",
+        "Zinco quelado 30-50mg/dia — crescimento e ciclo capilar (fase anágena); duração: 90 dias",
+        "Vitamina D3 5000-10000UI/dia — ativação de folículos pilosos; ajustar conforme exame",
+        "Cobre 2mg/dia — melanina e pigmentação do fio (canície precoce); não associar com zinco alto",
+        "Colágeno hidrolisado tipo I + III 10g/dia — matriz extracelular do fio",
+        "Ômega-3 EPA+DHA 2g/dia — brilho, elasticidade e hidratação do fio",
+        "Vitamina B12 1000mcg/dia sublingual — canície precoce e metabolismo do folículo"
+      ],
+      "dietoterapia": [
+        "Proteína 1,5-2g/kg/dia: ovos, peixe, frango, leguminosas — os fios são 95% queratina",
+        "Ovos inteiros 2/dia — biotina, luteína, proteínas completas",
+        "Sementes de abóbora 30g/dia — zinco, magnésio e ácidos graxos",
+        "Vegetais verde-escuros: espinafre, couve (ferro não-heme + ácido fólico)",
+        "Nozes e amêndoas — biotina, vitamina E, selênio",
+        "Evitar dietas restritivas com calorias muito baixas (<1200kcal) — causa eflúvio telógeno"
+      ],
+      "estilo_vida": [
+        "Massagem capilar 5 min/dia com ponta dos dedos — aumenta circulação folicular",
+        "Evitar calor excessivo de chapinha/secador >150°C",
+        "Escovar cabelo seco (úmido é mais frágil e quebra)",
+        "Trocar fronha para material de cetim — reduz atrito noturno",
+        "Gestão do estresse: eflúvio telógeno é diretamente causado por estresse agudo/crônico",
+        "Dormir 7-9h/noite — GH noturno estimula crescimento capilar"
+      ],
+      "orientacoes": [
+        "Solicitar: TSH + T4L (hipotireoidismo); Hemograma + ferritina + zinco sérico + vitamina D",
+        "DHEA-S + testosterona livre + prolactina (alopecia androgenética feminina)",
+        "ANA + anti-TPO (alopecia areata — autoimunidade)",
+        "Tricoscopia: dermatologista para diagnóstico diferencial das alopecias",
+        "Biotina exógena interfere nos exames: suspender 48-72h antes de coleta de TSH, troponina"
+      ],
+      "contraindicacoes": [
+        "Serenoa repens: gestação e amamentação; pode interfere com anticoagulantes e hormônios",
+        "Cobre >3mg/dia: toxicidade — náuseas, vômitos, dano hepático; não associar com zinco em alta dose",
+        "Ferro: hemocromatose — CONTRAINDICADO sem deficiência confirmada",
+        "Biotina alta dose: pode falsear exames de TSH, troponina e hormônios — avisar laboratório",
+        "Zinco >50mg/dia: reduz absorção de cobre; pode causar náuseas se tomado sem alimento"
+      ]
+    }
+  },
+  {
+    "id": "sc-dentes-gengiva",
+    "categoria": "Saúde Oral",
+    "emoji": "🦷",
+    "title": "Dentes e Gengivas — Saúde Oral Sistêmica",
+    "image": "dentes-gengiva.jpg",
+    "sinais": [
+      "Gengivas inflamadas com sangramento fácil",
+      "Gengivas retraídas com exposição do colo dentário",
+      "Gengivas pálidas (mucosa oral pálida)",
+      "Candidíase oral (placas brancas removíveis)",
+      "Aftas recorrentes (úlceras aftosas)",
+      "Halitose (mau hálito persistente)",
+      "Bruxismo (desgaste acentuado das cúspides)",
+      "Erosão do esmalte dentário",
+      "Língua geográfica (áreas irregulares de descamação)",
+      "Queilite angular (feridas nos cantos da boca)",
+      "Manchas esbranquiçadas na mucosa (leucoplasia)",
+      "Petéquias na mucosa oral",
+      "Xerostomia (boca seca persistente)",
+      "Dentes com hipersensibilidade acentuada"
+    ],
+    "diagnostico": "Sangramento gengival espontâneo pode indicar deficiência de vitamina C (escorbuto subclínico), distúrbio de coagulação ou periodontite severa. Aftas recorrentes relacionam-se a deficiência de B12, ácido fólico, ferro e doença celíaca. Candidíase oral ocorre em imunodepressão, uso de antibióticos e diabetes descontrolada. Queilite angular é clássica de deficiência de riboflavina (B2) e zinco. Bruxismo associa-se a estresse, apneia do sono e deficiência de magnésio. Xerostomia é efeito colateral de mais de 500 medicamentos e indica síndrome de Sjögren.",
+    "condutas": {
+      "fitoterapia": [
+        "Calendula officinalis tintura — bochechos: 5ml em 200ml água morna 3x/dia após escovação — cicatrizante e anti-inflamatório gengival; duração: 21 dias",
+        "Própolis solução aquosa 30% — bochechos 10ml 2x/dia — antibacteriano e antifúngico oral amplo espectro; duração: 14-21 dias",
+        "Thymus vulgaris (tomilho) chá — bochechos 2x/dia — antisséptico oral, eficaz em halitose",
+        "Aloe vera gel puro — aplicar diretamente nas gengivas com cotonete 2x/dia — anti-inflamatório e cicatrizante",
+        "Óleo de coco virgem — oil pulling 10ml por 15-20min em jejum 3x/semana — reduz Streptococcus mutans"
+      ],
+      "suplementacao": [
+        "Vitamina C 1000-2000mg/dia — colágeno gengival, sangramento e imunidade oral; duração: 90 dias",
+        "Vitamina B12 1000mcg/dia sublingual — aftas recorrentes, glossite, queilite",
+        "Ácido fólico 400-800mcg/dia — saúde da mucosa oral; sempre associar com B12",
+        "Zinco quelado 30mg/dia — cicatrização, imunidade e queilite angular",
+        "Vitamina D3 5000UI/dia — microbioma oral, imunidade gengival e antimicrobiano",
+        "Coenzima Q10 100mg/dia — saúde gengival e mitocôndria periodontal; duração: 60 dias",
+        "Magnésio glicinato 400mg à noite — bruxismo e qualidade do sono",
+        "Probióticos orais específicos: Lactobacillus reuteri DSM 17938 + ATCC PTA 5289 100M UFC 2x/dia — modulação do microbioma oral"
+      ],
+      "dietoterapia": [
+        "Reduzir açúcar livre a <25g/dia (principal fator de risco para cárie e inflamação gengival)",
+        "Aumentar frutas cítricas e pimentão vermelho (vitamina C para colágeno gengival)",
+        "Mastigar bem os alimentos (estimula saliva e autolimpeza oral)",
+        "Beber água entre as refeições (previne xerostomia e halitose)",
+        "Evitar bebidas ácidas frequentes: suco de limão, refrigerante, vinagre (erosão do esmalte)",
+        "Alimentos fibrosos crus: maçã, cenoura, aipo — limpeza mecânica natural dos dentes"
+      ],
+      "estilo_vida": [
+        "Escovação 2x/dia mínimo (especialmente antes de dormir) com técnica de Bass modificada",
+        "Fio dental 1x/dia — remove biofilme interdental inacessível à escova",
+        "Protetor oclusal noturno moldado pelo dentista (bruxismo)",
+        "Parar de fumar — tabagismo é o principal fator de risco para periodontite grave",
+        "Profilaxia e raspagem profissional a cada 6 meses",
+        "Reduzir álcool (ressequimento de mucosa e candidíase recorrente)"
+      ],
+      "orientacoes": [
+        "Triagem para diabetes: glicemia jejum + HbA1c (candidíase oral recorrente)",
+        "Solicitar sorologias celíacas: anti-transglutaminase IgA + IgA total (aftas com diarreia)",
+        "Hemograma + vitamina B12 + folato + ferro em aftas recorrentes",
+        "Leucoplasia persistente >2 semanas: biópsia incisional obrigatória (risco de carcinoma)",
+        "Encaminhar ao periodontista se bolsas periodontais >4mm ou mobilidade dentária",
+        "Xerostomia severa: investigar síndrome de Sjögren (anti-SSA/SSB, biópsia de glândula)"
+      ],
+      "contraindicacoes": [
+        "Própolis: alergia a produtos apícolas (mel, cera de abelha, geleia real) — CONTRAINDICADO",
+        "Vitamina C >2g/dia: cálculos renais de oxalato em predispostos; diarreia osmótica",
+        "Ácido fólico isolado em alta dose: pode mascarar deficiência de B12 — sempre associar",
+        "Coenzima Q10: potencializa anticoagulantes — monitorar INR se uso de varfarina",
+        "Magnésio: insuficiência renal grave (creatinina >2mg/dL) — risco de hipermagnesemia"
+      ]
+    }
+  },
+  {
+    "id": "sc-olhos-esclera",
+    "categoria": "Sinais nos Olhos",
+    "emoji": "👁️",
+    "title": "Esclera e Branco dos Olhos — Fígado, Anemia e Tireoide",
+    "image": "olhos-esclera.jpg",
+    "sinais": [
+      "Esclera amarelada (icterícia escleral)",
+      "Esclera azulada (osteogênese imperfeita / deficiência de ferro)",
+      "Arcus senilis (anel branco-acinzentado na periferia da córnea)",
+      "Xantelasmas nas pálpebras (depósitos amarelos gordurosos)",
+      "Hiperemia conjuntival (vasos vermelhos proeminentes)",
+      "Hemorragia subconjuntival (mancha vermelha na esclera)",
+      "Pterígio (membrana carnosa sobre a córnea)",
+      "Olhos secos com sensação de areia e queimação",
+      "Olheiras arroxeadas / escuras pronunciadas",
+      "Edema palpebral (pálpebras inchadas)",
+      "Conjuntiva pálida ao examinar pálpebra inferior (anemia)",
+      "Exoftalmia (olhos protusos — protrusão do globo ocular)",
+      "Ptose palpebral (queda de pálpebra)",
+      "Pinguécula (nódulo amarelado na conjuntiva)"
+    ],
+    "diagnostico": "A icterícia escleral é sinal precoce de hiperbilirrubinemia (>2mg/dL) por doença hepática, hemólise ou colestase — precede o amarelamento da pele. Xantelasmas e arcus senilis antes dos 50 anos correlacionam-se fortemente com dislipidemia aterogênica. Conjuntiva pálida ao puxar a pálpebra inferior é sinal clínico clássico de anemia. Exoftalmia é marcador de hipertireoidismo (doença de Graves — oftalmopatia). Olheiras crônicas associam-se a deficiência de ferro, alergias respiratórias e acúmulo de fluido periorbital.",
+    "condutas": {
+      "fitoterapia": [
+        "Silybum marianum 140-280mg silimarina 3x/dia — hepatoprotetor de primeira linha (icterícia hepática); duração: 90 dias",
+        "Vaccinium myrtillus (mirtilo/bilberry) 80-160mg antocianinas 2x/dia — proteção da retina, reduz vasos avermelhados; duração: 60 dias",
+        "Ginkgo biloba 120mg extrato EGb761 2x/dia — microcirculação ocular, olheiras, olho seco; NÃO usar com anticoagulantes",
+        "Curcuma longa 500mg 3x/dia — anti-inflamatório e hepatoprotetor (icterícia + dislipidemia)",
+        "Euphrasia officinalis (eufrásia) colírio ou chá — bochechos oculares (não internamente): anti-inflamatório conjuntival e olho seco"
+      ],
+      "suplementacao": [
+        "Astaxantina 6-12mg/dia — antioxidante ocular mais potente conhecido (retina, fadiga visual, olho seco); duração: 60-90 dias",
+        "Luteína 10-20mg/dia + Zeaxantina 2-4mg/dia — proteção macular; reduz risco de DMRI",
+        "Ômega-3 EPA+DHA 2-3g/dia — síndrome do olho seco (aumenta produção de lágrimas de qualidade)",
+        "Vitamina A 5000-10000UI/dia — saúde do epitélio conjuntival e córnea; essencial na cegueira noturna",
+        "Zinco quelado 25-30mg/dia — metabolismo da vitamina A ocular e imunidade",
+        "Vitamina C 1000mg/dia — integridade vascular ocular e síntese de colágeno escleral",
+        "Ferro bisglicinato 30-60mg + vitamina C (conjuntiva pálida / anemia / olheiras)",
+        "Riboflavina (B2) 400mg/dia — profilaxia de enxaqueca e saúde ocular"
+      ],
+      "dietoterapia": [
+        "Alimentos ricos em luteína e zeaxantina: gema de ovo, couve, espinafre, milho",
+        "Mirtilo e uva escura 1/2 xícara/dia — antocianinas para vasos oculares",
+        "Peixe azul 3x/semana: sardinha, salmão, atum (ômega-3 para olho seco)",
+        "Cenoura, batata-doce, manga (betacaroteno → vitamina A)",
+        "Reduzir gordura saturada e trans (xantelasmas / dislipidemia)",
+        "Evitar álcool completamente (hepatotoxicidade — icterícia)",
+        "Brócolis, couve-de-bruxelas — sulforafano e luteína"
+      ],
+      "estilo_vida": [
+        "Óculos de sol UV400 obrigatórios (pterígio, pinguécula, proteção macular)",
+        "Regra 20-20-20: a cada 20 minutos de tela, olhar para um ponto a 6 metros por 20 segundos",
+        "Piscar conscientemente durante uso de telas (reduz olho seco)",
+        "Lágrimas artificiais sem conservantes 4-6x/dia em olho seco severo",
+        "Compressas frias por 10min para olheiras e edema palpebral",
+        "Umidificador de ar no quarto — ambiente seco piora olho seco",
+        "Não fumar — aumenta risco de catarata, DMRI e doença ocular de Graves"
+      ],
+      "orientacoes": [
+        "Icterícia escleral: solicitar bilirrubina total e frações + TGO + TGP + GGT + fosfatase alcalina + USG abdominal URGENTE",
+        "Conjuntiva pálida: hemograma completo + ferro sérico + ferritina + B12 + folato",
+        "Xantelasmas / arcus senilis <50 anos: perfil lipídico completo (colesterol total, LDL, HDL, TG, Lp(a))",
+        "Exoftalmia: TSH + T4L + T3 + anticorpos anti-receptor TSH (TRAb) — investigar Graves",
+        "Encaminhar ao oftalmologista em qualquer alteração visual, dor ocular ou hemorragia subconjuntival recorrente",
+        "Pterígio >2mm sobre a córnea: avaliação cirúrgica oftalmológica"
+      ],
+      "contraindicacoes": [
+        "Ginkgo biloba: anticoagulantes, AAS, clopidogrel, ISRS — risco hemorrágico aumentado",
+        "Vitamina A >10000UI/dia: teratogênica na gestação — CONTRAINDICADO; hepatotóxica em dose alta crônica",
+        "Silybum marianum: obstrução biliar, alergia a Asteraceae",
+        "Ferro: hemocromatose, hemossiderose — NÃO usar sem deficiência confirmada",
+        "Riboflavina alta dose: pode tornar a urina amarelo-intensa (normal, não é toxicidade)"
+      ]
+    }
+  },
+  {
+    "id": "sc-escala-bristol",
+    "categoria": "Saúde Intestinal",
+    "emoji": "💩",
+    "title": "Escala de Bristol — Formato e Consistência das Fezes",
+    "image": "escala-bristol.jpg",
+    "sinais": [
+      "Tipo 1 — Pequenos pedaços duros separados (bolinhas duras como noz) — Constipação grave",
+      "Tipo 2 — Formato de linguiça endurecida e irregular — Constipação",
+      "Tipo 3 — Formato de linguiça com rachaduras na superfície — Normal (limite inferior)",
+      "Tipo 4 — Lisa, macia e alongada (cobra) — Ideal / Ótimo",
+      "Tipo 5 — Pedaços macios separados com bordas definidas — Trânsito acelerado",
+      "Tipo 6 — Fragmentos pastosos com bordas irregulares — Diarreia leve",
+      "Tipo 7 — Totalmente líquida, sem partes sólidas — Diarreia intensa",
+      "Fezes com sangue vivo (vermelho) — Hemorragia baixa",
+      "Fezes pretas como piche (melena) — Hemorragia alta ou uso de ferro/bismuto",
+      "Fezes com muco — Inflamação intestinal ou SII",
+      "Fezes pálidas / esbranquiçadas — Colestase, icterícia obstrutiva",
+      "Fezes com gordura (esteatorreia) — Má absorção, insuficiência pancreática",
+      "Alternância diarreia-constipação — Síndrome do Intestino Irritável (SII)",
+      "Urgência evacuatória intensa — Retocolite ulcerativa / Doença de Crohn",
+      "Dor ao evacuar / tenesmo — Fissura anal, hemorroidas, colite"
+    ],
+    "diagnostico": "A Escala de Bristol (1997, Lewis & Heaton) classifica as fezes em 7 tipos correlacionados ao tempo de trânsito intestinal. Tipos 1-2: constipação (trânsito lento, >72h). Tipos 3-4: padrão ideal (24-72h). Tipos 5-7: diarreia (trânsito acelerado, <24h). Sinais adicionais como sangue, muco, gordura e cor alterada são marcadores de patologias específicas que requerem investigação imediata.",
+    "condutas": {
+      "fitoterapia": [
+        "Psyllium (Plantago ovata) 5-10g/dia — fibra solúvel reguladora; normaliza tipos 1-2 E 5-6; tomar com bastante água",
+        "Senna alexandrina — laxante estimulante para tipos 1-2 (uso máximo 7-10 dias); 15-30mg sennosídeos à noite",
+        "Aloe vera 50-200mg extrato seco — laxante leve (constipação leve-moderada); evitar em gestação",
+        "Melissa officinalis + Mentha piperita — antiespasmódico intestinal para SII e cólicas (tipos 5-6)",
+        "Saccharomyces boulardii 5-10 bilhões UFC/dia — probiótico para diarreia associada a antibióticos (tipos 6-7)",
+        "Tormentil (Potentilla tormentilla) — adstringente intestinal, diarreia crônica (tipos 6-7); 300mg 3x/dia",
+        "Gengibre (Zingiber officinale) 250-500mg — antiemético e procinético leve; útil em trânsito lento"
+      ],
+      "suplementacao": [
+        "Magnésio quelado ou citrato 300-400mg/dia — amolece fezes (tipos 1-2), relaxa musculatura intestinal; dose laxante: 600-800mg",
+        "Probióticos multiestirpe 20-50 bilhões UFC — Lactobacillus + Bifidobacterium: normaliza flora em todos os tipos alterados; 60-90 dias",
+        "Glutamina 5-15g/dia — reparo da mucosa intestinal (tipos 6-7 crônicos, Crohn, retocolite)",
+        "Zinco quelado 20-30mg/dia — reduz duração e gravidade da diarreia infecciosa (OMS recomenda em diarreia aguda)",
+        "Vitamina D3 2000-5000UI/dia — modulação imune intestinal; deficiência relacionada a DII (Crohn, retocolite)",
+        "Ômega-3 EPA 1-3g/dia — anti-inflamatório intestinal; reduz atividade de DII",
+        "Berberina 500mg 2-3x/dia — antimicrobiana e reguladora intestinal (diarreia tipos 6-7 + disbiose)",
+        "Ferro bisglicinato 30mg/dia — apenas se fezes pretas por deficiência comprovada (verificar sangramento antes)"
+      ],
+      "dietoterapia": [
+        "Tipos 1-2 (Constipação): aumentar fibras insolúveis — farelo de trigo, sementes de linhaça, ameixa seca, kiwi",
+        "Tipos 1-2: hidratação 2,5-3L de água/dia; café e suco de ameixa têm efeito laxante natural",
+        "Tipos 6-7 (Diarreia): dieta BRAT — banana, arroz branco, maçã sem casca, torrada; evitar lactose e gordura",
+        "Tipos 6-7: caldo de ossos e arroz cozido repõem eletrólitos e protegem mucosa",
+        "SII (alternância): dieta Low FODMAP — reduzir trigo, cebola, alho, leite, feijão, maçã, pêra",
+        "Fezes com gordura: fracionar refeições, reduzir gordura total, enzimas digestivas com refeições",
+        "Todos os tipos: evitar ultraprocessados, corantes, adoçantes artificiais (sorbitol causa diarreia osmótica)",
+        "Fermentados naturais (kefir, iogurte, chucrute) para reequilíbrio da microbiota"
+      ],
+      "estilo_vida": [
+        "Horário regular para evacuar (preferência após o café) — reflexo gastrocólico é mais forte pela manhã",
+        "Posição de cócoras com apoio nos pés (banquinho) — alinha o reto, reduz esforço e hemorroidas",
+        "Atividade física 30 min/dia — aumenta motilidade intestinal (eficaz em constipação tipos 1-2)",
+        "Não ignorar a vontade de evacuar — inibição crônica leva a constipação progressiva",
+        "Técnica de respiração diafragmática e massagem abdominal (sentido horário) para tipos 1-2",
+        "Reduzir estresse e ansiedade — eixo cérebro-intestino: estresse piora SII, colite e diarreia funcional",
+        "Higiene das mãos rigorosa antes de comer — prevenção de gastroenterites (tipos 6-7 infecciosos)"
+      ],
+      "orientacoes": [
+        "URGÊNCIA MÉDICA: sangue nas fezes (vermelho vivo ou preto), perda de peso inexplicada, diarreia > 3 dias com febre",
+        "Investigar: colonoscopia para mudança súbita do hábito intestinal após 50 anos ou histórico familiar de CCR",
+        "Fezes pretas (melena): excluir sangramento antes de assumir que é ferro — endoscopia digestiva alta",
+        "Fezes pálidas + urina escura: solicitar bilirrubinas + TGO/TGP + GGT + fosfatase alcalina + USG abdominal urgente",
+        "Esteatorreia persistente: elastase fecal, teste de gordura fecal, amilase/lipase pancreática",
+        "SII: critérios Roma IV — 3+ meses de dor abdominal relacionada à evacuação; encaminhar gastroenterologia",
+        "Diarreia crônica > 4 semanas: coprocultura + parasitológico + pesquisa de Clostridioides difficile",
+        "Registro fotográfico das fezes com a escala de Bristol é ferramenta de acompanhamento válida em consulta"
+      ],
+      "contraindicacoes": [
+        "Senna: contraindicada em obstrução intestinal, apendicite, doença inflamatória intestinal ativa, gestação",
+        "Magnésio em dose laxante: insuficiência renal — risco de hipermagnesemia",
+        "Psyllium: pode reduzir absorção de medicamentos — tomar 2h separado de outros medicamentos",
+        "Berberina: interação com ciclosporina e digoxina; contraindicada na gestação",
+        "Ferro: NÃO usar sem confirmação de deficiência — pode mascarar sangramento e causar constipação (tipo 1-2)"
+      ]
+    }
+  }
+]

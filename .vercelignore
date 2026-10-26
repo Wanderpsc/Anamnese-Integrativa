@@ -1,0 +1,17 @@
+# Excluir arquivos desnecessários - apenas build será enviado
+node_modules
+dist
+backup
+migrations
+scripts
+.git
+*.md
+*.log
+*.err
+*.txt
+*.ps1
+VSCodeData
+src
+public
+electron.js
+electron-builder.json

@@ -1,0 +1,4758 @@
+{
+ "origem": "E:\\1. Nova pasta\\MEUS PROJETOS DE PROGRAMAÇÃO 2\\anamnese-app\\src\\assets\\therapeutic-data\\PASTA COM TODOS OS ARQUIVOS",
+ "totalArquivosOrigem": 1977,
+ "documentosGerados": 1045,
+ "imagensCopiadas": 48,
+ "duplicatasRemovidas": 873,
+ "duplicatas": [
+  {
+   "removido": "apostila-de-naturopatia-integrativa-20-ivm.docx",
+   "mantido": "01 - apostila-de-naturopatia-integrativa-20-ivm.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "01 - apostila-de-naturopatia-integrativa-20-ivm.pdf",
+   "mantido": "01 - apostila-de-naturopatia-integrativa-20-ivm.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-naturopatia-integrativa-20-ivm.pdf",
+   "mantido": "01 - apostila-de-naturopatia-integrativa-20-ivm.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-anatomia-e-fisiologia-aplicados-a-naturopatia-ivm.docx",
+   "mantido": "02 - apostila-de-anatomia-e-fisiologia-aplicados-a-naturopatia-ivm OK.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "02 - apostila-de-anatomia-e-fisiologia-aplicados-a-naturopatia-ivm OK.pdf",
+   "mantido": "02 - apostila-de-anatomia-e-fisiologia-aplicados-a-naturopatia-ivm OK.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-anatomia-e-fisiologia-aplicados-a-naturopatia-ivm.pdf",
+   "mantido": "02 - apostila-de-anatomia-e-fisiologia-aplicados-a-naturopatia-ivm OK.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "a-fitoterapia-no-brasil-estudo.docx",
+   "mantido": "1 a-fitoterapia-no-brasil-estudo.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "a-fitoterapia-no-brasil-estudo.pdf",
+   "mantido": "1 a-fitoterapia-no-brasil-estudo.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-nutricao-funcional-e-trofoterapia-ivm.docx",
+   "mantido": "1 apostila-de-nutricao-funcional-e-trofoterapia-ivm OK.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-nutricao-funcional-e-trofoterapia-ivm.pdf",
+   "mantido": "1 apostila-de-nutricao-funcional-e-trofoterapia-ivm OK.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "florais-biosinergicos.docx",
+   "mantido": "1 florais-biosinergicos.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "florais-biosinergicos.pdf",
+   "mantido": "1 florais-biosinergicos.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "1.FundPrinsJA04_25 (1).docx",
+   "mantido": "1.FundPrinsJA04_25 (1) - IMPRESSO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "1.FundPrinsJA04_25 (1).pdf",
+   "mantido": "1.FundPrinsJA04_25 (1) - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-fitoterapia-funcional-ivm.pdf",
+   "mantido": "10 apostila-de-fitoterapia-completa-ivm-20.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-medicina-integrativa.pdf",
+   "mantido": "10 apostila-de-fitoterapia-completa-ivm-20.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "bef4a697-14ae-4c9c-8ca0-ba77da660466.docx",
+   "mantido": "1f20302d-0fab-401b-8695-5ce0a8507394.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "bef4a697-14ae-4c9c-8ca0-ba77da660466.pdf",
+   "mantido": "1f20302d-0fab-401b-8695-5ce0a8507394.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "artigo-fitoterapicos.docx",
+   "mantido": "2 artigo-fitoterapicos.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "artigo-fitoterapicos (1).pdf",
+   "mantido": "2 artigo-fitoterapicos.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "artigo-fitoterapicos.pdf",
+   "mantido": "2 artigo-fitoterapicos.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "frutas-de-a-a-z.docx",
+   "mantido": "2 frutas-de-a-a-z.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-aromaterapia-fmni (1).pdf",
+   "mantido": "2 frutas-de-a-a-z.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-aromaterapia-fmni.pdf",
+   "mantido": "2 frutas-de-a-a-z.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "frutas-de-a-a-z.pdf",
+   "mantido": "2 frutas-de-a-a-z.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "uso-agla-refuah-emocoes-2018.docx",
+   "mantido": "2 uso-agla-refuah-emocoes-2018.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "uso-agla-refuah-emocoes-2018.pdf",
+   "mantido": "2 uso-agla-refuah-emocoes-2018.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "cartilha-guia-pratico-de-panc-plantas-alimenticias-nao-convencionais-1 (1).pdf",
+   "mantido": "3 cartilha-guia-pratico-de-panc-plantas-alimenticias-nao-convencionais-1.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "cartilha-guia-pratico-de-panc-plantas-alimenticias-nao-convencionais-1.pdf",
+   "mantido": "3 cartilha-guia-pratico-de-panc-plantas-alimenticias-nao-convencionais-1.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "leites-e-queijos-veganos (1).pdf",
+   "mantido": "3 leites-e-queijos-veganos.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "leites-e-queijos-veganos ok.pdf",
+   "mantido": "3 leites-e-queijos-veganos.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "leites-e-queijos-veganos.pdf",
+   "mantido": "3 leites-e-queijos-veganos.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "uso-agla-refuah-fisico-emocional.docx",
+   "mantido": "3 uso-agla-refuah-fisico-emocional.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "uso-agla-refuah-fisico-emocional.pdf",
+   "mantido": "3 uso-agla-refuah-fisico-emocional.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "3.DEC-MapJA04_25.docx",
+   "mantido": "3.DEC-MapJA04_25 - IMPRESSO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "3.DEC-MapJA04_25.pdf",
+   "mantido": "3.DEC-MapJA04_25 - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-florais-biossinergeticos.pdf",
+   "mantido": "4 apostila-de-florais-biossinergeticos.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "formulario-de-fitoterapicos.docx",
+   "mantido": "4 formulario-de-fitoterapicos.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "suplemento-de-fitoterapia.docx",
+   "mantido": "4 formulario-de-fitoterapicos.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "formulario-de-fitoterapicos.pdf",
+   "mantido": "4 formulario-de-fitoterapicos.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "suplemento-de-fitoterapia.pdf",
+   "mantido": "4 formulario-de-fitoterapicos.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "manual-de-probioticos.docx",
+   "mantido": "4 manual-de-probioticos.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "manual-de-probioticos.pdf",
+   "mantido": "4 manual-de-probioticos.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "4.PigsNovoJA04_25.docx",
+   "mantido": "4.PigsNovoJA04_25 - IMPRESSO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "4.PigsNovoJA04_25.pdf",
+   "mantido": "4.PigsNovoJA04_25 - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-psicoterapia-ivm.docx",
+   "mantido": "5 apostila-de-psicoterapia-ivm.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-psicoterapia-ivm.pdf",
+   "mantido": "5 apostila-de-psicoterapia-ivm.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "memento-fitoterapico-2016.docx",
+   "mantido": "5 memento-fitoterapico-2016.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "memento-fitoterapico-2016 (1).pdf",
+   "mantido": "5 memento-fitoterapico-2016.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "memento-fitoterapico-2016.pdf",
+   "mantido": "5 memento-fitoterapico-2016.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "receitas-crudivoras.docx",
+   "mantido": "5 receitas-crudivoras.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "receitas-crudivoras.pdf",
+   "mantido": "5 receitas-crudivoras.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "50--de--Suplementos--Naturais.pdf",
+   "mantido": "50 - de - Suplementos - Naturais.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de 5HTP.docx",
+   "mantido": "5HTP.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de 5HTP(1).pdf",
+   "mantido": "5HTP.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de 5HTP.pdf",
+   "mantido": "5HTP.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "6 indice-terapeutico-fisioquantic.docx",
+   "mantido": "indice-terapeutico-fisioquantic.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "indice-terapeutico-fisioquantic.pdf",
+   "mantido": "6 indice-terapeutico-fisioquantic.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "plantas-toxicas-na-gestacao-artigo.docx",
+   "mantido": "6 plantas-toxicas-na-gestacao-artigo.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "plantas-toxicas-na-gestacao-artigo (1).pdf",
+   "mantido": "6 plantas-toxicas-na-gestacao-artigo.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "plantas-toxicas-na-gestacao-artigo.pdf",
+   "mantido": "6 plantas-toxicas-na-gestacao-artigo.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "plantas-na-gestacao-qualisus-rede-cegonha.docx",
+   "mantido": "7 plantas-na-gestacao-qualisus-rede-cegonha.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "plantas-na-gestacao-qualisus-rede-cegonha.pdf",
+   "mantido": "7 plantas-na-gestacao-qualisus-rede-cegonha.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-fitoterapia-ivm-protocolos-e-formas-de-preparacao.docx",
+   "mantido": "8 apostila-de-fitoterapia-ivm-protocolos-e-formas-de-preparacao.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-fitoterapia-ivm-protocolos-e-formas-de-preparacao.pdf",
+   "mantido": "8 apostila-de-fitoterapia-ivm-protocolos-e-formas-de-preparacao.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-fitoterapia-protocolos-e-formas-de-preparacao.pdf",
+   "mantido": "8 apostila-de-fitoterapia-ivm-protocolos-e-formas-de-preparacao.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "memento-fitoterapico-2021.docx",
+   "mantido": "9 memento-fitoterapico-2021.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "memento-fitoterapico-2021.pdf",
+   "mantido": "9 memento-fitoterapico-2021.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "9276eccf-68a6-4bb9-bd93-9382ffe5f146.pdf",
+   "mantido": "9276eccf-68a6-4bb9-bd93-9382ffe5f146.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "a-biofisica-quantica-na-saude (1).pdf",
+   "mantido": "a-biofisica-quantica-na-saude (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "iridologia-comportamental-joia-e-flor.docx",
+   "mantido": "iridologia-comportamental-corrente-e-agitador.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "iridologia-conhecimentos-para-toda-familia-ate-mesmo-para-criancas.docx",
+   "mantido": "iridologia-comportamental-corrente-e-agitador.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "iris-linfatica-vs-iris-misto-biliar.docx",
+   "mantido": "iridologia-comportamental-corrente-e-agitador.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "laboratorio-de-iridologia-clinica.docx",
+   "mantido": "iridologia-comportamental-corrente-e-agitador.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "a-ciencia-da-iridologia-apresentacao-pre-consulta.pdf",
+   "mantido": "iridologia-comportamental-corrente-e-agitador.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "os pilares do terapeuta rec-terapeuticas-prof-gerson-cunha.pdf",
+   "mantido": "iridologia-comportamental-corrente-e-agitador.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rec-terapeuticas-prof-gerson-cunha (1).pdf",
+   "mantido": "iridologia-comportamental-corrente-e-agitador.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rec-terapeuticas-prof-gerson-cunha.pdf",
+   "mantido": "iridologia-comportamental-corrente-e-agitador.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "a-fibromialgia-na-iridologia-dores-dos-pes-a-cabeca.pdf",
+   "mantido": "a-diabetes-na-iridologia.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "iridologia-comportamental-corrente-e-agitador.pdf",
+   "mantido": "a-diabetes-na-iridologia.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "iridologia-comportamental-joia-e-flor.pdf",
+   "mantido": "a-diabetes-na-iridologia.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "iris-linfatica-vs-iris-misto-biliar.pdf",
+   "mantido": "a-diabetes-na-iridologia.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "laboratorio-de-iridologia-clinica.pdf",
+   "mantido": "a-diabetes-na-iridologia.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "o-atendimento-segundo-o-prof-gerson-cunha.pdf",
+   "mantido": "a-diabetes-na-iridologia.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "o-que-as-coloracoes-dos-seus-olhos-podem-revelar (1).pdf",
+   "mantido": "a-diabetes-na-iridologia.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "o-que-as-coloracoes-dos-seus-olhos-podem-revelar.pdf",
+   "mantido": "a-diabetes-na-iridologia.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "traumas-e-outras-questoes-sexuais-atraves-da-iris.pdf",
+   "mantido": "a-diabetes-na-iridologia.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "mapa-clinico-e-mapa-comportamental.docx",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "a-iris-nao-mostra-sintomas-nem-doencas.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "as-amarguras-da-vida-pela-iridologia.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "cancer-como-avaliar-e-entender-atraves-da-iris.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "como-fazer-o-exame-pela-iris-raio-x-pelos-olhos-passo-a-passo.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "como-fazer-uma-avaliacao-pela-iris-completa-parte-1.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "como-fazer-uma-avaliacao-pela-iris-completa-parte-2.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "como-se-pode-usar-os-florais-posologia.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "como-ser-um-iridologista-master.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "e-dificil-examinar-os-olhos-escuros.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "iridologia-conhecimentos-para-toda-familia-ate-mesmo-para-criancas.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "mapa-clinico-e-mapa-comportamental.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "o-cancer-na-iridologia.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "o-colarete-e-as-suas-implicacoes.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "o-que-os-olhos-revelam-sobre-a-saude-digestiva.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "perguntas-e-respostas-sobre-a-ciencia-da-iridologia.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "posso-avaliar-a-saude-de-uma-crianca-pela-iridologia.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "super-orientacoes-para-o-pos-consultaatendimento.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "um-checklist-pratico-para-o-iridologo.pdf",
+   "mantido": "como-se-pode-usar-os-florais-posologia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Acido_Alfa_Lipoico.docx",
+   "mantido": "Acido_Alfa_Lipoico.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Cópia de Acido_Alfa_Lipoico(1).docx",
+   "mantido": "Acido_Alfa_Lipoico.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Cópia de Acido_Alfa_Lipoico.docx",
+   "mantido": "Acido_Alfa_Lipoico.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Acido_Alfa_Lipoico(1).pdf",
+   "mantido": "Acido_Alfa_Lipoico.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Acido_Alfa_Lipoico(2).pdf",
+   "mantido": "Acido_Alfa_Lipoico.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Acido_Alfa_Lipoico.pdf",
+   "mantido": "Acido_Alfa_Lipoico.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Cópia de Acido_Alfa_Lipoico(1).pdf",
+   "mantido": "Acido_Alfa_Lipoico.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Cópia de Acido_Alfa_Lipoico.pdf",
+   "mantido": "Acido_Alfa_Lipoico.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de ADEK (1)(1).pdf",
+   "mantido": "ADEK (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de ADEK (1).pdf",
+   "mantido": "ADEK (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de ALA (1)(1).docx",
+   "mantido": "ALA (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de ALA (1)(1).pdf",
+   "mantido": "ALA (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de ALA (1).pdf",
+   "mantido": "ALA (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Cópia de AMINNU (1).docx",
+   "mantido": "AMINNU (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "analise-do-biocampo-aura-com-o-uso-do-harmonizador-floral (1).pdf",
+   "mantido": "analise-do-biocampo-aura-com-o-uso-do-harmonizador-floral (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "analise-do-biocampo-aura-com-o-uso-do-harmonizador-floral (2).pdf",
+   "mantido": "analise-do-biocampo-aura-com-o-uso-do-harmonizador-floral (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "TIPO SANGUÍNEO - ANAMNESE CONFORME BIORRESSONÂNCIA.pdf",
+   "mantido": "ANAMNESE CONFORME BIORRESSONÂNCIA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Anamnese-Homeopatia.docx",
+   "mantido": "Anamnese-Homeopatia.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Anamnese-Homeopatia.pdf",
+   "mantido": "Anamnese-Homeopatia.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "BIOTIPOS.docx",
+   "mantido": "AO ANALISAR A ÍRIS OK.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-naturopatia-aplicada-ivm (1).docx",
+   "mantido": "apostila NATUROPATIA APLICADA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-naturopatia-aplicada-ivm.docx",
+   "mantido": "apostila NATUROPATIA APLICADA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-naturopatia-aplicada-ivm (1).pdf",
+   "mantido": "apostila NATUROPATIA APLICADA.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-naturopatia-aplicada-ivm.pdf",
+   "mantido": "apostila NATUROPATIA APLICADA.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-naturopatia-aplicada-ivmOK.pdf",
+   "mantido": "apostila NATUROPATIA APLICADA.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-aromaterapia-fmni.docx",
+   "mantido": "apostila-aromaterapia-fmni (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-suplementacao-nutricional (1).docx",
+   "mantido": "apostila-de-suplementacao-fitofuncional.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-suplementacao-nutricional.docx",
+   "mantido": "apostila-de-suplementacao-fitofuncional.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-suplementacao-nutricionalOK.docx",
+   "mantido": "apostila-de-suplementacao-fitofuncional.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-suplementacao-nutricional (1).pdf",
+   "mantido": "apostila-de-suplementacao-fitofuncional.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-suplementacao-nutricional.pdf",
+   "mantido": "apostila-de-suplementacao-fitofuncional.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila-de-suplementacao-nutricionalOK.pdf",
+   "mantido": "apostila-de-suplementacao-fitofuncional.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Farmacologia Clínica E Terapêutica E Boas Práticas De Prescrição.pdf",
+   "mantido": "apostila_do_curso_farmacologia_clinica_e_terapeutica_e_boas_praticas_de_prescricao.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila_do_curso_farmacoterapia_e_atencao_farmaceutica.docx",
+   "mantido": "apostila_do_curso_farmacoterapia_e_atencao_farmaceutica (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "apostila_do_curso_farmacoterapia_e_atencao_farmaceutica.pdf",
+   "mantido": "apostila_do_curso_farmacoterapia_e_atencao_farmaceutica (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "arquivo-de-clientes-2022-by-prof-gerson-cunha.pptx",
+   "mantido": "arquivo-de-clientes-2022-by-prof-gerson-cunha OK.pptx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de artigo minoxidil e finasterida.docx",
+   "mantido": "artigo minoxidil e finasterida.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de artigo minoxidil e finasterida(1).pdf",
+   "mantido": "artigo minoxidil e finasterida.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de artigo minoxidil e finasterida.pdf",
+   "mantido": "artigo minoxidil e finasterida.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "artigo-umarevisaosistematicadeplantasanti-obesidade-2013.docx",
+   "mantido": "artigo-revisaosistematicademedicamentosparaobesidadedeplantas-201.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "artigo-umarevisaosistematicadeplantasanti-obesidade-2013.pdf",
+   "mantido": "artigo-revisaosistematicademedicamentosparaobesidadedeplantas-201.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "artigo-saciedadeeperfildemulherescomsobrepesoaposumnovotratame.docx",
+   "mantido": "artigo-saciedadeeperfildemulherescomsobrepesoaposumnovotra-1.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "artigo-saciedadeeperfildemulherescomsobrepesoaposumnovotratame.pdf",
+   "mantido": "artigo-saciedadeeperfildemulherescomsobrepesoaposumnovotra-1.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "DOR DE CABEÇA - SÍNDROME DO INTESTINO IRRITÁVEL - EFISEMA PULMONAR.docx",
+   "mantido": "ASMA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Aula 13 - 16-06.docx",
+   "mantido": "Aula 13 - 16-06 (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de BCAA_NOVA LITERATURA(1).docx",
+   "mantido": "BCAA_NOVA LITERATURA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de BCAA_NOVA LITERATURA.docx",
+   "mantido": "BCAA_NOVA LITERATURA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de BCAA_NOVA LITERATURA(1).pdf",
+   "mantido": "BCAA_NOVA LITERATURA.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de BCAA_NOVA LITERATURA.pdf",
+   "mantido": "BCAA_NOVA LITERATURA.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de BIOCOLIN (1).docx",
+   "mantido": "BIOCOLIN (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de BOOSTER MOROSIL (1)(1).docx",
+   "mantido": "BOOSTER MOROSIL (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de BOOSTER MOROSIL (1).docx",
+   "mantido": "BOOSTER MOROSIL (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de BOOSTER MOROSIL (1)(1).pdf",
+   "mantido": "BOOSTER MOROSIL (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de BOOSTER MOROSIL (1).pdf",
+   "mantido": "BOOSTER MOROSIL (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Botica Erva Doce - deparasitantes.pdf",
+   "mantido": "Botica Erva Doce - deparasitantes (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Botica Erva Doce - Florais.pdf",
+   "mantido": "Botica Erva Doce - Florais (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de cafeina_revisão_de_literatura_rc.docx",
+   "mantido": "cafeina_revisão_de_literatura_rc.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "calendula.pdf",
+   "mantido": "calendula (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de COENZIMA Q10 (1).docx",
+   "mantido": "COENZIMA Q10 (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "genetica-geral-e-individual-avaliacao-integrativa.pdf",
+   "mantido": "como-fazer-uma-avaliacao-pela-iris-completa-parte-3.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "novas-revelacoes-sobre-o-colarete.pdf",
+   "mantido": "como-fazer-uma-avaliacao-pela-iris-completa-parte-3.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "um-novo-sinal-na-iris.pdf",
+   "mantido": "como-fazer-uma-avaliacao-pela-iris-completa-parte-3.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "como-montar-uma-recomendacao-terapeutica-parte-pratica.pdf",
+   "mantido": "programa-alimentar-desbloqueando-o-emagrecimento.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "o-iridologista-e-o-checklist-da-irisdiagnose.pdf",
+   "mantido": "programa-alimentar-desbloqueando-o-emagrecimento.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "os-4-perfis-comportamentais-da-iridologia.pdf",
+   "mantido": "programa-alimentar-desbloqueando-o-emagrecimento.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "os-diametros-da-borda-pupilar.pdf",
+   "mantido": "programa-alimentar-desbloqueando-o-emagrecimento.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "porque-acredito-na-iridologia-e-na-naturopatia.pdf",
+   "mantido": "programa-alimentar-desbloqueando-o-emagrecimento.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-alimentar-desbloqueando-o-emagrecimento (1).pdf",
+   "mantido": "programa-alimentar-desbloqueando-o-emagrecimento.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-alimentar-desbloqueando-o-emagrecimento ok.pdf",
+   "mantido": "programa-alimentar-desbloqueando-o-emagrecimento.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-alimentar-desbloqueando-o-emagrecimento.pdf",
+   "mantido": "programa-alimentar-desbloqueando-o-emagrecimento.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "sinais-de-cancer-na-iridologia.pdf",
+   "mantido": "programa-alimentar-desbloqueando-o-emagrecimento.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rastreamento-holistico-da-saude-vm (1).pdf",
+   "mantido": "comunidade-exclusiva-para-alunos-no-facebook.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rastreamento-holistico-da-saude-vm (2).pdf",
+   "mantido": "comunidade-exclusiva-para-alunos-no-facebook.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rastreamento-holistico-da-saude-vm.pdf",
+   "mantido": "comunidade-exclusiva-para-alunos-no-facebook.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "CONSTIPAÇÃO - OBSTIPAÇÃO.docx",
+   "mantido": "CONSTIPAÇÃO - OBSTIPAÇÃO - LUANA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "CONTATO FORNECEDOR PENDRIVE NOVO.pdf",
+   "mantido": "CONTATO FORNECEDOR PENDRIVE NOVO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "CONTATO PARA COMPRAR O EQUIPAMENTO DE BIORESSONANCIA QRMA 4.7.pdf",
+   "mantido": "CONTATO PARA COMPRAR O EQUIPAMENTO DE BIORESSONANCIA QRMA 4.7.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Gaba.docx",
+   "mantido": "Cópia de Cópia de Gaba.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Gaba.docx",
+   "mantido": "Cópia de Cópia de Gaba.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Gaba.pdf",
+   "mantido": "Cópia de Cópia de Gaba.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Gaba.pdf",
+   "mantido": "Cópia de Cópia de Gaba.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Cópia de HMB CÁLCIO.docx",
+   "mantido": "Cópia de Cópia de HMB CÁLCIO(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de HMB CÁLCIO.docx",
+   "mantido": "Cópia de Cópia de HMB CÁLCIO(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "HMB CÁLCIO.docx",
+   "mantido": "Cópia de Cópia de HMB CÁLCIO(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Cópia de HMB CÁLCIO.pdf",
+   "mantido": "Cópia de Cópia de HMB CÁLCIO(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de HMB CÁLCIO(1).pdf",
+   "mantido": "Cópia de Cópia de HMB CÁLCIO(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de HMB CÁLCIO(2).pdf",
+   "mantido": "Cópia de Cópia de HMB CÁLCIO(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de HMB CÁLCIO.pdf",
+   "mantido": "Cópia de Cópia de HMB CÁLCIO(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "HMB CÁLCIO.pdf",
+   "mantido": "Cópia de Cópia de HMB CÁLCIO(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de INOSITOL.docx",
+   "mantido": "Cópia de Cópia de INOSITOL.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "INOSITOL.docx",
+   "mantido": "Cópia de Cópia de INOSITOL.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de INOSITOL.pdf",
+   "mantido": "Cópia de Cópia de INOSITOL.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "INOSITOL.pdf",
+   "mantido": "Cópia de Cópia de INOSITOL.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de L-CARNITINA-TARTARATO.docx",
+   "mantido": "Cópia de Cópia de L-CARNITINA-TARTARATO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "L-CARNITINA-TARTARATO.docx",
+   "mantido": "Cópia de Cópia de L-CARNITINA-TARTARATO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de L-CARNITINA-TARTARATO.pdf",
+   "mantido": "Cópia de Cópia de L-CARNITINA-TARTARATO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "L-CARNITINA-TARTARATO.pdf",
+   "mantido": "Cópia de Cópia de L-CARNITINA-TARTARATO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Cópia de L-FENILALANINA.pdf",
+   "mantido": "Cópia de Cópia de L-FENILALANINA(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de L-FENILALANINA(1).pdf",
+   "mantido": "Cópia de Cópia de L-FENILALANINA(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de L-FENILALANINA(2).pdf",
+   "mantido": "Cópia de Cópia de L-FENILALANINA(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de L-FENILALANINA.pdf",
+   "mantido": "Cópia de Cópia de L-FENILALANINA(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "L-FENILALANINA.pdf",
+   "mantido": "Cópia de Cópia de L-FENILALANINA(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de L-FENILALANINA.docx",
+   "mantido": "Cópia de Cópia de L-FENILALANINA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "L-FENILALANINA.docx",
+   "mantido": "Cópia de Cópia de L-FENILALANINA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Cópia de leucogen - TIMOMODULINA.pdf",
+   "mantido": "Cópia de Cópia de leucogen - TIMOMODULINA(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de leucogen - TIMOMODULINA(1).pdf",
+   "mantido": "Cópia de Cópia de leucogen - TIMOMODULINA(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de leucogen - TIMOMODULINA(2).pdf",
+   "mantido": "Cópia de Cópia de leucogen - TIMOMODULINA(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de leucogen - TIMOMODULINA.pdf",
+   "mantido": "Cópia de Cópia de leucogen - TIMOMODULINA(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "leucogen - TIMOMODULINA.pdf",
+   "mantido": "Cópia de Cópia de leucogen - TIMOMODULINA(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de leucogen - TIMOMODULINA.docx",
+   "mantido": "Cópia de Cópia de leucogen - TIMOMODULINA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "leucogen - TIMOMODULINA.docx",
+   "mantido": "Cópia de Cópia de leucogen - TIMOMODULINA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "E-book substâncias isoladas - IEF (4).docx",
+   "mantido": "Cópia de E-book substâncias isoladas - IEF (4).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "E-book substâncias isoladas - IEF.docx",
+   "mantido": "Cópia de E-book substâncias isoladas - IEF (4).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "E-book substâncias isoladas - IEF (4).pdf",
+   "mantido": "Cópia de E-book substâncias isoladas - IEF (4).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "E-book substâncias isoladas - IEF.pdf",
+   "mantido": "Cópia de E-book substâncias isoladas - IEF (4).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de FUROSEMIDE_NOVA LITERATURA.pdf",
+   "mantido": "Cópia de FUROSEMIDE_NOVA LITERATURA(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "FUROSEMIDE_NOVA LITERATURA.pdf",
+   "mantido": "Cópia de FUROSEMIDE_NOVA LITERATURA(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "FUROSEMIDE_NOVA LITERATURA.docx",
+   "mantido": "Cópia de FUROSEMIDE_NOVA LITERATURA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "GELSEMIUM - O REMÉDIO DAS GRANDES SENSIBILIDADES PERSONALIDADES HOMEOPÁTICAS.docx",
+   "mantido": "Cópia de GELSEMIUM - O REMÉDIO DAS GRANDES SENSIBILIDADES PERSONALIDADES HOMEOPÁTICAS.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "GELSEMIUM - O REMÉDIO DAS GRANDES SENSIBILIDADES PERSONALIDADES HOMEOPÁTICAS.pdf",
+   "mantido": "Cópia de GELSEMIUM - O REMÉDIO DAS GRANDES SENSIBILIDADES PERSONALIDADES HOMEOPÁTICAS.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Guia Completo de Bioressonância.docx",
+   "mantido": "Cópia de Guia Completo de Bioressonância.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Guia Completo de Bioressonância.pdf",
+   "mantido": "Cópia de Guia Completo de Bioressonância.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "GUIA COMPLETO DE FÓRMULAS SÓLIDOS E SEMISÓLIDOS - INSTITUTO EF.docx",
+   "mantido": "Cópia de GUIA COMPLETO DE FÓRMULAS SÓLIDOS E SEMISÓLIDOS - INSTITUTO EF.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "GUIA COMPLETO DE FÓRMULAS SÓLIDOS E SEMISÓLIDOS - INSTITUTO EF.pdf",
+   "mantido": "Cópia de GUIA COMPLETO DE FÓRMULAS SÓLIDOS E SEMISÓLIDOS - INSTITUTO EF.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Guia-Homeopatico-Dr-Nilo-Cairo-Em-13-10-2018.docx",
+   "mantido": "Cópia de Guia-Homeopatico-Dr-Nilo-Cairo-Em-13-10-2018.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Guia-Homeopatico-Dr-Nilo-Cairo-Em-13-10-2018.pdf",
+   "mantido": "Cópia de Guia-Homeopatico-Dr-Nilo-Cairo-Em-13-10-2018.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "homeopatia-essencial-curso-basico-de-homeopatia - José Maria Alves - Impresso.docx",
+   "mantido": "Cópia de homeopatia-essencial-curso-basico-de-homeopatia - José Maria Alves - Impresso.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "homeopatia-essencial-curso-basico-de-homeopatia - José Maria Alves - Impresso.pdf",
+   "mantido": "Cópia de homeopatia-essencial-curso-basico-de-homeopatia - José Maria Alves - Impresso.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de ibutamoren.pdf",
+   "mantido": "Cópia de ibutamoren(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "ibutamoren.pdf",
+   "mantido": "Cópia de ibutamoren(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de ibutamoren.docx",
+   "mantido": "ibutamoren.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de L-Teanina.docx",
+   "mantido": "Cópia de L-Teanina(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "L-Teanina.docx",
+   "mantido": "Cópia de L-Teanina(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de L-Teanina.pdf",
+   "mantido": "Cópia de L-Teanina(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "L-Teanina.pdf",
+   "mantido": "Cópia de L-Teanina(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Literatura-Ibutamoren.pdf",
+   "mantido": "Cópia de Literatura-Ibutamoren(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Literatura-Ibutamoren.pdf",
+   "mantido": "Cópia de Literatura-Ibutamoren(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Literatura-Ibutamoren.docx",
+   "mantido": "Cópia de Literatura-Ibutamoren.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Lâmina-Ibutamoren.docx",
+   "mantido": "Cópia de Lâmina-Ibutamoren(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Lâmina-Ibutamoren.docx",
+   "mantido": "Cópia de Lâmina-Ibutamoren(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Lâmina-Ibutamoren.pdf",
+   "mantido": "Cópia de Lâmina-Ibutamoren(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Lâmina-Ibutamoren.pdf",
+   "mantido": "Cópia de Lâmina-Ibutamoren(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Metformina Micronizada GEL - Emagrecimento.docx",
+   "mantido": "Cópia de Metformina Micronizada GEL - Emagrecimento(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Metformina Micronizada GEL - Emagrecimento.pdf",
+   "mantido": "Cópia de Metformina Micronizada GEL - Emagrecimento(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Metformina Micronizada GEL - Emagrecimento.pdf",
+   "mantido": "Cópia de Metformina Micronizada GEL - Emagrecimento(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "NAC (2).docx",
+   "mantido": "Cópia de NAC (2)(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "NADH (2).docx",
+   "mantido": "Cópia de NADH (2).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "novo-repertorio-clinico-homeopatico-por-patologias.docx",
+   "mantido": "Cópia de novo-repertorio-clinico-homeopatico-por-patologias.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "novo-repertorio-clinico-homeopatico-por-patologias.pdf",
+   "mantido": "Cópia de novo-repertorio-clinico-homeopatico-por-patologias.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de O Antioxidante Universal.docx",
+   "mantido": "Cópia de O Antioxidante Universal(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "O Antioxidante Universal.docx",
+   "mantido": "Cópia de O Antioxidante Universal(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de O Antioxidante Universal(2).pdf",
+   "mantido": "Cópia de O Antioxidante Universal(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de O Antioxidante Universal.pdf",
+   "mantido": "Cópia de O Antioxidante Universal(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "O Antioxidante Universal.pdf",
+   "mantido": "Cópia de O Antioxidante Universal(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "POOL 10 (2).docx",
+   "mantido": "Cópia de POOL 10 (2).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "POOL 10 (2).pdf",
+   "mantido": "Cópia de POOL 10 (2).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Procaína Benzoica.docx",
+   "mantido": "Cópia de Procaína Benzoica.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Procaína Benzoica.pdf",
+   "mantido": "Cópia de Procaína Benzoica.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Protocolos Soroterapia e IM - IEF.docx",
+   "mantido": "Cópia de Protocolos Soroterapia e IM - IEF(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Protocolos Soroterapia e IM - IEF.docx",
+   "mantido": "Cópia de Protocolos Soroterapia e IM - IEF(1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Protocolos Soroterapia e IM - IEF.pdf",
+   "mantido": "Cópia de Protocolos Soroterapia e IM - IEF(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Protocolos Soroterapia e IM - IEF.pdf",
+   "mantido": "Cópia de Protocolos Soroterapia e IM - IEF(1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "revisão_de_literatura_ALFA GPC.docx",
+   "mantido": "Cópia de revisão_de_literatura_ALFA GPC.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de revisão_de_literatura_MSM (1).pdf",
+   "mantido": "Cópia de revisão_de_literatura_ALFA GPC.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de revisão_de_literatura_Peróxido_de_ Hidrogênio.pdf",
+   "mantido": "Cópia de revisão_de_literatura_ALFA GPC.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "revisão_de_literatura_ALFA GPC.pdf",
+   "mantido": "Cópia de revisão_de_literatura_ALFA GPC.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "revisão_de_literatura_MSM (1).pdf",
+   "mantido": "Cópia de revisão_de_literatura_ALFA GPC.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "revisão_de_literatura_Peróxido_de_ Hidrogênio.pdf",
+   "mantido": "Cópia de revisão_de_literatura_ALFA GPC.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "revisão_de_literatura_piracetam.pdf",
+   "mantido": "Cópia de revisão_de_literatura_ALFA GPC.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "revisão_de_literatura_MSM (1).docx",
+   "mantido": "Cópia de revisão_de_literatura_MSM (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "revisão_de_literatura_Peróxido_de_ Hidrogênio.docx",
+   "mantido": "Cópia de revisão_de_literatura_Peróxido_de_ Hidrogênio.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "SAME (2).pdf",
+   "mantido": "Cópia de SAME (2).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "SAMe.docx",
+   "mantido": "Cópia de SAMe.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "SAMe.pdf",
+   "mantido": "Cópia de SAMe.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Sugestões de Kits Injetáveis DERMATOLOGIA E ESTÉTICA AVANÇADA (2).docx",
+   "mantido": "Cópia de Sugestões de Kits Injetáveis DERMATOLOGIA E ESTÉTICA AVANÇADA (2).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Cópia de Sugestões de Kits Injetáveis DERMATOLOGIA E ESTÉTICA AVANÇADA (2).pdf",
+   "mantido": "Sugestões de Kits Injetáveis DERMATOLOGIA E ESTÉTICA AVANÇADA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Sugestões de Kits Injetáveis DERMATOLOGIA E ESTÉTICA AVANÇADA (2).pdf",
+   "mantido": "Sugestões de Kits Injetáveis DERMATOLOGIA E ESTÉTICA AVANÇADA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "d7c43b17-3535-4af3-965e-706a0f8c1243.docx",
+   "mantido": "d7c43b17-3535-4af3-965e-706a0f8c1243 (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "d7c43b17-3535-4af3-965e-706a0f8c1243.pdf",
+   "mantido": "d7c43b17-3535-4af3-965e-706a0f8c1243 (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "detox.docx",
+   "mantido": "detox (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "detox.pdf",
+   "mantido": "detox (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "GLICOSE - DIABETES - INSULINA ADAPTADA.docx",
+   "mantido": "DIABETES - GLICOSE - DIABETES - INSULINA ADAPTADA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "GLICOSE - DIABETES - INSULINA.docx",
+   "mantido": "DIABETES - GLICOSE - DIABETES - INSULINA.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "GLICOSE - DIABETES - INSULINA.pdf",
+   "mantido": "DIABETES - GLICOSE - DIABETES - INSULINA.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "IMUNIDADE E DORES DE CABEÇA.pdf",
+   "mantido": "DIABETES - GLICOSE - DIABETES - INSULINA.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "MELASMA.pdf",
+   "mantido": "DIABETES - GLICOSE - DIABETES - INSULINA.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "diabetes transdérmico.pdf",
+   "mantido": "diabetes transdérmico.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "EXAMES 01.docx",
+   "mantido": "Do Manual Prático de Exames Laboratoriais 01.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "ebook-desbloqueando-o-emagrecimento.pdf",
+   "mantido": "ebook-desbloqueando-o-emagrecimento ok.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "EMAGRECIMENTO E LONGEVIDADE.pdf",
+   "mantido": "EMAGRECIMENTO E LONGEVIDADE.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Ficha20anamnC3A9tica20completa2006.11.2019-convertido20282292028129.pdf",
+   "mantido": "Ficha20anamnC3A9tica20completa2006.11.2019-convertido20282292028129 (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "guia-de-fitoterapicosOK.docx",
+   "mantido": "FITOTERÁPICOS.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "guia-de-fitoterapicos (1).pdf",
+   "mantido": "FITOTERÁPICOS.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "guia-de-fitoterapicos.pdf",
+   "mantido": "FITOTERÁPICOS.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "guia-de-fitoterapicosOK.pdf",
+   "mantido": "FITOTERÁPICOS.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "formulario-homeopaticoOK.docx",
+   "mantido": "formulario-homeopatico.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "formulario-homeopaticoOK.pdf",
+   "mantido": "formulario-homeopatico.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "formulario-longevidade-farmaceutica.docx",
+   "mantido": "formulario-longevidade-farmaceutica (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "formulario-longevidade-farmaceuticaOK.docx",
+   "mantido": "formulario-longevidade-farmaceutica (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "formulario-longevidade-farmaceutica.pdf",
+   "mantido": "formulario-longevidade-farmaceutica (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "formulario-longevidade-farmaceuticaOK.pdf",
+   "mantido": "formulario-longevidade-farmaceutica (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "guia-de-formulacoes-maria-rocha (1).pdf",
+   "mantido": "guia-de-formulacoes-MARIA ROCHA.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "guia-de-formulacoes-maria-rocha (2).pdf",
+   "mantido": "guia-de-formulacoes-MARIA ROCHA.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "guia-de-formulacoes-maria-rocha.pdf",
+   "mantido": "guia-de-formulacoes-MARIA ROCHA.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "MARIA ROCHA.pdf",
+   "mantido": "guia-de-formulacoes-MARIA ROCHA.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "guia-pratico-oleos-essenciais.pdf",
+   "mantido": "guia-pratico-oleos-essenciais (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "guia-science-fitoterapicos-e-nutrientes.pdf",
+   "mantido": "guia-science-fitoterapicos-e-nutrientes (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "homocisteina-scielo.pdf",
+   "mantido": "homocisteina-scielo (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "IMPOTÊNCIA.pdf",
+   "mantido": "PREVENÇÃO DE CABELOS BRANCOS E FORTALECIMENTO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-cardiovascular - IMPRESSO.docx",
+   "mantido": "INDICAÇÕES PARA SISTEMA CARDIOVASCULAR E DISLIPIDEMIAS.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-cardiovascular.docx",
+   "mantido": "INDICAÇÕES PARA SISTEMA CARDIOVASCULAR E DISLIPIDEMIAS.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-cardiovascular - IMPRESSO.pdf",
+   "mantido": "INDICAÇÕES PARA SISTEMA CARDIOVASCULAR E DISLIPIDEMIAS.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-cardiovascular.pdf",
+   "mantido": "INDICAÇÕES PARA SISTEMA CARDIOVASCULAR E DISLIPIDEMIAS.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "indice-terapeutico-natiflora.pdf",
+   "mantido": "indice-terapeutico-natiflora (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "indice-terapeutico-natifloraOK.pdf",
+   "mantido": "indice-terapeutico-natiflora (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "mapas-e-pranchas-de-iridologiaOK.pdf",
+   "mantido": "mapas-e-pranchas-de-iridologia.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Mapa_10-passos_APS.pdf",
+   "mantido": "Mapa_10-passos_APS.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Propriedades e Usos da Principais Ervas Medicinais.docx",
+   "mantido": "Material Complementar.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Propriedades e Usos da Principais Ervas Medicinais.pdf",
+   "mantido": "Material Complementar.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "material-da-anvisa (4).pdf",
+   "mantido": "material-da-anvisa (3).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "material-da-anvisa-02 (3).pdf",
+   "mantido": "material-da-anvisa-02 (2).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "material-da-anvisa-03.pdf",
+   "mantido": "material-da-anvisa-03 (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "material-da-anvisa-04 (2).pdf",
+   "mantido": "material-da-anvisa-04 (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "MC393DULO20120-20O20NOVO20JORNADA202.020-20O20INICIO20DAS20COISAS20.pdf",
+   "mantido": "MC393DULO20120-20O20NOVO20JORNADA202.020-20O20INICIO20DAS20COISAS20 (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "MODELO - TERMO DE CONSENTIMENTO.pdf",
+   "mantido": "MODELO - TERMO DE CONSENTIMENTO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "MODULO6-CONSTRUINDOSUAFARMACIADEFITOTERAPICOS-JORNADA2.0.docx",
+   "mantido": "MODULO6-CONSTRUINDOSUAFARMACIADEFITOTERAPICOS-JORNADA2.0 (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "MODULO6-CONSTRUINDOSUAFARMACIADEFITOTERAPICOS-JORNADA2.0.pdf",
+   "mantido": "MODULO6-CONSTRUINDOSUAFARMACIADEFITOTERAPICOS-JORNADA2.0 (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "natiflora-ortomolecular.docx",
+   "mantido": "natiflora-ortomolecular (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "natiflora-ortomolecularOK.docx",
+   "mantido": "natiflora-ortomolecular (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "natiflora-ortomolecular.pdf",
+   "mantido": "natiflora-ortomolecular (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "natiflora-ortomolecularOK.pdf",
+   "mantido": "natiflora-ortomolecular (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "os-caminhos-para-o-emagrecimento-atraves-da-iridologia.pdf",
+   "mantido": "o-passo-a-passo-definitivo-do-atendimento-online.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "o-que-as-coloracoes-dos-seus-olhos-podem-revelar.docx",
+   "mantido": "o-que-as-coloracoes-dos-seus-olhos-podem-revelar (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "SINAIS NO ROSTO - OBSERVAÇÕES PANORÂMICAS.docx",
+   "mantido": "OBSERVAÇÕES PANORÂMICAS.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rec-terapeuticas-prof-gerson-cunha (1).docx",
+   "mantido": "os pilares do terapeuta rec-terapeuticas-prof-gerson-cunha.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rec-terapeuticas-prof-gerson-cunha.docx",
+   "mantido": "os pilares do terapeuta rec-terapeuticas-prof-gerson-cunha.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "TRIGLICERES.docx",
+   "mantido": "PARA TRIGLICERES.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "passo-a-passo-definitivo-do-atendimento-online-pela-iridologiaOK.pdf",
+   "mantido": "passo-a-passo-definitivo-do-atendimento-online-pela-iridologia.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "PEDIDO DE PRODUTOS.pdf",
+   "mantido": "PEDIDO DE PRODUTOS.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "phytoterapica-catalogo.pdf",
+   "mantido": "phytoterapica-catalogo (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "planner-viva-melhor-20-1-1.pdf",
+   "mantido": "planner-viva-melhor-20-1-1 ok.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "plano-alimentar-funcional-dm.docx",
+   "mantido": "PLANO ALIMENTAR FUNCIONAL.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "plano-alimentar-funcional-dm.pdf",
+   "mantido": "PLANO ALIMENTAR FUNCIONAL.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Plano_Suplementar.pdf",
+   "mantido": "Plano_Suplementar.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "plantas-medicinais-e-fitoterapicos-guia.pdf",
+   "mantido": "plantas-medicinais-e-fitoterapicos-guia (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "plantas-nativas-e-exoticas.pdf",
+   "mantido": "plantas-nativas-e-exoticas (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "probioticos-formulario-top-1.docx",
+   "mantido": "probioticos-formulario-top (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "probioticos-formulario-top.docx",
+   "mantido": "probioticos-formulario-top (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "probioticos-lemma (1).docx",
+   "mantido": "probioticos-formulario-top (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "probioticos-formulario-top-1.pdf",
+   "mantido": "probioticos-formulario-top (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "probioticos-formulario-top.pdf",
+   "mantido": "probioticos-formulario-top (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "probioticos-formulario-topOK.pdf",
+   "mantido": "probioticos-formulario-top (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "probioticos-lemma (1).pdf",
+   "mantido": "probioticos-formulario-top (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "probioticos-lemma.pdf",
+   "mantido": "probioticos-formulario-top (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "probioticos-lemmaOK.pdf",
+   "mantido": "probioticos-formulario-top (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "probioticos-lemmaOK.docx",
+   "mantido": "probioticos-formulario-topOK.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-como-usar-as-plantas ok.pdf",
+   "mantido": "programa-viva-melhor-20-como-usar-as-plantas - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-como-usar-as-plantas.pdf",
+   "mantido": "programa-viva-melhor-20-como-usar-as-plantas - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-estomago-e-esofago ok.pdf",
+   "mantido": "programa-viva-melhor-20-estomago-e-esofago  - - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-estomago-e-esofago.pdf",
+   "mantido": "programa-viva-melhor-20-estomago-e-esofago  - - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-gripes-e-resfriados.pdf",
+   "mantido": "programa-viva-melhor-20-gripes-e-resfriados - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-kefir ok.pdf",
+   "mantido": "programa-viva-melhor-20-kefir - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-kefir.pdf",
+   "mantido": "programa-viva-melhor-20-kefir - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-melhora-do-sono ok.pdf",
+   "mantido": "programa-viva-melhor-20-melhora-do-sono - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-melhora-do-sono.pdf",
+   "mantido": "programa-viva-melhor-20-melhora-do-sono - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-modulacao-da-dor.pdf",
+   "mantido": "programa-viva-melhor-20-modulacao-da-dor - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-plano-alimentar.pdf",
+   "mantido": "programa-viva-melhor-20-plano-alimentar - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-porque-adoecemos.pdf",
+   "mantido": "programa-viva-melhor-20-porque-adoecemos - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-programa-de-21-dias.docx",
+   "mantido": "programa-viva-melhor-20-programa-de-21-dias ok.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-programa-de-21-dias.pdf",
+   "mantido": "programa-viva-melhor-20-programa-de-21-dias ok.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-cicatrizacao.docx",
+   "mantido": "programa-viva-melhor-20-recomendacoes-para-cicatrizacao - IMPRESSO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-cicatrizacao.pdf",
+   "mantido": "programa-viva-melhor-20-recomendacoes-para-cicatrizacao - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-diabetes ok.docx",
+   "mantido": "programa-viva-melhor-20-recomendacoes-para-diabetes - IMPRESSO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-diabetes.docx",
+   "mantido": "programa-viva-melhor-20-recomendacoes-para-diabetes - IMPRESSO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-diabetes ok.pdf",
+   "mantido": "programa-viva-melhor-20-recomendacoes-para-diabetes - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-diabetes.pdf",
+   "mantido": "programa-viva-melhor-20-recomendacoes-para-diabetes - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-febre.docx",
+   "mantido": "programa-viva-melhor-20-recomendacoes-para-febre - IMPRESSO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-febre.pdf",
+   "mantido": "programa-viva-melhor-20-recomendacoes-para-febre - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-saude-intestinal.docx",
+   "mantido": "programa-viva-melhor-20-saude-intestinal - IMPRESSO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-saude-intestinal.pdf",
+   "mantido": "programa-viva-melhor-20-saude-intestinal - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-sistema-nervoso ok.docx",
+   "mantido": "programa-viva-melhor-20-sistema-nervoso - IMPRESSO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-sistema-nervoso.docx",
+   "mantido": "programa-viva-melhor-20-sistema-nervoso - IMPRESSO.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-sistema-nervoso ok.pdf",
+   "mantido": "programa-viva-melhor-20-sistema-nervoso - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "programa-viva-melhor-20-sistema-nervoso.pdf",
+   "mantido": "programa-viva-melhor-20-sistema-nervoso - IMPRESSO.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rastreamento-holistico-da-saude-vm (2).docx",
+   "mantido": "rastreamento-holistico-da-saude-vm (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rastreamento-holistico-da-saude-vm.docx",
+   "mantido": "rastreamento-holistico-da-saude-vm (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rec-terapeuticas-instituto-viva-melhor.docx",
+   "mantido": "rec-terapeuticas-instituto-viva-melhor OK.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rec-terapeuticas-instituto-viva-melhorOK.docx",
+   "mantido": "rec-terapeuticas-instituto-viva-melhor OK.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rec-terapeuticas-instituto-viva-melhor.pdf",
+   "mantido": "rec-terapeuticas-instituto-viva-melhor OK.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "rec-terapeuticas-instituto-viva-melhorOK.pdf",
+   "mantido": "rec-terapeuticas-instituto-viva-melhor OK.pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "RECETA.docx",
+   "mantido": "RECETA – EXFOLIANTE .docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "recomendacoes-terapeuticas-digitalizado.docx",
+   "mantido": "recomendacoes-terapeuticas-digitalizado (2).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "recomendacoes-terapeuticas-impresso (2).docx",
+   "mantido": "recomendacoes-terapeuticas-impresso (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "recomendacoes-terapeuticas-impresso.docx",
+   "mantido": "recomendacoes-terapeuticas-impresso (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "super-shots.docx",
+   "mantido": "super-shots (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "super-shots.pdf",
+   "mantido": "super-shots (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Tabela do Portfólio - 10.21.pdf",
+   "mantido": "Tabela do Portfólio - 10.21.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Tabela Intradermo - 06.21.pdf",
+   "mantido": "Tabela Intradermo - 06.21.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "Tabelas Complementares Resposta Glicêmica.pdf",
+   "mantido": "Tabelas Complementares Resposta Glicêmica.docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "TABELAS ENFERMIDADES PARA HIDROTERAPIA.docx",
+   "mantido": "TABELAS ENFERMIDADES .... .docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "telomeros-os-guardioes-da-vida.docx",
+   "mantido": "telomeros-os-guardioes-da-vida (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "telomeros-os-guardioes-da-vida.pdf",
+   "mantido": "telomeros-os-guardioes-da-vida (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "TemplatedeApresentaohiperagentes.docx",
+   "mantido": "TemplatedeApresentaohiperagentes (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "TemplatedeApresentaohiperagentes.pdf",
+   "mantido": "TemplatedeApresentaohiperagentes (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "uso-de-floral-frequencial-na-sindrome-do-panico-mioma-e-polipo-endometrial.docx",
+   "mantido": "uso-de-floral-frequencial-na-sindrome-do-panico-mioma-e-polipo-endometrial (1).docx",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "uso-de-floral-frequencial-na-sindrome-do-panico-mioma-e-polipo-endometrial.pdf",
+   "mantido": "uso-de-floral-frequencial-na-sindrome-do-panico-mioma-e-polipo-endometrial (1).pdf",
+   "motivo": "conteúdo idêntico"
+  },
+  {
+   "removido": "01-interpretacao-funcional-de-exames-laboratoriais.docx",
+   "mantido": "01-interpretacao-funcional-de-exames-laboratoriais.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "02-valores-de-referencia.docx",
+   "mantido": "02-valores-de-referencia.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "03-avaliacao-funcional.docx",
+   "mantido": "03-avaliacao-funcional.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "04-sensibilidade-e-especificidade.docx",
+   "mantido": "04-sensibilidade-e-especificidade.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "0a0be73a-3fb9-417f-bb3f-e486652b23c4.docx",
+   "mantido": "0a0be73a-3fb9-417f-bb3f-e486652b23c4.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "1 a-fitoterapia-no-brasil-estudo.docx",
+   "mantido": "1 a-fitoterapia-no-brasil-estudo.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "1 apostila-de-nutricao-funcional-e-trofoterapia-ivm OK.pdf",
+   "mantido": "1 apostila-de-nutricao-funcional-e-trofoterapia-ivm OK.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "1 florais-biosinergicos.docx",
+   "mantido": "1 florais-biosinergicos.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "1.FundPrinsJA04_25 (1) - IMPRESSO.docx",
+   "mantido": "1.FundPrinsJA04_25 (1) - IMPRESSO.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "10 apostila-de-fitoterapia-completa-ivm-20.pdf",
+   "mantido": "10 apostila-de-fitoterapia-completa-ivm-20.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "10-Banhos-para-Aumentar-sua-Energia.docx",
+   "mantido": "10-Banhos-para-Aumentar-sua-Energia.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "13cd8399-fb16-4bdd-a8b4-3d88de8c39c1.docx",
+   "mantido": "13cd8399-fb16-4bdd-a8b4-3d88de8c39c1.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "17f98eb8-92e5-4bc1-b7ed-e917fd980c95.pdf",
+   "mantido": "17f98eb8-92e5-4bc1-b7ed-e917fd980c95.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "18D-NLS Use Manual(Training).docx",
+   "mantido": "18D-NLS Use Manual(Training).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "1f20302d-0fab-401b-8695-5ce0a8507394.docx",
+   "mantido": "1f20302d-0fab-401b-8695-5ce0a8507394.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "1fc2a17e-0a66-47e6-bfdf-d2f870e5f0ee.docx",
+   "mantido": "1fc2a17e-0a66-47e6-bfdf-d2f870e5f0ee.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "2 artigo-fitoterapicos.docx",
+   "mantido": "2 artigo-fitoterapicos.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "2 frutas-de-a-a-z.pdf",
+   "mantido": "2 frutas-de-a-a-z.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "2 uso-agla-refuah-emocoes-2018.docx",
+   "mantido": "2 uso-agla-refuah-emocoes-2018.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "2.Descob-JA-04_25.docx",
+   "mantido": "2.Descob-JA-04_25.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "3 cartilha-guia-pratico-de-panc-plantas-alimenticias-nao-convencionais-1.docx",
+   "mantido": "3 cartilha-guia-pratico-de-panc-plantas-alimenticias-nao-convencionais-1.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "3 da página 239 à 240 - EXAMES.docx",
+   "mantido": "3 da página 239 à 240 - EXAMES.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "3 leites-e-queijos-veganos.docx",
+   "mantido": "3 leites-e-queijos-veganos.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "3 uso-agla-refuah-fisico-emocional.docx",
+   "mantido": "3 uso-agla-refuah-fisico-emocional.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "3.DEC-MapJA04_25 - IMPRESSO.docx",
+   "mantido": "3.DEC-MapJA04_25 - IMPRESSO.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "3643818e-6e99-48f5-aa22-19d341379326.pdf",
+   "mantido": "3643818e-6e99-48f5-aa22-19d341379326.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "384ce7bc-e57b-4ec6-9a31-bd38b9313285.pdf",
+   "mantido": "384ce7bc-e57b-4ec6-9a31-bd38b9313285.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "3ddad115-c766-4530-9d7f-28c01c26b656.docx",
+   "mantido": "3ddad115-c766-4530-9d7f-28c01c26b656.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "4 formulario-de-fitoterapicos.docx",
+   "mantido": "4 formulario-de-fitoterapicos.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "4 manual-de-probioticos.docx",
+   "mantido": "4 manual-de-probioticos.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "4.PigsNovoJA04_25 - IMPRESSO.docx",
+   "mantido": "4.PigsNovoJA04_25 - IMPRESSO.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "41624adb-6700-46ed-8f60-a308f65a129d.docx",
+   "mantido": "41624adb-6700-46ed-8f60-a308f65a129d.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "5 apostila-de-psicoterapia-ivm.pdf",
+   "mantido": "5 apostila-de-psicoterapia-ivm.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "5 memento-fitoterapico-2016.docx",
+   "mantido": "5 memento-fitoterapico-2016.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "5 PROTOCOLOS ESSENCIAISI NA AURICULOTERAPIA.docx",
+   "mantido": "5 PROTOCOLOS ESSENCIAISI NA AURICULOTERAPIA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "5 receitas-crudivoras.docx",
+   "mantido": "5 receitas-crudivoras.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "50-chas-que-potencializam-o-emagrecimento.pdf",
+   "mantido": "50-chas-que-potencializam-o-emagrecimento.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "5443ad5f-935e-4b14-adaf-302e90e06675.pdf",
+   "mantido": "5443ad5f-935e-4b14-adaf-302e90e06675.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "5HTP.docx",
+   "mantido": "5HTP.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "6 plantas-toxicas-na-gestacao-artigo.docx",
+   "mantido": "6 plantas-toxicas-na-gestacao-artigo.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "6d7fc7b9-36f8-44dc-89ba-070fa9363cbb.docx",
+   "mantido": "6d7fc7b9-36f8-44dc-89ba-070fa9363cbb.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "7 plantas-na-gestacao-qualisus-rede-cegonha.docx",
+   "mantido": "7 plantas-na-gestacao-qualisus-rede-cegonha.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "7125_manual de contagem de carboidratos.pdf",
+   "mantido": "7125_manual de contagem de carboidratos.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "7a488254-756a-4b16-a3fd-417126c1e8c8.docx",
+   "mantido": "7a488254-756a-4b16-a3fd-417126c1e8c8.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "8 apostila-de-fitoterapia-ivm-protocolos-e-formas-de-preparacao.docx",
+   "mantido": "8 apostila-de-fitoterapia-ivm-protocolos-e-formas-de-preparacao.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "84a3006b-4fa6-44f5-ad40-0a68936170cb.docx",
+   "mantido": "84a3006b-4fa6-44f5-ad40-0a68936170cb.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "8dc6ad60-b1e7-46c3-9723-be10984eaf52.docx",
+   "mantido": "8dc6ad60-b1e7-46c3-9723-be10984eaf52.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "9 memento-fitoterapico-2021.docx",
+   "mantido": "9 memento-fitoterapico-2021.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "900 - receitas - que - são - verdadeiros - remédio - medicinais - IMPRESSO.docx",
+   "mantido": "900--receitas--que--são--verdadeiros--remédio--medicinais - IMPRESSO.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "A dieta do microbioma - Dr. Raphael Kellman - IMPRESSO.pdf",
+   "mantido": "A dieta do microbioma - Dr. Raphael Kellman - IMPRESSO.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "a-biofisica-quantica-na-saude.docx",
+   "mantido": "a-biofisica-quantica-na-saude.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "a-cura-auto-cura (1).docx",
+   "mantido": "a-cura-auto-cura (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "a-cura-auto-cura.docx",
+   "mantido": "a-cura-auto-cura.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "a-diabetes-na-iridologia.pdf",
+   "mantido": "a-diabetes-na-iridologia.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "A-Importancia-da-Desintoxicacao-do-Corpo.docx",
+   "mantido": "A-Importancia-da-Desintoxicacao-do-Corpo.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "a784cebe-6d5f-43ae-a1c3-1892faaff0b8.docx",
+   "mantido": "a784cebe-6d5f-43ae-a1c3-1892faaff0b8.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ABDIEL.docx",
+   "mantido": "ABDIEL.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Acabando-com-a-Coceira-de-Forma-Natural.docx",
+   "mantido": "Acabando-com-a-Coceira-de-Forma-Natural.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Acido_Alfa_Lipoico.docx",
+   "mantido": "Acido_Alfa_Lipoico.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ADEK (1).pdf",
+   "mantido": "ADEK (1).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Agendamento-Guia-Essencial.pdf",
+   "mantido": "Agendamento-Guia-Essencial.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "aipo.pdf",
+   "mantido": "aipo.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ALA (1).pdf",
+   "mantido": "ALA (1).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "alecrim.pdf",
+   "mantido": "alecrim.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "alho.pdf",
+   "mantido": "alho.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ALMEIDA_2017_A_pro_cura_do_medico_de_cab2.docx",
+   "mantido": "ALMEIDA_2017_A_pro_cura_do_medico_de_cab2.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "amadurecer-sem-envelhecer (1).docx",
+   "mantido": "amadurecer-sem-envelhecer (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "amadurecer-sem-envelhecer.docx",
+   "mantido": "amadurecer-sem-envelhecer.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "analise-do-biocampo-aura-com-o-uso-do-harmonizador-floral.docx",
+   "mantido": "analise-do-biocampo-aura-com-o-uso-do-harmonizador-floral.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "analise-funcional-de-exames-laboratoriais-hemograma.pdf",
+   "mantido": "analise-funcional-de-exames-laboratoriais-hemograma.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "analise-funcional-de-exames-laboratoriais-vitaminas-e-minerais.pdf",
+   "mantido": "analise-funcional-de-exames-laboratoriais-vitaminas-e-minerais.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ANAMNESE DE EXAMES.docx",
+   "mantido": "ANAMNESE DE EXAMES.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Anamnese Infantil.docx",
+   "mantido": "Anamnese Infantil.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ANAMNESE RÁPIDA - Perguntas diretas.docx",
+   "mantido": "ANAMNESE RÁPIDA - Perguntas diretas.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Anamnese-Homeopatia.docx",
+   "mantido": "Anamnese-Homeopatia.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "anamnese.pdf",
+   "mantido": "anamnese.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ANEMIA GRAVE.pdf",
+   "mantido": "ANEMIA GRAVE.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ANSIEDADE, ESTRESSE E DEPRESSÃO - IN RECEITA.pdf",
+   "mantido": "ANSIEDADE, ESTRESSE E DEPRESSÃO - IN RECEITA.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ansiedade.pdf",
+   "mantido": "ansiedade.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "antilec.docx",
+   "mantido": "antilec.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Apostila de Metodologia Científica.docx",
+   "mantido": "apostila-de-metodologia-cientifica.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "apostila-de-metodologia-cientifica.pdf",
+   "mantido": "apostila-de-metodologia-cientifica.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "apostila NATUROPATIA APLICADA.docx",
+   "mantido": "apostila NATUROPATIA APLICADA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "apostila-de-dietoterapia.pdf",
+   "mantido": "apostila-de-dietoterapia.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "apostila-de-fitoterapia-ivm.pdf",
+   "mantido": "apostila-de-fitoterapia-ivm.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "apostila-de-geoterapia-ivm.pdf",
+   "mantido": "apostila-de-geoterapia-ivm.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "apostila-de-hidroterapia-ivm-20.pdf",
+   "mantido": "apostila-de-hidroterapia-ivm-20.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "apostila-de-suplementacao-fitofuncional.docx",
+   "mantido": "apostila-de-suplementacao-fitofuncional.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "apostila-iridologia-clinica.pdf",
+   "mantido": "apostila-iridologia-clinica.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Apostila_Charles.docx",
+   "mantido": "Apostila_Charles.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Apostila_Dimitri.docx",
+   "mantido": "Apostila_Dimitri.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "apostila_do_curso_farmacologia_clinica_e_terapeutica_e_boas_praticas_de_prescricao.docx",
+   "mantido": "apostila_do_curso_farmacologia_clinica_e_terapeutica_e_boas_praticas_de_prescricao.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "apostila_do_curso_farmacoterapia_e_atencao_farmaceutica (1).docx",
+   "mantido": "apostila_do_curso_farmacoterapia_e_atencao_farmaceutica (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "apostila_do_curso_nocoes_de_primeiros_socorros.docx",
+   "mantido": "apostila_do_curso_nocoes_de_primeiros_socorros.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Aripiprazol - DEPLEÇÃO.pdf",
+   "mantido": "Aripiprazol - DEPLEÇÃO.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "arquivo-de-clientes-2022-by-prof-gerson-cunha OK.pptx",
+   "mantido": "arquivo-de-clientes-2022-by-prof-gerson-cunha OK.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "arquivo-de-clientes-2022-by-prof-gerson-cunha OK.pdf",
+   "mantido": "arquivo-de-clientes-2022-by-prof-gerson-cunha OK.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ArquivoCSV-hiperagentes.pdf",
+   "mantido": "ArquivoCSV-hiperagentes.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo minoxidil e finasterida.docx",
+   "mantido": "artigo minoxidil e finasterida.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-acafraonotratamentodadepressaoansiedadeeoutrostranstor.docx",
+   "mantido": "artigo-acafraonotratamentodadepressaoansiedadeeoutrostranstor.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-aeficaciapotencialdaspreparacoesdephaseolusvulgarisnocon.docx",
+   "mantido": "artigo-aeficaciapotencialdaspreparacoesdephaseolusvulgarisnocon.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-agentesnaturaisanti-obesidade-2014.docx",
+   "mantido": "artigo-agentesnaturaisanti-obesidade-2014.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-agentesnaturaisanti-obesidadeeseupapelterapeuticonomanejo.pdf",
+   "mantido": "artigo-agentesnaturaisanti-obesidadeeseupapelterapeuticonomanejo.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-aingestaodeumcharicoemcatequinaslevaaumareducaonagor.pdf",
+   "mantido": "artigo-aingestaodeumcharicoemcatequinaslevaaumareducaonagor.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-alcaloideserythrinamulungusaopotentesinibidoresdecorren.docx",
+   "mantido": "artigo-alcaloideserythrinamulungusaopotentesinibidoresdecorren.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-atividadeantioxidantedohibiscus-2011.docx",
+   "mantido": "artigo-atividadeantioxidantedohibiscus-2011.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-avaliacaodasegurancaeeficaciagarciniacambogiaemsereshuma.pdf",
+   "mantido": "artigo-avaliacaodasegurancaeeficaciagarciniacambogiaemsereshuma.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-camomila-amedicinaherbaldopassadocomfuturobrilhante-2010.docx",
+   "mantido": "artigo-camomila-amedicinaherbaldopassadocomfuturobrilhante-2010.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-capsinoidessuprimemaacumulacaodegorduraatravesdometabolis.docx",
+   "mantido": "artigo-capsinoidessuprimemaacumulacaodegorduraatravesdometabolis.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-colageno.docx",
+   "mantido": "artigo-colageno.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-crocussativuslversuscitalopramnotratamentodetranstorno.docx",
+   "mantido": "artigo-crocussativuslversuscitalopramnotratamentodetranstorno.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-efeitodomulunguemratossubmetidosamodelosanimaisdeansi.docx",
+   "mantido": "artigo-efeitodomulunguemratossubmetidosamodelosanimaisdeansi.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-efeitodoorlistatsozinhoouemcombinacaocomgarciniacambogia.docx",
+   "mantido": "artigo-efeitodoorlistatsozinhoouemcombinacaocomgarciniacambogia.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-efeitosanti-obesidadedaervamate-2015.pdf",
+   "mantido": "artigo-efeitosanti-obesidadedaervamate-2015.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-efeitosantiobesidadedascatequinasdochaverde-2011.pdf",
+   "mantido": "artigo-efeitosantiobesidadedascatequinasdochaverde-2011.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-efeitosbeneficosdezingiberofficinalesobreaobesidade-2006.pdf",
+   "mantido": "artigo-efeitosbeneficosdezingiberofficinalesobreaobesidade-2006.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-efeitosbeneficosdocacaucafechaverdesuplementocomplexo.pdf",
+   "mantido": "artigo-efeitosbeneficosdocacaucafechaverdesuplementocomplexo.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-efeitosdaingestaodesucodelaranjavermelhanafuncaoendotel.pdf",
+   "mantido": "artigo-efeitosdaingestaodesucodelaranjavermelhanafuncaoendotel.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-efeitosdapassifloraincarnataemidazolamnocontroledaansi.docx",
+   "mantido": "artigo-efeitosdapassifloraincarnataemidazolamnocontroledaansi.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-efeitosdasuplementacaodegarcinea-cambogiasobrepraticantesd.docx",
+   "mantido": "artigo-efeitosdasuplementacaodegarcinea-cambogiasobrepraticantesd.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-efeitosdasuplementacaodochaverdesovreapressaoarterualen.docx",
+   "mantido": "artigo-efeitosdasuplementacaodochaverdesovreapressaoarterualen.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-efeitosdopolifenoldechaepigalocatequina-3-galatoverdenoal.docx",
+   "mantido": "artigo-efeitosdopolifenoldechaepigalocatequina-3-galatoverdenoal.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-efeitosgarcinea-cambogianagorduravisceralabdominal-2003.pdf",
+   "mantido": "artigo-efeitosgarcinea-cambogianagorduravisceralabdominal-2003.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-eficaciaesegurancadeestimulantesdeervasesedativosemdi.pdf",
+   "mantido": "artigo-eficaciaesegurancadeestimulantesdeervasesedativosemdi.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-ensaioclinicoderhodiolarosealextratoshr-5notratamento.pdf",
+   "mantido": "artigo-ensaioclinicoderhodiolarosealextratoshr-5notratamento.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-estudoadjuvanterandomizadocontroladoporplacebodeumextra.docx",
+   "mantido": "artigo-estudoadjuvanterandomizadocontroladoporplacebodeumextra.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-estudossobreprevencaodaobesidadesindromemetabolicadiabet.pdf",
+   "mantido": "artigo-estudossobreprevencaodaobesidadesindromemetabolicadiabet.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-fitoterapicosparaobesidade-2011.docx",
+   "mantido": "artigo-fitoterapicosparaobesidade-2011.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-garcineacambogiaemfitotratamentodaobesidade-2014.docx",
+   "mantido": "artigo-garcineacambogiaemfitotratamentodaobesidade-2014.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-garciniacambojaatenuaadiposidadeinduzidapordietamasagrava.docx",
+   "mantido": "artigo-garciniacambojaatenuaadiposidadeinduzidapordietamasagrava.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-glucomannan-eobesidade-umarevisaocritica-2005.docx",
+   "mantido": "artigo-glucomannan-eobesidade-umarevisaocritica-2005.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-hibiscoeoprocessodeemagrecimento-2015.docx",
+   "mantido": "artigo-hibiscoeoprocessodeemagrecimento-2015.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-hibiscusinibeaacumulacaodeobesidadeegorduraemelhoraae.pdf",
+   "mantido": "artigo-hibiscusinibeaacumulacaodeobesidadeegorduraemelhoraae.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-ingredientestermogenicoseregulacaodopesocorporal-2010.pdf",
+   "mantido": "artigo-ingredientestermogenicoseregulacaodopesocorporal-2010.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-interacaodochaverdenometabolismonoemagrecimento-2007.docx",
+   "mantido": "artigo-interacaodochaverdenometabolismonoemagrecimento-2007.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-oefeitodagarciniacambogiacomocoadjuvantenoprocessodeper.docx",
+   "mantido": "artigo-oefeitodagarciniacambogiacomocoadjuvantenoprocessodeper.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-oefeitodairvingiagabonensissementessobreopesocorporal-20.docx",
+   "mantido": "artigo-oefeitodairvingiagabonensissementessobreopesocorporal-20.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-oefeitoopuntiaficus-indicasobreopesocorporalefatoresde.docx",
+   "mantido": "artigo-oefeitoopuntiaficus-indicasobreopesocorporalefatoresde.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-osefeitosanti-obesidadedeextratosdechaverdeemsereshuman.docx",
+   "mantido": "artigo-osefeitosanti-obesidadedeextratosdechaverdeemsereshuman.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-osfitoterapicoscomocoadjuvantesnotratamentodaobesidade-201.docx",
+   "mantido": "artigo-osfitoterapicoscomocoadjuvantesnotratamentodaobesidade-201.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-ousodemaytenusilicifolianaprevencao-2008.docx",
+   "mantido": "artigo-ousodemaytenusilicifolianaprevencao-2008.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-ousodosfitoterapicosnaobesidade-2010.docx",
+   "mantido": "artigo-ousodosfitoterapicosnaobesidade-2010.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-perdadepesoemanutencaodopesoemrelacaoacafeinaechaver.docx",
+   "mantido": "artigo-perdadepesoemanutencaodopesoemrelacaoacafeinaechaver.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-phaseolusvulgarisaliviadoobesidadeinduzidapeladietaresiste.pdf",
+   "mantido": "artigo-phaseolusvulgarisaliviadoobesidadeinduzidapeladietaresiste.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-plantasnotratamentodotranstornodeansiedade-2010.docx",
+   "mantido": "artigo-plantasnotratamentodotranstornodeansiedade-2010.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-produtosnaturaisderelevancianaprevencaoetratamentodesu.docx",
+   "mantido": "artigo-produtosnaturaisderelevancianaprevencaoetratamentodesu.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-propriedadesdagymnemasylvestre-2014.pdf",
+   "mantido": "artigo-propriedadesdagymnemasylvestre-2014.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-psylliumsuplementacaoemadolescentes-2012.docx",
+   "mantido": "artigo-psylliumsuplementacaoemadolescentes-2012.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-revisaosistematicademedicamentosparaobesidadedeplantas-201.pdf",
+   "mantido": "artigo-revisaosistematicademedicamentosparaobesidadedeplantas-201.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-rhodiolarosea-papeladaptogenicoaoefeitoanti-adipogenico.docx",
+   "mantido": "artigo-rhodiolarosea-papeladaptogenicoaoefeitoanti-adipogenico.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-rhodiolaroseaeficaznotratamentodefadigarelacionadocom.docx",
+   "mantido": "artigo-rhodiolaroseaeficaznotratamentodefadigarelacionadocom.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-rhodiolaroseaparaafadigafisicaemental-2012.pdf",
+   "mantido": "artigo-rhodiolaroseaparaafadigafisicaemental-2012.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-saciedadeeperfildemulherescomsobrepesoaposumnovotra-1.pdf",
+   "mantido": "artigo-saciedadeeperfildemulherescomsobrepesoaposumnovotra-1.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-terapiarhodiolaroseaparatranstornodepressivo-2015.docx",
+   "mantido": "artigo-terapiarhodiolaroseaparatranstornodepressivo-2015.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-tratamentoalongoprazodacamomilaparatranstornodeansieda.docx",
+   "mantido": "artigo-tratamentoalongoprazodacamomilaparatranstornodeansieda.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-umavisaocientificaabrangentedegarciniacambogia-2015.docx",
+   "mantido": "artigo-umavisaocientificaabrangentedegarciniacambogia-2015.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-umestudopilotoderhodiolaroseaparatranstornodeansiedade.pdf",
+   "mantido": "artigo-umestudopilotoderhodiolaroseaparatranstornodeansiedade.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-uminibidordealfa-amilaseproprietariodefeijaobranco-2011.pdf",
+   "mantido": "artigo-uminibidordealfa-amilaseproprietariodefeijaobranco-2011.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "artigo-usoclinicodacurcuminanadepressao-2017.pdf",
+   "mantido": "artigo-usoclinicodacurcuminanadepressao-2017.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ASTRO_DIAGNOSE_Um_Guia_para_a_Cura_Defin.docx",
+   "mantido": "ASTRO_DIAGNOSE_Um_Guia_para_a_Cura_Defin.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "AS_PLANTAS_E_OS_PLANETAS_a_utilizacao_da.docx",
+   "mantido": "AS_PLANTAS_E_OS_PLANETAS_a_utilizacao_da.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "AULA 1 – FISIOLOGIA DIGESTIVA E AVALIAÇÃO CLÍNICA DO TGI.docx",
+   "mantido": "AULA 1 – FISIOLOGIA DIGESTIVA E AVALIAÇÃO CLÍNICA DO TGI.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Avaliacao-Fisica.docx",
+   "mantido": "Avaliacao-Fisica.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "A_MENSAGEM_DAS_ESTRELAS_por_Max_Heindel.docx",
+   "mantido": "A_MENSAGEM_DAS_ESTRELAS_por_Max_Heindel.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "bases-cientificas-revista-fitos-fiocruz.docx",
+   "mantido": "bases-cientificas-revista-fitos-fiocruz.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "BCAA_NOVA LITERATURA.docx",
+   "mantido": "BCAA_NOVA LITERATURA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "bergamota.pdf",
+   "mantido": "bergamota.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "bfa0ad9c-5869-45ef-aa74-72d1668f5487.docx",
+   "mantido": "bfa0ad9c-5869-45ef-aa74-72d1668f5487.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "bioquantic-no-equilibrio-energetico.docx",
+   "mantido": "bioquantic-no-equilibrio-energetico.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "BOOSTER MOROSIL (1).docx",
+   "mantido": "BOOSTER MOROSIL (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "c336bf5d-c48b-44b9-911d-5b0f35add27e.docx",
+   "mantido": "c336bf5d-c48b-44b9-911d-5b0f35add27e.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "capitulo-oligoterapia-2008-livro.docx",
+   "mantido": "capitulo-oligoterapia-2008-livro.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "CARLOS EDUARDO - CALO VOCAL.docx",
+   "mantido": "CARLOS EDUARDO - CALO VOCAL.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "catalmedic-catalogo-tecnico-2020.pdf",
+   "mantido": "catalmedic-catalogo-tecnico-2020.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Catalogo Optimus Digital-22.docx",
+   "mantido": "Catalogo Optimus Digital-22.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "catalogo-tecnico-2022.pdf",
+   "mantido": "catalogo-tecnico-2022.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Chakra_1.docx",
+   "mantido": "Chakra_1.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Chakra_2.docx",
+   "mantido": "Chakra_2.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Chakra_3.docx",
+   "mantido": "Chakra_3.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "checklist-5-etapas-metodo-gps-by-gerson-cunha-20241115-180318-0000.pdf",
+   "mantido": "checklist-5-etapas-metodo-gps-by-gerson-cunha-20241115-180318-0000.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ciencia-do-bom-viver.docx",
+   "mantido": "ciencia-do-bom-viver.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "CLAUDIA - CALO VOCAL.docx",
+   "mantido": "CLAUDIA - CALO VOCAL.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Colheita e Preparo de Plantas Medicinais.pdf",
+   "mantido": "Colheita e Preparo de Plantas Medicinais.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Como Encontrar a Paz Interior OK.pdf",
+   "mantido": "Como Encontrar a Paz Interior OK.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "como-fazer-uma-avaliacao-pela-iris-completa-parte-3.pdf",
+   "mantido": "como-fazer-uma-avaliacao-pela-iris-completa-parte-3.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "como-montar-uma-recomendacao-terapeutica-parte-tecnica.pdf",
+   "mantido": "como-montar-uma-recomendacao-terapeutica-parte-tecnica.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "como-tirar-foto-das-iris.pdf",
+   "mantido": "como-tirar-foto-das-iris.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Comprovante_05-06-2025_200923.docx",
+   "mantido": "Comprovante_05-06-2025_200923.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "comunidade-exclusiva-para-alunos-no-facebook.pdf",
+   "mantido": "comunidade-exclusiva-para-alunos-no-facebook.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "conselhos-sobre-regime-alimentar.docx",
+   "mantido": "conselhos-sobre-regime-alimentar.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "conselhos-sobre-saude.docx",
+   "mantido": "conselhos-sobre-saude.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "consultoria-dia-12-05-22-1.docx",
+   "mantido": "consultoria-dia-12-05-22-1.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "consultoria-dia-16-06-2022-melhor-conduta-nos-casos-de-cancer.docx",
+   "mantido": "consultoria-dia-16-06-2022-melhor-conduta-nos-casos-de-cancer.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "consultoria-master-11-08-22-atendimento-infantil.docx",
+   "mantido": "consultoria-master-11-08-22-atendimento-infantil.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Contratojornada2anosdeacesso.docx",
+   "mantido": "Contratojornada2anosdeacesso.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Controle-da-glicose-com-receitas-saudaveis.docx",
+   "mantido": "Controle-da-glicose-com-receitas-saudaveis.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "copys-de-anuncios-by-gerson-cunha.pdf",
+   "mantido": "copys-de-anuncios-by-gerson-cunha.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "crises-de-cura-reacao-de-herxheimer.pdf",
+   "mantido": "crises-de-cura-reacao-de-herxheimer.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cronograma Imersão Presencial (1).pdf",
+   "mantido": "Cronograma Imersão Presencial (1).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "CronogramaJornada2.0.docx",
+   "mantido": "CronogramaJornada2.0.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "cultivo-de-plantas-medicinais.docx",
+   "mantido": "cultivo-de-plantas-medicinais.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "cura-verde-glossario-de-plantas-medicinais.docx",
+   "mantido": "cura-verde-glossario-de-plantas-medicinais.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "CURSO INJETÁVEIS ORTOMOLECULARES.docx",
+   "mantido": "CURSO INJETÁVEIS ORTOMOLECULARES.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Curso-Intensivo-Exames-Laboratoriais-na-Visao-Integrativa (1)_compressed.docx",
+   "mantido": "Curso-Intensivo-Exames-Laboratoriais-na-Visao-Integrativa (1)_compressed.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "CÂNCER - Recomendações Terapêuticas.docx",
+   "mantido": "CÂNCER - Recomendações Terapêuticas.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "CÓDIGO DE ÉTICA PARA A PROFISSÃO DE TERAPEUTA.docx",
+   "mantido": "CÓDIGO DE ÉTICA PARA A PROFISSÃO DE TERAPEUTA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de Cópia de Gaba.docx",
+   "mantido": "Cópia de Cópia de Gaba.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de Cópia de HMB CÁLCIO(1).docx",
+   "mantido": "Cópia de Cópia de HMB CÁLCIO(1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de Cópia de INOSITOL.docx",
+   "mantido": "Cópia de Cópia de INOSITOL.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de Cópia de L-CARNITINA-TARTARATO.docx",
+   "mantido": "Cópia de Cópia de L-CARNITINA-TARTARATO.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de E-book substâncias isoladas - IEF (4).docx",
+   "mantido": "Cópia de E-book substâncias isoladas - IEF (4).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de GELSEMIUM - O REMÉDIO DAS GRANDES SENSIBILIDADES PERSONALIDADES HOMEOPÁTICAS.pdf",
+   "mantido": "Cópia de GELSEMIUM - O REMÉDIO DAS GRANDES SENSIBILIDADES PERSONALIDADES HOMEOPÁTICAS.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de Guia Completo de Bioressonância.docx",
+   "mantido": "Cópia de Guia Completo de Bioressonância.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de GUIA COMPLETO DE FÓRMULAS SÓLIDOS E SEMISÓLIDOS - INSTITUTO EF.docx",
+   "mantido": "Cópia de GUIA COMPLETO DE FÓRMULAS SÓLIDOS E SEMISÓLIDOS - INSTITUTO EF.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de Guia-Homeopatico-Dr-Nilo-Cairo-Em-13-10-2018.pdf",
+   "mantido": "Cópia de Guia-Homeopatico-Dr-Nilo-Cairo-Em-13-10-2018.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de homeopatia-essencial-curso-basico-de-homeopatia - José Maria Alves - Impresso.docx",
+   "mantido": "Cópia de homeopatia-essencial-curso-basico-de-homeopatia - José Maria Alves - Impresso.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de L-Teanina(1).docx",
+   "mantido": "Cópia de L-Teanina(1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de Lâmina-Ibutamoren(1).docx",
+   "mantido": "Cópia de Lâmina-Ibutamoren(1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de Metformina Micronizada GEL - Emagrecimento(1).docx",
+   "mantido": "Cópia de Metformina Micronizada GEL - Emagrecimento(1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de novo-repertorio-clinico-homeopatico-por-patologias.docx",
+   "mantido": "Cópia de novo-repertorio-clinico-homeopatico-por-patologias.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de O Antioxidante Universal(1).docx",
+   "mantido": "Cópia de O Antioxidante Universal(1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de POOL 10 (2).pdf",
+   "mantido": "Cópia de POOL 10 (2).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de Procaína Benzoica.docx",
+   "mantido": "Cópia de Procaína Benzoica.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de Protocolos Soroterapia e IM - IEF(1).pdf",
+   "mantido": "Cópia de Protocolos Soroterapia e IM - IEF(1).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de revisão_de_literatura_ALFA GPC.pdf",
+   "mantido": "Cópia de revisão_de_literatura_ALFA GPC.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de SAMe.docx",
+   "mantido": "Cópia de SAMe.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Sugestões de Kits Injetáveis DERMATOLOGIA E ESTÉTICA AVANÇADA.docx",
+   "mantido": "Sugestões de Kits Injetáveis DERMATOLOGIA E ESTÉTICA AVANÇADA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de ZMA.docx",
+   "mantido": "Cópia de ZMA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "d586da12-fc1c-48e7-b9b8-29466d0f70ea.docx",
+   "mantido": "d586da12-fc1c-48e7-b9b8-29466d0f70ea.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "d7c43b17-3535-4af3-965e-706a0f8c1243 (1).docx",
+   "mantido": "d7c43b17-3535-4af3-965e-706a0f8c1243 (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "dbbcd7d6-b30e-45b5-ae67-ccc659118341.docx",
+   "mantido": "dbbcd7d6-b30e-45b5-ae67-ccc659118341.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "DEPRESSÃO - HPA.pdf",
+   "mantido": "DEPRESSÃO - HPA.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "DESPARASITAÇÃO.pdf",
+   "mantido": "DESPARASITAÇÃO.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Destoxificacao parte 1 - Intestino.docx",
+   "mantido": "Destoxificacao parte 1 - Intestino.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "detox (1).pdf",
+   "mantido": "detox (1).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "DETOX LINFÁTICO E HEPÁTICO - 0001.pdf",
+   "mantido": "DETOX LINFÁTICO E HEPÁTICO - 0001.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "DETOX PARA MELASMA.pdf",
+   "mantido": "DETOX PARA MELASMA.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "DIABETES - GLICOSE - DIABETES - INSULINA.pdf",
+   "mantido": "DIABETES - GLICOSE - DIABETES - INSULINA.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "DISBIOSE INTESTINAL E SINDROME DO INTESTINO PERMEÁVEL - AULA 3 PPT.pdf",
+   "mantido": "DISBIOSE INTESTINAL E SINDROME DO INTESTINO PERMEÁVEL - AULA 3 PPT.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "DISBIOSE INTESTINAL E SÍNDROME DO INTESTINO PERMEÁVEL -  AULA 3.docx",
+   "mantido": "DISBIOSE INTESTINAL E SÍNDROME DO INTESTINO PERMEÁVEL -  AULA 3.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "DISBIOSES - PARA TIA GENA.docx",
+   "mantido": "DISBIOSES - PARA TIA GENA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "E-book nutracêuticos e fitos - Ortomolecular Curso Livre.docx",
+   "mantido": "E-book nutracêuticos e fitos - Ortomolecular Curso Livre.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "E-BOOK20Ansiedade20e20depressC3A3o.docx",
+   "mantido": "E-BOOK20Ansiedade20e20depressC3A3o.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "E-BOOK20Farmacia20na20calcada.pdf",
+   "mantido": "E-BOOK20Farmacia20na20calcada.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "E-BOOK20Manual20de20cultivo20domestico20de20plantas20medicinais.pdf",
+   "mantido": "E-BOOK20Manual20de20cultivo20domestico20de20plantas20medicinais.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Ebook+Ativos+Intradermo - IEF.docx",
+   "mantido": "Ebook+Ativos+Intradermo - IEF.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ebook-desbloqueando-o-emagrecimento.docx",
+   "mantido": "ebook-desbloqueando-o-emagrecimento ok.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Ebook_Auriculoterapia_de_Sucesso_como_opotunidade_para_o_sucesso.docx",
+   "mantido": "Ebook_Auriculoterapia_de_Sucesso_como_opotunidade_para_o_sucesso.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "entendendo-os-telomeros (1).docx",
+   "mantido": "entendendo-os-telomeros (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "entendendo-os-telomeros.docx",
+   "mantido": "entendendo-os-telomeros.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "ervas-aromaticas.pdf",
+   "mantido": "ervas-aromaticas.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Estrategia-de-Abordagem.docx",
+   "mantido": "Estrategia-de-Abordagem.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "EXAMES.dotx",
+   "mantido": "EXAMES.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "f50e13af-d6d0-41fb-b72c-f7d8dd4c412e.docx",
+   "mantido": "f50e13af-d6d0-41fb-b72c-f7d8dd4c412e.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "f841651a-a9ed-457a-ad9e-d39af4c5d676.docx",
+   "mantido": "f841651a-a9ed-457a-ad9e-d39af4c5d676.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "farmacia-verde.docx",
+   "mantido": "farmacia-verde.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "farmacopeia-plantas-medicinais.pdf",
+   "mantido": "farmacopeia-plantas-medicinais.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "FASCICULO 1 PEDIATRIA - GUIA DE FORMULAÇÕES MARIA ROCHA - 2ª EDIÇÃO.pdf",
+   "mantido": "FASCICULO 1 PEDIATRIA - GUIA DE FORMULAÇÕES MARIA ROCHA - 2ª EDIÇÃO.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "FASCICULO 2 DEPURAÇÃO - GUIA DE FORMULAÇÕES MARIA ROCHA - 2ª EDIÇÃO.pdf",
+   "mantido": "FASCICULO 2 DEPURAÇÃO - GUIA DE FORMULAÇÕES MARIA ROCHA - 2ª EDIÇÃO.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "FASCICULO 3 PROBIÓTICOS E BIO MAMPS - GUIA DE FORMULAÇÕES MARIA ROCHA - 2ª EDIÇÃO.docx",
+   "mantido": "FASCICULO 3 PROBIÓTICOS E BIO MAMPS - GUIA DE FORMULAÇÕES MARIA ROCHA - 2ª EDIÇÃO.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "FASCÍCULO 5 - SAÚDE MASCULINA E HORMÔNIOS 2023.pptx.pdf",
+   "mantido": "FASCÍCULO 5 - SAÚDE MASCULINA E HORMÔNIOS 2023.pptx.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "FATORES DE TRANSFERENCIA - IMUNO TF.docx",
+   "mantido": "FATORES DE TRANSFERENCIA - IMUNO TF.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "fe57df17-05db-4028-90fd-32658e2bd099.docx",
+   "mantido": "fe57df17-05db-4028-90fd-32658e2bd099.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "fibras-poderosas.pdf",
+   "mantido": "fibras-poderosas.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Ficha de Anamnese Básica.docx",
+   "mantido": "Ficha de Anamnese Básica.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Ficha Tecnica ARGILA BRANCA COLAGENO HIDROLISADO rev1.docx",
+   "mantido": "Ficha Tecnica ARGILA BRANCA COLAGENO HIDROLISADO rev1.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Ficha Tecnica ARGILA ROSA PÓ DE PEROLA + COLAGENO HIDROLISADO® rev1.docx",
+   "mantido": "Ficha Tecnica ARGILA ROSA PÓ DE PEROLA + COLAGENO HIDROLISADO® rev1.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Ficha Tecnica ARGILA VERDE + COLAGENO HIDROLISADO rev1.docx",
+   "mantido": "Ficha Tecnica ARGILA VERDE + COLAGENO HIDROLISADO rev1.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Fitohormonios - MODULAÇÃÇO HORMONAL COM FITOTERÁPICOS.docx",
+   "mantido": "Fitohormonios - MODULAÇÃÇO HORMONAL COM FITOTERÁPICOS.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "FITOTERAPIA.docx",
+   "mantido": "FITOTERAPIA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "FITOTERÁPICOS.docx",
+   "mantido": "FITOTERÁPICOS.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "FLORAIS.docx",
+   "mantido": "FLORAIS.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "formulario-homeopatico.docx",
+   "mantido": "formulario-homeopatico.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "formulario-longevidade-farmaceutica (1).docx",
+   "mantido": "formulario-longevidade-farmaceutica (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "formulario-ortomolecular.docx",
+   "mantido": "formulario-ortomolecular.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "formulas-no-emagrecimento.docx",
+   "mantido": "formulas-no-emagrecimento.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Formulações e Dosagem de Fitoterápicos.pdf",
+   "mantido": "Formulações e Dosagem de Fitoterápicos.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Formulações Sugeridas.docx",
+   "mantido": "Formulações Sugeridas.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Fucus-Vesiculosos.docx",
+   "mantido": "Fucus-Vesiculosos.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "fundamentos  - 5 - Nutrição e Estado Nutricional Funcional (slides).pdf",
+   "mantido": "fundamentos  - 5 - Nutrição e Estado Nutricional Funcional (slides).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Fundamentos - 2  - Conceitos.docx",
+   "mantido": "Fundamentos - 2  - Conceitos.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Fundamentos - 3 -O-Sintoma-Como-Ponta-do-Iceberg.docx",
+   "mantido": "Fundamentos - 3 -O-Sintoma-Como-Ponta-do-Iceberg.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Fundamentos - 4 - Centralidade (slides).pdf",
+   "mantido": "Fundamentos - 4 - Centralidade (slides).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "fundamentos - 5 - Nutricao-e-Estado-Nutricional-Funcional (pdf).docx",
+   "mantido": "fundamentos - 5 - Nutricao-e-Estado-Nutricional-Funcional (pdf).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "fundamentos - 6 Microbiota Intestinal e Eixo Intestino-Cérebro (slides).pdf",
+   "mantido": "fundamentos - 6 Microbiota Intestinal e Eixo Intestino-Cérebro (slides).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "fundamentos 4.docx",
+   "mantido": "fundamentos 4.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Fundamentos 8 - os 4 Pilares (pdf).docx",
+   "mantido": "Fundamentos 8 - os 4 Pilares (pdf).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "fundamentos 9 - os 4 pilares 2 (pdf).pdf",
+   "mantido": "fundamentos 9 - os 4 pilares 2 (pdf).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Fórmulas Abertas - 2021.docx",
+   "mantido": "Fórmulas Abertas - 2021.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "gengibre.pdf",
+   "mantido": "gengibre.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Gmail - 01 - Avaliação Hipnose do Básico ao Avançado _ UBH.docx",
+   "mantido": "Gmail - 01 - Avaliação Hipnose do Básico ao Avançado _ UBH.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "green-elixir.pdf",
+   "mantido": "green-elixir.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Guia de Acesso às Planilhas da Pós.docx",
+   "mantido": "Guia de Acesso às Planilhas da Pós.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "guia-de-formulacoes-MARIA ROCHA.docx",
+   "mantido": "guia-de-formulacoes-MARIA ROCHA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "guia-de-formulacoes-maria-rocha.docx",
+   "mantido": "guia-de-formulacoes-MARIA ROCHA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Guia-de-Uso-Prático-Florais-de-Minas.docx",
+   "mantido": "Guia-de-Uso-Prático-Florais-de-Minas.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "hemocromatose-sind-dismetabolica.docx",
+   "mantido": "hemocromatose-sind-dismetabolica.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Historico-Alimentar.docx",
+   "mantido": "Historico-Alimentar.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "hortela.pdf",
+   "mantido": "hortela.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PREVENÇÃO DE CABELOS BRANCOS E FORTALECIMENTO.pdf",
+   "mantido": "PREVENÇÃO DE CABELOS BRANCOS E FORTALECIMENTO.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Imunidade-1.pdf",
+   "mantido": "Imunidade-1.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "IMUNOFORMULA.pdf",
+   "mantido": "IMUNOFORMULA.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "INDICAÇÕES PARA SISTEMA CARDIOVASCULAR E DISLIPIDEMIAS.pdf",
+   "mantido": "INDICAÇÕES PARA SISTEMA CARDIOVASCULAR E DISLIPIDEMIAS.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "INDUÇÃO DAVE ELMAN ORIGINAL.docx",
+   "mantido": "INDUÇÃO DAVE ELMAN ORIGINAL.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "INSÔNIA.pdf",
+   "mantido": "INSÔNIA.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "integracao-metabolica-eixo-hpa-1.pdf",
+   "mantido": "integracao-metabolica-eixo-hpa-1.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "INTOLERANCIA A HISTAMINA, SENSIBILIDADE AO GLUTEN E ATIVACAO MASTOCITARIA - AULA 6.docx",
+   "mantido": "INTOLERANCIA A HISTAMINA, SENSIBILIDADE AO GLUTEN E ATIVACAO MASTOCITARIA - AULA 6.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Introducao-ao-Plano-Alimentar-Detox.docx",
+   "mantido": "Introducao-ao-Plano-Alimentar-Detox.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Introducao-aos-Oleos-Essenciais.docx",
+   "mantido": "Introducao-aos-Oleos-Essenciais.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Introdução a Fitoterapia.pdf",
+   "mantido": "Introdução a Fitoterapia.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "iridologia-moderna-parte-2-ivm.docx",
+   "mantido": "iridologia-moderna-parte-2-ivm.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "lavanda.pdf",
+   "mantido": "lavanda.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Laxogenina - TESTOSTERONA VEGETAL.docx",
+   "mantido": "Laxogenina - TESTOSTERONA VEGETAL.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Livre - da - Ansiedade.docx",
+   "mantido": "Livre--da--Ansiedade.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Livre-das-dores-de-cabeca.docx",
+   "mantido": "Livre-das-dores-de-cabeca.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "livreto-definitivo-estetica.pdf",
+   "mantido": "livreto-definitivo-estetica.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Livro - amor-verde-nutricao-a-base-de-plantas-para-pet.pdf",
+   "mantido": "Livro - amor-verde-nutricao-a-base-de-plantas-para-pet.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Manual de Contagem de Carboidratos.pdf",
+   "mantido": "Manual de Contagem de Carboidratos.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "MANUAL DE ORGANIZAÇÃO E PLANEJAMENTO.docx",
+   "mantido": "MANUAL DE ORGANIZAÇÃO E PLANEJAMENTO.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Manual Prático Para Fazer Vídeos e Vender Mais.docx",
+   "mantido": "Manual Prático Para Fazer Vídeos e Vender Mais.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "mapa-46-areas-rayid.pdf",
+   "mantido": "mapa-46-areas-rayid.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "mapa-rayid-2024.pdf",
+   "mantido": "mapa-rayid-2024.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "mapas-e-pranchas-de-iridologia-by-prof-gerson-cunha.pdf",
+   "mantido": "mapas-e-pranchas-de-iridologia-by-prof-gerson-cunha.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "mapas-e-pranchas-de-iridologia.docx",
+   "mantido": "mapas-e-pranchas-de-iridologia.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "mapas-e-sinais-iridologicos.pdf",
+   "mantido": "mapas-e-sinais-iridologicos.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "MASTER_EM_HIPNOSE_CLINICA_PRO (1).docx",
+   "mantido": "MASTER_EM_HIPNOSE_CLINICA_PRO (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Material complementar de estudos.pdf",
+   "mantido": "Material complementar de estudos.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Material Complementar.pdf",
+   "mantido": "Material Complementar.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "material-da-anvisa-3.pdf",
+   "mantido": "material-da-anvisa (3).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "material-da-anvisa-3.docx",
+   "mantido": "material-da-anvisa (3).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "material-da-anvisa-02.docx",
+   "mantido": "material-da-anvisa-02.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "material-da-anvisa-04.pdf",
+   "mantido": "material-da-anvisa-04.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "material-da-anvisa-05.docx",
+   "mantido": "material-da-anvisa-05.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "material-da-anvisa-06.docx",
+   "mantido": "material-da-anvisa-06.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "material-da-anvisa.docx",
+   "mantido": "material-da-anvisa.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "MC393DULO20320-20SAC39ADE20E20PLANTAS20MEDICINAIS20-20JORNADA202.020.pdf",
+   "mantido": "MC393DULO20320-20SAC39ADE20E20PLANTAS20MEDICINAIS20-20JORNADA202.020.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "mC3B3dulo205.pdf",
+   "mantido": "mC3B3dulo205.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Mecanismo de Ação dos Fitocompostos.pdf",
+   "mantido": "Mecanismo de Ação dos Fitocompostos.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Medicamentos_Mortais_e_Crime_Organizado__Como_a_Indústria_Farmacêutica_Corrompeu_a_Assistência_Médica.docx",
+   "mantido": "Medicamentos_Mortais_e_Crime_Organizado__Como_a_Indústria_Farmacêutica_Corrompeu_a_Assistência_Médica.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "MEMÓRIA - ALZHEIMER.docx",
+   "mantido": "MEMÓRIA - ALZHEIMER.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "metodo-rayid-de-denny-johnson-46-areas.pdf",
+   "mantido": "metodo-rayid-de-denny-johnson-46-areas.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "MICROBIOMA INTESTINAL PAPEL SISTEMICO E ESTRATEGIAS TERAPEUTICAS - AULA 5 PPT.docx",
+   "mantido": "MICROBIOMA INTESTINAL PAPEL SISTEMICO E ESTRATEGIAS TERAPEUTICAS - AULA 5 PPT.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "MODULAÇÃO INTESTINAL - AULA 4.docx",
+   "mantido": "MODULAÇÃO INTESTINAL - AULA 4.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "MODULO6-CONSTRUINDOSUAFARMACIADEFITOTERAPICOS-JORNADA2.0 (1).docx",
+   "mantido": "MODULO6-CONSTRUINDOSUAFARMACIADEFITOTERAPICOS-JORNADA2.0 (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "mulher-45a-altura-160m-peso.docx",
+   "mantido": "mulher-45a-altura-160m-peso.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "MÃE - HOMEOPATIA.docx",
+   "mantido": "MÃE - HOMEOPATIA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "MÃE - OSTEOPOROSE.docx",
+   "mantido": "MÃE - OSTEOPOROSE.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Método de Extração e Preparação de Fitoterápicos..pdf",
+   "mantido": "Método de Extração e Preparação de Fitoterápicos..docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "natiflora-ortomolecular (1).docx",
+   "mantido": "natiflora-ortomolecular (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "NEUROPERSUASAO.COM_.BR_4.docx",
+   "mantido": "NEUROPERSUASAO.COM_.BR_4.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "NLS installation manual.docx",
+   "mantido": "NLS installation manual.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "o-passo-a-passo-definitivo-do-atendimento-online.pdf",
+   "mantido": "o-passo-a-passo-definitivo-do-atendimento-online.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "o-passo-a-passo-para-se-formar-como-um-profissional-de-sucesso.pdf",
+   "mantido": "o-passo-a-passo-para-se-formar-como-um-profissional-de-sucesso.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "o-poder-harmonizador-dos-chackras.docx",
+   "mantido": "o-poder-harmonizador-dos-chackras.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "o-sistema-endocanabinoide.docx",
+   "mantido": "o-sistema-endocanabinoide.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "o-sistema-pnei.docx",
+   "mantido": "o-sistema-pnei.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "oficina-de-plantas-medicinais.pdf",
+   "mantido": "oficina-de-plantas-medicinais.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "os-hormonios-na-saude-e-a-importancia-dos-receptores-hormonais.docx",
+   "mantido": "os-hormonios-na-saude-e-a-importancia-dos-receptores-hormonais.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PARA DIMINUIR APETITE, CONTRA DOCE, COMPULSÃO, EMAGRECER, COLESTEROL, MEMÓRIA.docx",
+   "mantido": "PARA DIMINUIR APETITE, CONTRA DOCE, COMPULSÃO, EMAGRECER, COLESTEROL, MEMÓRIA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PARA MÃE 29-05-2025.docx",
+   "mantido": "PARA MÃE 29-05-2025.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PARA VÔMITO E DIARREIA.pdf",
+   "mantido": "PARA VÔMITO E DIARREIA.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "passo-a-passo-definitivo-do-atendimento-online-pela-iridologia.pdf",
+   "mantido": "passo-a-passo-definitivo-do-atendimento-online-pela-iridologia.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PDF PARA IA.pdf",
+   "mantido": "PDF PARA IA.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PDF Queixa-Principal-e-Historia-da-Doenca-Atual.docx",
+   "mantido": "PDF Queixa-Principal-e-Historia-da-Doenca-Atual.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "perfis-defeitos-e-qualidades.docx",
+   "mantido": "perfis-defeitos-e-qualidades.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "perfis-variaveis-intro-e-extro-hemisferio-racional-e-emocional.docx",
+   "mantido": "perfis-variaveis-intro-e-extro-hemisferio-racional-e-emocional.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "planner-viva-melhor-20-1-1 ok.pdf",
+   "mantido": "planner-viva-melhor-20-1-1.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PLANO ALIMENTAR FUNCIONAL.docx",
+   "mantido": "PLANO ALIMENTAR FUNCIONAL.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "plantas-medicinais-e-fitoterapicos-guia (1).docx",
+   "mantido": "plantas-medicinais-e-fitoterapicos-guia (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "plantas-nativas-e-exoticas (1).pdf",
+   "mantido": "plantas-nativas-e-exoticas (1).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "plantas-toxicas.docx",
+   "mantido": "plantas-toxicas.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "poejo.pdf",
+   "mantido": "poejo.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "POOL COGNITIVO E ENERGETICO (1).docx",
+   "mantido": "POOL COGNITIVO E ENERGETICO (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "portfolio_hinutrition_18x22cm_web.pdf",
+   "mantido": "portfolio_hinutrition_18x22cm_web.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "prancha-perfis-temperamentos.pdf",
+   "mantido": "prancha-perfis-temperamentos.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PRATICA COM BASE BIOLOGICA - AULA 8.docx",
+   "mantido": "PRATICA COM BASE BIOLOGICA - AULA 8.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PREPARO DOS CHÁS.pdf",
+   "mantido": "PREPARO DOS CHÁS.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Princípais Ativos das Plantas.pdf",
+   "mantido": "Princípais Ativos das Plantas.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "probioticos-formulario-top (1).docx",
+   "mantido": "probioticos-formulario-top (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-de-plantas-medicinais-e-alimendos-organicos.docx",
+   "mantido": "programa-de-plantas-medicinais-e-alimendos-organicos.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-como-usar-as-plantas - IMPRESSO.pdf",
+   "mantido": "programa-viva-melhor-20-como-usar-as-plantas.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-estomago-e-esofago  - - IMPRESSO.pdf",
+   "mantido": "programa-viva-melhor-20-estomago-e-esofago.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-gripes-e-resfriados.docx",
+   "mantido": "programa-viva-melhor-20-gripes-e-resfriados - IMPRESSO.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-kefir - IMPRESSO.pdf",
+   "mantido": "programa-viva-melhor-20-kefir.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-melhora-do-sono.docx",
+   "mantido": "programa-viva-melhor-20-melhora-do-sono - IMPRESSO.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-modulacao-da-dor - IMPRESSO.pdf",
+   "mantido": "programa-viva-melhor-20-modulacao-da-dor.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-plano-alimentar - IMPRESSO.pdf",
+   "mantido": "programa-viva-melhor-20-plano-alimentar.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-porque-adoecemos - IMPRESSO.pdf",
+   "mantido": "programa-viva-melhor-20-porque-adoecemos.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-programa-de-21-dias ok.pdf",
+   "mantido": "programa-viva-melhor-20-programa-de-21-dias ok.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-cicatrizacao - IMPRESSO.pdf",
+   "mantido": "programa-viva-melhor-20-recomendacoes-para-cicatrizacao - IMPRESSO.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-diabetes - IMPRESSO.pdf",
+   "mantido": "programa-viva-melhor-20-recomendacoes-para-diabetes - IMPRESSO.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-recomendacoes-para-febre - IMPRESSO.docx",
+   "mantido": "programa-viva-melhor-20-recomendacoes-para-febre - IMPRESSO.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-saude-intestinal - IMPRESSO.pdf",
+   "mantido": "programa-viva-melhor-20-saude-intestinal - IMPRESSO.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "programa-viva-melhor-20-sistema-nervoso - IMPRESSO.docx",
+   "mantido": "programa-viva-melhor-20-sistema-nervoso - IMPRESSO.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Protocolo Detox Intramuscular .pdf",
+   "mantido": "Protocolo Detox Intramuscular .docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PROTOCOLO-SINATRA-CARDIOPATIA.docx",
+   "mantido": "PROTOCOLO-SINATRA-CARDIOPATIA.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PROTOCOLOS DE DETOXIFICAÇÃO E DESPARASITAÇÃO FUNCIONAL - AULA 7 PPT.pdf",
+   "mantido": "PROTOCOLOS DE DETOXIFICAÇÃO E DESPARASITAÇÃO FUNCIONAL - AULA 7 PPT.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PROTOCOLOS DE DETOXIFICAÇÃO E DESPARASITAÇÃO FUNCIONAL - AULA 7.docx",
+   "mantido": "PROTOCOLOS DE DETOXIFICAÇÃO E DESPARASITAÇÃO FUNCIONAL - AULA 7.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Protocolo_Pos_Histerectomia_HarmoniaSaude.docx",
+   "mantido": "Protocolo_Pos_Histerectomia_HarmoniaSaude.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "PRÁTICA COM BASE BIOLÓGICA - AULA 8 PPT.pdf",
+   "mantido": "PRÁTICA COM BASE BIOLÓGICA - AULA 8 PPT.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "quando-a-iris-mostra-o-caminho-da-cura-com-apenas-algumas-gotinhas.pdf",
+   "mantido": "quando-a-iris-mostra-o-caminho-da-cura-com-apenas-algumas-gotinhas.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Quantum Analyzer Manual in Three Languages.docx",
+   "mantido": "Quantum Analyzer Manual in Three Languages.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "questionario-feminino-2020.pdf",
+   "mantido": "questionario-feminino-2020.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "questionario-masculino-2020.pdf",
+   "mantido": "questionario-masculino-2020.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "rec-terapeuticas-instituto-viva-melhor OK.docx",
+   "mantido": "rec-terapeuticas-instituto-viva-melhor OK.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "receita.pdf",
+   "mantido": "receita.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "RECEITAS.docx",
+   "mantido": "RECEITAS.txt",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Recomendados para mãe - 24 de julho de 2025 - SEM EXPLICAÇÕES.pdf",
+   "mantido": "Recomendados para mãe - 24 de julho de 2025 - SEM EXPLICAÇÕES.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Recomendados para mãe - 24 de julho de 2025.pdf",
+   "mantido": "Recomendados para mãe - 24 de julho de 2025.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Recomendações Terapêuticas - Wander Pires.docx",
+   "mantido": "Recomendações Terapêuticas - Wander Pires.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "RESISTÊNCIA À LEPTINA.docx",
+   "mantido": "RESISTÊNCIA A LEPTINA.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "resolucao-de-um-caso-de-ferritina-alta.docx",
+   "mantido": "resolucao-de-um-caso-de-ferritina-alta.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "resumao-do-encontro-com-dr-andrews-edomar.docx",
+   "mantido": "resumao-do-encontro-com-dr-andrews-edomar.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "revista-cientifica-anais-cstq-2019.docx",
+   "mantido": "revista-cientifica-anais-cstq-2019.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "shot-verde-detox.pdf",
+   "mantido": "shot-verde-detox.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "shots.pdf",
+   "mantido": "shots.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "sindrome-pre-menstrual-tpm.docx",
+   "mantido": "sindrome-pre-menstrual-tpm.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "sistema-neuro-imuno-endocrino.pdf",
+   "mantido": "sistema-neuro-imuno-endocrino.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Slide Avaliação Física.pdf",
+   "mantido": "Slide Avaliação Física.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Slide Saúde Psicológica.pdf",
+   "mantido": "Slide Saúde Psicológica.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "SLIDES - FITOTERAPIA.pdf",
+   "mantido": "SLIDES - FITOTERAPIA.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "SLides Avaliação Nutricional Funcional.pdf",
+   "mantido": "SLides Avaliação Nutricional Funcional.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "sucesso-das-essencias-vibracionais-lentidao-no-crescimento-estatural.docx",
+   "mantido": "sucesso-das-essencias-vibracionais-lentidao-no-crescimento-estatural.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "super-shots (1).pdf",
+   "mantido": "super-shots (1).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "suplementacao-alimentar-no-pos-operatorio-de-cirutgia-bariatrica.docx",
+   "mantido": "suplementacao-alimentar-no-pos-operatorio-de-cirutgia-bariatrica.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "suplementos-e-micronutrientes-saude-cerebral.docx",
+   "mantido": "suplementos-e-micronutrientes-saude-cerebral.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "tabela de preços central farma.pdf",
+   "mantido": "tabela de preços central farma.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Tabela Ortomolecular 02.22.pdf",
+   "mantido": "Tabela Ortomolecular 02.22.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Tabela Pineda MESCLAS com valores 2023.pdf",
+   "mantido": "Tabela Pineda MESCLAS com valores 2023.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Tabela Pineda PRODUTOS com valores 2023 (1).pdf",
+   "mantido": "Tabela Pineda PRODUTOS com valores 2023 (1).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Taxonomia e Biologia das Plantas..pdf",
+   "mantido": "Taxonomia e Biologia das Plantas..docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "tecnologia-quantum-health-revista.docx",
+   "mantido": "tecnologia-quantum-health-revista.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "telomeros-os-guardioes-da-vida (1).docx",
+   "mantido": "telomeros-os-guardioes-da-vida (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "temperanca (1).docx",
+   "mantido": "temperanca (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "temperanca.docx",
+   "mantido": "temperanca.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "TemplatedeApresentaohiperagentes (1).pdf",
+   "mantido": "TemplatedeApresentaohiperagentes (1).docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "THERMOATIVADOR (1).docx",
+   "mantido": "THERMOATIVADOR (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "TIPOS DE ADOÇANTE.pdf",
+   "mantido": "TIPOS DE ADOÇANTE.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Têcnicas de Cultivo Orgânico e Sustentável..pdf",
+   "mantido": "Têcnicas de Cultivo Orgânico e Sustentável..docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "UNIDOS.docx",
+   "mantido": "UNIDOS.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "uso-de-floral-frequencial-na-sindrome-do-panico-mioma-e-polipo-endometrial (1).docx",
+   "mantido": "uso-de-floral-frequencial-na-sindrome-do-panico-mioma-e-polipo-endometrial (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Venes - Como fazer um currículo perfeito.docx",
+   "mantido": "Venes - Como fazer um currículo perfeito.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "vida-no-campo (1).docx",
+   "mantido": "vida-no-campo (1).pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "vida-no-campo.docx",
+   "mantido": "vida-no-campo.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Visao-Restaurada-de-forma-Natural - IMPRESSO.docx",
+   "mantido": "Visao-Restaurada-de-forma-Natural - IMPRESSO.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "VISÃO GERAL DO SISTEMA DIGESTIVO COM ENFOQUE FUNCIONAL - AULA 2 PPT.pdf",
+   "mantido": "VISÃO GERAL DO SISTEMA DIGESTIVO COM ENFOQUE FUNCIONAL - AULA 2 PPT.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "VISÃO GERAL DO SISTEMA DIGESTIVO COM ENFOQUE FUNCIONAL - AULA 2.docx",
+   "mantido": "VISÃO GERAL DO SISTEMA DIGESTIVO COM ENFOQUE FUNCIONAL - AULA 2.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Vocação para a Terapia Holística.docx",
+   "mantido": "Vocação para a Terapia Holística.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Wander Pires Silva Coelho.pdf",
+   "mantido": "Wander Pires Silva Coelho.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "workshop-receitas-naturais-que-curam-a-maioria-das-doencas.pdf",
+   "mantido": "workshop-receitas-naturais-que-curam-a-maioria-das-doencas.docx",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "zooquantic-catalogo-de-produtos-2-220715-171224.docx",
+   "mantido": "zooquantic-catalogo-de-produtos-2-220715-171224.pdf",
+   "motivo": "mesmo material (versão alternativa)"
+  },
+  {
+   "removido": "Cópia de AMINNU (1).pdf",
+   "mantido": "AMINNU (1).pdf",
+   "motivo": "arquivo idêntico (hash)"
+  },
+  {
+   "removido": "Cópia de BIOCOLIN (1).pdf",
+   "mantido": "BIOCOLIN (1).pdf",
+   "motivo": "arquivo idêntico (hash)"
+  },
+  {
+   "removido": "Cópia de cafeina_revisão_de_literatura_rc.pdf",
+   "mantido": "cafeina_revisão_de_literatura_rc.pdf",
+   "motivo": "arquivo idêntico (hash)"
+  },
+  {
+   "removido": "Cópia de COENZIMA Q10 (1).pdf",
+   "mantido": "COENZIMA Q10 (1).pdf",
+   "motivo": "arquivo idêntico (hash)"
+  },
+  {
+   "removido": "Cópia de Cópia de AMINNU (1).pdf",
+   "mantido": "AMINNU (1).pdf",
+   "motivo": "arquivo idêntico (hash)"
+  },
+  {
+   "removido": "Cópia de NAC (2).pdf",
+   "mantido": "Cópia de NAC (2)(1).pdf",
+   "motivo": "arquivo idêntico (hash)"
+  },
+  {
+   "removido": "EXAMES 01.pdf",
+   "mantido": "Do Manual Prático de Exames Laboratoriais 01.pdf",
+   "motivo": "arquivo idêntico (hash)"
+  },
+  {
+   "removido": "NAC (2).pdf",
+   "mantido": "Cópia de NAC (2)(1).pdf",
+   "motivo": "arquivo idêntico (hash)"
+  },
+  {
+   "removido": "NADH (2).pdf",
+   "mantido": "Cópia de NADH (2).pdf",
+   "motivo": "arquivo idêntico (hash)"
+  },
+  {
+   "removido": "ROTEIRO APOIO.docx",
+   "mantido": "HEREDITARIEDADE.docx",
+   "motivo": "arquivo idêntico (hash)"
+  }
+ ],
+ "falhas": [
+  {
+   "arquivo": "~$ATAMENTO CONTRA CÂNCER.docx",
+   "motivo": "Can't find end of central directory : is this a zip file ? If it is, see https://stuk.github.io/jszip/documentation/howto/read_zip.html"
+  },
+  {
+   "arquivo": "~$OTIPOS.docx",
+   "motivo": "Can't find end of central directory : is this a zip file ? If it is, see https://stuk.github.io/jszip/documentation/howto/read_zip.html"
+  },
+  {
+   "arquivo": "A_Anamnese_que_Cura_ebook-Final+(2)+APROVADO.pdf",
+   "motivo": "falha mesmo com senha: Incorrect Password"
+  },
+  {
+   "arquivo": "Fatura.pdf",
+   "motivo": "falha mesmo com senha: Incorrect Password"
+  },
+  {
+   "arquivo": "livro-capacitacao-de-manipulador-de-medicamentos.pdf",
+   "motivo": "falha mesmo com senha: Incorrect Password"
+  },
+  {
+   "arquivo": "PROMPT+BUQ+FLORAL.pdf",
+   "motivo": "falha mesmo com senha: Incorrect Password"
+  },
+  {
+   "arquivo": "PROMPTS+ATIVADOR.pdf",
+   "motivo": "falha mesmo com senha: Incorrect Password"
+  }
+ ],
+ "naoSuportados": [
+  "Cópia_de_segurança_de_RÓTULOS - DESPARASITIZAÇÃO.cdr",
+  "MAPA RAYID.cdr",
+  "MAPA ÍRIS.cdr",
+  "RÓTULOS - DESPARASITIZAÇÃO.cdr"
+ ],
+ "recuperadosComSenha": [
+  {
+   "arquivo": "00-apresentacao-metodo-gps-by-gerson-cunha.pdf",
+   "resultado": "recuperado → documentos/00-apresentacao-metodo-gps-by-gerson-cunha-2.json (7957 caracteres)"
+  },
+  {
+   "arquivo": "01-apresentacao-do-mapa-da-iris-metodo-gps-by-gerson-cunha - SENHA gpsivm.pdf",
+   "resultado": "recuperado → documentos/01-apresentacao-do-mapa-da-iris-metodo-gps-by-gerson-cunha-senha-gpsivm-2.json (445 caracteres)"
+  },
+  {
+   "arquivo": "03-constituicoes-metodo-gps-by-gerson-cunha.pdf",
+   "resultado": "recuperado → documentos/03-constituicoes-metodo-gps-by-gerson-cunha-2.json (2578 caracteres)"
+  },
+  {
+   "arquivo": "04-o-estomago-metodo-gps-by-gerson-cunha.pdf",
+   "resultado": "recuperado → documentos/04-o-estomago-metodo-gps-by-gerson-cunha-2.json (1319 caracteres)"
+  },
+  {
+   "arquivo": "05-intestinos-metodo-gps-by-gerson-cunha.pdf",
+   "resultado": "recuperado → documentos/05-intestinos-metodo-gps-by-gerson-cunha-2.json (1369 caracteres)"
+  },
+  {
+   "arquivo": "06-as-lacunas-metodo-gps-by-gerson-cunha.pdf",
+   "resultado": "recuperado → documentos/06-as-lacunas-metodo-gps-by-gerson-cunha-2.json (1922 caracteres)"
+  },
+  {
+   "arquivo": "07-raios-solares-sulcos-radiais-metodo-gps-by-gerson-cunha.pdf",
+   "resultado": "recuperado → documentos/07-raios-solares-sulcos-radiais-metodo-gps-by-gerson-cunha-2.json (1006 caracteres)"
+  },
+  {
+   "arquivo": "08-aneis-de-ansiedade-spa-metodo-gps-by-gerson-cunha.pdf",
+   "resultado": "recuperado → documentos/08-aneis-de-ansiedade-spa-metodo-gps-by-gerson-cunha-2.json (1999 caracteres)"
+  },
+  {
+   "arquivo": "09-anel-escamoso-metodo-gps-by-gerson-cunha.pdf",
+   "resultado": "recuperado → documentos/09-anel-escamoso-metodo-gps-by-gerson-cunha-2.json (1380 caracteres)"
+  },
+  {
+   "arquivo": "10-psoras-metodo-gps-by-gerson-cunha.pdf",
+   "resultado": "recuperado → documentos/10-psoras-metodo-gps-by-gerson-cunha-2.json (511 caracteres)"
+  },
+  {
+   "arquivo": "11-rosario-linfatico-metodo-gps-by-gerson-cunha.pdf",
+   "resultado": "recuperado → documentos/11-rosario-linfatico-metodo-gps-by-gerson-cunha-2.json (1932 caracteres)"
+  },
+  {
+   "arquivo": "12-anel-c-s-c-metodo-gps-by-gerson-cunha.pdf",
+   "resultado": "recuperado → documentos/12-anel-c-s-c-metodo-gps-by-gerson-cunha-2.json (2839 caracteres)"
+  },
+  {
+   "arquivo": "Plantas_Medicinais_Lista_Completa.pdf",
+   "resultado": "recuperado → documentos/plantas-medicinais-lista-completa-2.json (2505 caracteres)"
+  }
+ ],
+ "recuperadosOcr": [
+  {
+   "arquivo": "1 da página 001 à 128.pdf",
+   "resultado": "OCR → documentos/1-da-pagina-001-a-128-3.json (164068 caracteres)"
+  },
+  {
+   "arquivo": "2 da página 129 à 238.pdf",
+   "resultado": "OCR → documentos/2-da-pagina-129-a-238-2.json (152163 caracteres)"
+  },
+  {
+   "arquivo": "3 da página 239 à 240.pdf",
+   "resultado": "OCR → documentos/3-da-pagina-239-a-240.json (2185 caracteres)"
+  },
+  {
+   "arquivo": "4 da página 242 à 424.pdf",
+   "resultado": "OCR → documentos/4-da-pagina-242-a-424-2.json (215530 caracteres)"
+  },
+  {
+   "arquivo": "7552cdc0-3f5b-4a2a-90a6-ee356fc3974b.pdf",
+   "resultado": "OCR → documentos/7552cdc0-3f5b-4a2a-90a6-ee356fc3974b.json (7802 caracteres)"
+  },
+  {
+   "arquivo": "ADRENAL E HIPOTIREOIDISMO - STRESSE - CORTIZOL.docx",
+   "resultado": "OCR → documentos/adrenal-e-hipotireoidismo-stresse-cortizol.json (474 caracteres)"
+  },
+  {
+   "arquivo": "ALGUMAS OBSERVAÇÕES A SEREM ORGANIZADAS.docx",
+   "resultado": "OCR → documentos/algumas-observacoes-a-serem-organizadas.json (4722 caracteres)"
+  },
+  {
+   "arquivo": "AMINNU (1).pdf",
+   "resultado": "OCR → documentos/aminnu-1-2.json (2963 caracteres)"
+  },
+  {
+   "arquivo": "Apostila de Metodologia Científica.pdf",
+   "resultado": "OCR → documentos/apostila-de-metodologia-cientifica-2.json (38331 caracteres)"
+  },
+  {
+   "arquivo": "AS SETE ZONAS DA ÍRIS.docx",
+   "resultado": "OCR → documentos/as-sete-zonas-da-iris.json (245 caracteres)"
+  },
+  {
+   "arquivo": "BIOCOLIN (1).pdf",
+   "resultado": "OCR → documentos/biocolin-1-2.json (4970 caracteres)"
+  },
+  {
+   "arquivo": "cafeina_revisão_de_literatura_rc.pdf",
+   "resultado": "OCR → documentos/cafeina-revisao-de-literatura-rc-2.json (4478 caracteres)"
+  },
+  {
+   "arquivo": "certificado-26-12-2024_01-00-36.pdf",
+   "resultado": "OCR → documentos/certificado-26-12-2024-01-00-36-2.json (339 caracteres)"
+  },
+  {
+   "arquivo": "certificate_tmp_a477fab3-4882-46eb-b9b9-9398a35af6b7--886602920.pdf",
+   "resultado": "OCR → documentos/certificate-tmp-a477fab3-4882-46eb-b9b9-9398a35af6b7-886602920-2.json (469 caracteres)"
+  },
+  {
+   "arquivo": "COENZIMA Q10 (1).pdf",
+   "resultado": "OCR → documentos/coenzima-q10-1-2.json (5499 caracteres)"
+  },
+  {
+   "arquivo": "Cópia de AMINNU (1).docx",
+   "resultado": "OCR → documentos/copia-de-aminnu-1.json (2730 caracteres)"
+  },
+  {
+   "arquivo": "Cópia de NAC (2)(1).pdf",
+   "resultado": "OCR → documentos/copia-de-nac-2-1-2.json (5476 caracteres)"
+  },
+  {
+   "arquivo": "Cópia de NADH (2).pdf",
+   "resultado": "OCR → documentos/copia-de-nadh-2-2.json (6251 caracteres)"
+  },
+  {
+   "arquivo": "Detox_Detox_do_Sistema_Linfático_Wander_Pires_Silva_Coelho_2026-05-01.pdf",
+   "resultado": "OCR → documentos/detox-detox-do-sistema-linfatico-wander-pires-silva-coelho-2026-05-01.json (2284 caracteres)"
+  },
+  {
+   "arquivo": "Detox_Detox_Hepático_–_Suporte_Metabólico_Wander_Pires_Silva_Coelho_2026-05-17.pdf",
+   "resultado": "OCR → documentos/detox-detox-hepatico-suporte-metabolico-wander-pires-silva-coelho-2026-05-17.json (2151 caracteres)"
+  },
+  {
+   "arquivo": "Detox_Protocolo_Detox_Hepático_e_Biliar_Wander_Pires_Silva_Coelho_2026-05-01.pdf",
+   "resultado": "OCR → documentos/detox-protocolo-detox-hepatico-e-biliar-wander-pires-silva-coelho-2026-05-01.json (3364 caracteres)"
+  },
+  {
+   "arquivo": "DIABETES - INDIC.pdf",
+   "resultado": "OCR → documentos/diabetes-indic-2.json (2617 caracteres)"
+  },
+  {
+   "arquivo": "DIMINUIR AS AGES.docx",
+   "resultado": "OCR → documentos/diminuir-as-ages.json (834 caracteres)"
+  },
+  {
+   "arquivo": "Do Manual Prático de Exames Laboratoriais 01.pdf",
+   "resultado": "OCR → documentos/do-manual-pratico-de-exames-laboratoriais-01-2.json (58397 caracteres)"
+  },
+  {
+   "arquivo": "EVITA GLICAÇÃO.docx",
+   "resultado": "OCR → documentos/evita-glicacao.json (618 caracteres)"
+  },
+  {
+   "arquivo": "EXAMES 02.docx",
+   "resultado": "OCR → documentos/exames-02.json (21967 caracteres)"
+  },
+  {
+   "arquivo": "EXAMES 02.pdf",
+   "resultado": "OCR → documentos/exames-02-2.json (21432 caracteres)"
+  },
+  {
+   "arquivo": "EXAMES 03.pdf",
+   "resultado": "OCR → documentos/exames-03-2.json (90969 caracteres)"
+  },
+  {
+   "arquivo": "EXAMES 04.docx",
+   "resultado": "OCR → documentos/exames-04.json (17664 caracteres)"
+  },
+  {
+   "arquivo": "EXAMES 04.pdf",
+   "resultado": "OCR → documentos/exames-04-2.json (21183 caracteres)"
+  },
+  {
+   "arquivo": "EXAMES 05.pdf",
+   "resultado": "OCR → documentos/exames-05-2.json (133588 caracteres)"
+  },
+  {
+   "arquivo": "Fibromialgia.docx",
+   "resultado": "OCR → documentos/fibromialgia.json (1695 caracteres)"
+  },
+  {
+   "arquivo": "FLORAL QUÂNTICO.docx",
+   "resultado": "OCR → documentos/floral-quantico.json (1218 caracteres)"
+  },
+  {
+   "arquivo": "FRANCISCA PIRES DE LIMA COELHO - ANSIEDADE - DEPRESSÃO.pdf",
+   "resultado": "OCR → documentos/francisca-pires-de-lima-coelho-ansiedade-depressao-2.json (1544 caracteres)"
+  },
+  {
+   "arquivo": "fundamentos 10 glicacao (slides.).pdf",
+   "resultado": "OCR → documentos/fundamentos-10-glicacao-slides-2.json (3293 caracteres)"
+  },
+  {
+   "arquivo": "fundamentos 11 - oxidacao (slides).pdf",
+   "resultado": "OCR → documentos/fundamentos-11-oxidacao-slides-2.json (2951 caracteres)"
+  },
+  {
+   "arquivo": "HEREDITARIEDADE.docx",
+   "resultado": "OCR → documentos/hereditariedade.json (1632 caracteres)"
+  },
+  {
+   "arquivo": "Inflamação slides (pdf).docx",
+   "resultado": "OCR → documentos/inflamacao-slides-pdf.json (4185 caracteres)"
+  },
+  {
+   "arquivo": "Inflamação slides (pdf).pdf",
+   "resultado": "OCR → documentos/inflamacao-slides-pdf-2.json (3965 caracteres)"
+  },
+  {
+   "arquivo": "injetáveis - Mãe.docx",
+   "resultado": "OCR → documentos/injetaveis-mae.json (7362 caracteres)"
+  },
+  {
+   "arquivo": "injetáveis - Mãe.pdf",
+   "resultado": "OCR → documentos/injetaveis-mae-2.json (3844 caracteres)"
+  },
+  {
+   "arquivo": "INTERAÇÕES MEDICAMENTO E NUTRIENTES.docx",
+   "resultado": "OCR → documentos/interacoes-medicamento-e-nutrientes.json (29416 caracteres)"
+  },
+  {
+   "arquivo": "INTERAÇÕES MEDICAMENTO E NUTRIENTES.pdf",
+   "resultado": "OCR → documentos/interacoes-medicamento-e-nutrientes-2.json (30553 caracteres)"
+  },
+  {
+   "arquivo": "LIMPANDO A TIREÓIDE.docx",
+   "resultado": "OCR → documentos/limpando-a-tireoide.json (536 caracteres)"
+  },
+  {
+   "arquivo": "LIVRO SOBRE EXAMES.pdf",
+   "resultado": "OCR → documentos/livro-sobre-exames-2.json (252725 caracteres)"
+  },
+  {
+   "arquivo": "MAPA TRANSPARENTE PARA ANAMNESES.docx",
+   "resultado": "OCR → documentos/mapa-transparente-para-anamneses.json (929 caracteres)"
+  },
+  {
+   "arquivo": "MAPAS IRIDOLOGIA MODERNA.docx",
+   "resultado": "OCR → documentos/mapas-iridologia-moderna.json (13639 caracteres)"
+  },
+  {
+   "arquivo": "MAPAS.pdf",
+   "resultado": "OCR → documentos/mapas-2.json (13892 caracteres)"
+  },
+  {
+   "arquivo": "NUTRINDO A TIREÓIDE 2.docx",
+   "resultado": "OCR → documentos/nutrindo-a-tireoide-2.json (673 caracteres)"
+  },
+  {
+   "arquivo": "NUTRINDO A TIREÓIDE.docx",
+   "resultado": "OCR → documentos/nutrindo-a-tireoide.json (612 caracteres)"
+  },
+  {
+   "arquivo": "Portifólio Estética.docx",
+   "resultado": "OCR → documentos/portifolio-estetica.json (1854 caracteres)"
+  },
+  {
+   "arquivo": "Portifólio Estética.pdf",
+   "resultado": "OCR → documentos/portifolio-estetica-2.json (3978 caracteres)"
+  },
+  {
+   "arquivo": "Portifólio EV.docx",
+   "resultado": "OCR → documentos/portifolio-ev.json (2048 caracteres)"
+  },
+  {
+   "arquivo": "Portifólio EV.pdf",
+   "resultado": "OCR → documentos/portifolio-ev-2.json (3799 caracteres)"
+  },
+  {
+   "arquivo": "Portifólio IM.docx",
+   "resultado": "OCR → documentos/portifolio-im.json (9474 caracteres)"
+  },
+  {
+   "arquivo": "Portifólio IM.pdf",
+   "resultado": "OCR → documentos/portifolio-im-2.json (17479 caracteres)"
+  },
+  {
+   "arquivo": "PREJUDICAM A TIREÓIDE.docx",
+   "resultado": "OCR → documentos/prejudicam-a-tireoide.json (757 caracteres)"
+  },
+  {
+   "arquivo": "PROBIÓTICOS.docx",
+   "resultado": "OCR → documentos/probioticos.json (14089 caracteres)"
+  },
+  {
+   "arquivo": "PROBIÓTICOS.pdf",
+   "resultado": "OCR → documentos/probioticos-2.json (17238 caracteres)"
+  },
+  {
+   "arquivo": "PROBLEMAS.docx",
+   "resultado": "OCR → documentos/problemas.json (4628 caracteres)"
+  },
+  {
+   "arquivo": "revisão_de_literatura_azul_metileno.pdf",
+   "resultado": "OCR → documentos/revisao-de-literatura-azul-metileno-2.json (4532 caracteres)"
+  },
+  {
+   "arquivo": "revisão_de_literatura_dmso (1).pdf",
+   "resultado": "OCR → documentos/revisao-de-literatura-dmso-1-2.json (2563 caracteres)"
+  },
+  {
+   "arquivo": "SINTOMAS E CARÊNCIAS NUTRICIONAIS.docx",
+   "resultado": "OCR → documentos/sintomas-e-carencias-nutricionais.json (51942 caracteres)"
+  },
+  {
+   "arquivo": "SINTOMAS E CARÊNCIAS NUTRICIONAIS.pdf",
+   "resultado": "OCR → documentos/sintomas-e-carencias-nutricionais-2.json (57061 caracteres)"
+  },
+  {
+   "arquivo": "slides-metodo-gps.pdf",
+   "resultado": "OCR → documentos/slides-metodo-gps-2.json (37945 caracteres)"
+  },
+  {
+   "arquivo": "SUCOS.docx",
+   "resultado": "OCR → documentos/sucos.json (741 caracteres)"
+  },
+  {
+   "arquivo": "sugestoes-terapeuticas-Wander Pires Silva Coelho-31-05-2026 (1).pdf",
+   "resultado": "OCR → documentos/sugestoes-terapeuticas-wander-pires-silva-coelho-31-05-2026-1.json (1317 caracteres)"
+  },
+  {
+   "arquivo": "sugestoes-terapeuticas-Wander Pires Silva Coelho-31-05-2026.pdf",
+   "resultado": "OCR → documentos/sugestoes-terapeuticas-wander-pires-silva-coelho-31-05-2026.json (1996 caracteres)"
+  },
+  {
+   "arquivo": "sugestoes-terapeuticas-Wander Pires Silva Coelho2-01-05-2026 (1).pdf",
+   "resultado": "OCR → documentos/sugestoes-terapeuticas-wander-pires-silva-coelho2-01-05-2026-1.json (12043 caracteres)"
+  },
+  {
+   "arquivo": "sugestoes-terapeuticas-Wander Pires Silva Coelho2-01-05-2026.pdf",
+   "resultado": "OCR → documentos/sugestoes-terapeuticas-wander-pires-silva-coelho2-01-05-2026.json (2054 caracteres)"
+  },
+  {
+   "arquivo": "Ticket Imersão Online.pdf",
+   "resultado": "OCR → documentos/ticket-imersao-online-2.json (234 caracteres)"
+  },
+  {
+   "arquivo": "Top 5 Protocolos Injetáveis .pdf",
+   "resultado": "OCR → documentos/top-5-protocolos-injetaveis-2.json (2985 caracteres)"
+  },
+  {
+   "arquivo": "ZONAS DA ÍRIS.docx",
+   "resultado": "OCR → documentos/zonas-da-iris.json (7653 caracteres)"
+  }
+ ]
+}

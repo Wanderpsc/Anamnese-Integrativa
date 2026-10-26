@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <rect fill="#fff7e6" width="160" height="160" rx="12"/>
+  <circle cx="80" cy="50" r="30" fill="#ffcc80" opacity="0.8"/>
+  <text x="50%" y="120" dominant-baseline="middle" text-anchor="middle" fill="#8d6e63" font-family="Inter, Arial" font-size="14">Matricaria chamomilla</text>
+</svg>

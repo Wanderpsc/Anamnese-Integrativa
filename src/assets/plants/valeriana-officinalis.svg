@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <rect fill="#f3e5f5" width="160" height="160" rx="12"/>
+  <ellipse cx="80" cy="68" rx="46" ry="28" fill="#ba68c8" opacity="0.7"/>
+  <text x="50%" y="125" dominant-baseline="middle" text-anchor="middle" fill="#4a148c" font-family="Inter, Arial" font-size="12">Valeriana officinalis</text>
+</svg>

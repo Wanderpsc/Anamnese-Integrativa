@@ -1,0 +1,46 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# PDF.js worker (copiado automaticamente pelo script)
+public/pdf.worker.min.js
+.vercel
+
+# Local Netlify folder
+.netlify
+
+# Local backups and caches
+backup/
+.npm-cache/
+
+# Pastas de trabalho da conversao OCR (originais e pipeline — nao versionar)
+/ZIP PARA JS/
+/Nova pasta/
+src/assets/therapeutic-data/PASTA COM TODOS OS ARQUIVOS/
+src/assets/therapeutic-data/j* escaneados em OCR/
+src/assets/therapeutic-data/prontos em ZIP*/
+src/assets/therapeutic-data/MANUAL PR*TICO DA ANAMNESE INTEGRATIVA*/
+~$*
+
+# Build do Electron e caches (artefatos gerados — nao versionar)
+dist/

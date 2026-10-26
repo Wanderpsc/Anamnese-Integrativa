@@ -1,0 +1,3463 @@
+{
+  "metadata": {
+    "extractionDate": "2026-02-03",
+    "version": "3.0-final",
+    "description": "Perguntas clínicas refinadas e limpas - qualidade máxima",
+    "totalQuestions": 420,
+    "categoriesCount": 11
+  },
+  "categories": [
+    {
+      "id": "geral",
+      "name": "Sintomas Gerais",
+      "questionCount": 277,
+      "questions": [
+        {
+          "id": "q_1",
+          "text": "O que te trouxe à minha consulta Qual sua queixa principal?",
+          "original": "O que te trouxe à minha consulta Qual sua queixa principal?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "main_complaint"
+        },
+        {
+          "id": "q_2",
+          "text": "Existe algum alimento ou dia específico que você se sente diferente após comer ou beber algo?",
+          "original": "Existe algum alimento ou dia específico que você se sente diferente após comer ou beber algo?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_3",
+          "text": "Como é a sua disposição durante o dia? Muito cansaço pela manhã ou tarde?",
+          "original": "Como é a sua disposição durante o dia? Muito cansaço pela manhã ou tarde?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_4",
+          "text": "Você tem como é sua paciência? você é otimista ou mais pessimista? sente-se ansioso com frequência?",
+          "original": "Como é sua paciência? Você é otimista ou mais pessimista? Sente-se ansioso com frequência?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_5",
+          "text": "Sobre o seu sono: dorme bem à noite? Tem muitos pesadelos? Dificuldade para entrar no sono Sente sonolência durante o dia?",
+          "original": "Sobre o seu sono: dorme bem à noite? Tem muitos pesadelos? Dificuldade para entrar no sono Sente sonolência durante o dia?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_6",
+          "text": "Como se sente em ambientes fechados/abertos?",
+          "original": "Como se sente em ambientes fechados/abertos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_7",
+          "text": "Sente que há momentos em que os sintomas pioram ou melhoram? Consegue associar com algo?",
+          "original": "Sente que há momentos em que os sintomas pioram ou melhoram? Consegue associar com algo?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_8",
+          "text": "Você sente alguma mudança digestiva, emocional ou energética desde o procedimento?",
+          "original": "Você sente alguma mudança digestiva, emocional ou energética desde o procedimento?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_9",
+          "text": "Você sente que seu corpo ainda está tentando “se adaptar\" ao que aconteceu?",
+          "original": "Você sente que seu corpo ainda está tentando “se adaptar\" ao que aconteceu?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_10",
+          "text": "Você percebe algum sintoma recorrente após consumir certos alimentos (ex: inchado, cansaço, dor de cabeça)?",
+          "original": "Você percebe algum sintoma recorrente após consumir certos alimentos (ex: inchado, cansaço, dor de cabeça)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_11",
+          "text": "Consegue manter uma rotina alimentar ou sente que está sempre pulando refeições ou comendo com pressa?",
+          "original": "Consegue manter uma rotina alimentar ou sente que está sempre pulando refeições ou comendo com pressa?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_12",
+          "text": "Como você se sente quando se movimenta? Seu corpo pede movimento ou repouso?",
+          "original": "Como você se sente quando se movimenta? Seu corpo pede movimento ou repouso?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_13",
+          "text": "Você consegue incluir atividades físicas prazerosas na rotina ou sente que é mais uma obrigação?",
+          "original": "Você consegue incluir atividades físicas prazerosas na rotina ou sente que é mais uma obrigação?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_14",
+          "text": "Que te impede hoje de se movimentar mais (tempo, dor, medo, desmotivação)?",
+          "original": "Que te impede hoje de se movimentar mais (tempo, dor, medo, desmotivação)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "movement_barriers"
+        },
+        {
+          "id": "q_15",
+          "text": "Você já tentou reduzir ou parar e percebeu alguma diferença fisica ou emocional?",
+          "original": "Você já tentou reduzir ou parar e percebeu alguma diferença fisica ou emocional?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_16",
+          "text": "Existe algo que você sente que precisa suprif antes de conseguir se desligar do cigarro?",
+          "original": "Existe algo que você sente que precisa suprif antes de conseguir se desligar do cigarro?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_17",
+          "text": "Você sente que algum tipo de substância tem sido uma forma de escape ou de autocontrole emocional?",
+          "original": "Você sente que algum tipo de substância tem sido uma forma de escape ou de autocontrole emocional?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_18",
+          "text": "Como é seu ritual noturno? Você consegue se preparar para dormir com tranquilidade?",
+          "original": "Como é seu ritual noturno? Você consegue se preparar para dormir com tranquilidade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_19",
+          "text": "Você acorda descansado(a) ou com a sensação de que não dormiu direito?",
+          "original": "Você acorda descansado(a) ou com a sensação de que não dormiu direito?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_20",
+          "text": "Quais fatores você percebe que atrapalhar seu sono (pensamentos, barulho, alimentos, luz, celular)?",
+          "original": "Quais fatores você percebe que atrapalhar seu sono (pensamentos, barulho, alimentos, luz, celular)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_21",
+          "text": "O que você acha que está faltando para o seu son0 Sgr maIS fEstaurador?",
+          "original": "O que você acha que está faltando para o seu son0 Sgr maIS fEstaurador?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "sleep_missing"
+        },
+        {
+          "id": "q_22",
+          "text": "Você tem a anamnese integrativa busca compreendef como o paciente vive, sente e manifesta o estresse.?",
+          "original": "A anamnese integrativa busca compreendef como o paciente vive, sente e manifesta o estresse.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_23",
+          "text": "Nos últimos tempos, você sente que está reais no “modo sobrevivência\" ou “modo presença\"?",
+          "original": "Nos últimos tempos, você sente que está reais no “modo sobrevivência\" ou “modo presença\"?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_24",
+          "text": "Você sente que tem espaço para si mesmo(a) na sua rotina? Para silenciar e se reconectar?",
+          "original": "Você sente que tem espaço para si mesmo(a) na sua rotina? Para silenciar e se reconectar?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_25",
+          "text": "Você já percebeu algum alimento que te causa desconforto fisico, como inchado, cansaço ou dor de cabeça, mesmo sem ser \"alérgico\" a 8Ie?",
+          "original": "Você já percebeu algum alimento que te causa desconforto fisico, como inchado, cansaço ou dor de cabeça, mesmo sem ser \"alérgico\" a 8Ie?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_26",
+          "text": "Você sente diferença na sua disposição e humor quando consome alimentos mais naturais em comparação aos industfializados?",
+          "original": "Você sente diferença na sua disposição e humor quando consome alimentos mais naturais em comparação aos industfializados?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_27",
+          "text": "Sente que seu corpo dó sinais quando há excesso de alimentos industrializados?",
+          "original": "Sente que seu corpo dó sinais quando há excesso de alimentos industrializados",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_28",
+          "text": "Você já percebeu que pular refeições ou comer em horários irregulares afeta seu humor, sono ou energia?",
+          "original": "Você já percebeu que pular refeições ou comer em horários irregulares afeta seu humor, sono ou energia?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_29",
+          "text": "Sente-se saCiado(a) ao final das refeições ou tem vontade de beliscar pouco tempo depois?",
+          "original": "Sente-se saCiado(a) ao final das refeições ou tem vontade de beliscar pouco tempo depois?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_30",
+          "text": "Você sente segurança em relação à qualidade e à f0fma correta de tomar seus?",
+          "original": "Você sente segurança em relação à qualidade e à f0fma correta de tomar seus?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_31",
+          "text": "Sente que a quantidade de liquido que consome hoje é suficiente para suas atividades?",
+          "original": "Sente que a quantidade de liquido que consome hoje é suficiente para suas atividades?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_32",
+          "text": "Você tem como você enxerga seu corpo hoje? sente que ele está expressando vitalidade?",
+          "original": "Como você enxerga seu corpo hoje? Sente que ele está expressando vitalidade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_33",
+          "text": "Você sente variações na sua pressão ao longo do dia, como em momentos de estresse, cansaço ou após certos alimentos?",
+          "original": "Você sente variações na sua pressão ao longo do dia, como em momentos de estresse, cansaço ou após certos alimentos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_34",
+          "text": "Já percebeu sintomas como tortura, dor de cabeça ou paJpitação que possam estar relacionados à sua pressão?",
+          "original": "Já percebeu sintomas como tortura, dor de cabeça ou paJpitação que possam estar relacionados à sua pressão?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_35",
+          "text": "Você já mediu sua pressão em casa? Como ela costuma se comportar fora do consultório?",
+          "original": "Você já mediu sua pressão em casa? Como ela costuma se comportar fora do consultório?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_36",
+          "text": "Você respira de forma profunda e consciente ao longo do dia ou percebe que?",
+          "original": "Você respira de forma profunda e consciente ao longo do dia ou percebe que?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_37",
+          "text": "Você se sente cansado(a) ou sem fôlego com facilidade, mesmo em atividades simples?",
+          "original": "Você se sente cansado(a) ou sem fôlego com facilidade, mesmo em atividades simples?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_38",
+          "text": "Você costuma sentir muito fno ou muito calor, mesmo quando outras pessoas não sentem?",
+          "original": "Você costuma sentir muito fno ou muito calor, mesmo quando outras pessoas não sentem?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_39",
+          "text": "Percebe que sua temperatura corporal muda com frequência durante o dia?",
+          "original": "Percebe que sua temperatura corporal muda com frequência durante o dia?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_40",
+          "text": "Você já teve febres inexplicadas, suores noturnos ou calafrios frequentes?",
+          "original": "Você já teve febres inexplicadas, suores noturnos ou calafrios frequentes?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_41",
+          "text": "Você sente que seu corpo tem tentado “te avisar’ de algo por meio de sinais?",
+          "original": "Você sente que seu corpo tem tentado “te avisar’ de algo por meio de sinais?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_42",
+          "text": "Em quais momentos do seu dia você se sente mais leve ou mais sobrecarregado(a)?",
+          "original": "Em quais momentos do seu dia você se sente mais leve ou mais sobrecarregado(a)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "overload_moments"
+        },
+        {
+          "id": "q_43",
+          "text": "Sente que consegue expressar suas emoções ou tende a guardá-las?",
+          "original": "Sente que consegue expressar suas emoções ou tende a guardá-las?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_44",
+          "text": "Você sente que sua mente está sempre acelerada, ou tem dificuldade de iniciar?",
+          "original": "Você sente que sua mente está sempre acelerada, ou tem dificuldade de iniciar?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_45",
+          "text": "Hó quanto tempo você percebe sintomas como cansaço, perda de interesse, preocupação constante ou irritação?",
+          "original": "Hó quanto tempo você percebe sintomas como cansaço, perda de interesse, preocupação constante ou irritação?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "symptom_duration"
+        },
+        {
+          "id": "q_46",
+          "text": "Você sente que seu corpo reage ao estresse de forma física (ex: insônia,?",
+          "original": "Você sente que seu corpo reage ao estresse de forma física (ex: insônia,?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_47",
+          "text": "Sente que está conseguindo equilibrar suas tarefas com momentos de descanso e autocuidado?",
+          "original": "Sente que está conseguindo equilibrar suas tarefas com momentos de descanso e autocuidado?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_48",
+          "text": "Você se sente apoiado(a) emocionalmente? Tem com quem dividir suas?",
+          "original": "Você se sente apoiado(a) emocionalmente? Tem com quem dividir suas?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_49",
+          "text": "O que significa ter qualidade de vida para você? Vocé sente que estó perto ou longe disso hoje?",
+          "original": "O que significa ter qualidade de vida para você? Vocé sente que estó perto ou longe disso hoje?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "quality_of_life_distance"
+        },
+        {
+          "id": "q_50",
+          "text": "Você sente que sua saúde atual te permite viver como gostaria?",
+          "original": "Você sente que sua saúde atual te permite viver como gostaria?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_51",
+          "text": "Você se sente satisfeito(a) com seu nível de energia, disposição e clareza?",
+          "original": "Você se sente satisfeito(a) com seu nível de energia, disposição e clareza?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_52",
+          "text": "Você sente que sua energia é sufciente para cumprir suas tarefas diárias ou sente-se frequentemente esgotado(a)?",
+          "original": "Você sente que sua energia é sufciente para cumprir suas tarefas diárias ou sente-se frequentemente esgotado(a)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_53",
+          "text": "Nos últimos meses, percebeu mudanças no seu peso ou na facilidade/diúculdade para ganhá-lo ou perdê-lo?",
+          "original": "Nos últimos meses, percebeu mudanças no seu peso ou na facilidade/diúculdade para ganhá-lo ou perdê-lo?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_54",
+          "text": "Como você sente que seu corpo reage aos alimentos —sente-se energizado(a), pesado(a), sonolento(a) ou satisfeito(a)?",
+          "original": "Como você sente que seu corpo reage aos alimentos —sente-se energizado(a), pesado(a), sonolento(a) ou satisfeito(a)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_55",
+          "text": "Você se sente mais ativo(a) em determinados horários do dia? Como isso se relaciona com sua alin entaçáo?",
+          "original": "Você se sente mais ativo(a) em determinados horários do dia? Como isso se relaciona com sua alin entaçáo?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_56",
+          "text": "Você tem já percebeu se quando dorme menos, fica mais faminto(a) ou sente mais?",
+          "original": "Já percebeu se quando dorme menos, fica mais faminto(a) ou sente mais",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_57",
+          "text": "Algum alimelito costuma causar desconforto intestinal2 Você já tentou identificar quais são os gatilhos?",
+          "original": "Algum alimelito costuma causar desconforto intestinal2 Você já tentou identificar quais são os gatilhos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_58",
+          "text": "Como é sua recuperação após esforço físico, estresse emocional ou noites mal dormidas? Seu corpo se recupera rápido?",
+          "original": "Como é sua recuperação após esforço físico, estresse emocional ou noites mal dormidas? Seu corpo se recupera rápido?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_59",
+          "text": "Você sente algum sintoma respiratório ou dermatológico após exposição a fumaça de veiculos, produtos químicos ou poeira?",
+          "original": "Você sente algum sintoma respiratório ou dermatológico após exposição a fumaça de veiculos, produtos químicos ou poeira?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_60",
+          "text": "Sente-se exposto(a) diariamente a produtos com forte odor ou compostos sintéticos? Como isso afeta sua saúde ou hem-estar?",
+          "original": "Sente-se exposto(a) diariamente a produtos com forte odor ou compostos sintéticos? Como isso afeta sua saúde ou hem-estar?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_61",
+          "text": "Com que frequência sente cansaço mesmo aDós uma noite de sono ou em momentos de baixa demanda fisica?",
+          "original": "Com que frequência sente cansaço mesmo aDós uma noite de sono ou em momentos de baixa demanda fisica?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_62",
+          "text": "Você já fez exames que apontaram marcadores inflamatórios elevados? O que foi orientado após esses resultados?",
+          "original": "Você já fez exames que apontaram marcadores inflamatórios elevados? O que foi orientado após esses resultados?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_63",
+          "text": "Percebe que determinados alimentos ou hábitos aumentam sua sensação de inchaçc, dor ou desconforto geral?",
+          "original": "Percebe que determinados alimentos ou hábitos aumentam sua sensação de inchaçc, dor ou desconforto geral?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_64",
+          "text": "Quando está sob estresse, você percebe mudanças físicas no seu corpo, como dor de cabeça, problemas digestivos ou insônia?",
+          "original": "Quando está sob estresse, você percebe mudanças físicas no seu corpo, como dor de cabeça, problemas digestivos ou insônia?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_65",
+          "text": "Em siluaçls estressantes, você se sente emocionalmente fesiiiente ou tende a ter reações mais intensas e duradouras?",
+          "original": "Em siluaçls estressantes, você se sente emocionalmente fesiiiente ou tende a ter reações mais intensas e duradouras?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_66",
+          "text": "Consegue perceber uma conexão entre momentos de estresse crônico e a piora de sintomas físicos ou doenças que já possui?",
+          "original": "Consegue perceber uma conexão entre momentos de estresse crônico e a piora de sintomas físicos ou doenças que já possui?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_67",
+          "text": "Você sente que sua energia varia muito ao longo do dia, com0 59 tivesse “picos e quedas\"? Em quais momentos do dia você se sente mais produtivo(a) ou mais exausto(a)?",
+          "original": "Você sente que sua energia varia muito ao longo do dia, com0 59 tivesse “picos e quedas\"? Em quais momentos do dia você se sente mais produtivo(a) ou mais exausto(a)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_68",
+          "text": "Como e*tá a qualidade do seu sono nos últimos meses? Você acorda se sentindo festaurado(a) ou cansado(a), mesmo após uma noite inteira de descanso?",
+          "original": "Como e*tá a qualidade do seu sono nos últimos meses? Você acorda se sentindo festaurado(a) ou cansado(a), mesmo após uma noite inteira de descanso?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_69",
+          "text": "Você tem notado alterações no seu peso, humor ou apetite que náo consegue?",
+          "original": "Você tem notado alterações no seu peso, humor ou apetite que náo consegue?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_70",
+          "text": "Nos últimos meses, houve algum período em que você se sentiu sobrecarregado(a), em constante “alerta”, com dificuldade de relatar, mesmo em momentos de descanso?",
+          "original": "Nos últimos meses, houve algum período em que você se sentiu sobrecarregado(a), em constante “alerta”, com dificuldade de relatar, mesmo em momentos de descanso?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_71",
+          "text": "Você sente que sua energia flui de maneira constante ao longo do dia ou?",
+          "original": "Você sente que sua energia flui de maneira constante ao longo do dia ou?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_72",
+          "text": "Você tem existe algum momento do dia em que você se sente mais produtivo(a) e outro?",
+          "original": "Existe algum momento do dia em que você se sente mais produtivo(a) e outro",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_73",
+          "text": "M que sente queda drástica de rendimento?",
+          "original": "M que sente queda drástica de rendimento?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "rendimento_drop_context"
+        },
+        {
+          "id": "q_74",
+          "text": "Você sente que, com o passar dos meses ou anos, sua vitalidade natural?",
+          "original": "Você sente que, com o passar dos meses ou anos, sua vitalidade natural?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_75",
+          "text": "Você sente que mesmo pequenos esforços resultam em exaustão prolongada e?",
+          "original": "Você sente que mesmo pequenos esforços resultam em exaustão prolongada e?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_76",
+          "text": "Sente que seu corpo tem dificuldade de \"desisto icas’ ou se recuperar após uso?",
+          "original": "Sente que seu corpo tem dificuldade de \"desisto icas’ ou se recuperar após uso",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_77",
+          "text": "Sente-se cansado após comer ou com sonolência digestiva?",
+          "original": "Sente-se cansado após comer ou com sonolência digestiva?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_78",
+          "text": "Você sente nóu*ea, dor no Iado direito do abdônien ou desconforto após comer?",
+          "original": "Você sente nóu*ea, dor no Iado direito do abdônien ou desconforto após comer?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_79",
+          "text": "Você sente gosto amargo na boca pela manhã ou após refeições?",
+          "original": "Você sente gosto amargo na boca pela manhã ou após refeições?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_80",
+          "text": "Você tem como você se sente após consumir alimentos com glúten, como pães e?",
+          "original": "Como você se sente após consumir alimentos com glúten, como pães e?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_81",
+          "text": "Você apresenta sintomas digestivos com frutas, leguminosas ou adoçantes?",
+          "original": "Você apresenta sintomas digestivos com frutas, leguminosas ou adoçantes?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_82",
+          "text": "Você sente fadiga, dor nas articulações ou confusão mental após refeições? Pode es/ar relacioiJndo a tra/›s/ocação da endotoxinas em casos de permeabilidade intestiiial.?",
+          "original": "Você sente fadiga, dor nas articulações ou confusão mental após refeições? Pode es/ar relacioiJndo a tra/›s/ocação da endotoxinas em casos de permeabilidade intestiiial.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_83",
+          "text": "Você tem principalmente se o paciente relatar fezes explosivas e espumosas.?",
+          "original": "Principalmente se o paciente relatar fezes explosivas e espumosas.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_84",
+          "text": "Como está seu nível de estfesse ou qualidade de sono?",
+          "original": "Como está seu nível de estfesse ou qualidade de sono?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_85",
+          "text": "Você tem marque os sintomas relatados pelo paciente?",
+          "original": "Marque os sintomas relatados pelo paciente",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_86",
+          "text": "Você sente que a sua performance física ou mental já foi melhor, mesmo sem?",
+          "original": "Você sente que a sua performance física ou mental já foi melhor, mesmo sem?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_87",
+          "text": "Você tem fisiologia e bioquimica proteína presente nas hemácias, transporte de oxigénio e co2.?",
+          "original": "Fisiologia e Bioquimica Proteína presente nas hemácias, transporte de oxigénio e CO2.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_88",
+          "text": "Você tem vcm normal + sintomas de fadiga crônica + ferritina limítrofe = possível?",
+          "original": "VCM normal + sintomas de fadiga crônica + ferritina limítrofe = possível",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_89",
+          "text": "Você tem proteína presente em todas as lipoproteínas aterogênicas (ldl, vldl, idl).?",
+          "original": "Proteína presente em todas as lipoproteínas aterogênicas (LDL, VLDL, IDL).",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_90",
+          "text": "Você tem apoe4 presente —+ mai0f risco de alzheimer, dislipidemias e sensibilidade aumentada ao estresse oxidativo.?",
+          "original": "ApoE4 presente —+ Mai0f risco de Alzheimer, dislipidemias e sensibilidade aumentada ao estresse oxidativo.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_91",
+          "text": "Você tem o como você se sente em relação ao diagnóstiv-o e às opções de tratamento?",
+          "original": "O Como você se sente em relação ao diagnóstiv-o e às opções de tratamento",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_92",
+          "text": "Você tem conectar os sintomas apresentados pelo paciente com os sistemas funcionais?",
+          "original": "Conectar os sintomas apresentados pelo paciente com os sistemas funcionais",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_93",
+          "text": "Paciente relata melhoras sutis ou expressivas na qualidade de vida geral?",
+          "original": "Paciente relata melhoras sutis ou expressivas na qualidade de vida geral?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_94",
+          "text": "Você tem dificuldades pessoais relatadas pelo paciente.?",
+          "original": "Dificuldades pessoais relatadas pelo paciente.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_95",
+          "text": "Oual intervenção você sente que fez mais diferença?",
+          "original": "Oual intervenção você sente que fez mais diferença?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "intervention_impact"
+        },
+        {
+          "id": "q_96",
+          "text": "Como se sente em ambientes fechados/abertos?",
+          "original": "Como se sente em ambientes fechados/abertos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_97",
+          "text": "Sente que há momentos em que os sintomas pioram ou melhoram? Consegue?",
+          "original": "Sente que há momentos em que os sintomas pioram ou melhoram? Consegue",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_98",
+          "text": "Você sente alguma mudança digestiva, emocional ou energética desde o procedimento?",
+          "original": "Você sente alguma mudança digestiva, emocional ou energética desde o procedimento?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_99",
+          "text": "Você sente que seu corpo ainda está tentando “se adaptar’ ao que aconteceu?",
+          "original": "Você sente que seu corpo ainda está tentando “se adaptar’ ao que aconteceu?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_100",
+          "text": "Você percebe algum sintoma recorrente após consumir certos alimentos (ex:?",
+          "original": "Você percebe algum sintoma recorrente após consumir certos alimentos (ex:?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_101",
+          "text": "Você tem consegue manter uma rotina alimentar ou sente que está sempre pulando?",
+          "original": "Consegue manter uma rotina alimentar ou sente que está sempre pulando",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_102",
+          "text": "Como você se sente quando se movimenta? Seu corpo pede movimento ou repouso?",
+          "original": "Como você se sente quando se movimenta? Seu corpo pede movimento ou repouso?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_103",
+          "text": "Você consegue incluir atividades físicas prazerosas na rotina ou sente que é mais uma obrigação?",
+          "original": "Você consegue incluir atividades físicas prazerosas na rotina ou sente que é mais uma obrigação?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_104",
+          "text": "Já percebeu mudanças no seu humor, sono ou disposição nos dias em que se exercida?",
+          "original": "Já percebeu mudanças no seu humor, sono ou disposição nos dias em que se exercida?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_105",
+          "text": "Que te impede hoje de se movimentar mais (tempo, dor, medo, desmotivação)?",
+          "original": "Que te impede hoje de se movimentar mais (tempo, dor, medo, desmotivação)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "movement_barriers"
+        },
+        {
+          "id": "q_106",
+          "text": "Após consumir álcool, v¢cê se sente bem no dia seguinte? Nota impactos no sono, humor ou digestáo?",
+          "original": "Após consumir álcool, v¢cê se sente bem no dia seguinte? Nota impactos no sono, humor ou digestáo?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_107",
+          "text": "Você já tentou reduzir ou parar e percebeu alguma diferença física ou?",
+          "original": "Você já tentou reduzir ou parar e percebeu alguma diferença física ou?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_108",
+          "text": "Exi5te algo que você sente que precisa suprir antes de conseguir se desligar do cigarro?",
+          "original": "Exi5te algo que você sente que precisa suprir antes de conseguir se desligar do cigarro?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_109",
+          "text": "Você sente que algum tipo de substância bem sido uma forr^s de escape ou de?",
+          "original": "Você sente que algum tipo de substância bem sido uma forr^s de escape ou de?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_110",
+          "text": "Como é seu ritual notLirno? Você consegue se pfeparar para dormir com tranquilidade?",
+          "original": "Como é seu ritual notLirno? Você consegue se pfeparar para dormir com tranquilidade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_111",
+          "text": "Você acorda descansado(a) ou com a sensação de que náo dormiu direito?",
+          "original": "Você acorda descansado(a) ou com a sensação de que náo dormiu direito?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_112",
+          "text": "Quais fatores você percebe que alrapalham seu sono (pensamentos, barulho, alimentos, luz, celular)?",
+          "original": "Quais fatores você percebe que alrapalham seu sono (pensamentos, barulho, alimentos, luz, celular)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_113",
+          "text": "O que você acha que esta faltando para o seu sono ser mais restaurador?",
+          "original": "O que você acha que esta faltando para o seu sono ser mais restaurador?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "sleep_missing"
+        },
+        {
+          "id": "q_114",
+          "text": "Nos últimos tempos, você sente que está mais no \"modo sobrevivência\" ou “modo presença”?",
+          "original": "Nos últimos tempos, você sente que está mais no \"modo sobrevivência\" ou “modo presença”?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_115",
+          "text": "Você sente que tem espaço para si mesmo(a) na sua rotina? Para silenciar e?",
+          "original": "Você sente que tem espaço para si mesmo(a) na sua rotina? Para silenciar e?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_116",
+          "text": "Você já percebeu algum alimento que te causa desconforto físico, como?",
+          "original": "Você já percebeu algum alimento que te causa desconforto físico, como?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_117",
+          "text": "Você sente diferença na sua disposição e humor quando consome alimentos mais naturais em comparação aos industnalizados?",
+          "original": "Você sente diferença na sua disposição e humor quando consome alimentos mais naturais em comparação aos industnalizados?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_118",
+          "text": "Sente que seu corpo dá sinais quando há excesso de alimentos?",
+          "original": "Sente que seu corpo dá sinais quando há excesso de alimentos",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_119",
+          "text": "Você já percebeu que pular refeições ou comer em horários irregulares afela seu humor, sono ou energia?",
+          "original": "Você já percebeu que pular refeições ou comer em horários irregulares afela seu humor, sono ou energia?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_120",
+          "text": "Sente-se sac!ado(a) ao final das refeições ou tem vontade de beliscar pouco tempo depois?",
+          "original": "Sente-se sac!ado(a) ao final das refeições ou tem vontade de beliscar pouco tempo depois?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_121",
+          "text": "Você sente segurança em relação à qualidade e à forma correta de tomar seus?",
+          "original": "Você sente segurança em relação à qualidade e à forma correta de tomar seus?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_122",
+          "text": "Sente que a quantidade de líquido que consome hoje é suficiente para suas?",
+          "original": "Sente que a quantidade de líquido que consome hoje é suficiente para suas",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_123",
+          "text": "Você já percebeu alguma relação entre seu peso e seus sintomas físicos ou emocionais?",
+          "original": "Você já percebeu alguma relação entre seu peso e seus sintomas físicos ou emocionais?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_124",
+          "text": "Você já sentiu que ganhou ou perdeu peso sem que isso estivesse relacionado à alimentaçáo ou ao exercício físico?",
+          "original": "Você já sentiu que ganhou ou perdeu peso sem que isso estivesse relacionado à alimentaçáo ou ao exercício físico?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_125",
+          "text": "Como você enxerga seu corpo hoje? Sente que ele estó expressando vitalidade ou algo está em desequilíbrio?",
+          "original": "Como você enxerga seu corpo hoje? Sente que ele estó expressando vitalidade ou algo está em desequilíbrio?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_126",
+          "text": "Você sente variações na sua pressão ao longo do dia, como em momentos de estresse, cansaço ou após certos alimentos?",
+          "original": "Você sente variações na sua pressão ao longo do dia, como em momentos de estresse, cansaço ou após certos alimentos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_127",
+          "text": "Você já mediu sua pressão em casa? Como ela costuma se comportar fora do?",
+          "original": "Você já mediu sua pressão em casa? Como ela costuma se comportar fora do?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_128",
+          "text": "Você respira de forma profunda e consciente ao longo do dia ou percebe que sua respifação é curta ou acelerada?",
+          "original": "Você respira de forma profunda e consciente ao longo do dia ou percebe que sua respifação é curta ou acelerada?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_129",
+          "text": "Você se sente cansado(a) ou sem fõlego com facilidade, mesmo em ativldades simples?",
+          "original": "Você se sente cansado(a) ou sem fõlego com facilidade, mesmo em ativldades simples?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_130",
+          "text": "Percebe que sua temperatura corporal muda com frequência durante o dia?",
+          "original": "Percebe que sua temperatura corporal muda com frequência durante o dia?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_131",
+          "text": "Você já teve febres ine‹plicadas, suores noturnos ou calafrios frequentes?",
+          "original": "Você já teve febres ine‹plicadas, suores noturnos ou calafrios frequentes?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_132",
+          "text": "Você sente que seu corpo tem tentado “te avisar\" de algo por meio de sinais?",
+          "original": "Você sente que seu corpo tem tentado “te avisar\" de algo por meio de sinais?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_133",
+          "text": "Você tem em quais momentos do seu dia vocô se sente mais leve ou mais?",
+          "original": "Em quais momentos do seu dia vocô se sente mais leve ou mais",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_134",
+          "text": "Sente que consegue expressar suas emoções ou tende a guardá-las?",
+          "original": "Sente que consegue expressar suas emoções ou tende a guardá-las?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_135",
+          "text": "Você sente que sua mente está sempre acelerada, ou tem dificuldade de?",
+          "original": "Você sente que sua mente está sempre acelerada, ou tem dificuldade de?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_136",
+          "text": "Há quanto tempo você percebe sintomas como cansaço, perda de interesse, preocupaçáo constante ou irritação?",
+          "original": "Há quanto tempo você percebe sintomas como cansaço, perda de interesse, preocupaçáo constante ou irritação?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "symptom_duration"
+        },
+        {
+          "id": "q_137",
+          "text": "Você sente que seu corpo reage ao estresse de forma física (ex: insônia,?",
+          "original": "Você sente que seu corpo reage ao estresse de forma física (ex: insônia,?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_138",
+          "text": "Sente que está conseguindo equilibrar suas tarefas com momentos de?",
+          "original": "Sente que está conseguindo equilibrar suas tarefas com momentos de",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_139",
+          "text": "Você se sente apoiado(a) emocionalmente? Tem com quem dividir suas pressc›es?",
+          "original": "Você se sente apoiado(a) emocionalmente? Tem com quem dividir suas pressc›es?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_140",
+          "text": "Você sente que sua saúde atual te permite viver como gostaria?",
+          "original": "Você sente que sua saúde atual te permite viver como gostaria?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_141",
+          "text": "Você se sente satisfeito(a) com seu nível de energia, disposição e clareza?",
+          "original": "Você se sente satisfeito(a) com seu nível de energia, disposição e clareza?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_142",
+          "text": "Você sente que sua energia é suficiente para cumpnr suas tarefas diárias ou?",
+          "original": "Você sente que sua energia é suficiente para cumpnr suas tarefas diárias ou?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_143",
+          "text": "Sente-se frequentemente esgotado(a)?",
+          "original": "Sente-se frequentemente esgotado(a)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_144",
+          "text": "Nos últimos meses, percebeu mudanças no seu peso ou na facilidade/dificuldade para ganhá-lo ou perdê-lo?",
+          "original": "Nos últimos meses, percebeu mudanças no seu peso ou na facilidade/dificuldade para ganhá-lo ou perdê-lo?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_145",
+          "text": "Como você sente que seu corpo reage aos alimentos — sente-se energizado(a), pesado(a), sonoIento(a) ou satisfeito(a)?",
+          "original": "Como você sente que seu corpo reage aos alimentos — sente-se energizado(a), pesado(a), sonoIento(a) ou satisfeito(a)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_146",
+          "text": "Você se sente mais ativo(a) em determinados horófi0S do dia? Como isso se?",
+          "original": "Você se sente mais ativo(a) em determinados horófi0S do dia? Como isso se?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_147",
+          "text": "Constipado(a) ou sente alivio após as refeições?",
+          "original": "Constipado(a) ou sente alivio após as refeições?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_148",
+          "text": "Algum alimento costuma causar desconforto intestinal? Você já tentou identificar quais são os gatilhos?",
+          "original": "Algum alimento costuma causar desconforto intestinal? Você já tentou identificar quais são os gatilhos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_149",
+          "text": "Como é sua recuperação após esforço físico, estresse emocional ou noites mal dormidas? Seu corpo se recupera rápido?",
+          "original": "Como é sua recuperação após esforço físico, estresse emocional ou noites mal dormidas? Seu corpo se recupera rápido?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_150",
+          "text": "Percebe sintomas como cansaço, dores de cabeça frequentes ou lapsos de merriôria sem explicação clara?",
+          "original": "Percebe sintomas como cansaço, dores de cabeça frequentes ou lapsos de merriôria sem explicação clara?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_151",
+          "text": "Você sente algum sintoma respiratório ou dermatológico após exposição à?",
+          "original": "Você sente algum sintoma respiratório ou dermatológico após exposição à?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_152",
+          "text": "Sente-se exposto(a) diariamente a produtos com forte odor ou compostos?",
+          "original": "Sente-se exposto(a) diariamente a produtos com forte odor ou compostos",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_153",
+          "text": "Você percebe algum padrão entre os episódios de infeor,ão, como mudanças?",
+          "original": "Você percebe algum padrão entre os episódios de infeor,ão, como mudanças?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_154",
+          "text": "Com que frequência sente cansaço mesmo após uma noite de sono ou em momentos de baixa demanda física?",
+          "original": "Com que frequência sente cansaço mesmo após uma noite de sono ou em momentos de baixa demanda física?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_155",
+          "text": "Você já fez exames que apontaram marcadores inflamatórios elevados? 0 que foi orientado após ess+s resultados?",
+          "original": "Você já fez exames que apontaram marcadores inflamatórios elevados? 0 que foi orientado após ess+s resultados?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_156",
+          "text": "Percebe que deteminados alimentos ou hábitos aumentam sua sensação de inchado, dor ou desconforto geral?",
+          "original": "Percebe que deteminados alimentos ou hábitos aumentam sua sensação de inchado, dor ou desconforto geral?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_157",
+          "text": "Quando es!ó sob estresse, você percebe mudanças físicas no seu corpo, como dor de cabeça, problemas digestivos ou insônia?",
+          "original": "Quando es!ó sob estresse, você percebe mudanças físicas no seu corpo, como dor de cabeça, problemas digestivos ou insônia?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_158",
+          "text": "Em situações estressantes, você se sente emocionalmente resiliente ou tende a ter reações mais intensas e duradouras?",
+          "original": "Em situações estressantes, você se sente emocionalmente resiliente ou tende a ter reações mais intensas e duradouras?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_159",
+          "text": "Você sente que sua energia varia muito ao longo do dia, como se tivesse “picos e quedas\"? Em quais momentos do dia você se sente mais produtivo(a) ou mais exausto(a)?",
+          "original": "Você sente que sua energia varia muito ao longo do dia, como se tivesse “picos e quedas\"? Em quais momentos do dia você se sente mais produtivo(a) ou mais exausto(a)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_160",
+          "text": "Como está a qualidade do seu sono nos últimos meses? Você acorda se sentindo restaurado(a) ou cansado(a), mesmo após uma noite inteira de descanso?",
+          "original": "Como está a qualidade do seu sono nos últimos meses? Você acorda se sentindo restaurado(a) ou cansado(a), mesmo após uma noite inteira de descanso?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_161",
+          "text": "Você tem notado alterações no seu peso, humor ou apetite que não consegue?",
+          "original": "Você tem notado alterações no seu peso, humor ou apetite que não consegue?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_162",
+          "text": "Nos últimos meses, houve algum período em que você se sentiu sobrecarregado(a), em constante “alerta”, com difculdade de relatar, mesmo em momentos de descanso?",
+          "original": "Nos últimos meses, houve algum período em que você se sentiu sobrecarregado(a), em constante “alerta”, com difculdade de relatar, mesmo em momentos de descanso?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_163",
+          "text": "Você sente que sua energia flui de maneira constante ao longo do dia ou percebe picos e quedas bruscas?",
+          "original": "Você sente que sua energia flui de maneira constante ao longo do dia ou percebe picos e quedas bruscas?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_164",
+          "text": "Existe algum momento do dia em que você se sente mais produtivo(a) e outro em que sente queda drástica de rendimento?",
+          "original": "Existe algum momento do dia em que você se sente mais produtivo(a) e outro em que sente queda drástica de rendimento?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_165",
+          "text": "Você sente que, com o pas*ar dos meses ou anos, sua vitalidade natural?",
+          "original": "Você sente que, com o pas*ar dos meses ou anos, sua vitalidade natural?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_166",
+          "text": "Você sente que mesmo pequenos esforços resultam em exaustáo prolongada?",
+          "original": "Você sente que mesmo pequenos esforços resultam em exaustáo prolongada?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_167",
+          "text": "Sente que seu corpo tem dificuldade de “desintoxicaL' ou se recuperar após uso de medicamentos, álcool ou mesmo de um quadro gnpal?",
+          "original": "Sente que seu corpo tem dificuldade de “desintoxicaL' ou se recuperar após uso de medicamentos, álcool ou mesmo de um quadro gnpal?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_168",
+          "text": "Você sente que a sua performance física ou mental já foi melhor, mesmo sem?",
+          "original": "Você sente que a sua performance física ou mental já foi melhor, mesmo sem?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_169",
+          "text": "Você costuma sentir cansaço ao acordaf, mesmo após uma noite completa de sono? Como descreveria a qualidade do seu descanso nos últimos meses?",
+          "original": "Você costuma sentir cansaço ao acordaf, mesmo após uma noite completa de sono? Como descreveria a qualidade do seu descanso nos últimos meses?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_170",
+          "text": "Quais at vidades do seu dia voce sente que têm exigido mais esforço do que o habitual — seja físico, mental ou emocional?",
+          "original": "Quais at vidades do seu dia voce sente que têm exigido mais esforço do que o habitual — seja físico, mental ou emocional?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_171",
+          "text": "Você percebeu alguma mudança no seu rendimento físico, resistência ao exercício ou na velocidade com que se recupera após esforços?",
+          "original": "Você percebeu alguma mudança no seu rendimento físico, resistência ao exercício ou na velocidade com que se recupera após esforços?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_172",
+          "text": "Existem momentos em que sente uma “névoa\" ou lentidão cognitiva?",
+          "original": "Existem momentos em que sente uma “névoa\" ou lentidão cognitiva?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_173",
+          "text": "Você sente gos!o amargo na boca pela manhá ou após refeições?",
+          "original": "Você sente gos!o amargo na boca pela manhá ou após refeições?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_174",
+          "text": "Você tem como você se sente após consumir alimentos com glúten, como pães e?",
+          "original": "Como você se sente após consumir alimentos com glúten, como pães e?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_175",
+          "text": "Você apresenta sintomas digestivos com frutas, leguminosas ou adoçantes naturais como mel ou xilitol?",
+          "original": "Você apresenta sintomas digestivos com frutas, leguminosas ou adoçantes naturais como mel ou xilitol?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_176",
+          "text": "Você sente fad!ga, dor nas articulações ou confusão mental após refeições?",
+          "original": "Você sente fad!ga, dor nas articulações ou confusão mental após refeições?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_177",
+          "text": "Como estó seu nível de estresse ou qualidade de sono?",
+          "original": "Como estó seu nível de estresse ou qualidade de sono?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_178",
+          "text": "Sente-se cansado após comer ou com sonolência digestiva?",
+          "original": "Sente-se cansado após comer ou com sonolência digestiva?",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_179",
+          "text": "Você sente nóu*ea, dor no Iado direito do abdônien ou desconforto após comer?",
+          "original": "Você sente nóu*ea, dor no Iado direito do abdônien ou desconforto após comer?",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_180",
+          "text": "Você sente gosto amargo na boca pela manhã ou após refeições?",
+          "original": "Você sente gosto amargo na boca pela manhã ou após refeições?",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_181",
+          "text": "Você tem como você se sente após consumir alimentos com glúten, como pães e?",
+          "original": "Como você se sente após consumir alimentos com glúten, como pães e?",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_182",
+          "text": "Você apresenta sintomas digestivos com frutas, leguminosas ou adoçantes?",
+          "original": "Você apresenta sintomas digestivos com frutas, leguminosas ou adoçantes?",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_183",
+          "text": "Você sente fadiga, dor nas articulações ou confusão mental após refeições? Pode es/ar relacioiJndo a tra/›s/ocação da endotoxinas em casos de permeabilidade intestiiial.?",
+          "original": "Você sente fadiga, dor nas articulações ou confusão mental após refeições? Pode es/ar relacioiJndo a tra/›s/ocação da endotoxinas em casos de permeabilidade intestiiial.",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_184",
+          "text": "Você tem principalmente se o paciente relatar fezes explosivas e espumosas.?",
+          "original": "Principalmente se o paciente relatar fezes explosivas e espumosas.",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_185",
+          "text": "Como está seu nível de estfesse ou qualidade de sono?",
+          "original": "Como está seu nível de estfesse ou qualidade de sono?",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_186",
+          "text": "Você tem marque os sintomas relatados pelo paciente?",
+          "original": "Marque os sintomas relatados pelo paciente",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_187",
+          "text": "Você tem fisiologia e bioquimica proteína presente nas hemácias, transporte de oxigénio e co2.?",
+          "original": "Fisiologia e Bioquimica Proteína presente nas hemácias, transporte de oxigénio e CO2.",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_188",
+          "text": "Você tem vcm normal + sintomas de fadiga crônica + ferritina limítrofe = possível?",
+          "original": "VCM normal + sintomas de fadiga crônica + ferritina limítrofe = possível",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_189",
+          "text": "Você tem proteína presente em todas as lipoproteínas aterogênicas (ldl, vldl, idl).?",
+          "original": "Proteína presente em todas as lipoproteínas aterogênicas (LDL, VLDL, IDL).",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_190",
+          "text": "Você tem apoe4 presente —+ mai0f risco de alzheimer, dislipidemias e sensibilidade aumentada ao estresse oxidativo.?",
+          "original": "ApoE4 presente —+ Mai0f risco de Alzheimer, dislipidemias e sensibilidade aumentada ao estresse oxidativo.",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_191",
+          "text": "Você tem o como você se sente em relação ao diagnóstiv-o e às opções de tratamento?",
+          "original": "O Como você se sente em relação ao diagnóstiv-o e às opções de tratamento",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_192",
+          "text": "Você tem conectar os sintomas apresentados pelo paciente com os sistemas funcionais?",
+          "original": "Conectar os sintomas apresentados pelo paciente com os sistemas funcionais",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_193",
+          "text": "Paciente relata melhoras sutis ou expressivas na qualidade de vida geral?",
+          "original": "Paciente relata melhoras sutis ou expressivas na qualidade de vida geral?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_194",
+          "text": "Você tem dificuldades pessoais relatadas pelo paciente.?",
+          "original": "Dificuldades pessoais relatadas pelo paciente.",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_195",
+          "text": "Oual intervenção você sente que fez mais diferença?",
+          "original": "Oual intervenção você sente que fez mais diferença?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "intervention_impact"
+        },
+        {
+          "id": "q_196",
+          "text": "Como se sente em ambientes fechados/abertos?",
+          "original": "Como se sente em ambientes fechados/abertos?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_197",
+          "text": "Sente que há momentos em que os sintomas pioram ou melhoram? Consegue?",
+          "original": "Sente que há momentos em que os sintomas pioram ou melhoram? Consegue",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_198",
+          "text": "Você sente alguma mudança digestiva, emocional ou energética desde o procedimento?",
+          "original": "Você sente alguma mudança digestiva, emocional ou energética desde o procedimento?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_199",
+          "text": "Você sente que seu corpo ainda está tentando “se adaptar’ ao que aconteceu?",
+          "original": "Você sente que seu corpo ainda está tentando “se adaptar’ ao que aconteceu?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_200",
+          "text": "Você percebe algum sintoma recorrente após consumir certos alimentos (ex:?",
+          "original": "Você percebe algum sintoma recorrente após consumir certos alimentos (ex:?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_201",
+          "text": "Você tem consegue manter uma rotina alimentar ou sente que está sempre pulando?",
+          "original": "Consegue manter uma rotina alimentar ou sente que está sempre pulando",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_202",
+          "text": "Como você se sente quando se movimenta? Seu corpo pede movimento ou repouso?",
+          "original": "Como você se sente quando se movimenta? Seu corpo pede movimento ou repouso?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_203",
+          "text": "Você consegue incluir atividades físicas prazerosas na rotina ou sente que é mais uma obrigação?",
+          "original": "Você consegue incluir atividades físicas prazerosas na rotina ou sente que é mais uma obrigação?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_204",
+          "text": "Já percebeu mudanças no seu humor, sono ou disposição nos dias em que se exercida?",
+          "original": "Já percebeu mudanças no seu humor, sono ou disposição nos dias em que se exercida?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_205",
+          "text": "Que te impede hoje de se movimentar mais (tempo, dor, medo, desmotivação)?",
+          "original": "Que te impede hoje de se movimentar mais (tempo, dor, medo, desmotivação)?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "movement_barriers"
+        },
+        {
+          "id": "q_206",
+          "text": "Após consumir álcool, v¢cê se sente bem no dia seguinte? Nota impactos no sono, humor ou digestáo?",
+          "original": "Após consumir álcool, v¢cê se sente bem no dia seguinte? Nota impactos no sono, humor ou digestáo?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_207",
+          "text": "Você já tentou reduzir ou parar e percebeu alguma diferença física ou?",
+          "original": "Você já tentou reduzir ou parar e percebeu alguma diferença física ou?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_208",
+          "text": "Exi5te algo que você sente que precisa suprir antes de conseguir se desligar do cigarro?",
+          "original": "Exi5te algo que você sente que precisa suprir antes de conseguir se desligar do cigarro?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_209",
+          "text": "Você sente que algum tipo de substância bem sido uma forr^s de escape ou de?",
+          "original": "Você sente que algum tipo de substância bem sido uma forr^s de escape ou de?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_210",
+          "text": "Como é seu ritual notLirno? Você consegue se pfeparar para dormir com tranquilidade?",
+          "original": "Como é seu ritual notLirno? Você consegue se pfeparar para dormir com tranquilidade?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_211",
+          "text": "Você acorda descansado(a) ou com a sensação de que náo dormiu direito?",
+          "original": "Você acorda descansado(a) ou com a sensação de que náo dormiu direito?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_212",
+          "text": "Quais fatores você percebe que alrapalham seu sono (pensamentos, barulho, alimentos, luz, celular)?",
+          "original": "Quais fatores você percebe que alrapalham seu sono (pensamentos, barulho, alimentos, luz, celular)?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_213",
+          "text": "O que você acha que esta faltando para o seu sono ser mais restaurador?",
+          "original": "O que você acha que esta faltando para o seu sono ser mais restaurador?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "sleep_missing"
+        },
+        {
+          "id": "q_214",
+          "text": "Nos últimos tempos, você sente que está mais no \"modo sobrevivência\" ou “modo presença”?",
+          "original": "Nos últimos tempos, você sente que está mais no \"modo sobrevivência\" ou “modo presença”?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_215",
+          "text": "Você sente que tem espaço para si mesmo(a) na sua rotina? Para silenciar e?",
+          "original": "Você sente que tem espaço para si mesmo(a) na sua rotina? Para silenciar e?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_216",
+          "text": "Você já percebeu algum alimento que te causa desconforto físico, como?",
+          "original": "Você já percebeu algum alimento que te causa desconforto físico, como?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_217",
+          "text": "Você sente diferença na sua disposição e humor quando consome alimentos mais naturais em comparação aos industnalizados?",
+          "original": "Você sente diferença na sua disposição e humor quando consome alimentos mais naturais em comparação aos industnalizados?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_218",
+          "text": "Sente que seu corpo dá sinais quando há excesso de alimentos?",
+          "original": "Sente que seu corpo dá sinais quando há excesso de alimentos",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_219",
+          "text": "Você já percebeu que pular refeições ou comer em horários irregulares afela seu humor, sono ou energia?",
+          "original": "Você já percebeu que pular refeições ou comer em horários irregulares afela seu humor, sono ou energia?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_220",
+          "text": "Sente-se sac!ado(a) ao final das refeições ou tem vontade de beliscar pouco tempo depois?",
+          "original": "Sente-se sac!ado(a) ao final das refeições ou tem vontade de beliscar pouco tempo depois?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_221",
+          "text": "Você sente segurança em relação à qualidade e à forma correta de tomar seus?",
+          "original": "Você sente segurança em relação à qualidade e à forma correta de tomar seus?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_222",
+          "text": "Sente que a quantidade de líquido que consome hoje é suficiente para suas?",
+          "original": "Sente que a quantidade de líquido que consome hoje é suficiente para suas",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_223",
+          "text": "Você já percebeu alguma relação entre seu peso e seus sintomas físicos ou emocionais?",
+          "original": "Você já percebeu alguma relação entre seu peso e seus sintomas físicos ou emocionais?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_224",
+          "text": "Você já sentiu que ganhou ou perdeu peso sem que isso estivesse relacionado à alimentaçáo ou ao exercício físico?",
+          "original": "Você já sentiu que ganhou ou perdeu peso sem que isso estivesse relacionado à alimentaçáo ou ao exercício físico?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_225",
+          "text": "Como você enxerga seu corpo hoje? Sente que ele estó expressando vitalidade ou algo está em desequilíbrio?",
+          "original": "Como você enxerga seu corpo hoje? Sente que ele estó expressando vitalidade ou algo está em desequilíbrio?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_226",
+          "text": "Você sente variações na sua pressão ao longo do dia, como em momentos de estresse, cansaço ou após certos alimentos?",
+          "original": "Você sente variações na sua pressão ao longo do dia, como em momentos de estresse, cansaço ou após certos alimentos?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_227",
+          "text": "Você já mediu sua pressão em casa? Como ela costuma se comportar fora do?",
+          "original": "Você já mediu sua pressão em casa? Como ela costuma se comportar fora do?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_228",
+          "text": "Você respira de forma profunda e consciente ao longo do dia ou percebe que sua respifação é curta ou acelerada?",
+          "original": "Você respira de forma profunda e consciente ao longo do dia ou percebe que sua respifação é curta ou acelerada?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_229",
+          "text": "Você se sente cansado(a) ou sem fõlego com facilidade, mesmo em ativldades simples?",
+          "original": "Você se sente cansado(a) ou sem fõlego com facilidade, mesmo em ativldades simples?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_230",
+          "text": "Percebe que sua temperatura corporal muda com frequência durante o dia?",
+          "original": "Percebe que sua temperatura corporal muda com frequência durante o dia?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_231",
+          "text": "Você já teve febres ine‹plicadas, suores noturnos ou calafrios frequentes?",
+          "original": "Você já teve febres ine‹plicadas, suores noturnos ou calafrios frequentes?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_232",
+          "text": "Você sente que seu corpo tem tentado “te avisar\" de algo por meio de sinais?",
+          "original": "Você sente que seu corpo tem tentado “te avisar\" de algo por meio de sinais?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_233",
+          "text": "Você tem em quais momentos do seu dia vocô se sente mais leve ou mais?",
+          "original": "Em quais momentos do seu dia vocô se sente mais leve ou mais",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_234",
+          "text": "Sente que consegue expressar suas emoções ou tende a guardá-las?",
+          "original": "Sente que consegue expressar suas emoções ou tende a guardá-las?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_235",
+          "text": "Você sente que sua mente está sempre acelerada, ou tem dificuldade de?",
+          "original": "Você sente que sua mente está sempre acelerada, ou tem dificuldade de?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_236",
+          "text": "Há quanto tempo você percebe sintomas como cansaço, perda de interesse, preocupaçáo constante ou irritação?",
+          "original": "Há quanto tempo você percebe sintomas como cansaço, perda de interesse, preocupaçáo constante ou irritação?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "open_options",
+          "openOptionsSet": "symptom_duration"
+        },
+        {
+          "id": "q_237",
+          "text": "Você sente que seu corpo reage ao estresse de forma física (ex: insônia,?",
+          "original": "Você sente que seu corpo reage ao estresse de forma física (ex: insônia,?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_238",
+          "text": "Sente que está conseguindo equilibrar suas tarefas com momentos de?",
+          "original": "Sente que está conseguindo equilibrar suas tarefas com momentos de",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_239",
+          "text": "Você se sente apoiado(a) emocionalmente? Tem com quem dividir suas pressc›es?",
+          "original": "Você se sente apoiado(a) emocionalmente? Tem com quem dividir suas pressc›es?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_240",
+          "text": "Você sente que sua saúde atual te permite viver como gostaria?",
+          "original": "Você sente que sua saúde atual te permite viver como gostaria?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_241",
+          "text": "Você se sente satisfeito(a) com seu nível de energia, disposição e clareza?",
+          "original": "Você se sente satisfeito(a) com seu nível de energia, disposição e clareza?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_242",
+          "text": "Você sente que sua energia é suficiente para cumpnr suas tarefas diárias ou?",
+          "original": "Você sente que sua energia é suficiente para cumpnr suas tarefas diárias ou?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_243",
+          "text": "Sente-se frequentemente esgotado(a)?",
+          "original": "Sente-se frequentemente esgotado(a)?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_244",
+          "text": "Nos últimos meses, percebeu mudanças no seu peso ou na facilidade/dificuldade para ganhá-lo ou perdê-lo?",
+          "original": "Nos últimos meses, percebeu mudanças no seu peso ou na facilidade/dificuldade para ganhá-lo ou perdê-lo?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_245",
+          "text": "Como você sente que seu corpo reage aos alimentos — sente-se energizado(a), pesado(a), sonoIento(a) ou satisfeito(a)?",
+          "original": "Como você sente que seu corpo reage aos alimentos — sente-se energizado(a), pesado(a), sonoIento(a) ou satisfeito(a)?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_246",
+          "text": "Você se sente mais ativo(a) em determinados horófi0S do dia? Como isso se?",
+          "original": "Você se sente mais ativo(a) em determinados horófi0S do dia? Como isso se?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_247",
+          "text": "Constipado(a) ou sente alivio após as refeições?",
+          "original": "Constipado(a) ou sente alivio após as refeições?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_248",
+          "text": "Algum alimento costuma causar desconforto intestinal? Você já tentou identificar quais são os gatilhos?",
+          "original": "Algum alimento costuma causar desconforto intestinal? Você já tentou identificar quais são os gatilhos?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_249",
+          "text": "Como é sua recuperação após esforço físico, estresse emocional ou noites mal dormidas? Seu corpo se recupera rápido?",
+          "original": "Como é sua recuperação após esforço físico, estresse emocional ou noites mal dormidas? Seu corpo se recupera rápido?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_250",
+          "text": "Percebe sintomas como cansaço, dores de cabeça frequentes ou lapsos de merriôria sem explicação clara?",
+          "original": "Percebe sintomas como cansaço, dores de cabeça frequentes ou lapsos de merriôria sem explicação clara?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_251",
+          "text": "Você sente algum sintoma respiratório ou dermatológico após exposição à?",
+          "original": "Você sente algum sintoma respiratório ou dermatológico após exposição à?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_252",
+          "text": "Sente-se exposto(a) diariamente a produtos com forte odor ou compostos?",
+          "original": "Sente-se exposto(a) diariamente a produtos com forte odor ou compostos",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_253",
+          "text": "Você percebe algum padrão entre os episódios de infeor,ão, como mudanças?",
+          "original": "Você percebe algum padrão entre os episódios de infeor,ão, como mudanças?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_254",
+          "text": "Com que frequência sente cansaço mesmo após uma noite de sono ou em momentos de baixa demanda física?",
+          "original": "Com que frequência sente cansaço mesmo após uma noite de sono ou em momentos de baixa demanda física?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_255",
+          "text": "Você já fez exames que apontaram marcadores inflamatórios elevados? 0 que foi orientado após ess+s resultados?",
+          "original": "Você já fez exames que apontaram marcadores inflamatórios elevados? 0 que foi orientado após ess+s resultados?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_256",
+          "text": "Percebe que deteminados alimentos ou hábitos aumentam sua sensação de inchado, dor ou desconforto geral?",
+          "original": "Percebe que deteminados alimentos ou hábitos aumentam sua sensação de inchado, dor ou desconforto geral?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_257",
+          "text": "Quando es!ó sob estresse, você percebe mudanças físicas no seu corpo, como dor de cabeça, problemas digestivos ou insônia?",
+          "original": "Quando es!ó sob estresse, você percebe mudanças físicas no seu corpo, como dor de cabeça, problemas digestivos ou insônia?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_258",
+          "text": "Em situações estressantes, você se sente emocionalmente resiliente ou tende a ter reações mais intensas e duradouras?",
+          "original": "Em situações estressantes, você se sente emocionalmente resiliente ou tende a ter reações mais intensas e duradouras?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_259",
+          "text": "Você sente que sua energia varia muito ao longo do dia, como se tivesse “picos e quedas\"? Em quais momentos do dia você se sente mais produtivo(a) ou mais exausto(a)?",
+          "original": "Você sente que sua energia varia muito ao longo do dia, como se tivesse “picos e quedas\"? Em quais momentos do dia você se sente mais produtivo(a) ou mais exausto(a)?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_260",
+          "text": "Como está a qualidade do seu sono nos últimos meses? Você acorda se sentindo restaurado(a) ou cansado(a), mesmo após uma noite inteira de descanso?",
+          "original": "Como está a qualidade do seu sono nos últimos meses? Você acorda se sentindo restaurado(a) ou cansado(a), mesmo após uma noite inteira de descanso?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_261",
+          "text": "Você tem notado alterações no seu peso, humor ou apetite que não consegue?",
+          "original": "Você tem notado alterações no seu peso, humor ou apetite que não consegue?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_262",
+          "text": "Nos últimos meses, houve algum período em que você se sentiu sobrecarregado(a), em constante “alerta”, com difculdade de relatar, mesmo em momentos de descanso?",
+          "original": "Nos últimos meses, houve algum período em que você se sentiu sobrecarregado(a), em constante “alerta”, com difculdade de relatar, mesmo em momentos de descanso?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_263",
+          "text": "Você sente que sua energia flui de maneira constante ao longo do dia ou percebe picos e quedas bruscas?",
+          "original": "Você sente que sua energia flui de maneira constante ao longo do dia ou percebe picos e quedas bruscas?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_264",
+          "text": "Existe algum momento do dia em que você se sente mais produtivo(a) e outro em que sente queda drástica de rendimento?",
+          "original": "Existe algum momento do dia em que você se sente mais produtivo(a) e outro em que sente queda drástica de rendimento?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_265",
+          "text": "Você sente que, com o pas*ar dos meses ou anos, sua vitalidade natural?",
+          "original": "Você sente que, com o pas*ar dos meses ou anos, sua vitalidade natural?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_266",
+          "text": "Você sente que mesmo pequenos esforços resultam em exaustáo prolongada?",
+          "original": "Você sente que mesmo pequenos esforços resultam em exaustáo prolongada?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_267",
+          "text": "Sente que seu corpo tem dificuldade de “desintoxicaL' ou se recuperar após uso de medicamentos, álcool ou mesmo de um quadro gnpal?",
+          "original": "Sente que seu corpo tem dificuldade de “desintoxicaL' ou se recuperar após uso de medicamentos, álcool ou mesmo de um quadro gnpal?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_268",
+          "text": "Você sente que a sua performance física ou mental já foi melhor, mesmo sem?",
+          "original": "Você sente que a sua performance física ou mental já foi melhor, mesmo sem?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_269",
+          "text": "Você costuma sentir cansaço ao acordaf, mesmo após uma noite completa de sono? Como descreveria a qualidade do seu descanso nos últimos meses?",
+          "original": "Você costuma sentir cansaço ao acordaf, mesmo após uma noite completa de sono? Como descreveria a qualidade do seu descanso nos últimos meses?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_270",
+          "text": "Quais at vidades do seu dia voce sente que têm exigido mais esforço do que o habitual — seja físico, mental ou emocional?",
+          "original": "Quais at vidades do seu dia voce sente que têm exigido mais esforço do que o habitual — seja físico, mental ou emocional?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_271",
+          "text": "Você percebeu alguma mudança no seu rendimento físico, resistência ao exercício ou na velocidade com que se recupera após esforços?",
+          "original": "Você percebeu alguma mudança no seu rendimento físico, resistência ao exercício ou na velocidade com que se recupera após esforços?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_272",
+          "text": "Existem momentos em que sente uma “névoa\" ou lentidão cognitiva?",
+          "original": "Existem momentos em que sente uma “névoa\" ou lentidão cognitiva?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_273",
+          "text": "Você sente gos!o amargo na boca pela manhá ou após refeições?",
+          "original": "Você sente gos!o amargo na boca pela manhá ou após refeições?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_274",
+          "text": "Você tem como você se sente após consumir alimentos com glúten, como pães e?",
+          "original": "Como você se sente após consumir alimentos com glúten, como pães e?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_275",
+          "text": "Você apresenta sintomas digestivos com frutas, leguminosas ou adoçantes naturais como mel ou xilitol?",
+          "original": "Você apresenta sintomas digestivos com frutas, leguminosas ou adoçantes naturais como mel ou xilitol?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_276",
+          "text": "Você sente fad!ga, dor nas articulações ou confusão mental após refeições?",
+          "original": "Você sente fad!ga, dor nas articulações ou confusão mental após refeições?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_277",
+          "text": "Como estó seu nível de estresse ou qualidade de sono?",
+          "original": "Como estó seu nível de estresse ou qualidade de sono?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        }
+      ]
+    },
+    {
+      "id": "digestivo",
+      "name": "Sistema Digestivo",
+      "questionCount": 38,
+      "questions": [
+        {
+          "id": "q_278",
+          "text": "Após consumir álcool, você se sente bem no dia seguinte? Nota impactos no sono, humor ou digestáo?",
+          "original": "Após consumir álcool, você se sente bem no dia seguinte? Nota impactos no sono, humor ou digestáo?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_279",
+          "text": "Você sente que seu intestino responde rápido às suas escolhas alimentares? Como ele reage quando você muda o que come?",
+          "original": "Você sente que seu intestino responde rápido às suas escolhas alimentares? Como ele reage quando você muda o que come?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_280",
+          "text": "Já percebeu relação entre pouca hidratação e sintomas como dor de cabeça, fadiga, tontura ou intestino preso?",
+          "original": "Já percebeu relação entre pouca hidratação e sintomas como dor de cabeça, fadiga, tontura ou intestino preso?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_281",
+          "text": "Como você percebe sua digestáo hoje? Sente-se estudado(a), com gases, constipado(a) ou sente alívio açús as refeições?",
+          "original": "Como você percebe sua digestáo hoje? Sente-se estudado(a), com gases, constipado(a) ou sente alívio açús as refeições?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_282",
+          "text": "Você costuma consumir alimentos fermentado ou ricos em fibras? Como seu intestino responde a eles?",
+          "original": "Você costuma consumir alimentos fermentado ou ricos em fibras? Como seu intestino responde a eles?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_283",
+          "text": "Sente que há relação entre suas emoções e a saúde do seu il\\testino? Por exemplo, intestino preso em momentos de estresse ou ansiedade?",
+          "original": "Sente que há relação entre suas emoções e a saúde do seu il\\testino? Por exemplo, intestino preso em momentos de estresse ou ansiedade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_284",
+          "text": "Você tem diarreia crônica: frequentemente relacionada a disbiose, intolerâncias, sib0 ou resposta imune exacerbada.?",
+          "original": "Diarreia Crônica: Frequentemente relacionada a disbiose, intolerâncias, SIB0 ou resposta imune exacerbada.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_285",
+          "text": "Você costuma sentir azia, queimação ou rogurgitação após as refeições?",
+          "original": "Você costuma sentir azia, queimação ou rogurgitação após as refeições?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_286",
+          "text": "Você percebe distensão abdominal, gases em excesso ou sensação de estufamento?",
+          "original": "Você percebe distensão abdominal, gases em excesso ou sensação de estufamento?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_287",
+          "text": "Você nota desconforto abdominal, gases ou diarreia após consumir leite ou?",
+          "original": "Você nota desconforto abdominal, gases ou diarreia após consumir leite ou?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_288",
+          "text": "Você tem esse tipo indica constipação leve a moderada. 0 tempo de trânsito está prolongado, rrias menos sev0ro que o tipo 1,?",
+          "original": "Esse tipo indica constipação leve a moderada. 0 tempo de trânsito está prolongado, rrias menos sev0ro que o tipo 1,",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_289",
+          "text": "Você tem comprometem a digestáo proteica, reduzem barreiras gástricas naturais e promovem crescimento bacteriano anormal no intestino delgado (sibo).?",
+          "original": "Comprometem a digestáo proteica, reduzem barreiras gástricas naturais e promovem crescimento bacteriano anormal no intestino delgado (SIBO).",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_290",
+          "text": "Você sente e.stufamento, gases ou desconforto após comer certos alimentos?",
+          "original": "Você sente e.stufamento, gases ou desconforto após comer certos alimentos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_291",
+          "text": "Você sente que seu intestino responde rápido às suas escolhas alimentares? Como ele reage quando você muda o que come?",
+          "original": "Você sente que seu intestino responde rápido às suas escolhas alimentares? Como ele reage quando você muda o que come?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_292",
+          "text": "Você tem como você percebe sua digestáo hoje? sente-se eslufajo(a), com gases,?",
+          "original": "Como você percebe sua digestáo hoje? Sente-se eslufaJo(a), com gases,?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_293",
+          "text": "Você costuma consumir alimentos fermentados ou ricos em fibras? Como seu intestino responde a eles?",
+          "original": "Você costuma consumir alimentos fermentados ou ricos em fibras? Como seu intestino responde a eles?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_294",
+          "text": "Sente que há relação entre suas emoções e a saúde do s8u intestino? Por?",
+          "original": "Sente que há relação entre suas emoções e a saúde do s8u intestino? Por",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_295",
+          "text": "Você costuma sentir azia, queimação ou regurgitação após as refeições?",
+          "original": "Você costuma sentir azia, queimação ou regurgitação após as refeições?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_296",
+          "text": "Você percebe distensão abdominal, ga*es em excesso ou sensação de estufamento?",
+          "original": "Você percebe distensão abdominal, ga*es em excesso ou sensação de estufamento?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_297",
+          "text": "Você sente náusea, dor no Iado direito do abdômen ou desconforto após comer alimentos gordurosos?",
+          "original": "Você sente náusea, dor no Iado direito do abdômen ou desconforto após comer alimentos gordurosos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_298",
+          "text": "Você nota desconforto abdominal, gases ou diarreia após consumir leite ou derivados?",
+          "original": "Você nota desconforto abdominal, gases ou diarreia após consumir leite ou derivados?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_299",
+          "text": "Você s8nte estufamento, gases ou desconforto após comer certos alimentos?",
+          "original": "Você s8nte estufamento, gases ou desconforto após comer certos alimentos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_300",
+          "text": "Você tem diarreia crônica: frequentemente relacionada a disbiose, intolerâncias, sib0 ou resposta imune exacerbada.?",
+          "original": "Diarreia Crônica: Frequentemente relacionada a disbiose, intolerâncias, SIB0 ou resposta imune exacerbada.",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_301",
+          "text": "Você costuma sentir azia, queimação ou rogurgitação após as refeições?",
+          "original": "Você costuma sentir azia, queimação ou rogurgitação após as refeições?",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_302",
+          "text": "Você percebe distensão abdominal, gases em excesso ou sensação de estufamento?",
+          "original": "Você percebe distensão abdominal, gases em excesso ou sensação de estufamento?",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_303",
+          "text": "Você nota desconforto abdominal, gases ou diarreia após consumir leite ou?",
+          "original": "Você nota desconforto abdominal, gases ou diarreia após consumir leite ou?",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_304",
+          "text": "Você tem esse tipo indica constipação leve a moderada. 0 tempo de trânsito está prolongado, rrias menos sev0ro que o tipo 1,?",
+          "original": "Esse tipo indica constipação leve a moderada. 0 tempo de trânsito está prolongado, rrias menos sev0ro que o tipo 1,",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_305",
+          "text": "Você tem comprometem a digestáo proteica, reduzem barreiras gástricas naturais e promovem crescimento bacteriano anormal no intestino delgado (sibo).?",
+          "original": "Comprometem a digestáo proteica, reduzem barreiras gástricas naturais e promovem crescimento bacteriano anormal no intestino delgado (SIBO).",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_306",
+          "text": "Você sente e.stufamento, gases ou desconforto após comer certos alimentos?",
+          "original": "Você sente e.stufamento, gases ou desconforto após comer certos alimentos?",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_307",
+          "text": "Você sente que seu intestino responde rápido às suas escolhas alimentares? Como ele reage quando você muda o que come?",
+          "original": "Você sente que seu intestino responde rápido às suas escolhas alimentares? Como ele reage quando você muda o que come?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_308",
+          "text": "Você tem como você percebe sua digestáo hoje? sente-se eslufajo(a), com gases,?",
+          "original": "Como você percebe sua digestáo hoje? Sente-se eslufaJo(a), com gases,?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_309",
+          "text": "Você costuma consumir alimentos fermentados ou ricos em fibras? Como seu intestino responde a eles?",
+          "original": "Você costuma consumir alimentos fermentados ou ricos em fibras? Como seu intestino responde a eles?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_310",
+          "text": "Sente que há relação entre suas emoções e a saúde do s8u intestino? Por?",
+          "original": "Sente que há relação entre suas emoções e a saúde do s8u intestino? Por",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_311",
+          "text": "Você costuma sentir azia, queimação ou regurgitação após as refeições?",
+          "original": "Você costuma sentir azia, queimação ou regurgitação após as refeições?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_312",
+          "text": "Você percebe distensão abdominal, ga*es em excesso ou sensação de estufamento?",
+          "original": "Você percebe distensão abdominal, ga*es em excesso ou sensação de estufamento?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_313",
+          "text": "Você sente náusea, dor no Iado direito do abdômen ou desconforto após comer alimentos gordurosos?",
+          "original": "Você sente náusea, dor no Iado direito do abdômen ou desconforto após comer alimentos gordurosos?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_314",
+          "text": "Você nota desconforto abdominal, gases ou diarreia após consumir leite ou derivados?",
+          "original": "Você nota desconforto abdominal, gases ou diarreia após consumir leite ou derivados?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_315",
+          "text": "Você s8nte estufamento, gases ou desconforto após comer certos alimentos?",
+          "original": "Você s8nte estufamento, gases ou desconforto após comer certos alimentos?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        }
+      ]
+    },
+    {
+      "id": "nervoso",
+      "name": "Sistema Nervoso",
+      "questionCount": 30,
+      "questions": [
+        {
+          "id": "q_316",
+          "text": "Como é a sua memória‘7 Tem falhas esporádicas?",
+          "original": "Como é a sua memória‘7 Tem falhas esporádicas?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_317",
+          "text": "Como é a sua relação emocional com a comida? Comer te traz conforto, culpa, prazer ou ansiedade?",
+          "original": "Como é a sua relação emocional com a comida? Comer te traz conforto, culpa, prazer ou ansiedade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_318",
+          "text": "Já percebeu impactos cognitivos, de humor ou de saúde física relacionados ao uso?",
+          "original": "Já percebeu impactos cognitivos, de humor ou de saúde física relacionados ao uso?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_319",
+          "text": "Você tem atenção ao ambiente: temperatura, iluminação, estímulos sensoriais e rotina devem ser ajustados.?",
+          "original": "Atenção ao Ambiente: Temperatura, iluminação, estímulos sensoriais e rotina devem ser ajustados.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_320",
+          "text": "Você tem transtornos de humor: ansiedade, depressão e exaustão são sinais de que o sistema está sobrecarregado.?",
+          "original": "Transtornos de Humor: Ansiedade, depressão e exaustão são sinais de que o sistema está sobrecarregado.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_321",
+          "text": "Como seu corpo reage quando você está nervoso(a) ou ansioso(a)? Sente-se \"pressionado(a)\" literalmente?",
+          "original": "Como seu corpo reage quando você está nervoso(a) ou ansioso(a)? Sente-se \"pressionado(a)\" literalmente?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_322",
+          "text": "Sente que sua ansiedade ou desânimo atrapalham decisões importantes ou a sua rotina?",
+          "original": "Sente que sua ansiedade ou desânimo atrapalham decisões importantes ou a sua rotina?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_323",
+          "text": "Você sente dofes no corpo, inchado, enxaquecas ou cansaço sem uma causa?",
+          "original": "Você sente dofes no corpo, inchado, enxaquecas ou cansaço sem uma causa?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_324",
+          "text": "Percebe sintomas como cansaço, dores de cabeça frequentes ou lapsos de memória sem explicação clara?",
+          "original": "Percebe sintomas como cansaço, dores de cabeça frequentes ou lapsos de memória sem explicação clara?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_325",
+          "text": "Você percebe alterações de humor, concentração ou disposição após contato com ambientes poluídos?",
+          "original": "Você percebe alterações de humor, concentração ou disposição após contato com ambientes poluídos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_326",
+          "text": "Já percebeu sintomas físicos ou cognitivos expe.diente de trabalho?",
+          "original": "Já percebeu sintomas físicos ou cognitivos expe.diente de trabalho?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_327",
+          "text": "Além da fadiga, você costuma sentir dores difusas, sono não repa\\ador e dificuldade de concentração (“névoa mental )?",
+          "original": "Além da fadiga, você costuma sentir dores difusas, sono não repa\\ador e dificuldade de concentração (“névoa mental )?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_328",
+          "text": "Você tem f0liferação celular, diferenciação e mobilidade. utilizada como marcador de melanomas e lesões do sistema nervoso.?",
+          "original": "F0liferação celular, diferenciação e mobilidade. Utilizada como marcador de melanomas e lesões do sistema nervoso.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_329",
+          "text": "Como é a sua relação emocional com a comida? Comer te traz conforto, culpa, prazer ou ansiedade?",
+          "original": "Como é a sua relação emocional com a comida? Comer te traz conforto, culpa, prazer ou ansiedade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_330",
+          "text": "Já percebeu impactos cognitivos, de humor ou de saúde fisica relacionados ao uso?",
+          "original": "Já percebeu impactos cognitivos, de humor ou de saúde fisica relacionados ao uso?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_331",
+          "text": "Como seu corpo reage quando voce está nervoso(a) ou ansioso(a)? Sente-se \"pressionado(a)\" literalmente?",
+          "original": "Como seu corpo reage quando voce está nervoso(a) ou ansioso(a)? Sente-se \"pressionado(a)\" literalmente?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_332",
+          "text": "Sente que sua ansiedade ou desânimo atrapalham decisões importantes ou a sua rotina?",
+          "original": "Sente que sua ansiedade ou desânimo atrapalham decisões importantes ou a sua rotina?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_333",
+          "text": "Você sente dores no corpo, inchado, enxaqueca ou cansaço sem uma causa?",
+          "original": "Você sente dores no corpo, inchado, enxaqueca ou cansaço sem uma causa?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_334",
+          "text": "Você percebe alterações de humor, concentração ou disposição após contato?",
+          "original": "Você percebe alterações de humor, concentração ou disposição após contato?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_335",
+          "text": "Jó percebeu sintomas físicos ou cognitivos que surgem ou pioram após o expediente de trabalho?",
+          "original": "Jó percebeu sintomas físicos ou cognitivos que surgem ou pioram após o expediente de trabalho?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_336",
+          "text": "Como está sua clareza mental e capacidade de concentração durante o dia?",
+          "original": "Como está sua clareza mental e capacidade de concentração durante o dia?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_337",
+          "text": "Você tem f0liferação celular, diferenciação e mobilidade. utilizada como marcador de melanomas e lesões do sistema nervoso.?",
+          "original": "F0liferação celular, diferenciação e mobilidade. Utilizada como marcador de melanomas e lesões do sistema nervoso.",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_338",
+          "text": "Como é a sua relação emocional com a comida? Comer te traz conforto, culpa, prazer ou ansiedade?",
+          "original": "Como é a sua relação emocional com a comida? Comer te traz conforto, culpa, prazer ou ansiedade?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_339",
+          "text": "Já percebeu impactos cognitivos, de humor ou de saúde fisica relacionados ao uso?",
+          "original": "Já percebeu impactos cognitivos, de humor ou de saúde fisica relacionados ao uso?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_340",
+          "text": "Como seu corpo reage quando voce está nervoso(a) ou ansioso(a)? Sente-se \"pressionado(a)\" literalmente?",
+          "original": "Como seu corpo reage quando voce está nervoso(a) ou ansioso(a)? Sente-se \"pressionado(a)\" literalmente?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_341",
+          "text": "Sente que sua ansiedade ou desânimo atrapalham decisões importantes ou a sua rotina?",
+          "original": "Sente que sua ansiedade ou desânimo atrapalham decisões importantes ou a sua rotina?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_342",
+          "text": "Você sente dores no corpo, inchado, enxaqueca ou cansaço sem uma causa?",
+          "original": "Você sente dores no corpo, inchado, enxaqueca ou cansaço sem uma causa?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_343",
+          "text": "Você percebe alterações de humor, concentração ou disposição após contato?",
+          "original": "Você percebe alterações de humor, concentração ou disposição após contato?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_344",
+          "text": "Jó percebeu sintomas físicos ou cognitivos que surgem ou pioram após o expediente de trabalho?",
+          "original": "Jó percebeu sintomas físicos ou cognitivos que surgem ou pioram após o expediente de trabalho?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_345",
+          "text": "Como está sua clareza mental e capacidade de concentração durante o dia?",
+          "original": "Como está sua clareza mental e capacidade de concentração durante o dia?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        }
+      ]
+    },
+    {
+      "id": "nutricional",
+      "name": "Aspectos Nutricionais",
+      "questionCount": 24,
+      "questions": [
+        {
+          "id": "q_346",
+          "text": "Já percebeu se a alimentação ou nível de estresse influenciam nos sintomas?",
+          "original": "Já percebeu se a alimentação ou nível de estresse influenciam nos sintomas?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_347",
+          "text": "Você tem como esla sua rotina de alimentação hoje? você sente que tem horários?",
+          "original": "Como esla sua rotina de alimentação hoje? Você sente que tem horários?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_348",
+          "text": "Você já sentiu que ganhou ou perdeu peso sem que isso estivesse relacionado à alimentação ou ao exercício físico?",
+          "original": "Você já sentiu que ganhou ou perdeu peso sem que isso estivesse relacionado à alimentação ou ao exercício físico?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_349",
+          "text": "Vocô já percebeu melhora ou piora intestinal ao usar suplementos, antibióticos ou probiôticos?",
+          "original": "Vocô já percebeu melhora ou piora intestinal ao usar suplementos, antibióticos ou probiôticos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_350",
+          "text": "Você sente que sua alimentação atual realmente atende às suas necessidades ou acredita que algo esteja faltando ou em e cesso?",
+          "original": "Você sente que sua alimentação atual realmente atende às suas necessidades ou acredita que algo esteja faltando ou em e cesso?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_351",
+          "text": "Você percebe algum padráo entre os episódios de iMfeüçáo, como mudanças sazonais, estresse ou alimentação?",
+          "original": "Você percebe algum padráo entre os episódios de iMfeüçáo, como mudanças sazonais, estresse ou alimentação?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_352",
+          "text": "Como é sua tolerância a suplementos ou fitoterápicos? Sente-se \"intoxicado\" com facilidade?",
+          "original": "Como é sua tolerância a suplementos ou fitoterápicos? Sente-se \"intoxicado\" com facilidade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_353",
+          "text": "Você tem pode estar presente em dietas ricas end fibras insolúveis ou situações em que há leve irritação intestinal.?",
+          "original": "Pode estar presente em dietas ricas end fibras insolúveis ou situações em que há leve irritação intestinal.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_354",
+          "text": "Jó percebeu se a alimentação ou nível de estresse influenciam nos sintomas?",
+          "original": "Jó percebeu se a alimentação ou nível de estresse influenciam nos sintomas?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_355",
+          "text": "Você tem como está sua rotina de alimentação hoje? você sente que tem horários?",
+          "original": "Como está sua rotina de alimentação hoje? Você sente que tem horários?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_356",
+          "text": "Já percebeu se quando dorme menos, fica mais faminto(a) ou sente mais dificuldade em controlar a alimentação?",
+          "original": "Já percebeu se quando dorme menos, fica mais faminto(a) ou sente mais dificuldade em controlar a alimentação?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_357",
+          "text": "Você já percebeu melhora ou piora intestinal ao usar suplementos, antibióticos ou probióticos?",
+          "original": "Você já percebeu melhora ou piora intestinal ao usar suplementos, antibióticos ou probióticos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_358",
+          "text": "Você sente que sua alimentação atual realmente atende às suas necessidades?",
+          "original": "Você sente que sua alimentação atual realmente atende às suas necessidades?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_359",
+          "text": "Sua alimentação atual inclui alimentos que promovem vitalidade celular, como vegetais verdes, gorduras boas, alimentos fermentados e antio.xidantes naturais? Ou percebe um padráo mais pró-inflamatório e processado na sua rotina alimentar?",
+          "original": "Sua alimentação atual inclui alimentos que promovem vitalidade celular, como vegetais verdes, gorduras boas, alimentos fermentados e antio.xidantes naturais? Ou percebe um padráo mais pró-inflamatório e processado na sua rotina alimentar?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_360",
+          "text": "Você tem como é sua toierânc:la a suplementos ou fitoterápicos? sente-se \"intoxicado\"?",
+          "original": "Como é sua toIerânc:la a suplementos ou fitoterápicos? Sente-se \"intoxicado\"?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_361",
+          "text": "Como é sua tolerância a suplementos ou fitoterápicos? Sente-se \"intoxicado\" com facilidade?",
+          "original": "Como é sua tolerância a suplementos ou fitoterápicos? Sente-se \"intoxicado\" com facilidade?",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_362",
+          "text": "Você tem pode estar presente em dietas ricas end fibras insolúveis ou situações em que há leve irritação intestinal.?",
+          "original": "Pode estar presente em dietas ricas end fibras insolúveis ou situações em que há leve irritação intestinal.",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_363",
+          "text": "Jó percebeu se a alimentação ou nível de estresse influenciam nos sintomas?",
+          "original": "Jó percebeu se a alimentação ou nível de estresse influenciam nos sintomas?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_364",
+          "text": "Você tem como está sua rotina de alimentação hoje? você sente que tem horários?",
+          "original": "Como está sua rotina de alimentação hoje? Você sente que tem horários?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_365",
+          "text": "Já percebeu se quando dorme menos, fica mais faminto(a) ou sente mais dificuldade em controlar a alimentação?",
+          "original": "Já percebeu se quando dorme menos, fica mais faminto(a) ou sente mais dificuldade em controlar a alimentação?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_366",
+          "text": "Você já percebeu melhora ou piora intestinal ao usar suplementos, antibióticos ou probióticos?",
+          "original": "Você já percebeu melhora ou piora intestinal ao usar suplementos, antibióticos ou probióticos?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_367",
+          "text": "Você sente que sua alimentação atual realmente atende às suas necessidades?",
+          "original": "Você sente que sua alimentação atual realmente atende às suas necessidades?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_368",
+          "text": "Sua alimentação atual inclui alimentos que promovem vitalidade celular, como vegetais verdes, gorduras boas, alimentos fermentados e antio.xidantes naturais? Ou percebe um padráo mais pró-inflamatório e processado na sua rotina alimentar?",
+          "original": "Sua alimentação atual inclui alimentos que promovem vitalidade celular, como vegetais verdes, gorduras boas, alimentos fermentados e antio.xidantes naturais? Ou percebe um padráo mais pró-inflamatório e processado na sua rotina alimentar?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_369",
+          "text": "Você tem como é sua toierânc:la a suplementos ou fitoterápicos? sente-se \"intoxicado\"?",
+          "original": "Como é sua toIerânc:la a suplementos ou fitoterápicos? Sente-se \"intoxicado\"?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        }
+      ]
+    },
+    {
+      "id": "cardiovascular",
+      "name": "Sistema Cardiovascular",
+      "questionCount": 16,
+      "questions": [
+        {
+          "id": "q_370",
+          "text": "Você tem onde no seu corpo voce sente mais os efeitos do estresse? (ex: cabeça, estômago, peito, músculos)?",
+          "original": "Onde no seu corpo voce sente mais os efeitos do estresse? (ex: cabeça, estômago, peito, músculos)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_371",
+          "text": "Percebe relação entre sua qualidade do sono ou níveis de estresse com sua pressão arterial?",
+          "original": "Percebe relação entre sua qualidade do sono ou níveis de estresse com sua pressão arterial?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_372",
+          "text": "Você costuma sentir seu coração bater acelerado ou lento, mesmo em repouso?",
+          "original": "Você costuma sentir seu coração bater acelerado ou lento, mesmo em repouso?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_373",
+          "text": "Você percebe alguma conexão entre emoções intensas e alteração nos seus batimentos cardíacos?",
+          "original": "Você percebe alguma conexão entre emoções intensas e alteração nos seus batimentos cardíacos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_374",
+          "text": "Você tem apoe2 presente proteção cardiovascular e neural moderada.?",
+          "original": "ApoE2 presente Proteção cardiovascular e neural moderada.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_375",
+          "text": "Você tem onde no seu corpo você sente mais os efeitos do estresse? (ex: cabeça, estômago, peito, músculos)?",
+          "original": "Onde no seu corpo você sente mais os efeitos do estresse? (ex: cabeça, estômago, peito, músculos)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_376",
+          "text": "Já percebeu sintomas como tontura, dor de cabeça ou palpitação que possam estar relacionados à sua pressão?",
+          "original": "Já percebeu sintomas como tontura, dor de cabeça ou palpitação que possam estar relacionados à sua pressão?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_377",
+          "text": "Percebe relação enlre sua qualidade do sono ou níveis de estresse com sua pressão arterial?",
+          "original": "Percebe relação enlre sua qualidade do sono ou níveis de estresse com sua pressão arterial?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_378",
+          "text": "Você costuma sentir seu coração bater acelerado ou lento, mesmo em repouso?",
+          "original": "Você costuma sentir seu coração bater acelerado ou lento, mesmo em repouso?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_379",
+          "text": "Você percebe alguma conexão entre emoções intensas e alteração nos seus batimentos cardíacos?",
+          "original": "Você percebe alguma conexão entre emoções intensas e alteração nos seus batimentos cardíacos?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_380",
+          "text": "Você tem apoe2 presente proteção cardiovascular e neural moderada.?",
+          "original": "ApoE2 presente Proteção cardiovascular e neural moderada.",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_381",
+          "text": "Você tem onde no seu corpo você sente mais os efeitos do estresse? (ex: cabeça, estômago, peito, músculos)?",
+          "original": "Onde no seu corpo você sente mais os efeitos do estresse? (ex: cabeça, estômago, peito, músculos)?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_382",
+          "text": "Já percebeu sintomas como tontura, dor de cabeça ou palpitação que possam estar relacionados à sua pressão?",
+          "original": "Já percebeu sintomas como tontura, dor de cabeça ou palpitação que possam estar relacionados à sua pressão?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_383",
+          "text": "Percebe relação enlre sua qualidade do sono ou níveis de estresse com sua pressão arterial?",
+          "original": "Percebe relação enlre sua qualidade do sono ou níveis de estresse com sua pressão arterial?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_384",
+          "text": "Você costuma sentir seu coração bater acelerado ou lento, mesmo em repouso?",
+          "original": "Você costuma sentir seu coração bater acelerado ou lento, mesmo em repouso?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_385",
+          "text": "Você percebe alguma conexão entre emoções intensas e alteração nos seus batimentos cardíacos?",
+          "original": "Você percebe alguma conexão entre emoções intensas e alteração nos seus batimentos cardíacos?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        }
+      ]
+    },
+    {
+      "id": "imunologico",
+      "name": "Sistema Imunológico",
+      "questionCount": 13,
+      "questions": [
+        {
+          "id": "q_386",
+          "text": "Você apresenta febre: indica ativação imune, infecçáo aguda ou inflamaçáo crônica. investigar se tem histôrico de utilização de medicamentos pra febre com frequencia. lsso impa ta direlamente no sistema imune.?",
+          "original": "Febre: Indica ativação imune, infecçáo aguda ou inflamaçáo crônica. Investigar se tem histôrico de utilização de medicamentos pra febre com frequencia. lsso impa ta direlamente no sistema imune.",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "scale_0_10"
+        },
+        {
+          "id": "q_387",
+          "text": "Você já teve alguma infecção recorrente ou sente que adoece com facilidade?",
+          "original": "Você já teve alguma infecção recorrente ou sente que adoece com facilidade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_388",
+          "text": "Você percebe se seu corpo dó sinais quando está precisando de algo, con o câimbras, queda de cabelo, unhas quebradiças ou baixa imunidade?",
+          "original": "Você percebe se seu corpo dó sinais quando está precisando de algo, con o câimbras, queda de cabelo, unhas quebradiças ou baixa imunidade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_389",
+          "text": "Sofre com doenças autoimunes ou tem histórico familiar dessas condições?",
+          "original": "Sofre com doenças autoimunes ou tem histórico familiar dessas condições?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_390",
+          "text": "Você tem aumento = desvio à esquerda. (se presente, indica infecção ou inflamação)?",
+          "original": "Aumento = desvio à esquerda. (se presente, indica infecção ou inflamação)",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_391",
+          "text": "Você jó teve alguma infecção recorrente ou sente que adoece com facilidade?",
+          "original": "Você jó teve alguma infecção recorrente ou sente que adoece com facilidade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_392",
+          "text": "Você percebe se seu corpo dá sinais quando está precisando de algo, corno câimbras, queda de cabelo, unhas quebradiças ou baixa imunidade?",
+          "original": "Você percebe se seu corpo dá sinais quando está precisando de algo, corno câimbras, queda de cabelo, unhas quebradiças ou baixa imunidade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_393",
+          "text": "Sofre com doenças au[oimunes ou tem histórico familiar dessas condições?",
+          "original": "Sofre com doenças au[oimunes ou tem histórico familiar dessas condições?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_394",
+          "text": "Sofre com doenças autoimunes ou tem histórico familiar dessas condições?",
+          "original": "Sofre com doenças autoimunes ou tem histórico familiar dessas condições?",
+          "source": "2 da página 129 à 238.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_395",
+          "text": "Você tem aumento = desvio à esquerda. (se presente, indica infecção ou inflamação)?",
+          "original": "Aumento = desvio à esquerda. (se presente, indica infecção ou inflamação)",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_396",
+          "text": "Você jó teve alguma infecção recorrente ou sente que adoece com facilidade?",
+          "original": "Você jó teve alguma infecção recorrente ou sente que adoece com facilidade?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_397",
+          "text": "Você percebe se seu corpo dá sinais quando está precisando de algo, corno câimbras, queda de cabelo, unhas quebradiças ou baixa imunidade?",
+          "original": "Você percebe se seu corpo dá sinais quando está precisando de algo, corno câimbras, queda de cabelo, unhas quebradiças ou baixa imunidade?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_398",
+          "text": "Sofre com doenças au[oimunes ou tem histórico familiar dessas condições?",
+          "original": "Sofre com doenças au[oimunes ou tem histórico familiar dessas condições?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        }
+      ]
+    },
+    {
+      "id": "musculoesqueletico",
+      "name": "Sistema Musculoesquelético",
+      "questionCount": 8,
+      "questions": [
+        {
+          "id": "q_399",
+          "text": "Você já fez cirurgia, sofreu alguma anestesia, quebrou algum osso, precisou ser internado?",
+          "original": "Você já fez cirurgia, sofreu alguma anestesia, quebrou algum osso, precisou ser internado?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_400",
+          "text": "Tem facilidade em ganhar mas a muscular ou senle que perde com facilidade?",
+          "original": "Tem facilidade em ganhar mas a muscular ou senle que perde com facilidade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_401",
+          "text": "Você c05tuma sentir dores musculares ou articulares persistentes serri causa aparente?",
+          "original": "Você c05tuma sentir dores musculares ou articulares persistentes serri causa aparente?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_402",
+          "text": "Você tem a produção insuficiente de atp impacta o sistema muscular, neurológico e imunológico, levando a sintomas como:?",
+          "original": "A produção insuficiente de ATP impacta o sistema muscular, neurológico e imunológico, levando a sintomas como:",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_403",
+          "text": "Tem facilidade em ganhar massa muscular ou sente que perde com facilidade?",
+          "original": "Tem facilidade em ganhar massa muscular ou sente que perde com facilidade?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_404",
+          "text": "Você tem alguma condição diagnosticada que envolva comprometimento neurológico, muscular ou metabólico?",
+          "original": "Você tem alguma condição diagnosticada que envolva comprometimento neurológico, muscular ou metabólico?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_405",
+          "text": "Tem facilidade em ganhar massa muscular ou sente que perde com facilidade?",
+          "original": "Tem facilidade em ganhar massa muscular ou sente que perde com facilidade?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_406",
+          "text": "Você tem alguma condição diagnosticada que envolva comprometimento neurológico, muscular ou metabólico?",
+          "original": "Você tem alguma condição diagnosticada que envolva comprometimento neurológico, muscular ou metabólico?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        }
+      ]
+    },
+    {
+      "id": "respiratorio",
+      "name": "Sistema Respiratório",
+      "questionCount": 7,
+      "questions": [
+        {
+          "id": "q_407",
+          "text": "Consegue perceber os efeitos do cigarro no seu corpo (respiração, energia, pele, sono)?",
+          "original": "Consegue perceber os efeitos do cigarro no seu corpo (respiração, energia, pele, sono)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_408",
+          "text": "Você tem em momentos de estresse ou ansiedade, vocô sente que sua respiração se?",
+          "original": "Em momentos de estresse ou ansiedade, vocô sente que sua respiração se",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_409",
+          "text": "Consegue parar por alguns segundos, fechar os olhos e perceber o ritmo da sua respiração agora? Como ela está?",
+          "original": "Consegue parar por alguns segundos, fechar os olhos e perceber o ritmo da sua respiração agora? Como ela está?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_410",
+          "text": "Consegue perceber os efeitos do cigarro no seu corpo (respiração, energia, pele, sono)?",
+          "original": "Consegue perceber os efeitos do cigarro no seu corpo (respiração, energia, pele, sono)?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_411",
+          "text": "Você tem em momentos de estresse ou ansiedade, voce sente que sua respiração se?",
+          "original": "Em momentos de estresse ou ansiedade, voce sente que sua respiração se",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_412",
+          "text": "Consegue perceber os efeitos do cigarro no seu corpo (respiração, energia, pele, sono)?",
+          "original": "Consegue perceber os efeitos do cigarro no seu corpo (respiração, energia, pele, sono)?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_413",
+          "text": "Você tem em momentos de estresse ou ansiedade, voce sente que sua respiração se?",
+          "original": "Em momentos de estresse ou ansiedade, voce sente que sua respiração se",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        }
+      ]
+    },
+    {
+      "id": "endocrino",
+      "name": "Sistema Endócrino",
+      "questionCount": 2,
+      "questions": [
+        {
+          "id": "q_414",
+          "text": "Você tem relacione os achddos laboratoriais aos sintomas relatados (digestivos, alérgicos, emocionais, metabólicos).?",
+          "original": "Relacione os achddos laboratoriais aos sintomas relatados (digestivos, alérgicos, emocionais, metabólicos).",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_415",
+          "text": "Você tem relacione os achddos laboratoriais aos sintomas relatados (digestivos, alérgicos, emocionais, metabólicos).?",
+          "original": "Relacione os achddos laboratoriais aos sintomas relatados (digestivos, alérgicos, emocionais, metabólicos).",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        }
+      ]
+    },
+    {
+      "id": "pele",
+      "name": "Pele e Anexos",
+      "questionCount": 3,
+      "questions": [
+        {
+          "id": "q_416",
+          "text": "Você já percebeu mudanças na cor da sua pele, brilho dos olhos, queda de cabelo ou aspecto das unhas?",
+          "original": "Você já percebeu mudanças na cor da sua pele, brilho dos olhos, queda de cabelo ou aspecto das unhas?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_417",
+          "text": "Você jã percebeu mudanças na cor da sua pele, brilho dos olhos, queda de cabelo ou aspecto das unhas*?",
+          "original": "Você jã percebeu mudanças na cor da sua pele, brilho dos olhos, queda de cabelo ou aspecto das unhas*?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_418",
+          "text": "Você jã percebeu mudanças na cor da sua pele, brilho dos olhos, queda de cabelo ou aspecto das unhas*?",
+          "original": "Você jã percebeu mudanças na cor da sua pele, brilho dos olhos, queda de cabelo ou aspecto das unhas*?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        }
+      ]
+    },
+    {
+      "id": "oftalmologico",
+      "name": "Sistema Oftalmológico",
+      "questionCount": 2,
+      "questions": [
+        {
+          "id": "q_419",
+          "text": "Consegue parar por alguns segundos, fechar os olhos e perceber o ritmo da sua fespiraçáo agora? Como ela estó?",
+          "original": "Consegue parar por alguns segundos, fechar os olhos e perceber o ritmo da sua fespiraçáo agora? Como ela estó?",
+          "source": "1 da página 001 à 128.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        },
+        {
+          "id": "q_420",
+          "text": "Consegue parar por alguns segundos, fechar os olhos e perceber o ritmo da sua fespiraçáo agora? Como ela estó?",
+          "original": "Consegue parar por alguns segundos, fechar os olhos e perceber o ritmo da sua fespiraçáo agora? Como ela estó?",
+          "source": "4 da página 242 à 424.docx",
+          "relatedConditions": [],
+          "responseType": "yes_no"
+        }
+      ]
+    }
+  ]
+}

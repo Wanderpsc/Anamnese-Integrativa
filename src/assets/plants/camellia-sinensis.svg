@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="160" height="160">
+  <rect fill="#e8f5e9" width="160" height="160" rx="12"/>
+  <path d="M40 100 Q80 30 120 100" stroke="#388e3c" stroke-width="6" fill="#a5d6a7" opacity="0.85"/>
+  <text x="50%" y="135" dominant-baseline="middle" text-anchor="middle" fill="#2e7d32" font-family="Inter, Arial" font-size="12">Camellia sinensis</text>
+</svg>
